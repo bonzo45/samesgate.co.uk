@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html>
+
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+
+  <head>
+    <title>A bit of JavaScript</title>
+  </head>
+  <body>
+	<div id="bonzoObject">
+    <img src="images/bonzo1.jpg">
+  </div>
+  
+  <div id="bonzoObject2">
+    <img src="images/bonzo1.jpg">
+  </div>
+
+  <script>
+  
+  var bonzo = null;
+  var bonzo2 = null;
+  var speed = 50;
+  var average_speed = 0;
+  var distance = 0;
+  var drop = 350;
+  var interval = 10;
+    
+  window.onload = function () {
+    bonzo = document.getElementById('bonzoObject');
+    bonzo.style.top = '-300px';
+    bonzo2 = document.getElementById('bonzoObject2');
+    bonzo2.style.top = '-300px';
+    doMove();
+  };
+  
+  function doMove() {
+      if (drop < 100) {
+        speed = speed - Math.sqrt(speed);
+      }
+      speed = speed + 9.8/interval;
+      distance = speed/interval;
+      bonzo.style.top = parseInt(bonzo.style.top)+distance+'px';
+      bonzo2.style.top = parseInt(bonzo2.style.top)+distance+'px';
+      drop = drop - distance;
+      if (drop > 0) {
+        setTimeout(doMove,interval);
+      }
+  }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+html {
+  height: 90%;
+ }
+
+body {
+  background-image: url(images/background-trimmed.jpg);
+  font-family: "Verdana";
+  height: 100%;
+}
+
+div.bonzo {
+  position:absolute;
+  white-space:nowrap;
+  top: -350px;
+}
+
+#pullDownObject {
+
+  width: 900px;
+  height: 450px;
+  background-color: #000000;
+  left: 50px;
+  top: -450px;
+  
+  background-image: url(images/wall.jpg);
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+#bonzothegreat {
+  position: absolute;
+  left: 55px;
+  top: 10px;
+  width: 230px;
+  //border: 5px solid black;
+}
+
+#sticky {
+  position: absolute;
+  width: 350px;
+  right: 110px;
+  top: 110px;
+}
+
+#bonzoObject {
+  left:50px;
+}
+ 
+#bonzoObject2 {
+  left:300px;
+}
+
+#bonzoObject3 {
+  left:550px;
+}
+ 
+#bonzoObject4 {
+  left:800px;
+}
+
+.title {
+  color: #FFFFFF;
+  font-size: 45pt;
+  text-align: right;
+  text-shadow:1px 1px 3px #000000;
+  
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  
+  margin-right: 1em;
+}
+
+.footer {
+  color: #FFFFFF;
+  font-size: 45pt;
+  text-align: right;
+  text-shadow:1px 1px 3px #000000;
+  
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+#spacer {
+  height: 50%;
+}
+
+.image {
+    position:relative;
+    width: 200px;
+    float: left;
+    
+  cursor: pointer;
+}
+
+img#menu{
+  width:200px;
+}
+
+.text {
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 328px;
+    width: 100%;
+    
+    text-shadow:0px 0px 10px #FFFFFF;
+    
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+
+    font-size: 26pt;
+    color: #000000;
+}

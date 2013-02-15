@@ -1,0 +1,58 @@
+	<p> hello! </p>
+    <canvas id="canvas" width="800px" height="450px">
+		 <img src="images/bonzo1.jpg" alt="Fallback Content" width="400" height="400">
+	</canvas>
+	<input type="text" id="inputX">
+	<input type="text" id="inputY">
+    <script>
+	document.getElementById('canvas').onclick = function() {
+		alert('click')
+	}
+	
+	document.onmousemove = function(e) {
+		e = e || window.event;
+		//fixPageXY(e);
+		var x = e.pageX;
+		var y = e.pageY;
+		
+		var canvas = document.getElementById('canvas');
+		if (canvas.getContext){
+			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = "rgb(200,0,0)";
+			ctx.fillRect(x, y, 55, 50);
+		} else {
+		  // Do something boring without a canvas...
+		}
+		
+		
+		document.getElementById('inputX').value = e.pageX;
+		document.getElementById('inputY').value = e.pageY;
+	}
+	
+	function fixPageXY(e) {
+	  if (e.pageX == null && e.clientX != null ) { 
+		var html = document.documentElement
+		var body = document.body
+
+		e.pageX = e.clientX + (html.scrollLeft || body && body.scrollLeft || 0)
+		e.pageX -= html.clientLeft || 0
+		
+		e.pageY = e.clientY + (html.scrollTop || body && body.scrollTop || 0)
+		e.pageY -= html.clientTop || 0
+	  }
+	}
+  
+  body {
+	background-color: rgb(57, 139, 146);
+	font-size: 50pt;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+}
+
+canvas {
+	border: 1px solid black;
+}	
+
+<img src="images/bonzo1.jpg" alt="Fallback Content" width="400" height="400">
+	
