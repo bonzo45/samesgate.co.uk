@@ -4,6 +4,23 @@
 
 <link rel="stylesheet" type="text/css" href="styles.css"/>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+  $("#home").show();
+  $("#work").hide();
+  
+  // Toggle Home/Work
+  $("#bonzo").click(function(){
+      $("#home").toggle();
+      $("#work").toggle();
+  });
+});
+
+</script>
+
   <head>
     <title>crazy-bonzo</title>
   </head>
@@ -30,8 +47,10 @@
         <div id="lower_bank" class="bank">
           Lower Bank.
         </div>
-      <div>      
+      </div>      
+      
       <div id="work" class="main_inner">
+        Work.
       </div>
     </div>  
   </body>
