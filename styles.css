@@ -54,30 +54,32 @@ body {
 /* --------------- HOME -------------- */
 
 #home {
-
+  background-image: url("images/texture/river.jpg");
 }
 
 .bank {
-  background-color: grey;
   width: 100%;
 }
 
 .river {
-  background-color: blue;
   width: 100%;
-  height: 20%;
+  height: 144px;
 }
 
 #upper_bank {
+  background-color: grey;
   height: 50%;
 }
 
 #lower_bank {
-  height: 30%;
+  position: relative;
+  top: -19px;
+  background-image: url("images/texture/soil_grass.png");
+  height: 225px;
 }
 
 #upper_bank_central {
-  width: 1024px;
+  width: 900px;
   margin: 0 auto;
   padding-top: 20px;
   height: 80%;
@@ -85,19 +87,19 @@ body {
 
 #sams_sign {
   height: 100%;
-  width: 25%;
+  width: 250px;
   display: inline-block;
 }
 
 #sams_house {
   height: 100%;
-  width: 50%;
+  width: 250px;
   display: inline-block;
 }
 
 #sams_shed {
   height: 100%;
-  width: 20%;
+  width: 250px;
   display: inline-block;
 }
 
