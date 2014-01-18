@@ -40,6 +40,8 @@ body {
 }
 
 .nest_thumb {
+  position: relative;
+  margin: 10px 10px 10px 10px;
   width: 60px;
 }
 
