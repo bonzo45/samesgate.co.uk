@@ -1,10 +1,10 @@
 html {
-
+  background-color: gray;
 }
 
 body {
   font-family: "Verdana";
-  height: 768px;
+  height: 700px;
   margin: 0 auto;
 }
 
@@ -16,11 +16,13 @@ body {
 }
 
 #bonzo {
-  width: 300px;
+  height: 400px;
+  width: 100%;
 }
 
 #nest {
-  width: 100%;
+  height: 300px;
+  width: 300px;
   background-color: yellow;
 }
 
@@ -32,17 +34,17 @@ body {
   color: red;
   display: inline-block;
   width: 80px;
+  height: 80px;
 }
 
 .nest_thumb {
   width: 60px;
-  height: 60px;
 }
 
 #main {
   border: 1px solid black;
   background-color: black;
-  margin-right: 320px;
+  margin-right: 305px;
   height: 700px;
 }
 
@@ -60,7 +62,7 @@ body {
 /* --------------- HOME -------------- */
 
 #home {
-  background-image: url("images/texture/river.jpg");
+  background-image: url("images/textures/river.jpg");
 }
 
 .bank {
@@ -73,7 +75,7 @@ body {
 }
 
 #upper_bank {
-  background-image: url("images/texture/soil_grass_long.png");  
+  background-image: url("images/textures/soil_grass_long.png");  
   background-position:left bottom;
   height: 50%;
 }
@@ -81,7 +83,7 @@ body {
 #lower_bank {
   position: relative;
   top: -19px;
-  background-image: url("images/texture/soil_grass.png");
+  background-image: url("images/textures/soil_grass.png");
   height: 225px;
 }
 
@@ -93,19 +95,16 @@ body {
 }
 
 #sams_sign {
-  height: 100%;
-  width: 250px;
+  width: 200px;
   display: inline-block;
 }
 
 #sams_house {
-  height: 100%;
   width: 250px;
   display: inline-block;
 }
 
 #sams_shed {
-  height: 100%;
   width: 250px;
   display: inline-block;
 }
