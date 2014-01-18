@@ -24,6 +24,21 @@ body {
   background-color: yellow;
 }
 
+#nest_list {
+
+}
+
+.nest_item {
+  color: red;
+  display: inline-block;
+  width: 80px;
+}
+
+.nest_thumb {
+  width: 60px;
+  height: 60px;
+}
+
 #main {
   border: 1px solid black;
   margin-right: 320px;
@@ -36,10 +51,10 @@ body {
   border: 1px solid black;
 }
 
-#home {
-}
+/* --------------- HOME -------------- */
 
-#work {
+#home {
+
 }
 
 .bank {
@@ -59,4 +74,40 @@ body {
 
 #lower_bank {
   height: 30%;
+}
+
+#upper_bank_central {
+  width: 1024px;
+  margin: 0 auto;
+  padding-top: 20px;
+  height: 80%;
+}
+
+#sams_sign {
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+}
+
+#sams_house {
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+}
+
+#sams_shed {
+  height: 100%;
+  width: 20%;
+  display: inline-block;
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+/* --------------- WORK -------------- */
+#work {
 }
