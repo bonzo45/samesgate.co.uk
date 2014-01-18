@@ -14,8 +14,12 @@ $(document).ready(function(){
   
   // Toggle Home/Work
   $("#bonzo").click(function(){
-      $("#home").toggle();
-      $("#work").toggle();
+      $("#main_black").fadeTo("fast", 0, function() {
+        $("#home").toggle(0);
+        $("#work").toggle(0, function() {
+          $("#main_black").fadeTo("slow", 1);
+        });  
+      });
   });
 });
 
@@ -47,6 +51,7 @@ $(document).ready(function(){
     </div>
     
     <div id="main">
+    <div id="main_black">
       
       <div id="home" class="main_inner">        
         <div id="upper_bank" class="bank">
@@ -71,6 +76,8 @@ $(document).ready(function(){
       <div id="work" class="main_inner">
         Work.
       </div>
+    
+    </div>
     </div>  
   </body>
 </html>

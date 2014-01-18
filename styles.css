@@ -41,8 +41,14 @@ body {
 
 #main {
   border: 1px solid black;
+  background-color: black;
   margin-right: 320px;
   height: 700px;
+}
+
+#main_black {
+  width: 100%;
+  height: 100%;
 }
 
 .main_inner {
@@ -67,7 +73,8 @@ body {
 }
 
 #upper_bank {
-  background-color: grey;
+  background-image: url("images/texture/soil_grass_long.png");  
+  background-position:left bottom;
   height: 50%;
 }
 
@@ -112,4 +119,5 @@ body {
 
 /* --------------- WORK -------------- */
 #work {
+  background-color: brown;
 }
