@@ -67,6 +67,7 @@ body {
 
 #home {
   background-image: url("images/textures/river.jpg");
+  background-size: 100px 100px;
 }
 
 .bank {
@@ -79,16 +80,10 @@ body {
 }
 
 #upper_bank {
-  background-image: url("images/textures/soil_grass_sky.png");  
+  background-image: url("images/textures/test.png"); 
+  background-size: 250px 600px;
   background-position:left bottom;
   height: 60%;
-}
-
-#lower_bank {
-  position: relative;
-  top: -44px;
-  background-image: url("images/textures/soil_grass.png");
-  height: 225px;
 }
 
 #upper_bank_central {
@@ -102,19 +97,19 @@ body {
   height: 330px;
   width: 150px;
   float: left;
-  margin: 170px 0px 0px 0px;
+  margin: 230px 0px 0px 20px;
 }
 
 #sams_house {
   height: 350px;
   float: left;
-  margin: 50px 0px 0px 30px
+  margin: 140px 0px 0px 0px
 }
 
 #sams_shed {
   height: 350px;
   float: left;
-  margin: 170px 0px 0px 50px;
+  margin: 220px 0px 0px 50px;
 }
 
 .shadowed {
@@ -124,6 +119,22 @@ body {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
+#lower_bank {
+  position: relative;
+  top: -44px;
+  background-image: url("images/textures/soil_grass.png");
+  height: 175px;
+  padding-top: 50px;
+}
+
+.column {
+  display: inline-block;
+  width: 300px;
+  background-color: blue;
+  border-radius: 5px;
+  border: 2px solid black; 
+  margin: 0px 10px 0px 10px;
+}
 /* --------------- WORK -------------- */
 #work {
   background-color: brown;
