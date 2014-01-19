@@ -40,6 +40,7 @@ body {
 
 #nest_list {
   padding-left: 6px;
+  margin: 10px 0px 0px 0px;
 }
 
 .nest_item {
@@ -58,6 +59,7 @@ body {
 }
 
 #main {
+  position: relative;
   border: 1px solid black;
   background-color: black;
   margin-right: 305px;
@@ -70,6 +72,7 @@ body {
 }
 
 .main_inner {
+  position: relative;
   width: 100%;
   height: 100%;
   border: 1px solid black;
@@ -80,6 +83,20 @@ body {
 #home {
   background-image: url("images/textures/river.jpg");
   background-size: 100px 100px;
+  background-position: 0px 0px;
+  
+  -webkit-animation: animatedBackground 80s linear infinite;
+  animation: animatedBackground 80s linear infinite;
+}
+
+@-webkit-keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
 }
 
 .bank {
@@ -92,6 +109,7 @@ body {
 }
 
 #upper_bank {
+  position: relative;
   background-image: url("images/textures/test.png"); 
   background-size: 250px 600px;
   background-position:left bottom;
@@ -99,6 +117,7 @@ body {
 }
 
 #upper_bank_central {
+  position: relative;
   width: 900px;
   margin: 0 auto;
   padding-top: 20px;
@@ -106,25 +125,35 @@ body {
 }
 
 #sams_sign {
-  height: 330px;
   width: 150px;
   float: left;
   margin: 230px 0px 0px 20px;
 }
 
+#smoke {
+  position: absolute;
+  top: 150px;
+  left: 420px;
+  
+  animation: animatedSmoke 2s linear infinite;
+}
+
+@keyframes animatedSmoke {
+	from { top: 150px; }
+	to { top: 120px; }
+}
+
 #sams_house {
-  height: 350px;
   float: left;
   margin: 140px 0px 0px 0px
 }
 
 #sams_shed {
-  height: 350px;
   float: left;
   margin: 200px 0px 0px 50px;
 }
 
-.shadowed {
+.shadowed2{
     -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
     filter: url(#drop-shadow);
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
@@ -145,7 +174,7 @@ body {
   background-color: blue;
   border-radius: 5px;
   border: 2px solid black; 
-  margin: 0px 10px 0px 10px;
+  margin: 10px 10px 10px 10px;
 }
 /* --------------- WORK -------------- */
 #work {
