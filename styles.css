@@ -8,47 +8,6 @@ body {
   margin: 0 auto;
 }
 
-#bonzo {
-  height: 225px;
-}
-
-#bonzo_div {
-  position: absolute;
-  left: 260px;
-}
-
-#nest {
-  color: white;
-  font-size: 16pt;
-  text-align: center;
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  height: 200px;
-  width: 210px;
-  background-color: black;
-  border-radius: 5px;
-}
-
-#nest_list {
-  margin: 10px 0px 0px 0px;
-  padding-left: 0px;
-}
-
-.nest_item {
-  color: red;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  border-radius: 5px;
-}
-
-.nest_thumb {
-  position: relative;
-  margin: 2px 2px 2px 2px;
-  width: 46px;
-}
-
 #main {
   position: relative;
   border: 1px solid black;
@@ -181,7 +140,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -192,7 +151,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -202,7 +161,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -213,7 +172,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -224,7 +183,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -235,7 +194,7 @@ body {
     opacity: 0.5;
   }
 	to { 
-    top: 40px; 
+    top: -40px; 
     opacity: 0;
   }
 }
@@ -275,14 +234,55 @@ body {
   height: 100%;
 }
 
-.column {
-  display: inline-block;
-  width: 300px;
-  background-color: blue;
-  border-radius: 5px;
-  border: 2px solid black; 
-  margin: 10px 10px 10px 10px;
+#bonzo {
+  height: 225px;
 }
+
+#bonzo_div {
+  position: absolute;
+  left: 260px;
+  z-index: 1;
+}
+
+#nest {
+  color: white;
+  font-size: 16pt;
+  text-align: center;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  height: 200px;
+  width: 210px;
+  background-color: black;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+#nest_list {
+  margin: 10px 0px 0px 0px;
+  padding-left: 0px;
+}
+
+.nest_item {
+  color: red;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+}
+
+.nest_thumb {
+  position: relative;
+  margin: 2px 2px 2px 2px;
+  width: 46px;
+}
+
+#sign_to_work {
+  position: absolute;
+  top: 50px;
+  right: 30px;
+}
+
 /* --------------- WORK -------------- */
 #work {
   background-color: brown;

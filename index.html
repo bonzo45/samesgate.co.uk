@@ -14,16 +14,18 @@ $(document).ready(function(){
   $("#home").fadeTo("slow", 1);
   
   // Toggle Home/Work
-  $("#bonzo").click(function(){
-      $("#main_black").fadeTo("slow", 0, function() {
-        $("#home").toggle(0);
-        $("#work").toggle(0, function() {
-          $("#main_black").fadeTo("slow", 1);
-        });  
-      });
-  });
-
+  $("#sign_to_work").click(toggle_screens);
+  $("#work").click(toggle_screens);
 });
+
+var toggle_screens = function() {
+  $("#main_black").fadeTo("slow", 0, function() {
+    $("#home").toggle(0);
+    $("#work").toggle(0, function() {
+      $("#main_black").fadeTo("slow", 1);
+    });  
+  });
+}
 
 </script>
 
@@ -86,6 +88,10 @@ $(document).ready(function(){
                 <a href="https://cate.doc.ic.ac.uk"><li class="nest_item"><img class="nest_thumb" src="images/none.gif"></img></li></a>
                 <a href="https://cate.doc.ic.ac.uk"><li class="nest_item"><img class="nest_thumb" src="images/none.gif"></img></li></a>
               </ul>
+            </div>
+            
+            <div id="sign_to_work">
+              <img class="shadowed" style="width:150px;" src="images/sign_to_work.png"></img>
             </div>
             
             <div id="bonzo_div">
