@@ -213,6 +213,11 @@ body {
   z-index: 3;
 }
 
+#sams_garage:hover {
+  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5));
+  box-shadow: 0 8px 6px -6px black;
+}
+
 #garage_door {
   color: red;
   position: absolute;
@@ -328,7 +333,8 @@ body {
 }
 
 #sign_to_work:hover {
-  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5)); 
+  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5));
+  box-shadow: 0 8px 6px -6px black;  
 }
 
 /* --------------- WORK -------------- */
