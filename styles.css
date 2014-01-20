@@ -8,20 +8,13 @@ body {
   margin: 0 auto;
 }
 
-#bonzo_bar {
-  border: 1px solid black;
-  width: 300px;
-  height: 700px;
-  float: right;
-}
-
 #bonzo {
-  width: 100%;
+  height: 225px;
 }
 
 #bonzo_div {
   position: absolute;
-  top: 0px;
+  left: 260px;
 }
 
 #nest {
@@ -29,40 +22,38 @@ body {
   font-size: 16pt;
   text-align: center;
   position: absolute;
-  top: 400px;
-  right: 10px;
-  height: 300px;
-  width: 280px;
-  background-image: url("images/textures/straw.jpg");
-  background-size: 280px 280px;
+  top: 15px;
+  left: 20px;
+  height: 200px;
+  width: 210px;
+  background-color: black;
   border-radius: 5px;
 }
 
 #nest_list {
-  padding-left: 6px;
   margin: 10px 0px 0px 0px;
+  padding-left: 0px;
 }
 
 .nest_item {
   color: red;
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   border-radius: 5px;
-  background-image: url("images/textures/hay.jpg");
 }
 
 .nest_thumb {
   position: relative;
-  margin: 10px 10px 10px 10px;
-  width: 60px;
+  margin: 2px 2px 2px 2px;
+  width: 46px;
 }
 
 #main {
   position: relative;
   border: 1px solid black;
   background-color: black;
-  margin-right: 305px;
+  margin-right: 0px;
   height: 700px;
 }
 
@@ -125,32 +116,142 @@ body {
 }
 
 #sams_sign {
-  width: 150px;
-  float: left;
-  margin: 230px 0px 0px 20px;
-}
-
-#smoke {
   position: absolute;
-  top: 150px;
-  left: 420px;
-  
-  animation: animatedSmoke 2s linear infinite;
+  top: 250px;
+  left: 20px;
+  width: 150px;
+  z-index: 3;
 }
 
-@keyframes animatedSmoke {
-	from { top: 150px; }
-	to { top: 120px; }
+.smoke {
+  position: absolute;
+  z-index: 1;
+}
+
+#smoke1 {
+  top: 142px;
+  left: 393px; 
+
+  -webkit-animation: animatedSmoke1 4s linear infinite; 
+  animation: animatedSmoke1 4s linear infinite;  
+}
+
+#smoke2 {
+  top: 180px;
+  left: 405px;   
+  
+  -webkit-animation: animatedSmoke2 3s linear infinite;
+  animation: animatedSmoke2 3s linear infinite;
+}
+
+#smoke3 {
+  top: 168px;
+  left: 400px;  
+  
+  -webkit-animation: animatedSmoke3 5s linear infinite;
+  animation: animatedSmoke3 5s linear infinite;
+}
+
+#smoke4 {
+  top: 142px;
+  left: 393px;  
+  
+  -webkit-animation: animatedSmoke1 10s linear infinite;
+  animation: animatedSmoke1 10s linear infinite;
+}
+
+#smoke5 {
+  top: 180px;
+  left: 405px;  
+  
+  -webkit-animation: animatedSmoke2 7s linear infinite;
+  animation: animatedSmoke2 7s linear infinite;
+}
+
+#smoke6 {
+  top: 168px;
+  left: 400px;  
+  -webkit-animation: animatedSmoke3 6s linear infinite;
+  animation: animatedSmoke3 6s linear infinite;
+}
+
+@-webkit-keyframes animatedSmoke1 {
+	from { 
+    top: 142px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
+}
+
+@keyframes animatedSmoke1 {
+	from { 
+    top: 142px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
+}
+@-webkit-keyframes animatedSmoke2 {
+	from { 
+    top: 180px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
+}
+
+@keyframes animatedSmoke2 {
+	from { 
+    top: 180px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes animatedSmoke3 {
+	from { 
+    top: 168px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
+}
+
+@keyframes animatedSmoke3 {
+	from { 
+    top: 168px;
+    opacity: 0.5;
+  }
+	to { 
+    top: 40px; 
+    opacity: 0;
+  }
 }
 
 #sams_house {
-  float: left;
-  margin: 140px 0px 0px 0px
+  position: absolute;
+  top: 130px;
+  left: 80px;
+  z-index: 2;
 }
 
 #sams_shed {
-  float: left;
-  margin: 200px 0px 0px 50px;
+  position: absolute;
+  top: 210px;
+  left: 480px;
+  z-index: 3;
 }
 
 .shadowed2{
@@ -164,8 +265,14 @@ body {
   position: relative;
   top: -44px;
   background-image: url("images/textures/soil_grass.png");
-  height: 175px;
-  padding-top: 50px;
+  height: 225px;
+}
+
+#lower_bank_central {
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .column {
