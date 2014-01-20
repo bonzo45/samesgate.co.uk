@@ -206,11 +206,48 @@ body {
   z-index: 2;
 }
 
-#sams_shed {
+#sams_garage {
   position: absolute;
   top: 210px;
   left: 480px;
   z-index: 3;
+}
+
+#garage_door {
+  color: red;
+  position: absolute;
+  height: 100px;
+  width: 121px;
+  top: 250px;
+  left: 640px;
+  z-index: 2;
+}
+
+.garage_blue {
+  -webkit-animation: animatedDoor 7s linear 1 forwards;
+  animation: animatedDoor 6s linear 1 forwards;
+}
+
+@-webkit-keyframes animatedDoor {
+	from { 
+    top: 250px;
+    height: 100px;
+  }
+	to { 
+    top: 215px;
+    height: 50px;
+  }
+}
+
+@keyframes animatedDoor {
+	from { 
+    top: 250px;
+    height: 100px;
+  }
+	to { 
+    top: 215px;
+    height: 50px;
+  }
 }
 
 .shadowed2{
