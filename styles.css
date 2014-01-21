@@ -31,172 +31,119 @@ body {
 /* --------------- HOME -------------- */
 
 #home {
-  background-image: url("images/textures/river.jpg");
-  background-size: 100px 100px;
-  background-position: 0px 0px;
-  
-  -webkit-animation: animatedBackground 80s linear infinite;
-  animation: animatedBackground 80s linear infinite;
-}
-
-@-webkit-keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
-}
-
-@keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
+  position: relative;
 }
 
 .bank {
   width: 100%;
 }
 
-.river {
-  width: 100%;
-  height: 100px;
+#upper_bank {
+  position: absolute;
+  top: 0px;
+  height: 60%;
+  z-index: 2;
 }
 
-#upper_bank {
-  position: relative;
+#sky {
+  background-image: url("images/textures/sky.jpg");
+
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 0px;
+  z-index: 2;
+}
+
+#mountain {
+  position: absolute;
+  top: 50px;
+  left: 400px;
+  z-index: 3;
+}
+
+#grass {
   background-image: url("images/textures/test.png"); 
   background-size: 250px 600px;
   background-position:left bottom;
-  height: 60%;
+  
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  bottom: 0px;
+  z-index: 4;
 }
-
+  
 #upper_bank_central {
   position: relative;
   width: 900px;
   margin: 0 auto;
   padding-top: 20px;
   height: 80%;
+  z-index: 5;
 }
+
+#river {
+  position: absolute;
+  top: 400px;
+  width: 100%;
+  height: 100px;
+  
+  background-image: url("images/textures/river.jpg");
+  background-size: 100px 100px;
+  background-position: 0px 0px;
+  
+  -webkit-animation: animatedBackground 80s linear infinite;
+  animation: animatedBackground 80s linear infinite;
+  z-index: 1;
+}
+
+@-webkit-keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+#lower_bank {
+  position: absolute;
+  bottom: 0px;
+  background-image: url("images/textures/soil_grass.png");
+  height: 225px;
+  z-index: 2;
+}
+
+#lower_bank_central {
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* UPPER BANK ITEMS */
 
 #sams_sign {
   position: absolute;
   top: 250px;
   left: 20px;
   width: 150px;
-  z-index: 3;
+  z-index: 4;
 }
 
-.smoke {
+#bike {
   position: absolute;
+  top: 270px;
+  left: 730px;
+  z-index: 4;
+}
+
+#tree {
+  position: absolute;
+  top: 130px;
+  left: 680px;
   z-index: 1;
-}
-
-#smoke1 {
-  top: 142px;
-  left: 393px; 
-
-  -webkit-animation: animatedSmoke1 4s linear infinite; 
-  animation: animatedSmoke1 4s linear infinite;  
-}
-
-#smoke2 {
-  top: 180px;
-  left: 405px;   
-  
-  -webkit-animation: animatedSmoke2 3s linear infinite;
-  animation: animatedSmoke2 3s linear infinite;
-}
-
-#smoke3 {
-  top: 168px;
-  left: 400px;  
-  
-  -webkit-animation: animatedSmoke3 5s linear infinite;
-  animation: animatedSmoke3 5s linear infinite;
-}
-
-#smoke4 {
-  top: 142px;
-  left: 393px;  
-  
-  -webkit-animation: animatedSmoke1 10s linear infinite;
-  animation: animatedSmoke1 10s linear infinite;
-}
-
-#smoke5 {
-  top: 180px;
-  left: 405px;  
-  
-  -webkit-animation: animatedSmoke2 7s linear infinite;
-  animation: animatedSmoke2 7s linear infinite;
-}
-
-#smoke6 {
-  top: 168px;
-  left: 400px;  
-  -webkit-animation: animatedSmoke3 6s linear infinite;
-  animation: animatedSmoke3 6s linear infinite;
-}
-
-@-webkit-keyframes animatedSmoke1 {
-	from { 
-    top: 142px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@keyframes animatedSmoke1 {
-	from { 
-    top: 142px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-@-webkit-keyframes animatedSmoke2 {
-	from { 
-    top: 180px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@keyframes animatedSmoke2 {
-	from { 
-    top: 180px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes animatedSmoke3 {
-	from { 
-    top: 168px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@keyframes animatedSmoke3 {
-	from { 
-    top: 168px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
 }
 
 #sams_house {
@@ -262,19 +209,124 @@ body {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
-#lower_bank {
-  position: relative;
-  top: -44px;
-  background-image: url("images/textures/soil_grass.png");
-  height: 225px;
+/* SMOKE EFFECT */
+
+.smoke {
+  position: absolute;
+  z-index: 2;
 }
 
-#lower_bank_central {
-  position: relative;
-  width: 900px;
-  margin: 0 auto;
-  height: 100%;
+#smoke1 {
+  top: 142px;
+  left: 393px; 
+
+  -webkit-animation: animatedSmoke1 4s linear infinite; 
+  animation: animatedSmoke1 4s linear infinite;  
 }
+
+#smoke2 {
+  top: 180px;
+  left: 405px;   
+  
+  -webkit-animation: animatedSmoke2 3s linear infinite;
+  animation: animatedSmoke2 3s linear infinite;
+}
+
+#smoke3 {
+  top: 168px;
+  left: 400px;  
+  
+  -webkit-animation: animatedSmoke3 5s linear infinite;
+  animation: animatedSmoke3 5s linear infinite;
+}
+
+#smoke4 {
+  top: 142px;
+  left: 393px;  
+  
+  -webkit-animation: animatedSmoke1 10s linear infinite;
+  animation: animatedSmoke1 10s linear infinite;
+}
+
+#smoke5 {
+  top: 180px;
+  left: 405px;  
+  
+  -webkit-animation: animatedSmoke2 7s linear infinite;
+  animation: animatedSmoke2 7s linear infinite;
+}
+
+#smoke6 {
+  top: 168px;
+  left: 400px;  
+  -webkit-animation: animatedSmoke3 6s linear infinite;
+  animation: animatedSmoke3 6s linear infinite;
+}
+
+@-webkit-keyframes animatedSmoke1 {
+	from { 
+    top: 142px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+@keyframes animatedSmoke1 {
+	from { 
+    top: 142px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes animatedSmoke2 {
+	from { 
+    top: 180px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+@keyframes animatedSmoke2 {
+	from { 
+    top: 180px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes animatedSmoke3 {
+	from { 
+    top: 168px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+@keyframes animatedSmoke3 {
+	from { 
+    top: 168px;
+    opacity: 0.5;
+  }
+	to { 
+    top: -40px; 
+    opacity: 0;
+  }
+}
+
+/* LOWER BANK ITEMS */
 
 #bonzo {
   height: 225px;
