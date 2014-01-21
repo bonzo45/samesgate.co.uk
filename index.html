@@ -11,7 +11,7 @@
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
-  $("#home").fadeTo("slow", 1);
+  $("#work").fadeTo("slow", 1);
   
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
@@ -51,7 +51,7 @@ var toggle_screens = function() {
           <div id="grass">
           </div>
         
-          <div id="upper_bank_central">
+          <div id="upper_bank_central" class="central">
             <div id="sams_sign">
               <img class="shadowed" style="width:150px;" src="images/sign.png"></img>
             </div>
@@ -92,9 +92,8 @@ var toggle_screens = function() {
         </div>
         <div id="river">
         </div>        
-        
         <div id="lower_bank" class="bank">
-          <div id="lower_bank_central">
+          <div id="lower_bank_central" class="central">
           
             <div id="nest_sign">
               <img class="shadowed" style="width:300px;" src="images/nest_sign.png"></img>
@@ -123,7 +122,24 @@ var toggle_screens = function() {
       </div>      
       
       <div id="work" class="main_inner">
-        Work.
+		<div class="central">
+			<div id="above_table">
+        <div id="todo">
+          Projects.
+          <ul>
+            <li>Exocet</li>
+            <li>Learn WebGL</li>
+          </ul>
+        </div>
+      
+        <div id="poster">
+          <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:200px"></img>
+        </div>
+			</div>
+			
+			<div id="table">
+			</div>
+		</div>
       </div>
     
     </div>
