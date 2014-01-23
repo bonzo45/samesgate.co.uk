@@ -391,11 +391,34 @@ body {
 
 /* --------------- WORK -------------- */
 #work {
-  background-color: brown;
+  background-color: black;
   position: relative;
 }
 
+#work_central {
+  background-color: beige;
+}
+
+#building {
+  position: relative;
+  height: 100%;
+  background-image: url("images/brick.jpg");
+  background-size: 200px 200px;
+  background-position: bottom left;
+}
+
+#inside {
+  position: absolute;
+  background-image: url("images/plaster.jpg");
+  background-size: 200px 200px;
+  bottom: 0px;
+  left: 40px;
+  width: 90%;
+  height: 95%;
+}
+
 #above_table {
+
 }
 
 #poster {
@@ -423,4 +446,12 @@ body {
   background-image: url("images/bench.png");
   background-position: bottom left;
   background-size: 600px 350px;
+}
+
+#steam {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 150px;
+  height: 280px;
 }

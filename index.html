@@ -16,6 +16,11 @@ $(document).ready(function(){
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
   $("#work").click(toggle_screens);
+  
+  // Fetch Steam Data
+  $.getJSON("http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=7E520D8ECEBA43FFBE4EF0742324C56C&steamid=76561197989546737&format=json", function(result) {
+    alert("Success?");
+  });
 });
 
 var toggle_screens = function() {
@@ -122,26 +127,33 @@ var toggle_screens = function() {
       </div>      
       
       <div id="work" class="main_inner">
-		<div class="central">
-			<div id="above_table">
-        <div id="todo">
-          Projects.
-          <ul>
-            <li>Exocet</li>
-            <li>Learn WebGL</li>
-          </ul>
+        <div id="work_central" class="central">
+          <div id="building">
+            <div id="inside">
+              <div id="above_table">
+                <div id="todo">
+                  Projects.
+                  <ul>
+                    <li>Exocet</li>
+                    <li>Learn WebGL</li>
+                  </ul>
+                </div>
+              
+                <div id="poster">
+                  <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:200px"></img>
+                </div>
+              </div>
+            
+              <div id="table">
+                <div id="steam">
+                  Bonzo45 has been playing Velvet Assassin.
+                </div>
+              </div>
+            </div>
+            
+          </div>
         </div>
-      
-        <div id="poster">
-          <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:200px"></img>
-        </div>
-			</div>
-			
-			<div id="table">
-			</div>
-		</div>
       </div>
-    
     </div>
     </div>  
   </body>
