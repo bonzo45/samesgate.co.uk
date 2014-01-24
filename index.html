@@ -11,7 +11,7 @@
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
-  $("#work").fadeTo("slow", 1);
+  $("#home").fadeTo("slow", 1);
   
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
@@ -124,6 +124,9 @@ var toggle_screens = function() {
       <div id="work" class="main_inner">
         <div id="work_central" class="central">
           <div id="building">
+            <div id="lighting">
+              <img style="width:100%; height:100%; opacity:0.7;" src="images/lighting.png"></img>
+            </div>
             <div id="inside">
               <div id="above_table">
                 <div id="todo">

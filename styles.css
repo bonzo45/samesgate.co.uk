@@ -460,15 +460,14 @@ body {
   padding-bottom: 10px;
 }
 
-
 #table {
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
-	height: 350px;
+	height: 230px;
   background-image: url("images/bench.png");
   background-position: bottom left;
-  background-size: 600px 350px;
+  background-size: 600px 230px;
   z-index: 2;
   pointer-events: none;
 }
@@ -505,4 +504,15 @@ body {
   height: 70%;
   width: 70%;
   border-radius: 5px;
+}
+
+#lighting {
+  position: absolute;
+  width: 900px;
+  height: 700px;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  
+  pointer-events: none;
 }
