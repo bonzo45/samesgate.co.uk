@@ -446,12 +446,40 @@ body {
   background-image: url("images/bench.png");
   background-position: bottom left;
   background-size: 600px 350px;
+  z-index: 2;
+  pointer-events: none;
 }
 
-#steam {
+.crate {
+  height: 100px;
+  width: 100px;
+  background-image: url("images/crate.jpg");
+  background-size: 100px 100px;
+  background-position: top right;
+  z-index: 1;
+}
+
+#box1 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 100px;
+  width: 100px;
+}
+
+#box2 {
   position: absolute;
   left: 10px;
-  bottom: 10px;
-  width: 150px;
-  height: 280px;
+  bottom: 100px;
+  height: 100px;
+  width: 100px;
+}
+  
+.box_icon {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  height: 70%;
+  width: 70%;
+  border-radius: 5px;
 }

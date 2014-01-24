@@ -16,11 +16,6 @@ $(document).ready(function(){
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
   $("#work").click(toggle_screens);
-  
-  // Fetch Steam Data
-  $.getJSON("http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=7E520D8ECEBA43FFBE4EF0742324C56C&steamid=76561197989546737&format=json", function(result) {
-    alert("Success?");
-  });
 });
 
 var toggle_screens = function() {
@@ -143,11 +138,24 @@ var toggle_screens = function() {
                   <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:200px"></img>
                 </div>
               </div>
-            
+              
+              <div id="box1">
+                <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
+                  <div class="crate">
+                    <img class="box_icon" src="images/icons/steam.png">
+                  </div>
+                </a>
+              </div>
+              
+              <div id="box2">
+                <a href="http://open.spotify.com/user/bonzo45" target="_blank" alt="Spotify">
+                  <div class="crate">
+                    <img class="box_icon" src="images/icons/spotify.png">
+                  </div>
+                </a>
+              </div>
+              
               <div id="table">
-                <div id="steam">
-                  Bonzo45 has been playing Velvet Assassin.
-                </div>
               </div>
             </div>
             
