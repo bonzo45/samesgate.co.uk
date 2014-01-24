@@ -423,8 +423,8 @@ body {
 
 #poster {
   position: absolute;
-  left: 300px;
-  top: 20px;
+  left: 500px;
+  top: 40px;
   transform:rotate(7deg);
   -webkit-transform:rotate(7deg);
 }
@@ -433,10 +433,33 @@ body {
   position: absolute;
   left: 10px;
   top: 10px;
-  width: 200px;
-  height: 100px;
-  background-color: yellow;
+  width: 300px;
+  height: 320px;
+  background-color: white;
+  font-family: Helvetica;
+  
+  transform:rotate(-1deg);
+  -webkit-transform:rotate(-1deg);
+  
+  border-radius: 10px;
+  border: grey solid 3px;
 }
+
+#todo h1 {
+  text-align: center;
+  margin: 10px 0px 5px 0px;
+}
+
+#todo ul {
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+#todo li {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 
 #table {
 	position: absolute;
