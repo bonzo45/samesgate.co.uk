@@ -395,11 +395,67 @@ body {
   position: relative;
 }
 
-#work_central {
+#bunker_corridor {
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  right: 50%;
+  height: 100%;
+  margin-right: 450px;
+  background-color: red;
+}
+
+#bunker {
   background-color: beige;
 }
 
-#building {
+#bunker_right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 50%;
+  height: 100%;
+  margin-left: 450px;
+  background-color: black;
+}
+
+#bunker_corridor_ceiling {
+  background-color: black;
+  width: 100%;
+  height: 30%;
+}
+
+#bunker_corridor_main {
+  position: relative;
+  background-image: url("images/textures/dirt.jpg");
+  background-size: 200px 200px;
+  width: 100%;
+  height: 50%;
+}
+
+#bunker_corridor_step {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 160px;
+  height: 30px;
+  background-color: black;
+}
+
+#vault {
+  position: absolute;
+  right: 200px;
+  width: 250px;
+  top: 40px;
+}
+
+#bunker_corridor_ground {
+  background-color: black;
+  width: 100%;
+  height: 20%;
+}
+
+#bunker_wall {
   position: relative;
   height: 100%;
   background-image: url("images/brick.jpg");
@@ -407,26 +463,94 @@ body {
   background-position: bottom left;
 }
 
-#inside {
+#bunker_wall_door {
+  position: absolute;
+  left: 0.5%;
+  bottom: 22.5%;
+  height: 45%;
+  width: 1.5%;
+  background-image: url("images/textures/wood.jpg");
+  opacity: 0.7;
+}
+
+#bunker_inside {
   position: absolute;
   background-image: url("images/plaster.jpg");
   background-size: 200px 200px;
   bottom: 0px;
-  left: 40px;
-  width: 90%;
-  height: 95%;
+  left: 2.5%;
+  width: 95%;
+  height: 97.5%;
 }
 
-#above_table {
+#bunker_rear_wall {
+  width: 100%;
+  height: 73%;
+}
 
+#bunker_table {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  background-image: url("images/bench.png");
+  background-position: top left;
+  background-size: 600px;
+  width: 100%;
+  height: 25%;
+  pointer-events: none;
+}
+
+#bunker_floor {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  background-image: url("images/textures/wood_bench.jpg");
+  background-size: 900px 170px;
+  background-position: bottom left;
+}
+
+.hole {
+  position: absolute;
+  bottom: 10%;
+  height: 60%;
+  background-image: url("images/textures/wood.jpg");
+  border-top: 5px black solid;
+  border-left: 3px black solid;
+  width: 80px;
+}
+
+#hole1 {  
+  right: 100px;
+  transform:skewX(5deg);
+  -webkit-transform:skewX(5deg);  
+  border-right: 3px black solid;
+}
+
+#hole2 {  
+  right: 120px;
+  transform:skewX(-5deg);
+  -webkit-transform:skewX(-5deg);  
+}
+
+#bunker_floor_thickness {
+  width: 100%;
+  height: 1%;
+  background-color: black;
+}
+
+#bunker_under_floor {
+  position: relative;
+  width: 100%;
+  height: 16%;
+  background-image: url("images/textures/wood.jpg");
 }
 
 #poster {
   position: absolute;
-  left: 500px;
+  right: 30px;
   top: 40px;
-  transform:rotate(7deg);
-  -webkit-transform:rotate(7deg);
+  transform:rotate(3deg);
+  -webkit-transform:rotate(3deg);
 }
 
 #todo {
@@ -434,7 +558,7 @@ body {
   left: 10px;
   top: 10px;
   width: 300px;
-  height: 320px;
+  height: 300px;
   background-color: white;
   font-family: Helvetica;
   
@@ -451,25 +575,14 @@ body {
 }
 
 #todo ul {
+  margin-top: 0px;
   padding-left: 10px;
   list-style-type: none;
 }
 
 #todo li {
   text-align: center;
-  padding-bottom: 10px;
-}
-
-#table {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-	height: 230px;
-  background-image: url("images/bench.png");
-  background-position: bottom left;
-  background-size: 600px 230px;
-  z-index: 2;
-  pointer-events: none;
+  padding-bottom: 5px;
 }
 
 .crate {
@@ -483,7 +596,7 @@ body {
 
 #box1 {
   position: absolute;
-  left: 0px;
+  left: 10px;
   bottom: 0px;
   height: 100px;
   width: 100px;
@@ -491,8 +604,8 @@ body {
 
 #box2 {
   position: absolute;
-  left: 10px;
-  bottom: 100px;
+  left: 130px;
+  bottom: 0px;
   height: 100px;
   width: 100px;
 }

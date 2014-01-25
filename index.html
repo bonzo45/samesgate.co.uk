@@ -11,7 +11,7 @@
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
-  $("#home").fadeTo("slow", 1);
+  $("#work").fadeTo("slow", 1);
   
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
@@ -122,13 +122,36 @@ var toggle_screens = function() {
       </div>      
       
       <div id="work" class="main_inner">
-        <div id="work_central" class="central">
-          <div id="building">
-            <div id="lighting">
-              <img style="width:100%; height:100%; opacity:0.7;" src="images/lighting.png"></img>
+        <div id="bunker_corridor">
+          <div id="bunker_corridor_ceiling">
+          </div>
+          
+          <div id="bunker_corridor_main">
+            <div id="bunker_corridor_step">
             </div>
-            <div id="inside">
-              <div id="above_table">
+            
+            <div id="vault">
+              <img src="images/vault.png" style="width:100%;"></img>
+            </div>
+          </div>
+          
+          <div id="bunker_corridor_ground">
+          </div>
+        </div>
+
+        <div id="bunker" class="central">
+        
+          <div id="bunker_wall">
+            <div id="bunker_wall_door">
+            </div>
+            
+            <div id="lighting">
+              <img style="width:100%; height:100%; opacity:0.0;" src="images/lighting.png"></img>
+            </div>
+            
+            
+            <div id="bunker_inside">
+              <div id="bunker_rear_wall">
                 <div id="todo">
                   <h1>// TODO:</h1>
                   <ul>
@@ -150,31 +173,47 @@ var toggle_screens = function() {
                 </div>
               
                 <div id="poster">
-                  <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:200px"></img>
+                  <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:150px"></img>
                 </div>
               </div>
               
-              <div id="box1">
-                <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
-                  <div class="crate">
-                    <img class="box_icon" src="images/icons/steam.png">
-                  </div>
-                </a>
+              <div id="bunker_table">
               </div>
               
-              <div id="box2">
-                <a href="http://open.spotify.com/user/bonzo45" target="_blank" alt="Spotify">
-                  <div class="crate">
-                    <img class="box_icon" src="images/icons/spotify.png">
-                  </div>
-                </a>
+              <div id="bunker_floor">
+                <div id="hole1" class="hole">
+                </div>
+                <div id="hole2" class="hole">
+                </div>
               </div>
               
-              <div id="table">
+              <div id="bunker_floor_thickness">
+              </div>
+              
+              <div id="bunker_under_floor">
+                <div id="box1">
+                  <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
+                    <div class="crate">
+                      <img class="box_icon" src="images/icons/steam.png">
+                    </div>
+                  </a>
+                </div>
+              
+                <div id="box2">
+                  <a href="http://open.spotify.com/user/bonzo45" target="_blank" alt="Spotify">
+                    <div class="crate">
+                      <img class="box_icon" src="images/icons/spotify.png">
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             
           </div>
+        </div>
+        
+        <div id="bunker_right">
+          
         </div>
       </div>
     </div>
