@@ -171,7 +171,7 @@ body {
   z-index: 2;
 }
 
-.garage_blue {
+.garage_open {
   -webkit-animation: animatedDoor 7s linear 1 forwards;
   animation: animatedDoor 6s linear 1 forwards;
 }
@@ -473,23 +473,87 @@ body {
   height: 30%;
 }
 
-#bunker_floor {
+#bunker_floor1 {
+  background-color: black;
+  
+  position: absolute;
+  left: 20%;
+  bottom: 16%;
+  width: 60%;
+  height: 1%;
+}
+
+#bunker_floor2 {
   background-color: black;
   
   position: absolute;
   right: 0px;
   bottom: 16%;
-  width: 80%;
+  width: 10%;
   height: 1%;
 }
 
 #bunker_under_floor {
+  background-image: url("images/textures/wood.jpg");
+  
   position: absolute;
   bottom: 0px;
   right: 0px;
   width: 80%;
   height: 16%;
-  background-image: url("images/textures/wood.jpg");
+}
+
+#bunker_trapdoor {
+  position: absolute;
+  bottom: 16%;
+  right: 0px;
+  width: 20%;
+  height: 2%;
+  z-index: 2;
+}
+
+.trapdoor_open {
+ -webkit-animation: animatedTrapdoorOpen 2s forwards;
+ animation: animatedTrapdoorOpen 2s forwards;
+}
+
+.trapdoor_closed {
+ -webkit-animation: animatedTrapdoorClose 2s forwards;
+ animation: animatedTrapdoorClose 2s forwards;
+}
+
+@-webkit-keyframes animatedTrapdoorOpen {
+	from {  
+    -webkit-transform:rotate(0deg);
+  }
+	to { 
+    -webkit-transform:rotate(120deg);
+  }
+}
+@keyframes animatedTrapdoorOpen {
+	from {  
+    transform:rotate(0deg);
+  }
+	to { 
+    transform:rotate(120deg);
+  }
+}
+
+@-webkit-keyframes animatedTrapdoorClose {
+	from {  
+    -webkit-transform:rotate(120deg);
+  }
+	to { 
+    -webkit-transform:rotate(0deg);
+  }
+}
+@keyframes animatedTrapdoorClose {
+	from {  
+    transform:rotate(120deg);
+  }
+	to { 
+    transform:rotate(0deg);
+  }
 }
 
 #poster {

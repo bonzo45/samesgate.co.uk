@@ -16,6 +16,8 @@ $(document).ready(function(){
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
   $("#poster").click(toggle_screens);
+  $("#sams_garage").click(open_garage);
+  $("#bunker_trapdoor").click(toggle_trapdoor);
 });
 
 var toggle_screens = function() {
@@ -25,6 +27,25 @@ var toggle_screens = function() {
       $("#main_black").fadeTo("slow", 1);
     });  
   });
+}
+
+var open_garage = function() {
+  $("#garage_door").addClass("garage_open");
+}
+
+var trapdoor_open = false;
+
+var toggle_trapdoor = function() {
+  if (trapdoor_open) {  
+    $("#bunker_trapdoor").addClass("trapdoor_closed");
+    $("#bunker_trapdoor").removeClass("trapdoor_open");
+  }
+  else {
+    $("#bunker_trapdoor").addClass("trapdoor_open");
+    $("#bunker_trapdoor").removeClass("trapdoor_closed");
+  }
+  trapdoor_open = ! trapdoor_open;
+  
 }
 
 </script>
@@ -83,7 +104,7 @@ var toggle_screens = function() {
               <img class="shadowed" style="width:400px;" src="images/house.png"></img>
             </div>
             <div id="sams_garage">
-              <img class="shadowed" style="width:300px;" onclick="$('#garage_door').addClass('garage_blue');" src="images/garage.png"></img>
+              <img class="shadowed" style="width:300px;" src="images/garage.png"></img>
             </div>            
             <div id="garage_door">
               <img class="shadowed" style="height:100%; width: 100%;" src="images/garage_door.png"></img>
@@ -170,7 +191,14 @@ var toggle_screens = function() {
               <img src="images/Game of Bonzo.jpg" alt="Game of Bonzo" style="width:100%; height:100%;"></img>
             </div>
             
-            <div id="bunker_floor">
+            <div id="bunker_floor1">
+            </div>
+            
+            <div id="bunker_floor2">
+            </div>
+            
+            <div id="bunker_trapdoor">
+              <img src="images/trapdoor.png" alt="Trapdoor" style="width:100%; height:100%;"></img>
             </div>
             
             <div id="bunker_under_floor">
