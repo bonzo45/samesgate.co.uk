@@ -382,15 +382,32 @@ body {
 }
 
 #bunker_left {
+  background-color: black;
+  
   position: absolute;
   top: 0px;
   right: 50%;
   left: 0px;  
   height: 100%;
-  margin-right: 450px;
+  margin-right: 600px;
+}
+
+#bunker_container {
+  background-color: orange;
+
+  position: relative;
+	width: 1500px;
+	margin: 0 auto;
+	height: 100%;
 }
 
 #bunker {
+  background-color: green;
+
+	position: absolute;
+  right: 300px;
+	width: 1200px;
+	height: 100%;
 }
 
 #bunker_right {
@@ -406,33 +423,71 @@ body {
 
 #bunker_left_ceiling {
   background-color: black;
+  
   width: 100%;
   height: 30%;
 }
 
 #bunker_left_tunnel {
-  position: relative;
-  background-image: url("images/textures/dirt.jpg");
+  background-color: green;
   background-size: 200px 200px;
+
+  position: relative;
   width: 100%;
-  height: 50%;
+  height: 30%;
 }
 
 #bunker_left_ground {
   background-color: black;
+  
   width: 100%;
-  height: 20%;
+  height: 40%;
 }
 
-#bunker_floor_thickness {
-  width: 100%;
-  height: 1%;
+#bunker_stairs {
+  background-image: url("images/stairs.png");
+  background-size: 100% 100%;
+  
+  position: absolute;
+  bottom: 16%;
+  left: 0px;
+  width: 20%;
+  height: 24%;
+}
+
+#bunker_under_stairs {
   background-color: black;
+  
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 20%;
+  height: 16%;
+}
+
+#bunker_ceiling {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30%;
+}
+
+#bunker_floor {
+  background-color: black;
+  
+  position: absolute;
+  right: 0px;
+  bottom: 16%;
+  width: 80%;
+  height: 1%;
 }
 
 #bunker_under_floor {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 80%;
   height: 16%;
   background-image: url("images/textures/wood.jpg");
 }
@@ -447,7 +502,7 @@ body {
 
 #todo {
   position: absolute;
-  left: 10px;
+  left: 500px;
   top: 10px;
   width: 300px;
   height: 300px;
