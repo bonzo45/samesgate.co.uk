@@ -499,11 +499,18 @@ body {
   height: 30%;
 }
 
+#monitors {
+  position: absolute;
+  bottom: 42%;
+  right: 1%;
+  height: 18%;
+}
+
 #bench {
   position: absolute;
-  bottom: 16%;
+  bottom: 17%;
   right: 2%;
-  width: 40%;
+  height: 25%;
 }
 
 #bunker_floor1 {
@@ -600,7 +607,7 @@ body {
 
 #todo {
   position: absolute;
-  left: 250px;
+  left: 200px;
   top: 120px;
   width: 600px;
   height: 310px;
@@ -611,12 +618,12 @@ body {
   -webkit-transform:rotate(-1deg);
   
   border-radius: 10px;
-  border: grey solid 3px;
+  border: grey solid 4px;
 }
 
 #cv {
   position: absolute;
-  right: 340px;
+  right: 390px;
   top: 100px;
   width: 100px;
   
