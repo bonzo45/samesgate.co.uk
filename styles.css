@@ -172,11 +172,11 @@ body {
 }
 
 .garage_open {
-  -webkit-animation: animatedDoor 7s linear 1 forwards;
-  animation: animatedDoor 6s linear 1 forwards;
+  -webkit-animation: animatedGarageOpen 7s linear 1 forwards;
+  animation: animatedGarageOpen 6s linear 1 forwards;
 }
 
-@-webkit-keyframes animatedDoor {
+@-webkit-keyframes animatedGarageOpen {
 	from { 
     top: 250px;
     height: 100px;
@@ -186,7 +186,7 @@ body {
     height: 50px;
   }
 }
-@keyframes animatedDoor {
+@keyframes animatedGarageOpen {
 	from { 
     top: 250px;
     height: 100px;
@@ -194,6 +194,32 @@ body {
 	to { 
     top: 215px;
     height: 50px;
+  }
+}
+
+.garage_closed {
+  -webkit-animation: animatedGarageClose 7s linear 1 forwards;
+  animation: animatedGarageClose 6s linear 1 forwards;
+}
+
+@-webkit-keyframes animatedGarageClose {
+	from {
+    top: 215px;
+    height: 50px;
+  }
+	to { 
+    top: 250px;
+    height: 100px;
+  }
+}
+@keyframes animatedGarageClose {
+	from {
+    top: 215px;
+    height: 50px;
+  }
+	to { 
+    top: 250px;
+    height: 100px;
   }
 }
 

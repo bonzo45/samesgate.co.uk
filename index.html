@@ -16,7 +16,7 @@ $(document).ready(function(){
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
   $("#poster").click(toggle_screens);
-  $("#sams_garage").click(open_garage);
+  $("#sams_garage").click(toggle_garage);
   $("#bunker_trapdoor").click(toggle_trapdoor);
 });
 
@@ -29,8 +29,19 @@ var toggle_screens = function() {
   });
 }
 
-var open_garage = function() {
-  $("#garage_door").addClass("garage_open");
+var garage_open = false;
+
+var toggle_garage = function() {
+  if (garage_open) {    
+    $("#garage_door").addClass("garage_closed");
+    $("#garage_door").removeClass("garage_open");
+  }
+  else {
+    $("#garage_door").addClass("garage_open");
+    $("#garage_door").removeClass("garage_closed");
+  }
+    
+  garage_open = ! garage_open;
 }
 
 var trapdoor_open = false;
@@ -44,8 +55,7 @@ var toggle_trapdoor = function() {
     $("#bunker_trapdoor").addClass("trapdoor_open");
     $("#bunker_trapdoor").removeClass("trapdoor_closed");
   }
-  trapdoor_open = ! trapdoor_open;
-  
+  trapdoor_open = ! trapdoor_open;  
 }
 
 </script>
