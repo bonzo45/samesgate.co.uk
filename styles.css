@@ -416,15 +416,15 @@ body {
   left: 0px;  
   height: 100%;
   margin-right: 600px;
+  z-index: 1;
 }
 
 #bunker_container {
-  background-color: orange;
-
   position: relative;
 	width: 1500px;
 	margin: 0 auto;
 	height: 100%;
+  z-index: 2;
 }
 
 #bunker {
@@ -445,6 +445,7 @@ body {
   left: 50%;
   height: 100%;
   margin-left: 450px;
+  z-index: 1;
 }
 
 #bunker_left_ceiling {
@@ -502,8 +503,29 @@ body {
 #monitors {
   position: absolute;
   bottom: 42%;
-  right: 1%;
+  right: 10%;
   height: 18%;
+}
+
+#desktop {
+  position: absolute;
+  bottom: 17%;
+  right: 45%;
+  height: 20%;
+}
+
+.speaker {
+  position: absolute;
+  bottom: 42%;
+  height: 10%;
+}
+
+#rspeaker {
+  right: 7%;
+}
+
+#lspeaker {
+  right: 50%;
 }
 
 #bench {
@@ -607,9 +629,9 @@ body {
 
 #todo {
   position: absolute;
-  left: 200px;
+  left: 150px;
   top: 120px;
-  width: 600px;
+  width: 550px;
   height: 310px;
   background-color: white;
   font-family: Helvetica;
@@ -623,13 +645,12 @@ body {
 
 #cv {
   position: absolute;
-  right: 390px;
+  right: 430px;
   top: 100px;
   width: 100px;
   
-    transform:rotate(4deg);
+  transform:rotate(4deg);
   -webkit-transform:rotate(4deg);
-  
 }
 
 #todo h1 {
