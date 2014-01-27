@@ -499,6 +499,13 @@ body {
   height: 30%;
 }
 
+#bench {
+  position: absolute;
+  bottom: 16%;
+  right: 2%;
+  width: 40%;
+}
+
 #bunker_floor1 {
   background-color: black;
   
@@ -605,6 +612,17 @@ body {
   
   border-radius: 10px;
   border: grey solid 3px;
+}
+
+#cv {
+  position: absolute;
+  right: 340px;
+  top: 100px;
+  width: 100px;
+  
+    transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  
 }
 
 #todo h1 {
