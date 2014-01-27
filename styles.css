@@ -1,5 +1,5 @@
 html {
-  background-color: gray;
+  background-color: grey;
 }
 
 body {
@@ -10,9 +10,7 @@ body {
 
 #main {
   position: relative;
-  border: 1px solid black;
   background-color: black;
-  margin-right: 0px;
   height: 700px;
 }
 
@@ -25,13 +23,11 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
 }
 
 /* --------------- HOME -------------- */
 
 #home {
-  position: relative;
 }
 
 .bank {
@@ -47,7 +43,7 @@ body {
 
 #sky {
   background-image: url("images/textures/sky.jpg");
-
+  
   position: absolute;
   width: 100%;
   height: 300px;
@@ -108,9 +104,10 @@ body {
 }
 
 #lower_bank {
+  background-image: url("images/textures/soil_grass.png");
+  
   position: absolute;
   bottom: 0px;
-  background-image: url("images/textures/soil_grass.png");
   height: 225px;
   z-index: 2;
 }
@@ -166,7 +163,6 @@ body {
 }
 
 #garage_door {
-  color: red;
   position: absolute;
   height: 100px;
   width: 121px;
@@ -190,7 +186,6 @@ body {
     height: 50px;
   }
 }
-
 @keyframes animatedDoor {
 	from { 
     top: 250px;
@@ -200,13 +195,6 @@ body {
     top: 215px;
     height: 50px;
   }
-}
-
-.shadowed2{
-    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
-    filter: url(#drop-shadow);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
 /* SMOKE EFFECT */
@@ -346,15 +334,14 @@ body {
 }
 
 #nest {
-  color: white;
-  font-size: 16pt;
+  background-color: black;
+
   text-align: center;
   position: absolute;
   bottom: 0px;
   left: 20px;
   height: 70px;
   width: 510px;
-  background-color: black;
   border-radius: 5px;
   z-index: 2;
 }
@@ -365,7 +352,6 @@ body {
 }
 
 .nest_item {
-  color: red;
   display: inline-block;
   width: 64px;
   height: 64px;
@@ -395,37 +381,36 @@ body {
   position: relative;
 }
 
-#bunker_corridor {
+#bunker_left {
   position: absolute;
   top: 0px;
-  left: 0px;  
   right: 50%;
+  left: 0px;  
   height: 100%;
   margin-right: 450px;
-  background-color: red;
 }
 
 #bunker {
-  background-color: beige;
 }
 
 #bunker_right {
+  background-color: black;
+  
   position: absolute;
   top: 0px;
   right: 0px;
   left: 50%;
   height: 100%;
   margin-left: 450px;
-  background-color: black;
 }
 
-#bunker_corridor_ceiling {
+#bunker_left_ceiling {
   background-color: black;
   width: 100%;
   height: 30%;
 }
 
-#bunker_corridor_main {
+#bunker_left_tunnel {
   position: relative;
   background-image: url("images/textures/dirt.jpg");
   background-size: 200px 200px;
@@ -433,103 +418,10 @@ body {
   height: 50%;
 }
 
-#bunker_corridor_step {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 160px;
-  height: 30px;
-  background-color: black;
-}
-
-#vault {
-  position: absolute;
-  right: 200px;
-  width: 250px;
-  top: 40px;
-}
-
-#bunker_corridor_ground {
+#bunker_left_ground {
   background-color: black;
   width: 100%;
   height: 20%;
-}
-
-#bunker_wall {
-  position: relative;
-  height: 100%;
-  background-image: url("images/brick.jpg");
-  background-size: 200px 200px;
-  background-position: bottom left;
-}
-
-#bunker_wall_door {
-  position: absolute;
-  left: 0.5%;
-  bottom: 22.5%;
-  height: 45%;
-  width: 1.5%;
-  background-image: url("images/textures/wood.jpg");
-  opacity: 0.7;
-}
-
-#bunker_inside {
-  position: absolute;
-  background-image: url("images/plaster.jpg");
-  background-size: 200px 200px;
-  bottom: 0px;
-  left: 2.5%;
-  width: 95%;
-  height: 97.5%;
-}
-
-#bunker_rear_wall {
-  width: 100%;
-  height: 73%;
-}
-
-#bunker_table {
-  position: absolute;
-  left: 0px;
-  top: 50%;
-  background-image: url("images/bench.png");
-  background-position: top left;
-  background-size: 600px;
-  width: 100%;
-  height: 25%;
-  pointer-events: none;
-}
-
-#bunker_floor {
-  position: relative;
-  width: 100%;
-  height: 10%;
-  background-image: url("images/textures/wood_bench.jpg");
-  background-size: 900px 170px;
-  background-position: bottom left;
-}
-
-.hole {
-  position: absolute;
-  bottom: 10%;
-  height: 60%;
-  background-image: url("images/textures/wood.jpg");
-  border-top: 5px black solid;
-  border-left: 3px black solid;
-  width: 80px;
-}
-
-#hole1 {  
-  right: 100px;
-  transform:skewX(5deg);
-  -webkit-transform:skewX(5deg);  
-  border-right: 3px black solid;
-}
-
-#hole2 {  
-  right: 120px;
-  transform:skewX(-5deg);
-  -webkit-transform:skewX(-5deg);  
 }
 
 #bunker_floor_thickness {
@@ -588,7 +480,7 @@ body {
 .crate {
   height: 100px;
   width: 100px;
-  background-image: url("images/crate.jpg");
+  background-image: url("images/textures/crate.jpg");
   background-size: 100px 100px;
   background-position: top right;
   z-index: 1;
@@ -617,15 +509,4 @@ body {
   height: 70%;
   width: 70%;
   border-radius: 5px;
-}
-
-#lighting {
-  position: absolute;
-  width: 900px;
-  height: 700px;
-  left: 0px;
-  top: 0px;
-  z-index: 10;
-  
-  pointer-events: none;
 }
