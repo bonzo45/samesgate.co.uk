@@ -11,14 +11,20 @@
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
-  $("#work").fadeTo("slow", 1);
+  $("#home").fadeTo("slow", 1);
   
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
   $("#poster").click(toggle_screens);
   $("#sams_garage").click(toggle_garage);
   $("#bunker_trapdoor").click(toggle_trapdoor);
-});
+  
+  $.getJSON("steam.php", function(data) {
+    $.each(data.response.games, function(index, value) {
+      alert(value);
+    });
+  });
+})
 
 var toggle_screens = function() {
   $("#main_black").fadeTo("slow", 0, function() {
