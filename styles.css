@@ -367,7 +367,7 @@ body {
   bottom: 0px;
   left: 20px;
   height: 70px;
-  width: 510px;
+  width: 580px;
   border-radius: 5px;
   z-index: 2;
 }
@@ -680,7 +680,7 @@ body {
 
 #box1 {
   position: absolute;
-  left: 10px;
+  left: 410px;
   bottom: 0px;
   height: 100px;
   width: 100px;
@@ -688,7 +688,7 @@ body {
 
 #box2 {
   position: absolute;
-  left: 130px;
+  left: 530px;
   bottom: 0px;
   height: 100px;
   width: 100px;
@@ -701,4 +701,27 @@ body {
   height: 70%;
   width: 70%;
   border-radius: 5px;
+}
+
+#steam_stats {
+  background-color: black;
+  color: white;
+  
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 30%;
+  line-height: 0%;
+}
+
+#steam_stats h1 {
+  font-size: 14pt;
+  margin: 0px 0px 0px 0px;
+}
+
+.steam_image {
+  width: 50%;
+  height: 50%;
+  display: inline-block;
 }

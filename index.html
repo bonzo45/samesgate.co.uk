@@ -11,7 +11,7 @@
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
-  $("#home").fadeTo("slow", 1);
+  $("#work").fadeTo("slow", 1);
   
   // Toggle Home/Work
   $("#sign_to_work").click(toggle_screens);
@@ -21,7 +21,7 @@ $(document).ready(function(){
   
   $.getJSON("steam.php", function(data) {
     $.each(data.response.games, function(index, value) {
-      alert(value);
+      $(".steam_image").last().after("<img class='steam_image' src='http://media.steampowered.com/steamcommunity/public/images/apps/" + value.appid + "/" + value.img_logo_url + ".jpg'></img>");
     });
   });
 })
@@ -144,6 +144,7 @@ var toggle_trapdoor = function() {
                 <a href="http://www.youtube.com/user/Bonzo450/videos" target="_blank"><li class="nest_item"><img class="nest_thumb" src="images/icons/youtube.png"></img></li></a>
                 <a href="http://www.bbc.co.uk/news" target="_blank"><li class="nest_item"><img class="nest_thumb" src="images/icons/bbc.png"></img></li></a>
                 <a href="http://www.doc.ic.ac.uk/~ms6611/table/3" target="_blank"><li class="nest_item"><img class="nest_thumb" src="images/icons/calendar.png"></img></li></a>
+                <a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><li class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></li></a>
               </ul>
             </div>
             
@@ -228,6 +229,11 @@ var toggle_trapdoor = function() {
             </div>
             
             <div id="bunker_under_floor">
+            
+              <div id="steam_stats">
+                <img class="steam_image" src="images/steam_banner.png" alt="Steam Banner"></img>
+              </div>
+              
               <div id="box1">
                 <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
                   <div class="crate">
