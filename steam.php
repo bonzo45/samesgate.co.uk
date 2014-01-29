@@ -14,7 +14,7 @@
   curl_close($curl_handle);
   
   if (empty($buffer)){
-    print "{"total_count": -1}";
+    print "{total_count: -1}";
   }
   else{
     print $buffer;
