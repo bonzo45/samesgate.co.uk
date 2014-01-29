@@ -526,7 +526,8 @@ body {
 }
 
 #lspeaker {
-  right: 50%;
+  right: 55%;
+  z-index: 3;
 }
 
 #bench {
