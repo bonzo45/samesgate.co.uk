@@ -1,5 +1,6 @@
 html {
-  background-color: grey;
+  background-image: url("images/textures/raw/grass.jpg");
+  background-size: 225px 225px;
 }
 
 body {
@@ -112,11 +113,14 @@ body {
   z-index: 2;
 }
 
+#lower_bank_central {
+  height: 100%;
+}
+
 .central {
 	position: relative;
 	width: 900px;
 	margin: 0 auto;
-	height: 100%;
 }
 
 /* UPPER BANK ITEMS */
@@ -354,51 +358,91 @@ body {
 
 #nest_sign {
   position: absolute;
-  left: 210px;
-  bottom: 62px;
+  left: 300px;
+  bottom: 70px;
   z-index: 3;
 }
 
 #nest {
-  background-color: black;
-
-  text-align: center;
   position: absolute;
   bottom: 0px;
-  left: 20px;
-  height: 70px;
-  width: 580px;
-  border-radius: 5px;
+  height: 80px;
+  width: 100%;
   z-index: 2;
 }
 
+#nest_inner {
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+  height: 100%;
+}
+
+#nest_grass {
+  background-image: url("images/textures/grass_blade.png");
+  background-size: 100px 30px;
+  
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  pointer-events: none;
+}
+
 #nest_list {
-  margin: 10px 0px 0px 0px;
-  padding-left: 0px;
+  background-color: #1E0C0C;
+  border-radius: 5px;
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 80px;
+  width: 97%;
+  padding: 0px 1.5% 0px 1.5%;
 }
 
 .nest_item {
   display: inline-block;
-  width: 64px;
-  height: 64px;
+  width: 8.8%;
+  height: 80px;
   border-radius: 5px;
 }
 
+.separator {
+  display: inline-block;
+  width: 0.5%;
+  height: 60px;
+  margin: 10px 1.75% 10px 1.75%;
+  border-radius: 1px;
+  background-color: #5C5C5C;
+}
+
+.invisible {
+  background-color: transparent !important;   
+  width: 0% !important;
+  margin: 10px 0% 10px 0% !important;
+}
+
 .nest_thumb {
-  position: relative;
-  margin: 2px 2px 2px 2px;
-  width: 46px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
 }
 
 #sign_to_work {
   position: absolute;
-  top: 50px;
-  right: 30px;
+  top: 30px;
+  right: 80px;
+  width: 125px;
 }
 
 #sign_to_work:hover {
   -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5));
-  box-shadow: 0 8px 6px -6px black;  
+  box-shadow: 0 -8px 6px -6px black;  
 }
 
 /* --------------- WORK -------------- */
