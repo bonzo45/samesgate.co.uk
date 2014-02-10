@@ -436,8 +436,8 @@ body {
 
 #sign_to_work {
   position: absolute;
-  top: 120px;
-  right: 80px;
+  top: 170px;
+  right: 70px;
   width: 125px;
   z-index: 2;
 }
@@ -466,11 +466,40 @@ body {
   height: 80px;
   border-top: 2px #B2B2B2 solid;
   font-size: 14pt;
-  color: white;
+  color: #EFEFEF;
   background-color: #6B6B6B;
 }
 
 #got_days h1 {
+  font-size: 40pt;
+  line-height: 90%;
+  margin: 5px 0px 0px 0px;
+}
+
+#f1 {
+  position: absolute;
+  right: 220px;
+  top: 140px;
+  width: 100px;
+  height: 180px;
+  z-index: 1;
+   
+  text-align: center;
+}
+
+#f1_days {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 80px;
+  border-top: 2px #660000 solid;
+  font-size: 14pt;
+  color: #800000;
+  background-color: #6B6B6B;
+}
+
+#f1_days h1 {
   font-size: 40pt;
   line-height: 90%;
   margin: 5px 0px 0px 0px;

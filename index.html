@@ -20,8 +20,8 @@ $(document).ready(function(){
   $("#bunker_trapdoor").click(toggle_trapdoor);
   
   // Countdowns
-  initialize_game_of_thrones();
-  setInterval(initialize_game_of_thrones, 60000);
+  update_timers();
+  setInterval(update_timers, 60000);
   
   // Steam
   $.getJSON("steam.php", function(data) {
@@ -69,29 +69,74 @@ var toggle_trapdoor = function() {
   trapdoor_open = ! trapdoor_open;  
 }
 
+var update_timers = function() {     
+  $("#got_days").empty();
+  $("#f1_days").empty();
+  $("#got_days").append("<h1>" + days_until(next_game_of_thrones()) + "</h1> Days");
+  $("#f1_days").append("<h1>" + days_until(next_f1()) + "</h1> Days");
+}
 
-var initialize_game_of_thrones = function() {
-  var today = new Date();
-  var airdate = new Date("04/07/2014 21:00");
-  
-  var diff_ms = airdate.getTime() - today.getTime();
-  
-  /*
-  var diff_seconds = Math.floor(diff_ms / 1000);
-  diff_seconds = diff_seconds % 60;
-  
-  var diff_minutes = diff_ms / (1000 * 60);
-  diff_minutes = Math.floor(diff_minutes % 60);
-  
-  var diff_hours = diff_ms / (1000 * 60 * 60);
-  diff_hours = Math.floor(diff_hours % 24);
-  */
-  
+var days_until = function(then) {
+  if (then == null) {
+    return "\u2639";
+  }
+  var now = new Date();
+  var diff_ms = then - now;
   var diff_days = diff_ms / (1000 * 60 * 60 * 24);
-  diff_days = Math.floor(diff_days);
+  return pad(Math.floor(diff_days));
+}
+
+var next_game_of_thrones = function() {
+  var next_date = new Date("04/07/2014 21:00");
+  var today = new Date();
+  
+  // Go through each of the episodes.
+  for (var i = 2; i <= 11; i++) {
+    if (today < next_date) {
+      return next_date;
+    }
     
-  $("#got_days").empty();  
-  $("#got_days").append("<h1>" + pad(diff_days) + "</h1> Days");
+    // Each episode is 7 days later
+    next_date.setDate(next_date.getDate() + 7);
+    // The eighth episode is delayed an extra week.
+    if (i == 8) {
+      next_date.setDate(next_date.getDate() + 7);
+    }
+  }  
+  return null;
+}
+
+var next_f1 = function() {
+  var f1_races = new Array();
+  f1_races[0] = new Date("03/16/14");
+  f1_races[1] = new Date("03/30/14");
+  f1_races[2] = new Date("04/06/14");
+  f1_races[3] = new Date("04/20/14");
+  f1_races[4] = new Date("05/11/14");
+  f1_races[5] = new Date("05/25/14");
+  f1_races[6] = new Date("06/08/14");
+  f1_races[7] = new Date("06/22/14");
+  f1_races[8] = new Date("07/06/14");
+  f1_races[9] = new Date("07/20/14");
+  f1_races[10] = new Date("07/27/14");
+  f1_races[11] = new Date("08/24/14");
+  f1_races[12] = new Date("09/07/14");
+  f1_races[13] = new Date("09/21/14");
+  f1_races[14] = new Date("10/05/14");
+  f1_races[15] = new Date("10/12/14");
+  f1_races[16] = new Date("11/02/14");
+  f1_races[17] = new Date("11/09/14");
+  f1_races[18] = new Date("11/23/14");
+  
+  var today = new Date();
+  
+  for (var i = 0; i < f1_races.length; i++) {
+    if (today < f1_races[i]) {
+      return f1_races[i];
+    }
+  }
+  
+  return null;
 }
 
 var pad = function(number) {
@@ -193,7 +238,7 @@ var pad = function(number) {
                --><div class="separator"></div><!--
                --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a><!--
                --><div class="separator invisible"></div><!--
-               --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a><!--
+               --><a href="http://www.w3schools.com/tags/ref_colorpicker.asp" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/colour picker.png"></img></div></a><!--
                --><div class="separator invisible"></div><!--
                --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a>
                 </div>
@@ -211,6 +256,10 @@ var pad = function(number) {
             <div id="got">
               <img src="images/Game of Thrones.jpg" style="width: 100%;"></img>
               <div id="got_days"></div>
+            </div>
+            <div id="f1">
+              <img src="images/Formula 1.png" style="width: 100%;"></img>
+              <div id="f1_days"></div>
             </div>
           </div>          
         </div>
