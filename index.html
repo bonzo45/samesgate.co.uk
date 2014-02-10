@@ -19,6 +19,11 @@ $(document).ready(function(){
   $("#sams_garage").click(toggle_garage);
   $("#bunker_trapdoor").click(toggle_trapdoor);
   
+  // Countdowns
+  initialize_game_of_thrones();
+  setInterval(initialize_game_of_thrones, 60000);
+  
+  // Steam
   $.getJSON("steam.php", function(data) {
     $.each(data.response.games, function(index, value) {
       $(".steam_image").last().after("<img class='steam_image' src='http://media.steampowered.com/steamcommunity/public/images/apps/" + value.appid + "/" + value.img_logo_url + ".jpg'></img>");
@@ -64,18 +69,51 @@ var toggle_trapdoor = function() {
   trapdoor_open = ! trapdoor_open;  
 }
 
+
+var initialize_game_of_thrones = function() {
+  var today = new Date();
+  var airdate = new Date("04/07/2014 21:00");
+  
+  var diff_ms = airdate.getTime() - today.getTime();
+  
+  /*
+  var diff_seconds = Math.floor(diff_ms / 1000);
+  diff_seconds = diff_seconds % 60;
+  
+  var diff_minutes = diff_ms / (1000 * 60);
+  diff_minutes = Math.floor(diff_minutes % 60);
+  
+  var diff_hours = diff_ms / (1000 * 60 * 60);
+  diff_hours = Math.floor(diff_hours % 24);
+  */
+  
+  var diff_days = diff_ms / (1000 * 60 * 60 * 24);
+  diff_days = Math.floor(diff_days);
+    
+  $("#got_days").empty();  
+  $("#got_days").append("<h1>" + pad(diff_days) + "</h1> Days");
+}
+
+var pad = function(number) {
+  var string = "" + number;
+  if (string.length == 1) {
+    return "0" + string;
+  }
+  
+  return string;
+}
+
 </script>
 
   <head>
     <title>crazy-bonzo</title>
   </head>
   
-  <body>  
-    
+  <body>
     <div id="main">
     <div id="main_black">
       
-      <div id="home" class="main_inner">
+      <div id="home" class="main_inner">      
         <div id="upper_bank" class="bank">
         
           <div id="sky">
@@ -168,7 +206,11 @@ var toggle_trapdoor = function() {
             </div>
             
             <div id="bonzo_div">
-              <img id="bonzo" src="images/bonzo_transparent.png" alt="Bonzo"><img>
+              <img id="bonzo" src="images/bonzo_transparent.png" style="height: 100%;" alt="Bonzo"><img>
+            </div>
+            <div id="got">
+              <img src="images/Game of Thrones.jpg" style="width: 100%;"></img>
+              <div id="got_days"></div>
             </div>
           </div>          
         </div>
