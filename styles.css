@@ -1,6 +1,5 @@
 html {
-  background-image: url("images/textures/raw/grass.jpg");
-  background-size: 225px 225px;
+  background-color: black;
 }
 
 body {
@@ -12,7 +11,7 @@ body {
 #main {
   position: relative;
   background-color: black;
-  height: 700px;
+  height: 900px;
 }
 
 #main_black {
@@ -38,7 +37,7 @@ body {
 #upper_bank {
   position: absolute;
   top: 0px;
-  height: 60%;
+  height: 420px;
   z-index: 2;
 }
 
@@ -108,8 +107,8 @@ body {
   background-image: url("images/textures/soil_grass.png");
   
   position: absolute;
-  bottom: 0px;
-  height: 225px;
+  top: 490px;
+  height: 150px;
   z-index: 2;
 }
 
@@ -121,6 +120,16 @@ body {
 	position: relative;
 	width: 900px;
 	margin: 0 auto;
+}
+
+#lawn {
+  background-image: url("images/textures/raw/grass.jpg");
+  background-size: 225px 225px;
+  
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top: 640px;
 }
 
 /* UPPER BANK ITEMS */
@@ -352,7 +361,7 @@ body {
 #bonzo_div {
   height: 200px;
   position: absolute;
-  top: 120px;
+  top: 20px;
   left: 60px;
   z-index: 2;
 }
@@ -392,7 +401,7 @@ body {
 }
 
 #nest_list {
-  background-color: #1E0C0C;
+  background-color: #2D2222;
   border-radius: 5px;
 
   position: absolute;
@@ -436,7 +445,7 @@ body {
 
 #sign_to_work {
   position: absolute;
-  top: 170px;
+  top: 20px;
   right: 70px;
   width: 125px;
   z-index: 2;
@@ -450,7 +459,7 @@ body {
 #got {
   position: absolute;
   left: 200px;
-  top: 140px;
+  top: 40px;
   width: 100px;
   height: 180px;
   z-index: 1;
@@ -478,8 +487,8 @@ body {
 
 #f1 {
   position: absolute;
-  right: 220px;
-  top: 140px;
+  right: 60px;
+  top: 40px;
   width: 100px;
   height: 180px;
   z-index: 1;
@@ -503,6 +512,78 @@ body {
   font-size: 40pt;
   line-height: 90%;
   margin: 5px 0px 0px 0px;
+}
+
+#harmonica {
+  position: absolute;
+  width: 300px;
+  top: 0px;
+  left: 370px;
+}
+
+#harmonica_links {
+  overflow: hidden;
+  height: 100px;
+}
+
+.harmonica_open {
+  height: 300px;
+}
+
+.harmonica_closed  {
+  height: 100px;
+}
+
+.harmonica_open {
+  -webkit-animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
+  animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
+}
+
+@-webkit-keyframes animatedHarmonicaOpen {
+	from {
+    height: 100px;
+  }
+	to {
+    height: 300px;
+  }
+}
+@keyframes animatedHarmonicaOpen {
+	from {
+    height: 100px;
+  }
+	to {
+    height: 300px;
+  }
+}
+
+.harmonica_closed {
+  -webkit-animation: animatedHarmonicaClose 0.5s linear 1 forwards;
+  animation: animatedHarmonicaClose 0.5s linear 1 forwards;
+}
+
+@-webkit-keyframes animatedHarmonicaClose {
+	from {
+    height: 300px;
+  }
+	to { 
+    height: 100px;
+  }
+}
+@keyframes animatedHarmonicaClose {
+	from {
+    height: 300px;
+  }
+	to { 
+    height: 100px;
+  }
+}
+
+.harp_tab {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: black;
+  vertical-align: top;
 }
 
 /* --------------- WORK -------------- */

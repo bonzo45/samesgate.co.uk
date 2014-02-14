@@ -18,6 +18,7 @@ $(document).ready(function(){
   $("#poster").click(toggle_screens);
   $("#sams_garage").click(toggle_garage);
   $("#bunker_trapdoor").click(toggle_trapdoor);
+  $("#harmonica_image").click(toggle_harmonica);
   
   // Countdowns
   update_timers();
@@ -53,6 +54,21 @@ var toggle_garage = function() {
   }
   
   garage_open = ! garage_open;
+}
+
+var harmonica_open = false;
+
+var toggle_harmonica = function() {
+  if (harmonica_open) {    
+    $("#harmonica_links").addClass("harmonica_closed");
+    $("#harmonica_links").removeClass("harmonica_open");
+  }
+  else {
+    $("#harmonica_links").addClass("harmonica_open");
+    $("#harmonica_links").removeClass("harmonica_closed");
+  }
+  
+  harmonica_open = ! harmonica_open;
 }
 
 var trapdoor_open = false;
@@ -225,6 +241,8 @@ var pad = function(number) {
                   <a href="https://cate.doc.ic.ac.uk" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/cate.png"></img></div></a><!--
                --><div class="separator invisible"></div><!--
                --><a href="http://www.doc.ic.ac.uk/~ms6611/table/3" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/calendar.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="https://gitlab.doc.ic.ac.uk/" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/gitlab.png"></img></div></a><!--
                --><div class="separator"></div><!--
                --><a href="http://www.facebook.com/bonzo45" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/facebook.png"></img></div></a><!--
                --><div class="separator invisible"></div><!--
@@ -239,29 +257,62 @@ var pad = function(number) {
                --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a><!--
                --><div class="separator invisible"></div><!--
                --><a href="http://www.w3schools.com/tags/ref_colorpicker.asp" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/colour picker.png"></img></div></a><!--
-               --><div class="separator invisible"></div><!--
-               --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a>
+               --><div class="separator invisible"></div>
                 </div>
                 <div id="nest_grass"></div>
               </div>
             </div>
             
-            <div id="sign_to_work">
-              <img class="shadowed" style="width:100%;" src="images/sign_to_work.png"></img>
-            </div>
+          </div>          
+        </div>
+        <div id="lawn">
+          <div id="lawn_central" class="central">
             
             <div id="bonzo_div">
               <img id="bonzo" src="images/bonzo_transparent.png" style="height: 100%;" alt="Bonzo"><img>
             </div>
             <div id="got">
-              <img src="images/Game of Thrones.jpg" style="width: 100%;"></img>
+              <a href="http://www.hbo.com/game-of-thrones" target="_blank"><img src="images/Game of Thrones.jpg" style="width:100%;"></img></a>
               <div id="got_days"></div>
             </div>
             <div id="f1">
-              <img src="images/Formula 1.png" style="width: 100%;"></img>
+              <a href="http://www.formula1.com/" target="_blank"><img src="images/Formula 1.png" style="width:100%;"></img></a>
               <div id="f1_days"></div>
             </div>
-          </div>          
+            
+            <div id="harmonica">
+              <img id="harmonica_image" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
+              <div id="harmonica_links">
+                <div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=164" target="_blank"><img src="images/harp/freewheelin.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=95" target="_blank"><img src="images/harp/bringing.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=597" target="_blank"><img src="images/harp/jurassic.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16611" target="_blank"><img src="images/harp/lotr.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16804" target="_blank"><img src="images/harp/pirates.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=3500" target="_blank"><img src="images/harp/beyond.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=1299" target="_blank"><img src="images/harp/hallelujah.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=7104" target="_blank"><img src="images/harp/brother.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16166" target="_blank"><img src="images/harp/cheers.jpg" style="width:100%;"></img></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>      
       
