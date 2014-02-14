@@ -1,14 +1,15 @@
+/* MADE USING SASS */
 $font_family: "Helvetica"
 $page_height: 900px
 $page_width: 900px
 
-/* LAYERS */
+// LAYERS
 $layer_1: 1
 $layer_2: 2
 $layer_3: 3
 $layer_4: 4
 
-/* TEXTURES */
+// TEXTURES
 $texture_path: "images/textures/"
 $texture_sky: $texture_path + "sky.jpg"
 $texture_upper_bank: $texture_path + "test.png"
@@ -17,12 +18,34 @@ $texture_lower_bank: $texture_path + "soil_grass.png"
 $texture_lawn: $texture_path + "raw/grass.jpg"
 $texture_grass_blades: $texture_path + "grass_blade.png"
 
-/* HEIGHT / POSITION */
+// HEIGHT
 $height_sky: 300px
 $height_upper_bank: 420px
 $height_river: 100px
 $height_lower_bank: 150px
 $height_lawn: 400px
+
+// NEST
+$height_nest: 80px
+$size_nest_icon: 50px
+$padding_nest_icon: ($height_nest - $size_nest_icon) / 2
+//  - Widths
+$nest_links: 10
+$nest_separators: 3
+$nest_link_separator_ratio: 1 / 4
+$total_nest_units: $nest_links + $nest_separators * $nest_link_separator_ratio
+$nest_link_width: 100% * (1 / $total_nest_units)
+$nest_separator_width_total: 100% * (1 * $nest_link_separator_ratio / $total_nest_units)
+//  - Padding
+$nest_separator_padding_ratio: 3 / 4
+$nest_separator_width: $nest_separator_width_total * (1 - $nest_separator_padding_ratio)
+$nest_separator_padding: $nest_separator_width_total * $nest_separator_padding_ratio / 2
+$nest_separator_padding_ratio_vert: 1 / 5
+$nest_separator_height: (1 - $nest_separator_padding_ratio_vert) * $height_nest
+$nest_separator_padding_vert: ($nest_separator_padding_ratio_vert * $height_nest) / 2
+//  - Grass
+$nest_grass_height: 35%
+$nest_grass_top: 100% - $nest_grass_height
 
 html
   background:
@@ -47,22 +70,21 @@ body
   width: 100%
   height: 100%
 
-#home
-
+@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  top: $top
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+  
 #sky
   background:
     image: url(#{$texture_sky})
-  position: absolute
-  width: 100%
-  height: $height_sky
-  top: 0px
-  z-index: $layer_1
+  @include absolute_object(0px, 0px, 100%, $height_sky, $layer_1)
  
 #mountain
-  position: absolute
-  top: 50px
-  left: 400px
-  z-index: $layer_2
+  @include absolute_object(50px, 400px, 350px, 350px, $layer_2)
 
 .bank
   width: 100%
@@ -72,21 +94,15 @@ body
     image: url(#{$texture_upper_bank})
     size: 250px 600px
     position: left bottom
-  position: absolute
-  top: 0px
-  height: $height_upper_bank
-  z-index: $layer_3
+  @include absolute_object(0px, 0px, 100%, $height_upper_bank, $layer_3)
    
 .central
   position: relative
   width: $page_width
+  height: 100%
   margin: 0 auto
 
 #upper_bank_central
-  position: relative
-  width: $page_width
-  height: 100%
-  margin: 0 auto
   padding-top: 20px
   
 #river
@@ -94,22 +110,12 @@ body
     image: url(#{$texture_river})
     size: 100px 100px
     position: 0px 0px
-  position: absolute
-  top: 400px
-  width: 100%
-  height: $height_river
-  z-index: $layer_1
+  @include absolute_object(400px, 0px, 100%, $height_river, $layer_1)
     
 #lower_bank
   background:
     image: url(#{$texture_lower_bank})
-  position: absolute
-  top: 490px
-  height: $height_lower_bank
-  z-index: $layer_2
-
-#lower_bank_central
-  height: 100%
+  @include absolute_object(490px, 0px, 100%, $height_lower_bank, $layer_2)
 
 #lawn
   background:
@@ -121,14 +127,6 @@ body
   height: $height_lawn
   
 /* UPPER BANK */
-
-@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
-  position: absolute
-  top: $top
-  left: $left
-  width: $width
-  height: $height
-  z-index: $z-index
 
 #sams_sign
   @include absolute_object(250px, 20px, 150px, 150px, $layer_3)
@@ -148,152 +146,152 @@ body
 #garage_door
   @include absolute_object(250px, 640px, 121px, 100px, $layer_1)
     
-/* LOWER BANK ITEMS */
-
-#bonzo_div
-  @include absolute_object(20px, 60px, 200px, 200px)
+/* LOWER BANK */
 
 #nest_sign
-  @include absolute_object(30px, 300px, 300px, 300px, $layer_2)
+  @include absolute_object(30px, 300px, 300px, 29px, $layer_2)
 
 #nest
-  @include absolute_object(50px, 0px, 100%, 80px, $layer_1)
+  @include absolute_object(50px, 0px, 100%, $height_nest, $layer_1)
 
 #nest_inner 
-  margin: 0 auto
   position: relative
   width: $page_width - 100px
   height: 100%
-
-#nest_grass
-  background:
-    image: url(#{$texture_grass_blades})
-    size: 100px 30px
-  
-  position: absolute
-  left: 0px
-  bottom: 0px
-  height: 30px
-  width: 100%
-  pointer-events: none
-
-#nest_list 
+  margin: 0 auto
   background:
     color: #2D2222
   border:
     radius: 5px
 
-  position: absolute
-  left: 0px
-  top: 0px
-  height: 80px
-  width: 97%
-  padding: 0px 1.5% 0px 1.5%
+#nest_list     
+  height: $height_nest
+  width: 100% -  1 * $nest_separator_width_total
+  margin: 0 auto
 
 .nest_item
   display: inline-block
-  width: 8.8%
-  height: 80px
-  border:
-    radius: 5px
+  width: $nest_link_width
+  height: $height_nest
 
 .separator
   display: inline-block
-  width: 0.5%
-  height: 60px
-  margin: 10px 1.75% 10px 1.75%
+  width: $nest_separator_width
+  height: $nest_separator_height
+  margin:
+    top: $nest_separator_padding_vert
+    right: $nest_separator_padding 
+    bottom: $nest_separator_padding_vert 
+    left: $nest_separator_padding
   border:
     radius: 1px
   background:
     color: #5C5C5C
 
-.invisible 
-  background:
-    color: transparent !important 
+.invisible
   width: 0% !important
-  margin: 10px 0% 10px 0% !important
+  margin:
+    left: 0px
+    right: 0px
 
 .nest_thumb
   display: block
   margin: 0 auto
-    top: 15px
-    bottom: 15px
-  width: 50px
-  height: 50px
+    top: $padding_nest_icon
+    bottom: $padding_nest_icon
+  width: $size_nest_icon
+  height: $size_nest_icon
+
+#nest_grass
+  background:
+    image: url(#{$texture_grass_blades})
+    size: 100px 30px
+  @include absolute_object($nest_grass_top, 0px, 100%, $nest_grass_height)
+  pointer-events: none
   
-#got
-  position: absolute
-  left: 200px
-  top: 40px
-  width: 100px
-  height: 180px
-  z-index: 1
-   
+/* LAWN */  
+
+#bonzo_div
+  @include absolute_object(20px, 60px, 200px, 200px)
+
+@mixin countdown($top, $left, $z-index)
+  @include absolute_object($top, $left, 100px, 180px, $z-index)
   text:
     align: center
+
+@mixin countdown_days($primary, $secondary)
+  @include absolute_object(100px, 0px, 100%, 80px)
+  background:
+    color: $primary
+  border:
+    top: 2px $secondary solid
+  font:
+    size: 14pt
+  color: $secondary
+  
+  h1
+    font:
+      size: 40pt
+    line:
+      height: 90%
+    margin: 5px 0px 0px 0px
+
+#got
+  @include countdown(40px, 200px, $layer_1)
 
 #got_days
-  position: absolute
-  left: 0px
-  bottom: 0px
-  width: 100%
-  height: 80px
-  border:
-    top: 2px #B2B2B2 solid
-  font:
-    size: 14pt
-  color: #EFEFEF
-  background:
-    color: #6B6B6B
-
-#got_days h1
-  font:
-    size: 40pt
-  line:
-    height: 90%
-  margin: 5px 0px 0px 0px
+  @include countdown_days(#6B6B6B, #EFEFEF)
 
 #f1
-  position: absolute
-  right: 60px
-  top: 40px
-  width: 100px
-  height: 180px
-   
-  text:
-    align: center
+  @include countdown(40px, 730px, $layer_1)
 
 #f1_days
-  position: absolute
-  left: 0px
-  bottom: 0px
-  width: 100%
-  height: 80px
-  border:
-    top: 2px #660000 solid
-  font:
-    size: 14pt
-  color: #800000
-  background:
-    color: #6B6B6B
+  @include countdown_days(#6B6B6B, #800000)
 
-#f1_days h1
-  font:
-    size: 40pt
-  line:
-    height: 90%
-  margin: 5px 0px 0px 0px
+@mixin generateKeyframes ($animationName, $first, $second)
+  @-webkit-keyframes #{$animationName}Open
+    from
+      height: $first
+    to
+      height: $second
+  
+  @keyframes #{$animationName}Open
+    from
+      height: $first
+    to
+      height: $second
+    
+  @-webkit-keyframes #{$animationName}Close
+    from
+      height: $second
+    to
+      height: $first
+  
+  @keyframes #{$animationName}Close
+    from
+      height: $second
+    to
+      height: $first
 
+@mixin animate($animationName, $time)
+  -webkit-animation: $animationName $time linear 1 forwards
+  animation: $animationName $time linear 1 forwards
+    
 #harmonica
-  position: absolute
-  width: 300px
-  top: 0px
-  left: 370px
+  @include absolute_object(0px, 370px, 300px, 150px)
 
 #harmonica_links
   overflow: hidden
   height: 100px
   
+.harmonica_open
+  @include animate(animatedHarmonicaOpen, 0.5s)
+  
+.harmonica_closed
+  @include animate(animatedHarmonicaClose, 0.5s)
+
+@include generateKeyframes(animatedHarmonica, 100px, 300px)
+
 .harp_tab
   width: 100px
   height: 100px

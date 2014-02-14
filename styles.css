@@ -1,6 +1,4 @@
-/* LAYERS */
-/* TEXTURES */
-/* HEIGHT / POSITION */
+/* MADE USING SASS */
 html {
   background-color: black; }
 
@@ -25,15 +23,18 @@ body {
 #sky {
   background-image: url(images/textures/sky.jpg);
   position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 300px;
-  top: 0px;
   z-index: 1; }
 
 #mountain {
   position: absolute;
   top: 50px;
   left: 400px;
+  width: 350px;
+  height: 350px;
   z-index: 2; }
 
 .bank {
@@ -45,19 +46,18 @@ body {
   background-position: left bottom;
   position: absolute;
   top: 0px;
+  left: 0px;
+  width: 100%;
   height: 420px;
   z-index: 3; }
 
 .central {
   position: relative;
   width: 900px;
+  height: 100%;
   margin: 0 auto; }
 
 #upper_bank_central {
-  position: relative;
-  width: 900px;
-  height: 100%;
-  margin: 0 auto;
   padding-top: 20px; }
 
 #river {
@@ -66,6 +66,7 @@ body {
   background-position: 0px 0px;
   position: absolute;
   top: 400px;
+  left: 0px;
   width: 100%;
   height: 100px;
   z-index: 1; }
@@ -74,11 +75,10 @@ body {
   background-image: url(images/textures/soil_grass.png);
   position: absolute;
   top: 490px;
+  left: 0px;
+  width: 100%;
   height: 150px;
   z-index: 2; }
-
-#lower_bank_central {
-  height: 100%; }
 
 #lawn {
   background-image: url(images/textures/raw/grass.jpg);
@@ -137,21 +137,13 @@ body {
   height: 100px;
   z-index: 1; }
 
-/* LOWER BANK ITEMS */
-#bonzo_div {
-  position: absolute;
-  top: 20px;
-  left: 60px;
-  width: 200px;
-  height: 200px;
-  z-index: 1; }
-
+/* LOWER BANK */
 #nest_sign {
   position: absolute;
   top: 30px;
   left: 300px;
   width: 300px;
-  height: 300px;
+  height: 29px;
   z-index: 2; }
 
 #nest {
@@ -163,49 +155,38 @@ body {
   z-index: 1; }
 
 #nest_inner {
-  margin: 0 auto;
   position: relative;
   width: 800px;
-  height: 100%; }
-
-#nest_grass {
-  background-image: url(images/textures/grass_blade.png);
-  background-size: 100px 30px;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
-  pointer-events: none; }
+  height: 100%;
+  margin: 0 auto;
+  background-color: #2d2222;
+  border-radius: 5px; }
 
 #nest_list {
-  background-color: #2d2222;
-  border-radius: 5px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   height: 80px;
-  width: 97%;
-  padding: 0px 1.5% 0px 1.5%; }
+  width: 97.67442%;
+  margin: 0 auto; }
 
 .nest_item {
   display: inline-block;
-  width: 8.8%;
-  height: 80px;
-  border-radius: 5px; }
+  width: 9.30233%;
+  height: 80px; }
 
 .separator {
   display: inline-block;
-  width: 0.5%;
-  height: 60px;
-  margin: 10px 1.75% 10px 1.75%;
+  width: 0.5814%;
+  height: 64px;
+  margin-top: 8px;
+  margin-right: 0.87209%;
+  margin-bottom: 8px;
+  margin-left: 0.87209%;
   border-radius: 1px;
   background-color: #5c5c5c; }
 
 .invisible {
-  background-color: transparent !important;
   width: 0% !important;
-  margin: 10px 0% 10px 0% !important; }
+  margin-left: 0px;
+  margin-right: 0px; }
 
 .nest_thumb {
   display: block;
@@ -215,10 +196,30 @@ body {
   width: 50px;
   height: 50px; }
 
+#nest_grass {
+  background-image: url(images/textures/grass_blade.png);
+  background-size: 100px 30px;
+  position: absolute;
+  top: 65%;
+  left: 0px;
+  width: 100%;
+  height: 35%;
+  z-index: 1;
+  pointer-events: none; }
+
+/* LAWN */
+#bonzo_div {
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  width: 200px;
+  height: 200px;
+  z-index: 1; }
+
 #got {
   position: absolute;
-  left: 200px;
   top: 40px;
+  left: 200px;
   width: 100px;
   height: 180px;
   z-index: 1;
@@ -226,53 +227,92 @@ body {
 
 #got_days {
   position: absolute;
+  top: 100px;
   left: 0px;
-  bottom: 0px;
   width: 100%;
   height: 80px;
-  border-top: 2px #b2b2b2 solid;
+  z-index: 1;
+  background-color: #6b6b6b;
+  border-top: 2px #efefef solid;
   font-size: 14pt;
-  color: #efefef;
-  background-color: #6b6b6b; }
-
-#got_days h1 {
-  font-size: 40pt;
-  line-height: 90%;
-  margin: 5px 0px 0px 0px; }
+  color: #efefef; }
+  #got_days h1 {
+    font-size: 40pt;
+    line-height: 90%;
+    margin: 5px 0px 0px 0px; }
 
 #f1 {
   position: absolute;
-  right: 60px;
   top: 40px;
+  left: 730px;
   width: 100px;
   height: 180px;
+  z-index: 1;
   text-align: center; }
 
 #f1_days {
   position: absolute;
+  top: 100px;
   left: 0px;
-  bottom: 0px;
   width: 100%;
   height: 80px;
-  border-top: 2px #660000 solid;
+  z-index: 1;
+  background-color: #6b6b6b;
+  border-top: 2px maroon solid;
   font-size: 14pt;
-  color: maroon;
-  background-color: #6b6b6b; }
-
-#f1_days h1 {
-  font-size: 40pt;
-  line-height: 90%;
-  margin: 5px 0px 0px 0px; }
+  color: maroon; }
+  #f1_days h1 {
+    font-size: 40pt;
+    line-height: 90%;
+    margin: 5px 0px 0px 0px; }
 
 #harmonica {
   position: absolute;
-  width: 300px;
   top: 0px;
-  left: 370px; }
+  left: 370px;
+  width: 300px;
+  height: 150px;
+  z-index: 1; }
 
 #harmonica_links {
   overflow: hidden;
   height: 100px; }
+
+.harmonica_open {
+  -webkit-animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
+  animation: animatedHarmonicaOpen 0.5s linear 1 forwards; }
+
+.harmonica_closed {
+  -webkit-animation: animatedHarmonicaClose 0.5s linear 1 forwards;
+  animation: animatedHarmonicaClose 0.5s linear 1 forwards; }
+
+@-webkit-keyframes animatedHarmonicaOpen {
+  from {
+    height: 100px; }
+
+  to {
+    height: 300px; } }
+
+@keyframes animatedHarmonicaOpen {
+  from {
+    height: 100px; }
+
+  to {
+    height: 300px; } }
+
+@-webkit-keyframes animatedHarmonicaClose {
+  from {
+    height: 300px; }
+
+  to {
+    height: 100px; } }
+
+@keyframes animatedHarmonicaClose {
+  from {
+    height: 300px; }
+
+  to {
+    height: 100px; } }
 
 .harp_tab {
   width: 100px;
