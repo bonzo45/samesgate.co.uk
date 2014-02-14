@@ -1,0 +1,318 @@
+$font_family: "Helvetica"
+$page_height: 900px
+$page_width: 900px
+
+/* LAYERS */
+$layer_1: 1
+$layer_2: 2
+$layer_3: 3
+$layer_4: 4
+
+/* TEXTURES */
+$texture_path: "images/textures/"
+$texture_sky: $texture_path + "sky.jpg"
+$texture_upper_bank: $texture_path + "test.png"
+$texture_river: $texture_path + "river.jpg"
+$texture_lower_bank: $texture_path + "soil_grass.png"
+$texture_lawn: $texture_path + "raw/grass.jpg"
+
+/* HEIGHT / POSITION */
+$height_sky: 300px
+$height_upper_bank: 420px
+$height_river: 100px
+$height_lower_bank: 150px
+$height_lawn: 400px
+
+html
+  background:
+    color: black
+    
+body
+  font:
+    family: $font_family
+  height: $page_height
+  margin: 0 auto
+  
+#main
+  position: relative
+  height: $page_height
+
+/* Fills main, allows it to fade to black. */
+#main_black
+  width: 100%
+  height: 100%
+
+.main_inner
+  width: 100%
+  height: 100%
+
+.bank
+  width: 100%
+
+#home
+
+#sky
+  background:
+    image: url(#{$texture_sky})
+  position: absolute
+  width: 100%
+  height: $height_sky
+  top: 0px
+  z-index: $layer_1
+ 
+#mountain
+  position: absolute
+  top: 50px
+  left: 400px
+  z-index: $layer_2
+ 
+#upper_bank
+  position: absolute
+  top: 0px
+  height: $height_upper_bank
+  z-index: $layer_3
+  background:
+    image: url(#{$texture_upper_bank})
+    size: 250px 600px
+    position: left bottom
+   
+#upper_bank_central
+  position: relative
+  width: $page_width
+  margin: 0 auto
+  padding-top: 20px
+  height: 100%
+  
+#river
+  position: absolute
+  top: 400px
+  width: 100%
+  height: $height_river
+  z-index: $layer_1
+  
+  background:
+    image: url(#{$texture_river})
+    size: 100px 100px
+    position: 0px 0px
+    
+#lower_bank
+  background:
+    image: url(#{$texture_lower_bank})
+  
+  position: absolute
+  top: 490px
+  height: $height_lower_bank
+  z-index: $layer_2
+
+#lower_bank_central
+  height: 100%
+
+.central
+  position: relative
+  width: $page_width
+  margin: 0 auto
+
+#lawn
+  background:
+    image: url(#{$texture_path}raw/grass.jpg)
+    size: 225px 225px
+  
+  position: absolute
+  width: 100%
+  height: $height_lawn
+  top: 640px
+  
+/* UPPER BANK */
+#sams_sign
+  position: absolute
+  top: 250px
+  left: 20px
+  width: 150px
+
+#bike
+  position: absolute
+  top: 270px
+  left: 730px
+
+#tree 
+  position: absolute
+  top: 130px
+  left: 680px
+
+#sams_house
+  position: absolute
+  top: 130px
+  left: 80px
+
+#sams_garage
+  position: absolute
+  top: 210px
+  left: 480px
+
+#garage_door
+  position: absolute
+  height: 100px
+  width: 121px
+  top: 250px
+  left: 640px
+  
+/* LOWER BANK ITEMS */
+
+#bonzo_div
+  height: 200px
+  position: absolute
+  top: 20px
+  left: 60px
+
+#nest_sign
+  position: absolute
+  left: 300px
+  top: 30px
+  z-index: 3
+
+#nest
+  position: absolute
+  top: 50px
+  height: 80px
+  width: 100%
+
+#nest_inner 
+  margin: 0 auto
+  position: relative
+  width: 800px
+  height: 100%
+
+#nest_grass
+  background:
+    image: url(#{$texture_path}grass_blade.png)
+    size: 100px 30px
+  
+  position: absolute
+  left: 0px
+  bottom: 0px
+  height: 30px
+  width: 100%
+  pointer-events: none
+
+#nest_list 
+  background:
+    color: #2D2222
+  border:
+    radius: 5px
+
+  position: absolute
+  left: 0px
+  top: 0px
+  height: 80px
+  width: 97%
+  padding: 0px 1.5% 0px 1.5%
+
+.nest_item
+  display: inline-block
+  width: 8.8%
+  height: 80px
+  border:
+    radius: 5px
+
+.separator
+  display: inline-block
+  width: 0.5%
+  height: 60px
+  margin: 10px 1.75% 10px 1.75%
+  border:
+    radius: 1px
+  background:
+    color: #5C5C5C
+
+.invisible 
+  background:
+    color: transparent !important 
+  width: 0% !important
+  margin: 10px 0% 10px 0% !important
+
+.nest_thumb
+  display: block
+  margin: 0 auto
+    top: 15px
+    bottom: 15px
+  width: 50px
+  height: 50px
+  
+#got
+  position: absolute
+  left: 200px
+  top: 40px
+  width: 100px
+  height: 180px
+  z-index: 1
+   
+  text:
+    align: center
+
+#got_days
+  position: absolute
+  left: 0px
+  bottom: 0px
+  width: 100%
+  height: 80px
+  border:
+    top: 2px #B2B2B2 solid
+  font:
+    size: 14pt
+  color: #EFEFEF
+  background:
+    color: #6B6B6B
+
+#got_days h1
+  font:
+    size: 40pt
+  line:
+    height: 90%
+  margin: 5px 0px 0px 0px
+
+#f1
+  position: absolute
+  right: 60px
+  top: 40px
+  width: 100px
+  height: 180px
+   
+  text:
+    align: center
+
+#f1_days
+  position: absolute
+  left: 0px
+  bottom: 0px
+  width: 100%
+  height: 80px
+  border:
+    top: 2px #660000 solid
+  font:
+    size: 14pt
+  color: #800000
+  background:
+    color: #6B6B6B
+
+#f1_days h1
+  font:
+    size: 40pt
+  line:
+    height: 90%
+  margin: 5px 0px 0px 0px
+
+#harmonica
+  position: absolute
+  width: 300px
+  top: 0px
+  left: 370px
+
+#harmonica_links
+  overflow: hidden
+  height: 100px
+  
+.harp_tab
+  width: 100px
+  height: 100px
+  display: inline-block
+  vertical-align: top

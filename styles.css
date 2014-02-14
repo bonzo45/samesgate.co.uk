@@ -1,423 +1,177 @@
+/* LAYERS */
+/* TEXTURES */
+/* HEIGHT / POSITION */
 html {
-  background-color: black;
-}
+  background-color: black; }
 
 body {
   font-family: "Helvetica";
-  height: 700px;
-  margin: 0 auto;
-}
+  height: 900px;
+  margin: 0 auto; }
 
 #main {
   position: relative;
-  background-color: black;
-  height: 900px;
-}
+  height: 900px; }
 
+/* Fills main, allows it to fade to black. */
 #main_black {
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }
 
 .main_inner {
-  position: relative;
   width: 100%;
-  height: 100%;
-}
-
-/* --------------- HOME -------------- */
-
-#home {
-}
+  height: 100%; }
 
 .bank {
-  width: 100%;
-}
-
-#upper_bank {
-  position: absolute;
-  top: 0px;
-  height: 420px;
-  z-index: 2;
-}
+  width: 100%; }
 
 #sky {
-  background-image: url("images/textures/sky.jpg");
-  
+  background-image: url(images/textures/sky.jpg);
   position: absolute;
   width: 100%;
   height: 300px;
   top: 0px;
-  z-index: 2;
-}
+  z-index: 1; }
 
 #mountain {
   position: absolute;
   top: 50px;
   left: 400px;
-  z-index: 3;
-}
+  z-index: 2; }
 
-#grass {
-  background-image: url("images/textures/test.png"); 
-  background-size: 250px 600px;
-  background-position:left bottom;
-  
+#upper_bank {
   position: absolute;
-  width: 100%;
-  height: 300px;
-  bottom: 0px;
-  z-index: 4;
-}
-  
+  top: 0px;
+  height: 420px;
+  z-index: 3;
+  background-image: url(images/textures/test.png);
+  background-size: 250px 600px;
+  background-position: left bottom; }
+
 #upper_bank_central {
   position: relative;
   width: 900px;
   margin: 0 auto;
   padding-top: 20px;
-  height: 80%;
-  z-index: 5;
-}
+  height: 100%; }
 
 #river {
   position: absolute;
   top: 400px;
   width: 100%;
   height: 100px;
-  
-  background-image: url("images/textures/river.jpg");
-  background-size: 100px 100px;
-  background-position: 0px 0px;
-  
-  -webkit-animation: animatedBackground 80s linear infinite;
-  animation: animatedBackground 80s linear infinite;
   z-index: 1;
-}
-
-@-webkit-keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
-}
-@keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
-}
+  background-image: url(images/textures/river.jpg);
+  background-size: 100px 100px;
+  background-position: 0px 0px; }
 
 #lower_bank {
-  background-image: url("images/textures/soil_grass.png");
-  
+  background-image: url(images/textures/soil_grass.png);
   position: absolute;
   top: 490px;
   height: 150px;
-  z-index: 2;
-}
+  z-index: 2; }
 
 #lower_bank_central {
-  height: 100%;
-}
+  height: 100%; }
 
 .central {
-	position: relative;
-	width: 900px;
-	margin: 0 auto;
-}
+  position: relative;
+  width: 900px;
+  margin: 0 auto; }
 
 #lawn {
-  background-image: url("images/textures/raw/grass.jpg");
+  background-image: url(images/textures/raw/grass.jpg);
   background-size: 225px 225px;
-  
   position: absolute;
   width: 100%;
   height: 400px;
-  top: 640px;
-}
+  top: 640px; }
 
-/* UPPER BANK ITEMS */
-
+/* UPPER BANK */
 #sams_sign {
   position: absolute;
   top: 250px;
   left: 20px;
-  width: 150px;
-  z-index: 4;
-}
+  width: 150px; }
 
 #bike {
   position: absolute;
   top: 270px;
-  left: 730px;
-  z-index: 4;
-}
+  left: 730px; }
 
 #tree {
   position: absolute;
   top: 130px;
-  left: 680px;
-  z-index: 1;
-}
+  left: 680px; }
 
 #sams_house {
   position: absolute;
   top: 130px;
-  left: 80px;
-  z-index: 2;
-}
+  left: 80px; }
 
 #sams_garage {
   position: absolute;
   top: 210px;
-  left: 480px;
-  z-index: 3;
-}
-
-#sams_garage:hover {
-  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5));
-  box-shadow: 0 8px 6px -6px black;
-}
+  left: 480px; }
 
 #garage_door {
   position: absolute;
   height: 100px;
   width: 121px;
   top: 250px;
-  left: 640px;
-  z-index: 2;
-}
-
-.garage_open {
-  -webkit-animation: animatedGarageOpen 7s linear 1 forwards;
-  animation: animatedGarageOpen 6s linear 1 forwards;
-}
-
-@-webkit-keyframes animatedGarageOpen {
-	from { 
-    top: 250px;
-    height: 100px;
-  }
-	to { 
-    top: 215px;
-    height: 50px;
-  }
-}
-@keyframes animatedGarageOpen {
-	from { 
-    top: 250px;
-    height: 100px;
-  }
-	to { 
-    top: 215px;
-    height: 50px;
-  }
-}
-
-.garage_closed {
-  -webkit-animation: animatedGarageClose 7s linear 1 forwards;
-  animation: animatedGarageClose 6s linear 1 forwards;
-}
-
-@-webkit-keyframes animatedGarageClose {
-	from {
-    top: 215px;
-    height: 50px;
-  }
-	to { 
-    top: 250px;
-    height: 100px;
-  }
-}
-@keyframes animatedGarageClose {
-	from {
-    top: 215px;
-    height: 50px;
-  }
-	to { 
-    top: 250px;
-    height: 100px;
-  }
-}
-
-/* SMOKE EFFECT */
-
-.smoke {
-  position: absolute;
-  z-index: 2;
-}
-
-#smoke1 {
-  top: 142px;
-  left: 393px; 
-
-  -webkit-animation: animatedSmoke1 4s linear infinite; 
-  animation: animatedSmoke1 4s linear infinite;  
-}
-
-#smoke2 {
-  top: 180px;
-  left: 405px;   
-  
-  -webkit-animation: animatedSmoke2 3s linear infinite;
-  animation: animatedSmoke2 3s linear infinite;
-}
-
-#smoke3 {
-  top: 168px;
-  left: 400px;  
-  
-  -webkit-animation: animatedSmoke3 5s linear infinite;
-  animation: animatedSmoke3 5s linear infinite;
-}
-
-#smoke4 {
-  top: 142px;
-  left: 393px;  
-  
-  -webkit-animation: animatedSmoke1 10s linear infinite;
-  animation: animatedSmoke1 10s linear infinite;
-}
-
-#smoke5 {
-  top: 180px;
-  left: 405px;  
-  
-  -webkit-animation: animatedSmoke2 7s linear infinite;
-  animation: animatedSmoke2 7s linear infinite;
-}
-
-#smoke6 {
-  top: 168px;
-  left: 400px;  
-  -webkit-animation: animatedSmoke3 6s linear infinite;
-  animation: animatedSmoke3 6s linear infinite;
-}
-
-@-webkit-keyframes animatedSmoke1 {
-	from { 
-    top: 142px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-@keyframes animatedSmoke1 {
-	from { 
-    top: 142px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes animatedSmoke2 {
-	from { 
-    top: 180px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-@keyframes animatedSmoke2 {
-	from { 
-    top: 180px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes animatedSmoke3 {
-	from { 
-    top: 168px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
-@keyframes animatedSmoke3 {
-	from { 
-    top: 168px;
-    opacity: 0.5;
-  }
-	to { 
-    top: -40px; 
-    opacity: 0;
-  }
-}
+  left: 640px; }
 
 /* LOWER BANK ITEMS */
-
-#bonzo {
-}
-
 #bonzo_div {
   height: 200px;
   position: absolute;
   top: 20px;
-  left: 60px;
-  z-index: 2;
-}
+  left: 60px; }
 
 #nest_sign {
   position: absolute;
   left: 300px;
   top: 30px;
-  z-index: 3;
-}
+  z-index: 3; }
 
 #nest {
   position: absolute;
   top: 50px;
   height: 80px;
-  width: 100%;
-  z-index: 1;
-}
+  width: 100%; }
 
 #nest_inner {
   margin: 0 auto;
   position: relative;
   width: 800px;
-  height: 100%;
-}
+  height: 100%; }
 
 #nest_grass {
-  background-image: url("images/textures/grass_blade.png");
+  background-image: url(images/textures/grass_blade.png);
   background-size: 100px 30px;
-  
   position: absolute;
   left: 0px;
   bottom: 0px;
   height: 30px;
   width: 100%;
-  pointer-events: none;
-}
+  pointer-events: none; }
 
 #nest_list {
-  background-color: #2D2222;
+  background-color: #2d2222;
   border-radius: 5px;
-
   position: absolute;
   left: 0px;
   top: 0px;
   height: 80px;
   width: 97%;
-  padding: 0px 1.5% 0px 1.5%;
-}
+  padding: 0px 1.5% 0px 1.5%; }
 
 .nest_item {
   display: inline-block;
   width: 8.8%;
   height: 80px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 .separator {
   display: inline-block;
@@ -425,36 +179,20 @@ body {
   height: 60px;
   margin: 10px 1.75% 10px 1.75%;
   border-radius: 1px;
-  background-color: #5C5C5C;
-}
+  background-color: #5c5c5c; }
 
 .invisible {
-  background-color: transparent !important;   
+  background-color: transparent !important;
   width: 0% !important;
-  margin: 10px 0% 10px 0% !important;
-}
+  margin: 10px 0% 10px 0% !important; }
 
 .nest_thumb {
   display: block;
   margin: 0 auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   width: 50px;
-  height: 50px;
-}
-
-#sign_to_work {
-  position: absolute;
-  top: 20px;
-  right: 70px;
-  width: 125px;
-  z-index: 2;
-}
-
-#sign_to_work:hover {
-  -webkit-filter: drop-shadow(0px 0px 30px rgba(255,255,255,0.5));
-  box-shadow: 0 -8px 6px -6px black;  
-}
+  height: 50px; }
 
 #got {
   position: absolute;
@@ -463,9 +201,7 @@ body {
   width: 100px;
   height: 180px;
   z-index: 1;
-   
-  text-align: center;
-}
+  text-align: center; }
 
 #got_days {
   position: absolute;
@@ -473,17 +209,15 @@ body {
   bottom: 0px;
   width: 100%;
   height: 80px;
-  border-top: 2px #B2B2B2 solid;
+  border-top: 2px #b2b2b2 solid;
   font-size: 14pt;
-  color: #EFEFEF;
-  background-color: #6B6B6B;
-}
+  color: #efefef;
+  background-color: #6b6b6b; }
 
 #got_days h1 {
   font-size: 40pt;
   line-height: 90%;
-  margin: 5px 0px 0px 0px;
-}
+  margin: 5px 0px 0px 0px; }
 
 #f1 {
   position: absolute;
@@ -491,10 +225,7 @@ body {
   top: 40px;
   width: 100px;
   height: 180px;
-  z-index: 1;
-   
-  text-align: center;
-}
+  text-align: center; }
 
 #f1_days {
   position: absolute;
@@ -504,428 +235,26 @@ body {
   height: 80px;
   border-top: 2px #660000 solid;
   font-size: 14pt;
-  color: #800000;
-  background-color: #6B6B6B;
-}
+  color: maroon;
+  background-color: #6b6b6b; }
 
 #f1_days h1 {
   font-size: 40pt;
   line-height: 90%;
-  margin: 5px 0px 0px 0px;
-}
+  margin: 5px 0px 0px 0px; }
 
 #harmonica {
   position: absolute;
   width: 300px;
   top: 0px;
-  left: 370px;
-}
+  left: 370px; }
 
 #harmonica_links {
   overflow: hidden;
-  height: 100px;
-}
-
-.harmonica_open {
-  height: 300px;
-}
-
-.harmonica_closed  {
-  height: 100px;
-}
-
-.harmonica_open {
-  -webkit-animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
-  animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
-}
-
-@-webkit-keyframes animatedHarmonicaOpen {
-	from {
-    height: 100px;
-  }
-	to {
-    height: 300px;
-  }
-}
-@keyframes animatedHarmonicaOpen {
-	from {
-    height: 100px;
-  }
-	to {
-    height: 300px;
-  }
-}
-
-.harmonica_closed {
-  -webkit-animation: animatedHarmonicaClose 0.5s linear 1 forwards;
-  animation: animatedHarmonicaClose 0.5s linear 1 forwards;
-}
-
-@-webkit-keyframes animatedHarmonicaClose {
-	from {
-    height: 300px;
-  }
-	to { 
-    height: 100px;
-  }
-}
-@keyframes animatedHarmonicaClose {
-	from {
-    height: 300px;
-  }
-	to { 
-    height: 100px;
-  }
-}
+  height: 100px; }
 
 .harp_tab {
   width: 100px;
   height: 100px;
   display: inline-block;
-  background-color: black;
-  vertical-align: top;
-}
-
-/* --------------- WORK -------------- */
-#work {
-  background-color: black;
-  position: relative;
-}
-
-#bunker_left {
-  background-color: black;
-  
-  position: absolute;
-  top: 0px;
-  right: 50%;
-  left: 0px;  
-  height: 100%;
-  margin-right: 500px;
-  z-index: 1;
-}
-
-#bunker_container {
-  position: relative;
-	width: 1500px;
-	margin: 0 auto;
-	height: 100%;
-  z-index: 2;
-}
-
-#bunker {
-  background-image: url("images/textures/rock.jpg");
-  background-position: bottom left;
-
-	position: absolute;
-  right: 300px;
-	width: 1100px;
-	height: 100%;
-}
-
-#bunker_right {
-  background-color: black;
-  
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 50%;
-  height: 100%;
-  margin-left: 450px;
-  z-index: 1;
-}
-
-#bunker_left_ceiling {
-  background-color: black;
-  
-  width: 100%;
-  height: 30%;
-}
-
-#bunker_left_tunnel {
-  background-image: url("images/textures/rock.jpg");
-  background-position: bottom right;
-  
-  position: relative;
-  width: 100%;
-  height: 30%;
-}
-
-#bunker_left_ground {
-  background-color: black;
-  
-  width: 100%;
-  height: 40%;
-}
-
-#bunker_stairs {
-  background-image: url("images/stairs.png");
-  background-size: 100% 100%;
-  
-  position: absolute;
-  bottom: 16%;
-  left: 0px;
-  width: 15%;
-  height: 24%;
-}
-
-#bunker_under_stairs {
-  background-color: black;
-  
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 15%;
-  height: 16%;
-}
-
-#bunker_ceiling {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 30%;
-}
-
-#monitors {
-  position: absolute;
-  bottom: 42%;
-  right: 10%;
-  height: 18%;
-}
-
-#desktop {
-  position: absolute;
-  bottom: 17%;
-  right: 45%;
-  height: 20%;
-}
-
-.speaker {
-  position: absolute;
-  bottom: 42%;
-  height: 10%;
-}
-
-#rspeaker {
-  right: 7%;
-}
-
-#lspeaker {
-  right: 55%;
-  z-index: 3;
-}
-
-#bench {
-  position: absolute;
-  bottom: 17%;
-  right: 2%;
-  height: 25%;
-  z-index: 3;
-}
-
-#bunker_floor1 {
-  background-color: black;
-  
-  position: absolute;
-  left: 15%;
-  bottom: 16%;
-  width: 65%;
-  height: 1%;
-}
-
-#bunker_floor2 {
-  background-color: black;
-  
-  position: absolute;
-  right: 0px;
-  bottom: 16%;
-  width: 10%;
-  height: 1%;
-}
-
-#bunker_under_floor {
-  background-image: url("images/textures/wood.jpg");
-  
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 85%;
-  height: 16%;
-}
-
-#bunker_trapdoor {
-  position: absolute;
-  bottom: 16%;
-  right: 0px;
-  width: 20%;
-  height: 2%;
-  z-index: 4;
-}
-
-.trapdoor_open {
- -webkit-animation: animatedTrapdoorOpen 2s forwards;
- animation: animatedTrapdoorOpen 2s forwards;
-}
-
-.trapdoor_closed {
- -webkit-animation: animatedTrapdoorClose 2s forwards;
- animation: animatedTrapdoorClose 2s forwards;
-}
-
-@-webkit-keyframes animatedTrapdoorOpen {
-	from {  
-    -webkit-transform:rotate(0deg);
-  }
-	to { 
-    -webkit-transform:rotate(120deg);
-  }
-}
-@keyframes animatedTrapdoorOpen {
-	from {  
-    transform:rotate(0deg);
-  }
-	to { 
-    transform:rotate(120deg);
-  }
-}
-
-@-webkit-keyframes animatedTrapdoorClose {
-	from {  
-    -webkit-transform:rotate(120deg);
-  }
-	to { 
-    -webkit-transform:rotate(0deg);
-  }
-}
-@keyframes animatedTrapdoorClose {
-	from {  
-    transform:rotate(120deg);
-  }
-	to { 
-    transform:rotate(0deg);
-  }
-}
-
-#poster {
-  position: absolute;
-  right: 100px;
-  top: 140px;
-  width: 200px;
-  transform:rotate(2deg);
-  -webkit-transform:rotate(2deg);
-}
-
-#todo {
-  position: absolute;
-  left: 100px;
-  top: 130px;
-  width: 400px;
-  height: 310px;
-  background-color: white;
-  font-family: Helvetica;
-  
-  transform:rotate(-1deg);
-  -webkit-transform:rotate(-1deg);
-  
-  border-radius: 10px;
-  border: grey solid 4px;
-  z-index: 2;
-}
-
-#todo_left {
-  float: left;
-  width: 49%;
-  height: 100%;
-}
-
-#todo_right {
-  float: right;
-  width: 48%;
-  height: 100%;
-  border-left: 5px black solid;
-}
-
-#cv {
-  position: absolute;
-  right: 505px;
-  top: 100px;
-  width: 100px;
-  
-  transform:rotate(4deg);
-  -webkit-transform:rotate(4deg);
-  
-  z-index: 1;
-}
-
-#todo h1 {
-  text-align: center;
-  margin: 10px 0px 5px 0px;
-}
-
-#todo ul {
-  margin-top: 0px;
-  padding-left: 10px;
-  list-style-type: none;
-}
-
-#todo li {
-  text-align: center;
-  padding-bottom: 5px;
-}
-
-.crate {
-  height: 100px;
-  width: 100px;
-  background-image: url("images/textures/crate.jpg");
-  background-size: 100px 100px;
-  background-position: top right;
-  z-index: 1;
-}
-
-#box1 {
-  position: absolute;
-  left: 410px;
-  bottom: 0px;
-  height: 100px;
-  width: 100px;
-}
-
-#box2 {
-  position: absolute;
-  left: 530px;
-  bottom: 0px;
-  height: 100px;
-  width: 100px;
-}
-  
-.box_icon {
-  position: absolute;
-  left: 15%;
-  top: 15%;
-  height: 70%;
-  width: 70%;
-  border-radius: 5px;
-}
-
-#steam_stats {
-  background-color: black;
-  color: white;
-  
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 30%;
-  line-height: 0%;
-}
-
-#steam_stats h1 {
-  font-size: 14pt;
-  margin: 0px 0px 0px 0px;
-}
-
-.steam_image {
-  width: 50%;
-  height: 50%;
-  display: inline-block;
-}
+  vertical-align: top; }
