@@ -15,6 +15,7 @@ $texture_upper_bank: $texture_path + "test.png"
 $texture_river: $texture_path + "river.jpg"
 $texture_lower_bank: $texture_path + "soil_grass.png"
 $texture_lawn: $texture_path + "raw/grass.jpg"
+$texture_grass_blades: $texture_path + "grass_blade.png"
 
 /* HEIGHT / POSITION */
 $height_sky: 300px
@@ -46,9 +47,6 @@ body
   width: 100%
   height: 100%
 
-.bank
-  width: 100%
-
 #home
 
 #sky
@@ -65,40 +63,46 @@ body
   top: 50px
   left: 400px
   z-index: $layer_2
- 
+
+.bank
+  width: 100%
+
 #upper_bank
-  position: absolute
-  top: 0px
-  height: $height_upper_bank
-  z-index: $layer_3
   background:
     image: url(#{$texture_upper_bank})
     size: 250px 600px
     position: left bottom
+  position: absolute
+  top: 0px
+  height: $height_upper_bank
+  z-index: $layer_3
    
-#upper_bank_central
+.central
   position: relative
   width: $page_width
   margin: 0 auto
-  padding-top: 20px
+
+#upper_bank_central
+  position: relative
+  width: $page_width
   height: 100%
+  margin: 0 auto
+  padding-top: 20px
   
 #river
+  background:
+    image: url(#{$texture_river})
+    size: 100px 100px
+    position: 0px 0px
   position: absolute
   top: 400px
   width: 100%
   height: $height_river
   z-index: $layer_1
-  
-  background:
-    image: url(#{$texture_river})
-    size: 100px 100px
-    position: 0px 0px
     
 #lower_bank
   background:
     image: url(#{$texture_lower_bank})
-  
   position: absolute
   top: 490px
   height: $height_lower_bank
@@ -107,84 +111,63 @@ body
 #lower_bank_central
   height: 100%
 
-.central
-  position: relative
-  width: $page_width
-  margin: 0 auto
-
 #lawn
   background:
-    image: url(#{$texture_path}raw/grass.jpg)
+    image: url(#{$texture_lawn})
     size: 225px 225px
-  
   position: absolute
+  top: 640px
   width: 100%
   height: $height_lawn
-  top: 640px
   
 /* UPPER BANK */
-#sams_sign
+
+@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
   position: absolute
-  top: 250px
-  left: 20px
-  width: 150px
+  top: $top
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+#sams_sign
+  @include absolute_object(250px, 20px, 150px, 150px, $layer_3)
 
 #bike
-  position: absolute
-  top: 270px
-  left: 730px
+  @include absolute_object(270px, 730px, 110px, 110px, $layer_3)
 
 #tree 
-  position: absolute
-  top: 130px
-  left: 680px
+  @include absolute_object(130px, 680px, 200px, 200px, $layer_1)
 
 #sams_house
-  position: absolute
-  top: 130px
-  left: 80px
+  @include absolute_object(130px, 80px, 400px, 400px, $layer_2)
 
 #sams_garage
-  position: absolute
-  top: 210px
-  left: 480px
+  @include absolute_object(210px, 480px, 300px, 300px, $layer_2)
 
 #garage_door
-  position: absolute
-  height: 100px
-  width: 121px
-  top: 250px
-  left: 640px
-  
+  @include absolute_object(250px, 640px, 121px, 100px, $layer_1)
+    
 /* LOWER BANK ITEMS */
 
 #bonzo_div
-  height: 200px
-  position: absolute
-  top: 20px
-  left: 60px
+  @include absolute_object(20px, 60px, 200px, 200px)
 
 #nest_sign
-  position: absolute
-  left: 300px
-  top: 30px
-  z-index: 3
+  @include absolute_object(30px, 300px, 300px, 300px, $layer_2)
 
 #nest
-  position: absolute
-  top: 50px
-  height: 80px
-  width: 100%
+  @include absolute_object(50px, 0px, 100%, 80px, $layer_1)
 
 #nest_inner 
   margin: 0 auto
   position: relative
-  width: 800px
+  width: $page_width - 100px
   height: 100%
 
 #nest_grass
   background:
-    image: url(#{$texture_path}grass_blade.png)
+    image: url(#{$texture_grass_blades})
     size: 100px 30px
   
   position: absolute

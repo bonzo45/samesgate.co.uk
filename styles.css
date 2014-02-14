@@ -22,9 +22,6 @@ body {
   width: 100%;
   height: 100%; }
 
-.bank {
-  width: 100%; }
-
 #sky {
   background-image: url(images/textures/sky.jpg);
   position: absolute;
@@ -39,31 +36,39 @@ body {
   left: 400px;
   z-index: 2; }
 
+.bank {
+  width: 100%; }
+
 #upper_bank {
+  background-image: url(images/textures/test.png);
+  background-size: 250px 600px;
+  background-position: left bottom;
   position: absolute;
   top: 0px;
   height: 420px;
-  z-index: 3;
-  background-image: url(images/textures/test.png);
-  background-size: 250px 600px;
-  background-position: left bottom; }
+  z-index: 3; }
+
+.central {
+  position: relative;
+  width: 900px;
+  margin: 0 auto; }
 
 #upper_bank_central {
   position: relative;
   width: 900px;
+  height: 100%;
   margin: 0 auto;
-  padding-top: 20px;
-  height: 100%; }
+  padding-top: 20px; }
 
 #river {
+  background-image: url(images/textures/river.jpg);
+  background-size: 100px 100px;
+  background-position: 0px 0px;
   position: absolute;
   top: 400px;
   width: 100%;
   height: 100px;
-  z-index: 1;
-  background-image: url(images/textures/river.jpg);
-  background-size: 100px 100px;
-  background-position: 0px 0px; }
+  z-index: 1; }
 
 #lower_bank {
   background-image: url(images/textures/soil_grass.png);
@@ -75,71 +80,87 @@ body {
 #lower_bank_central {
   height: 100%; }
 
-.central {
-  position: relative;
-  width: 900px;
-  margin: 0 auto; }
-
 #lawn {
   background-image: url(images/textures/raw/grass.jpg);
   background-size: 225px 225px;
   position: absolute;
+  top: 640px;
   width: 100%;
-  height: 400px;
-  top: 640px; }
+  height: 400px; }
 
 /* UPPER BANK */
 #sams_sign {
   position: absolute;
   top: 250px;
   left: 20px;
-  width: 150px; }
+  width: 150px;
+  height: 150px;
+  z-index: 3; }
 
 #bike {
   position: absolute;
   top: 270px;
-  left: 730px; }
+  left: 730px;
+  width: 110px;
+  height: 110px;
+  z-index: 3; }
 
 #tree {
   position: absolute;
   top: 130px;
-  left: 680px; }
+  left: 680px;
+  width: 200px;
+  height: 200px;
+  z-index: 1; }
 
 #sams_house {
   position: absolute;
   top: 130px;
-  left: 80px; }
+  left: 80px;
+  width: 400px;
+  height: 400px;
+  z-index: 2; }
 
 #sams_garage {
   position: absolute;
   top: 210px;
-  left: 480px; }
+  left: 480px;
+  width: 300px;
+  height: 300px;
+  z-index: 2; }
 
 #garage_door {
   position: absolute;
-  height: 100px;
-  width: 121px;
   top: 250px;
-  left: 640px; }
+  left: 640px;
+  width: 121px;
+  height: 100px;
+  z-index: 1; }
 
 /* LOWER BANK ITEMS */
 #bonzo_div {
-  height: 200px;
   position: absolute;
   top: 20px;
-  left: 60px; }
+  left: 60px;
+  width: 200px;
+  height: 200px;
+  z-index: 1; }
 
 #nest_sign {
   position: absolute;
-  left: 300px;
   top: 30px;
-  z-index: 3; }
+  left: 300px;
+  width: 300px;
+  height: 300px;
+  z-index: 2; }
 
 #nest {
   position: absolute;
   top: 50px;
+  left: 0px;
+  width: 100%;
   height: 80px;
-  width: 100%; }
+  z-index: 1; }
 
 #nest_inner {
   margin: 0 auto;
