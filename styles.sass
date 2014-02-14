@@ -47,6 +47,51 @@ $nest_separator_padding_vert: ($nest_separator_padding_ratio_vert * $height_nest
 $nest_grass_height: 35%
 $nest_grass_top: 100% - $nest_grass_height
 
+@mixin generateKeyframes($animationName, $properties, $froms, $tos, $back)
+  $postfix: ""
+  @if $back
+    $postfix: "Open"
+  @-webkit-keyframes #{$animationName}#{$postfix}
+    from
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($froms, $i)
+    to
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($tos, $i)
+  
+  @keyframes #{$animationName}#{$postfix}
+    from
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($froms, $i)
+    to
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($tos, $i)
+
+  @if $back      
+    @-webkit-keyframes #{$animationName}Close
+      from
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($tos, $i)
+      to
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($froms, $i)
+    
+    @keyframes #{$animationName}Close
+      from
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($tos, $i)
+      to
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($froms, $i)
+
+@mixin animate($animationName, $time, $repeat)
+  $times: ""
+  @if $repeat == forwards
+    $times: 1
+  -webkit-animation: $animationName $time linear #{$times} $repeat
+  animation: $animationName $time linear #{$times} $repeat
+
+
 html
   background:
     color: black
@@ -111,7 +156,10 @@ body
     size: 100px 100px
     position: 0px 0px
   @include absolute_object(400px, 0px, 100%, $height_river, $layer_1)
-    
+  @include animate(animatedRiver, 80s, infinite)
+
+@include generateKeyframes(animatedRiver, (background-position), (0 0), (100% 0), false)
+
 #lower_bank
   background:
     image: url(#{$texture_lower_bank})
@@ -140,12 +188,32 @@ body
 #sams_house
   @include absolute_object(130px, 80px, 400px, 400px, $layer_2)
 
+@mixin smoke($id, $top, $left, $time)
+  #smoke#{$id}
+    @include absolute_object($top, $left, 50px, 50px)
+    @include animate(animatedSmoke#{$id}, $time, infinite)
+  @include generateKeyframes(animatedSmoke#{$id}, (top, opacity), ($top, 0.5), (-40px, 0), false)
+  
+@include smoke(1, 142px, 393px, 4s)
+@include smoke(2, 180px, 405px, 3s)
+@include smoke(3, 168px, 400px, 5s)
+@include smoke(4, 142px, 393px, 10s)
+@include smoke(5, 180px, 405px, 7s)
+@include smoke(6, 168px, 400px, 6s)
+  
 #sams_garage
   @include absolute_object(210px, 480px, 300px, 300px, $layer_2)
 
 #garage_door
   @include absolute_object(250px, 640px, 121px, 100px, $layer_1)
-    
+
+.garage_open
+  @include animate(animatedGarageOpen, 2s, forwards)
+  
+.garage_closed
+  @include animate(animatedGarageClose, 2s, forwards)
+
+@include generateKeyframes(animatedGarage,(top, height), (250px, 100px), (215px, 50px), true)
 /* LOWER BANK */
 
 #nest_sign
@@ -209,7 +277,7 @@ body
   @include absolute_object($nest_grass_top, 0px, 100%, $nest_grass_height)
   pointer-events: none
   
-/* LAWN */  
+/* LAWN */
 
 #bonzo_div
   @include absolute_object(20px, 60px, 200px, 200px)
@@ -247,35 +315,6 @@ body
 
 #f1_days
   @include countdown_days(#6B6B6B, #800000)
-
-@mixin generateKeyframes ($animationName, $first, $second)
-  @-webkit-keyframes #{$animationName}Open
-    from
-      height: $first
-    to
-      height: $second
-  
-  @keyframes #{$animationName}Open
-    from
-      height: $first
-    to
-      height: $second
-    
-  @-webkit-keyframes #{$animationName}Close
-    from
-      height: $second
-    to
-      height: $first
-  
-  @keyframes #{$animationName}Close
-    from
-      height: $second
-    to
-      height: $first
-
-@mixin animate($animationName, $time)
-  -webkit-animation: $animationName $time linear 1 forwards
-  animation: $animationName $time linear 1 forwards
     
 #harmonica
   @include absolute_object(0px, 370px, 300px, 150px)
@@ -285,12 +324,12 @@ body
   height: 100px
   
 .harmonica_open
-  @include animate(animatedHarmonicaOpen, 0.5s)
+  @include animate(animatedHarmonicaOpen, 0.5s, forwards)
   
 .harmonica_closed
-  @include animate(animatedHarmonicaClose, 0.5s)
+  @include animate(animatedHarmonicaClose, 0.5s, forwards)
 
-@include generateKeyframes(animatedHarmonica, 100px, 300px)
+@include generateKeyframes(animatedHarmonica,(height), (100px), (300px), true)
 
 .harp_tab
   width: 100px
