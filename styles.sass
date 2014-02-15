@@ -14,9 +14,12 @@ $texture_path: "images/textures/"
 $texture_sky: $texture_path + "sky.jpg"
 $texture_upper_bank: $texture_path + "test.png"
 $texture_river: $texture_path + "river.jpg"
-$texture_lower_bank: $texture_path + "soil_grass.png"
+$texture_lower_bank: $texture_path + "soil_to_grass.png"
 $texture_lawn: $texture_path + "raw/grass.jpg"
 $texture_grass_blades: $texture_path + "grass_blade.png"
+$texture_lawn_edge: $texture_path + "grass_to_soil.png"
+$texture_underground: $texture_path + "dirt.jpg"
+$texture_crate: $texture_path + "crate.jpg"
 
 // HEIGHT
 $height_sky: 300px
@@ -24,6 +27,18 @@ $height_upper_bank: 420px
 $height_river: 100px
 $height_lower_bank: 150px
 $height_lawn: 400px
+$height_lawn_edge: 25px
+$height_underground: 900px
+$height_chamber: $height_underground - 50px
+
+// TOP
+$top_sky: 0px
+$top_upper_bank: 0px
+$top_river: $top_upper_bank + $height_upper_bank - 20px
+$top_lower_bank: $top_river + $height_river - 10px
+$top_lawn: $top_lower_bank + $height_lower_bank
+$top_lawn_edge: $top_lawn + $height_lawn
+$top_underground: $top_lawn_edge + $height_lawn_edge - 10px
 
 // NEST
 $height_nest: 80px
@@ -40,13 +55,32 @@ $nest_separator_width_total: 100% * (1 * $nest_link_separator_ratio / $total_nes
 $nest_separator_padding_ratio: 3 / 4
 $nest_separator_width: $nest_separator_width_total * (1 - $nest_separator_padding_ratio)
 $nest_separator_padding: $nest_separator_width_total * $nest_separator_padding_ratio / 2
-$nest_separator_padding_ratio_vert: 1 / 5
+$nest_separator_padding_ratio_vert: 2 / 5
 $nest_separator_height: (1 - $nest_separator_padding_ratio_vert) * $height_nest
 $nest_separator_padding_vert: ($nest_separator_padding_ratio_vert * $height_nest) / 2
 //  - Grass
 $nest_grass_height: 35%
 $nest_grass_top: 100% - $nest_grass_height
 
+// CHAMBER
+$height_floor: 1%
+$height_underfloor: 15%
+$height_crate: 80%
+$top_crate: 100% - $height_crate
+
+$top_underfloor: 100% - $height_underfloor
+$top_floor: $top_underfloor - $height_floor
+
+$width_leftfloor: 75%
+$width_rightfloor: 10%
+$left_rightfloor: 100% - $width_rightfloor
+
+$left_trapdoor: $width_leftfloor
+$top_trapdoor: $top_floor
+$width_trapdoor: (100% - $width_leftfloor - $width_rightfloor) * 2
+$height_trapdoor: $height_floor
+
+// ANIMATION
 @mixin generateKeyframes($animationName, $properties, $froms, $tos, $back)
   $postfix: ""
   @if $back
@@ -91,7 +125,6 @@ $nest_grass_top: 100% - $nest_grass_height
   -webkit-animation: $animationName $time linear #{$times} $repeat
   animation: $animationName $time linear #{$times} $repeat
 
-
 html
   background:
     color: black
@@ -126,7 +159,7 @@ body
 #sky
   background:
     image: url(#{$texture_sky})
-  @include absolute_object(0px, 0px, 100%, $height_sky, $layer_1)
+  @include absolute_object($top_sky, 0px, 100%, $height_sky, $layer_1)
  
 #mountain
   @include absolute_object(50px, 400px, 350px, 350px, $layer_2)
@@ -139,7 +172,7 @@ body
     image: url(#{$texture_upper_bank})
     size: 250px 600px
     position: left bottom
-  @include absolute_object(0px, 0px, 100%, $height_upper_bank, $layer_3)
+  @include absolute_object($top_upper_bank, 0px, 100%, $height_upper_bank, $layer_3)
    
 .central
   position: relative
@@ -147,15 +180,12 @@ body
   height: 100%
   margin: 0 auto
 
-#upper_bank_central
-  padding-top: 20px
-  
 #river
   background:
     image: url(#{$texture_river})
     size: 100px 100px
     position: 0px 0px
-  @include absolute_object(400px, 0px, 100%, $height_river, $layer_1)
+  @include absolute_object($top_river, 0px, 100%, $height_river, $layer_1)
   @include animate(animatedRiver, 80s, infinite)
 
 @include generateKeyframes(animatedRiver, (background-position), (0 0), (100% 0), false)
@@ -163,16 +193,32 @@ body
 #lower_bank
   background:
     image: url(#{$texture_lower_bank})
-  @include absolute_object(490px, 0px, 100%, $height_lower_bank, $layer_2)
+  @include absolute_object($top_lower_bank, 0px, 100%, $height_lower_bank, $layer_2)
 
 #lawn
   background:
     image: url(#{$texture_lawn})
     size: 225px 225px
-  position: absolute
-  top: 640px
-  width: 100%
-  height: $height_lawn
+  @include absolute_object($top_lawn, 0px, 100%, $height_lawn, $layer_2)
+  
+#lawn_edge
+  background:
+    image: url(#{$texture_lawn_edge})
+    position: bottom left
+  @include absolute_object($top_lawn_edge, 0px, 100%, $height_lawn_edge, $layer_2)
+  
+#underground
+  background:
+    image: url(#{$texture_underground})
+  @include absolute_object($top_underground, 0px, 100%, $height_underground, $layer_1)
+  
+#chamber
+  position: relative
+  background:
+    color: grey
+  width: $page_width
+  height: $height_chamber
+  margin: 0 auto
   
 /* UPPER BANK */
 
@@ -324,10 +370,10 @@ body
   height: 100px
   
 .harmonica_open
-  @include animate(animatedHarmonicaOpen, 0.5s, forwards)
+  @include animate(animatedHarmonicaOpen, 0.25s, forwards)
   
 .harmonica_closed
-  @include animate(animatedHarmonicaClose, 0.5s, forwards)
+  @include animate(animatedHarmonicaClose, 0.25s, forwards)
 
 @include generateKeyframes(animatedHarmonica,(height), (100px), (300px), true)
 
@@ -336,3 +382,67 @@ body
   height: 100px
   display: inline-block
   vertical-align: top
+  
+/* CHAMBER */
+#bunker_floor1
+  background-color: orange
+  @include absolute_object($top_floor, 0%, $width_leftfloor, $height_floor)
+
+#bunker_floor2
+  background-color: orange
+  @include absolute_object($top_floor, $left_rightfloor, $width_rightfloor, $height_floor)
+  
+#bunker_trapdoor
+  @include absolute_object($top_trapdoor, $left_trapdoor, $width_trapdoor, $height_trapdoor)
+  
+#bunker_trapdoor_panel
+  width: 50%
+  height: 100%
+  background:
+    color: black
+    
+.trapdoor_open
+  @include animate(animatedTrapdoorOpen, 1s, forwards)
+  
+.trapdoor_closed
+  @include animate(animatedTrapdoorClose, 1s, forwards)
+
+@include generateKeyframes(animatedTrapdoor,(-webkit-transform), (rotate(0deg)), (rotate(100deg)), true)
+  
+#bunker_under_floor
+  background:
+    color: green
+  @include absolute_object($top_underfloor, 0%, 100%, $height_underfloor)
+ 
+#steam_stats
+  background:
+    color: black
+  color: white  
+  @include absolute_object(0px, 0px, 30%, 100%)
+
+#steam_stats h1
+  font-size: 14pt
+  margin: 0px 0px 0px 0px
+
+.steam_image
+  width: 50%
+  height: 50%
+  display: inline-block
+ 
+.crate
+  height: $height_crate
+  width: $height_crate
+  background-image: url(#{$texture_crate})
+  background-size: 100% 100%
+  background-position: top right
+  z-index: 1
+
+#box1
+  @include absolute_object($top_crate, 310px, 100px, 100px)
+
+#box2
+  @include absolute_object($top_crate, 530px, 100px, 100px)
+
+.box_icon
+  @include absolute_object(15%, 15%, 70%, 70%)
+  border-radius: 5px

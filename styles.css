@@ -57,9 +57,6 @@ body {
   height: 100%;
   margin: 0 auto; }
 
-#upper_bank_central {
-  padding-top: 20px; }
-
 #river {
   background-image: url(images/textures/river.jpg);
   background-size: 100px 100px;
@@ -88,7 +85,7 @@ body {
     background-position: 100%; } }
 
 #lower_bank {
-  background-image: url(images/textures/soil_grass.png);
+  background-image: url(images/textures/soil_to_grass.png);
   position: absolute;
   top: 490px;
   left: 0px;
@@ -101,8 +98,36 @@ body {
   background-size: 225px 225px;
   position: absolute;
   top: 640px;
+  left: 0px;
   width: 100%;
-  height: 400px; }
+  height: 400px;
+  z-index: 2; }
+
+#lawn_edge {
+  background-image: url(images/textures/grass_to_soil.png);
+  background-position: bottom left;
+  position: absolute;
+  top: 1040px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
+  z-index: 2; }
+
+#underground {
+  background-image: url(images/textures/dirt.jpg);
+  position: absolute;
+  top: 1055px;
+  left: 0px;
+  width: 100%;
+  height: 900px;
+  z-index: 1; }
+
+#chamber {
+  position: relative;
+  background-color: grey;
+  width: 900px;
+  height: 850px;
+  margin: 0 auto; }
 
 /* UPPER BANK */
 #sams_sign {
@@ -403,10 +428,10 @@ body {
 .separator {
   display: inline-block;
   width: 0.5814%;
-  height: 64px;
-  margin-top: 8px;
+  height: 48px;
+  margin-top: 16px;
   margin-right: 0.87209%;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   margin-left: 0.87209%;
   border-radius: 1px;
   background-color: #5c5c5c; }
@@ -507,12 +532,12 @@ body {
   height: 100px; }
 
 .harmonica_open {
-  -webkit-animation: animatedHarmonicaOpen 0.5s linear 1 forwards;
-  animation: animatedHarmonicaOpen 0.5s linear 1 forwards; }
+  -webkit-animation: animatedHarmonicaOpen 0.25s linear 1 forwards;
+  animation: animatedHarmonicaOpen 0.25s linear 1 forwards; }
 
 .harmonica_closed {
-  -webkit-animation: animatedHarmonicaClose 0.5s linear 1 forwards;
-  animation: animatedHarmonicaClose 0.5s linear 1 forwards; }
+  -webkit-animation: animatedHarmonicaClose 0.25s linear 1 forwards;
+  animation: animatedHarmonicaClose 0.25s linear 1 forwards; }
 
 @-webkit-keyframes animatedHarmonicaOpen {
   from {
@@ -547,3 +572,132 @@ body {
   height: 100px;
   display: inline-block;
   vertical-align: top; }
+
+/* CHAMBER */
+#bunker_floor1 {
+  background-color: orange;
+  position: absolute;
+  top: 84%;
+  left: 0%;
+  width: 75%;
+  height: 1%;
+  z-index: 1; }
+
+#bunker_floor2 {
+  background-color: orange;
+  position: absolute;
+  top: 84%;
+  left: 90%;
+  width: 10%;
+  height: 1%;
+  z-index: 1; }
+
+#bunker_trapdoor {
+  position: absolute;
+  top: 84%;
+  left: 75%;
+  width: 30%;
+  height: 1%;
+  z-index: 1; }
+
+#bunker_trapdoor_panel {
+  width: 50%;
+  height: 100%;
+  background-color: black; }
+
+.trapdoor_open {
+  -webkit-animation: animatedTrapdoorOpen 1s linear 1 forwards;
+  animation: animatedTrapdoorOpen 1s linear 1 forwards; }
+
+.trapdoor_closed {
+  -webkit-animation: animatedTrapdoorClose 1s linear 1 forwards;
+  animation: animatedTrapdoorClose 1s linear 1 forwards; }
+
+@-webkit-keyframes animatedTrapdoorOpen {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(100deg); } }
+
+@keyframes animatedTrapdoorOpen {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(100deg); } }
+
+@-webkit-keyframes animatedTrapdoorClose {
+  from {
+    -webkit-transform: rotate(100deg); }
+
+  to {
+    -webkit-transform: rotate(0deg); } }
+
+@keyframes animatedTrapdoorClose {
+  from {
+    -webkit-transform: rotate(100deg); }
+
+  to {
+    -webkit-transform: rotate(0deg); } }
+
+#bunker_under_floor {
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 0%;
+  width: 100%;
+  height: 15%;
+  z-index: 1; }
+
+#steam_stats {
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 30%;
+  height: 100%;
+  z-index: 1; }
+
+#steam_stats h1 {
+  font-size: 14pt;
+  margin: 0px 0px 0px 0px; }
+
+.steam_image {
+  width: 50%;
+  height: 50%;
+  display: inline-block; }
+
+.crate {
+  height: 80%;
+  width: 80%;
+  background-image: url(images/textures/crate.jpg);
+  background-size: 100% 100%;
+  background-position: top right;
+  z-index: 1; }
+
+#box1 {
+  position: absolute;
+  top: 20%;
+  left: 310px;
+  width: 100px;
+  height: 100px;
+  z-index: 1; }
+
+#box2 {
+  position: absolute;
+  top: 20%;
+  left: 530px;
+  width: 100px;
+  height: 100px;
+  z-index: 1; }
+
+.box_icon {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  z-index: 1;
+  border-radius: 5px; }
