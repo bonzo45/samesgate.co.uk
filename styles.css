@@ -712,7 +712,8 @@ body {
 .steam_image {
   width: 50%;
   height: 50%;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
 
 .crate {
   background-image: url(images/textures/crate.jpg);
