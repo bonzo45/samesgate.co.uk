@@ -20,6 +20,7 @@ $texture_grass_blades: $texture_path + "grass_blade.png"
 $texture_lawn_edge: $texture_path + "grass_to_soil.png"
 $texture_underground: $texture_path + "dirt.jpg"
 $texture_crate: $texture_path + "crate.jpg"
+$texture_ladder: $texture_path + "ladder.png"
 
 // HEIGHT
 $height_sky: 300px
@@ -27,9 +28,10 @@ $height_upper_bank: 420px
 $height_river: 100px
 $height_lower_bank: 150px
 $height_lawn: 400px
-$height_lawn_edge: 25px
-$height_underground: 900px
-$height_chamber: $height_underground - 50px
+$height_lawn_edge: 50px
+$height_underground: 840px
+$height_under_floor: 120px
+$height_chamber: $height_underground - 50px - $height_under_floor
 
 // TOP
 $top_sky: 0px
@@ -39,6 +41,7 @@ $top_lower_bank: $top_river + $height_river - 10px
 $top_lawn: $top_lower_bank + $height_lower_bank
 $top_lawn_edge: $top_lawn + $height_lawn
 $top_underground: $top_lawn_edge + $height_lawn_edge - 10px
+$top_under_floor: $height_chamber
 
 // NEST
 $height_nest: 80px
@@ -68,15 +71,14 @@ $height_underfloor: 15%
 $height_crate: 80%
 $top_crate: 100% - $height_crate
 
-$top_underfloor: 100% - $height_underfloor
-$top_floor: $top_underfloor - $height_floor
+$width_whiteboard: 500px
+$width_todo: ($width_whiteboard - 5px) / 2
 
 $width_leftfloor: 75%
 $width_rightfloor: 10%
 $left_rightfloor: 100% - $width_rightfloor
 
 $left_trapdoor: $width_leftfloor
-$top_trapdoor: $top_floor
 $width_trapdoor: (100% - $width_leftfloor - $width_rightfloor) * 2
 $height_trapdoor: $height_floor
 
@@ -155,7 +157,15 @@ body
   width: $width
   height: $height
   z-index: $z-index
-  
+
+@mixin absolute_object_b($bottom, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  bottom: $bottom
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
 #sky
   background:
     image: url(#{$texture_sky})
@@ -204,6 +214,7 @@ body
 #lawn_edge
   background:
     image: url(#{$texture_lawn_edge})
+    size: 225px 225px
     position: bottom left
   @include absolute_object($top_lawn_edge, 0px, 100%, $height_lawn_edge, $layer_2)
   
@@ -384,16 +395,59 @@ body
   vertical-align: top
   
 /* CHAMBER */
+#ladder
+  @include absolute_object(0px, 50px, 100px, $height_chamber)
+  background:
+    image: url(#{$texture_ladder})
+    size: 100px 70px
+    position: bottom left
+  
+#todo
+  @include absolute_object(50px, 350px, $width_whiteboard, 320px, $layer_2)
+  background:
+    color: #F5F5F5  
+  transform:rotate(-1deg)
+  -webkit-transform:rotate(-1deg)  
+  border: #4A4A4A solid 4px
+  border:
+    radius: 10px
+  text:
+    align: center
+
+#todo_left
+  float: left
+  width: $width_todo
+  height: 100%
+
+#todo_right
+  float: right
+  width: $width_todo
+  height: 100%
+  border-left: 5px #4A4A4A solid
+  
+#todo h1
+  margin: 10px 0px 5px 0px
+
+#todo ul
+  margin-top: 0px
+  padding:
+    left: 10px
+    right: 10px
+  list-style-type: none
+
+#todo li
+  padding-bottom: 5px
+
 #bunker_floor1
   background-color: orange
-  @include absolute_object($top_floor, 0%, $width_leftfloor, $height_floor)
+  @include absolute_object_b(0px, 0%, $width_leftfloor, $height_floor)
 
 #bunker_floor2
   background-color: orange
-  @include absolute_object($top_floor, $left_rightfloor, $width_rightfloor, $height_floor)
+  @include absolute_object_b(0px, $left_rightfloor, $width_rightfloor, $height_floor)
   
 #bunker_trapdoor
-  @include absolute_object($top_trapdoor, $left_trapdoor, $width_trapdoor, $height_trapdoor)
+  @include absolute_object_b(0px, $left_trapdoor, $width_trapdoor, $height_trapdoor)
   
 #bunker_trapdoor_panel
   width: 50%
@@ -410,15 +464,18 @@ body
 @include generateKeyframes(animatedTrapdoor,(-webkit-transform), (rotate(0deg)), (rotate(100deg)), true)
   
 #bunker_under_floor
+  position: relative
   background:
     color: green
-  @include absolute_object($top_underfloor, 0%, 100%, $height_underfloor)
+  width: $page_width
+  height: $height_underfloor
+  margin: 0 auto
  
 #steam_stats
   background:
     color: black
   color: white  
-  @include absolute_object(0px, 0px, 30%, 100%)
+  @include absolute_object(0px, 0px, 400px, 100%)
 
 #steam_stats h1
   font-size: 14pt
@@ -430,18 +487,17 @@ body
   display: inline-block
  
 .crate
-  height: $height_crate
-  width: $height_crate
-  background-image: url(#{$texture_crate})
-  background-size: 100% 100%
-  background-position: top right
+  background:
+    image: url(#{$texture_crate})
+    size: 100% 100%
+    position: top right
   z-index: 1
 
 #box1
-  @include absolute_object($top_crate, 310px, 100px, 100px)
+  @include absolute_object_b(0px, 460px, 100px, 100px)
 
 #box2
-  @include absolute_object($top_crate, 530px, 100px, 100px)
+  @include absolute_object_b(0px, 600px, 100px, 100px)
 
 .box_icon
   @include absolute_object(15%, 15%, 70%, 70%)
