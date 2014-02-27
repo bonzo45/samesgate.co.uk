@@ -8,6 +8,8 @@
 
 <script>
 
+var STEAM_GAMES = 4;
+
 $(document).ready(function(){
   $("#home").hide();
   $("#work").hide();  
@@ -27,7 +29,10 @@ $(document).ready(function(){
   // Steam
   $.getJSON("steam.php", function(data) {
     $.each(data.response.games, function(index, value) {
-      $(".steam_image").last().after("<img class='steam_image' src='http://media.steampowered.com/steamcommunity/public/images/apps/" + value.appid + "/" + value.img_logo_url + ".jpg'></img>");
+      STEAM_GAMES--;
+      if (STEAM_GAMES > 0) {
+        $(".steam_image").last().after("<img class='steam_image' src='http://media.steampowered.com/steamcommunity/public/images/apps/" + value.appid + "/" + value.img_logo_url + ".jpg'></img>");
+      }
     });
   });
 })
