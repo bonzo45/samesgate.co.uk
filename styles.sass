@@ -166,6 +166,14 @@ body
   height: $height
   z-index: $z-index
 
+.clickable:hover
+  /* Chrome and Safari */
+  -webkit-filter: drop-shadow(0px 0px 7px rgba(255,255,255,0.5))
+  /* Firefox */
+  filter: url(shadow.svg#drop-shadow)
+  /* IE */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#FFF')"
+
 #sky
   background:
     image: url(#{$texture_sky})
@@ -461,7 +469,7 @@ body
 .trapdoor_closed
   @include animate(animatedTrapdoorClose, 1s, forwards)
 
-@include generateKeyframes(animatedTrapdoor,(-webkit-transform), (rotate(0deg)), (rotate(100deg)), true)
+@include generateKeyframes(animatedTrapdoor,(transform, -webkit-transform), (rotate(0deg), rotate(0deg)), (rotate(100deg), rotate(100deg)), true)
   
 #bunker_under_floor
   position: relative
@@ -502,4 +510,11 @@ body
 
 .box_icon
   @include absolute_object(15%, 15%, 70%, 70%)
-  border-radius: 5px
+
+#webGLDemo
+  @include absolute_object(350px, 180px, 450px, 250px, $layer_1)
+  border: #4A4A4A solid 4px
+  border:
+    radius: 10px
+  padding: 0px
+  margin: 0px

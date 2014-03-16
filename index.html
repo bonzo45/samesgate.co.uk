@@ -175,53 +175,53 @@ var pad = function(number) {
     <title>crazy-bonzo</title>
   </head>
   
-  <body onload="webGLStart();">
+  <body>
     <div id="main">
     <div id="main_black">      
       <div id="home" class="main_inner">      
         <div id="sky"></div>
         <div id="mountain_central" class="central">
           <div id="mountain">
-            <img class="shadowed" style="width:350px;" src="images/mountain.png"></img>
+            <img style="width:350px;" src="images/mountain.png"></img>
           </div>
         </div>
         <div id="upper_bank" class="bank">
           <div id="upper_bank_central" class="central">
             <div id="sams_sign">
-              <img class="shadowed" style="width:150px;" src="images/sign.png"></img>
+              <img class="clickable" style="width:150px;" src="images/sign.png"></img>
             </div>
             <div id="bike">
-              <img class="shadowed" style="width:110px;" src="images/bike.png"></img>
+              <img style="width:110px;" src="images/bike.png"></img>
             </div>
             <div id="tree">
-              <img class="shadowed" style="width:200px;" src="images/big_tree.png"></img>
+              <img style="width:200px;" src="images/big_tree.png"></img>
             </div>
             <div id="smoke1" class="smoke">
-              <img class="shadowed" style="width:40px;" src="images/smoke.png"></img>
+              <img style="width:40px;" src="images/smoke.png"></img>
             </div>
             <div id="smoke2" class="smoke">
-              <img class="shadowed" style="width:20px;" src="images/smoke.png"></img>
+              <img style="width:20px;" src="images/smoke.png"></img>
             </div>
             <div id="smoke3" class="smoke">
-              <img class="shadowed" style="width:20px;" src="images/smoke.png"></img>
+              <img style="width:20px;" src="images/smoke.png"></img>
             </div>
             <div id="smoke4" class="smoke">
-              <img class="shadowed" style="width:40px;" src="images/smoke.png"></img>
+              <img style="width:40px;" src="images/smoke.png"></img>
             </div>
             <div id="smoke5" class="smoke">
-              <img class="shadowed" style="width:20px;" src="images/smoke.png"></img>
+              <img style="width:20px;" src="images/smoke.png"></img>
             </div>
             <div id="smoke6" class="smoke">
-              <img class="shadowed" style="width:20px;" src="images/smoke.png"></img>
+              <img style="width:20px;" src="images/smoke.png"></img>
             </div>
             <div id="sams_house">
-              <img class="shadowed" style="width:400px;" src="images/house.png"></img>
+              <img style="width:400px;" src="images/house.png"></img>
             </div>
             <div id="sams_garage">
-              <img class="shadowed" style="width:300px;" src="images/garage.png"></img>
+              <img class="clickable" style="width:300px;" src="images/garage.png"></img>
             </div>            
             <div id="garage_door">
-              <img class="shadowed" style="height:100%; width: 100%;" src="images/garage_door.png"></img>
+              <img style="height:100%; width: 100%;" src="images/garage_door.png"></img>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@ var pad = function(number) {
           <div id="lower_bank_central" class="central">
           
             <div id="nest_sign">
-              <img class="shadowed" style="width:300px;" src="images/nest_sign.png"></img>
+              <img style="width:300px;" src="images/nest_sign.png"></img>
             </div>
             <div id="nest">
               <div id="nest_inner">
@@ -278,7 +278,7 @@ var pad = function(number) {
             </div>
             
             <div id="harmonica">
-              <img id="harmonica_image" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
+              <img id="harmonica_image" class="clickable" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
               <div id="harmonica_links">
                 <div class="harp_tab">
                   <a href="http://www.harptabs.com/song.php?ID=164" target="_blank"><img src="images/harp/freewheelin.jpg" style="width:100%;"></img></a>
@@ -316,7 +316,7 @@ var pad = function(number) {
           <div id="chamber">
           
             <div id="ladder"></div>
-            <canvas id="canvas" style="border: 0px; padding: 0px; margin: 0px; width: 35%; height: 100%;"></canvas>
+            <canvas id="webGLDemo" class="clickable" onclick="webGLStart()">Click for WebGL</canvas>
             <div id="todo">
               <div id="todo_left">
                 <h1>// TODO:</h1>
@@ -897,7 +897,7 @@ moonAngle = 0.0;
 
 function drawScene() {
   // Bodge to fix the fullscreen problem.
-  updateCanvasSize(document.getElementById("canvas"));
+  updateCanvasSize(canvas);
 
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -1036,8 +1036,10 @@ function animate() {
   lastTime = timeNow;
 }
 
+var canvas;
+
 function webGLStart() {
-  var canvas = document.getElementById("canvas");
+  canvas = document.getElementById("webGLDemo");
   initGL(canvas);
   initShaders();
   initBuffers();
