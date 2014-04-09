@@ -555,10 +555,23 @@ body {
   to {
     height: 100px; } }
 .harp_tab {
+  position: relative;
   width: 100px;
   height: 100px;
   display: inline-block;
   vertical-align: top; }
+
+.harpArtist {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: 20px;
+  z-index: 1;
+  background-color: whitesmoke;
+  text-align: center;
+  border-bottom: 3px solid black;
+  border-top: 3px solid black; }
 
 /* CHAMBER */
 #ladder {

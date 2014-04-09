@@ -35,6 +35,10 @@ $(document).ready(function(){
       }
     });
   });
+
+  // Harmonica Tabs
+  initialiseTabs();
+  displayTabs(); 
 })
 
 var toggle_screens = function() {
@@ -169,6 +173,102 @@ var pad = function(number) {
   return string;
 }
 
+const HARP_PATH = "images/harp/";
+
+var tabs = [];
+
+var initialiseTabs = function() {
+  tabs.push({
+    title: 'Blowin\' in the Wind',
+    artist: 'Bob Dylan',
+    image: 'freewheelin.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=164'
+  })
+  tabs.push({
+    title: 'Mr. Tambourine Man',
+    artist: 'Bob Dylan',
+    image: 'bringing.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=95'
+  })
+  tabs.push({
+    title: 'Jurassic Park',
+    artist: 'Films',
+    image: 'jurassic.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=597'
+  })
+  tabs.push({
+    title: 'Lord of the Rings',
+    artist: 'Films',
+    image: 'lotr.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=16611'
+  })
+  tabs.push({
+    title: 'Pirates of the Caribbean',
+    artist: 'Films',
+    image: 'pirates.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=16804'
+  })
+  tabs.push({
+    title: 'Somewhere Beyond the Sea',
+    artist: 'Bobby Darin',
+    image: 'beyond.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=3500'
+  })
+  tabs.push({
+    title: 'Hallelujah',
+    artist: 'Leonard Cohen',
+    image: 'hallelujah.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=1299'
+  })
+  tabs.push({
+    title: 'O\' Brother Where Art Thou?',
+    artist: 'Films',
+    image: 'brother.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=7104'
+  })
+  tabs.push({
+    title: 'Cheers',
+    artist: 'TV',
+    image: 'cheers.jpg',
+    url: 'http://www.harptabs.com/song.php?ID=16166'
+  })
+}
+
+var displayTabs = function() {
+  var compare = function(a, b) {
+    if (a.artist < b.artist)
+       return -1;
+    if (a.artist > b.artist)
+      return 1;
+    return 0;
+  }
+
+  // Sort the tabs by artist
+  tabs.sort(compare);
+
+  var harpDiv = $("#harmonica_links");
+  var lastArtist = "";
+
+  for (var i = 0; i < tabs.length; i++) {
+    var currentTab = tabs[i];
+    var artistLabel;
+    if (currentTab.artist !== lastArtist) {
+      artistLabel = "<div class=\"harpArtist\">" + currentTab.artist + "</div>";
+    }
+    else {
+      artistLabel = "";
+    }
+    var newTab = $(
+      "<div class=\"harp_tab\">" + 
+      "<a href=\"" + currentTab.url + "\" target=\"_blank\">" +
+      "<img src=\"" + HARP_PATH + currentTab.image + "\" style=\"width:100%;\"></img></a>" +
+      artistLabel +
+      "</div>"
+    );
+    harpDiv.append(newTab);
+    lastArtist = currentTab.artist;
+  }
+}
 </script>
 
   <head>
@@ -280,33 +380,6 @@ var pad = function(number) {
             <div id="harmonica">
               <img id="harmonica_image" class="clickable" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
               <div id="harmonica_links">
-                <div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=164" target="_blank"><img src="images/harp/freewheelin.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=95" target="_blank"><img src="images/harp/bringing.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=597" target="_blank"><img src="images/harp/jurassic.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=16611" target="_blank"><img src="images/harp/lotr.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=16804" target="_blank"><img src="images/harp/pirates.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=3500" target="_blank"><img src="images/harp/beyond.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=1299" target="_blank"><img src="images/harp/hallelujah.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=7104" target="_blank"><img src="images/harp/brother.jpg" style="width:100%;"></img></a>
-                </div><!--
-             --><div class="harp_tab">
-                  <a href="http://www.harptabs.com/song.php?ID=16166" target="_blank"><img src="images/harp/cheers.jpg" style="width:100%;"></img></a>
-                </div>
               </div>
             </div>
           </div>

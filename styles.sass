@@ -397,10 +397,22 @@ body
 @include generateKeyframes(animatedHarmonica,(height), (100px), (300px), true)
 
 .harp_tab
+  position: relative
   width: 100px
   height: 100px
   display: inline-block
   vertical-align: top
+
+.harpArtist
+  @include absolute_object_b(0px, 0px, 100px, 20px)
+  background:
+    color: #F5F5F5
+  text:
+    align: center
+  border:
+    bottom: 3px solid black
+    top: 3px solid black
+
   
 /* CHAMBER */
 #ladder
