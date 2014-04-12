@@ -520,7 +520,8 @@ body {
 
 #harmonica_links {
   overflow: hidden;
-  height: 100px; }
+  height: 100px;
+  z-index: 8; }
 
 .harmonica_open {
   -webkit-animation: animatedHarmonicaOpen 0.25s linear 1 forwards;
@@ -532,28 +533,28 @@ body {
 
 @-webkit-keyframes animatedHarmonicaOpen {
   from {
-    height: 100px; }
+    height: 108; }
 
   to {
-    height: 300px; } }
+    height: 700px; } }
 @keyframes animatedHarmonicaOpen {
   from {
-    height: 100px; }
+    height: 108; }
 
   to {
-    height: 300px; } }
+    height: 700px; } }
 @-webkit-keyframes animatedHarmonicaClose {
   from {
-    height: 300px; }
+    height: 700px; }
 
   to {
-    height: 100px; } }
+    height: 108; } }
 @keyframes animatedHarmonicaClose {
   from {
-    height: 300px; }
+    height: 700px; }
 
   to {
-    height: 100px; } }
+    height: 108; } }
 .harp_tab {
   position: relative;
   width: 100px;
@@ -561,17 +562,23 @@ body {
   display: inline-block;
   vertical-align: top; }
 
-.harpArtist {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+.harpCol {
+  overflow: hidden;
   width: 100px;
-  height: 20px;
-  z-index: 1;
+  height: 300px;
+  display: inline-block;
+  vertical-align: top; }
+
+.harpArtist {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100px;
+  height: 30px;
+  font-size: 14pt;
   background-color: whitesmoke;
   text-align: center;
-  border-bottom: 3px solid black;
-  border-top: 3px solid black; }
+  border-bottom: 5px solid black;
+  border-top: 5px solid black; }
 
 /* CHAMBER */
 #ladder {

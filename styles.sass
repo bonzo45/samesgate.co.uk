@@ -387,6 +387,7 @@ body
 #harmonica_links
   overflow: hidden
   height: 100px
+  z-index: 8  
   
 .harmonica_open
   @include animate(animatedHarmonicaOpen, 0.25s, forwards)
@@ -394,7 +395,7 @@ body
 .harmonica_closed
   @include animate(animatedHarmonicaClose, 0.25s, forwards)
 
-@include generateKeyframes(animatedHarmonica,(height), (100px), (300px), true)
+@include generateKeyframes(animatedHarmonica,(height), (108 px), (700px), true)
 
 .harp_tab
   position: relative
@@ -403,15 +404,27 @@ body
   display: inline-block
   vertical-align: top
 
+.harpCol
+  overflow: hidden
+  width: 100px
+  height: 300px
+  display: inline-block
+  vertical-align: top
+
 .harpArtist
-  @include absolute_object_b(0px, 0px, 100px, 20px)
+  display: table-cell
+  vertical-align: middle
+  width: 100px
+  height: 30px
+  font:
+    size: 14pt
   background:
     color: #F5F5F5
   text:
     align: center
   border:
-    bottom: 3px solid black
-    top: 3px solid black
+    bottom: 5px solid black
+    top: 5px solid black
 
   
 /* CHAMBER */

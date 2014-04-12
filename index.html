@@ -246,27 +246,63 @@ var displayTabs = function() {
   // Sort the tabs by artist
   tabs.sort(compare);
 
-  var harpDiv = $("#harmonica_links");
-  var lastArtist = "";
+  /* Put the Harp Tabs into Columns */
+  var numColumns = 3;
+  var tabHeight = 90;
+  var labelHeight = 30;
+  var columnHeight = 300;
 
-  for (var i = 0; i < tabs.length; i++) {
-    var currentTab = tabs[i];
-    var artistLabel;
-    if (currentTab.artist !== lastArtist) {
-      artistLabel = "<div class=\"harpArtist\">" + currentTab.artist + "</div>";
+  var currentColumn = 1;
+  const COLUMN_ID_PREFIX = "#harpCol";
+  var currentColumnDiv = $(COLUMN_ID_PREFIX + currentColumn);
+  var currentPixel = 0;
+
+  // Variables needed in loop
+  var pixelsLeftInColumn = columnHeight;
+  var artistStart = 0;
+  var artistEnd = 0;
+  var nextArtist = tabs[artistStart].artist;
+  while (tabs[artistEnd].artist === nextArtist) {
+    artistEnd++;
+  }
+  var nextArtistSize = labelHeight + tabHeight * (artistEnd - artistStart);
+
+  while (currentColumn <= numColumns) {
+    // Add one 'artist' to the column
+    currentColumnDiv.append("<div class=\"harpArtist\">" + nextArtist + "</div>");
+    for (var i = artistStart; i < artistEnd; i++) {
+      var newTab = $(
+        "<div class=\"harp_tab\">" + 
+        "<a href=\"" + tabs[i].url + "\" target=\"_blank\">" +
+        "<img src=\"" + HARP_PATH + tabs[i].image + "\" style=\"width:100%;\"></img></a>" +
+        "</div>"
+      );
+      currentColumnDiv.append(newTab);
     }
+    
+    // Increment 'currentPixel' by how big that artist was
+    pixelsLeftInColumn -= nextArtistSize;
+    // If there are no more 'artists' then we're done.
+    if (tabs.length <= artistEnd) {
+      break;
+    }
+    // If there are then calculate size of next 'artist'
     else {
-      artistLabel = "";
+      artistStart = artistEnd;
+      artistEnd;
+      nextArtist = tabs[artistStart].artist;
+      while (artistEnd < tabs.length && tabs[artistEnd].artist === nextArtist) {
+        artistEnd++;
+      }
+      nextArtistSize = labelHeight + tabHeight * (artistEnd - artistStart);
     }
-    var newTab = $(
-      "<div class=\"harp_tab\">" + 
-      "<a href=\"" + currentTab.url + "\" target=\"_blank\">" +
-      "<img src=\"" + HARP_PATH + currentTab.image + "\" style=\"width:100%;\"></img></a>" +
-      artistLabel +
-      "</div>"
-    );
-    harpDiv.append(newTab);
-    lastArtist = currentTab.artist;
+
+    // Do we need to move to the next column?
+    if (nextArtistSize > pixelsLeftInColumn) {
+      currentColumn++;
+      currentColumnDiv = $(COLUMN_ID_PREFIX + currentColumn);
+      pixelsLeftInColumn = columnHeight;
+    }
   }
 }
 </script>
@@ -380,6 +416,9 @@ var displayTabs = function() {
             <div id="harmonica">
               <img id="harmonica_image" class="clickable" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
               <div id="harmonica_links">
+                <div id="harpCol1" class="harpCol"></div><!--
+             --><div id="harpCol2" class="harpCol"></div><!--
+             --><div id="harpCol3" class="harpCol"></div>
               </div>
             </div>
           </div>
