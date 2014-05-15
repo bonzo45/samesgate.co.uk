@@ -40,7 +40,7 @@
   height: 40%;
   z-index: 1;
   background-image: url(image/texture/forest.png);
-  background-size: 100px 100px; }
+  background-size: 700px 100%; }
 
 /* ---- Ground ---- */
 #ground {

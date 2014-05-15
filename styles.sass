@@ -61,13 +61,14 @@ $texture_hill_size: 100px
 /* ---- Forest ----*/
 $forest_height: 40%
 $texture_forest: $texture_path + "forest.png"
-$texture_forest_size: 100px
+$texture_forest_height: 100%
+$texture_forest_width: 700px
 
 #forest
   @include absolute_object_b($hill_height, 0px, 100%, $forest_height, $layer_1)
   background:
     image: url(#{$texture_forest})
-    size: $texture_forest_size $texture_forest_size
+    size: $texture_forest_width $texture_forest_height
 
 
 /* ---- Ground ---- */
