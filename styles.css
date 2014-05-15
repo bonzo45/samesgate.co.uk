@@ -1,76 +1,77 @@
+/* ---- Sky ---- */
 #sky {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	background-image: url("images/sky.png");
-	background-size: 200px 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 60%;
+  z-index: 1;
+  background-image: url(image/texture/sky.png);
+  background-size: 300px 300px; }
 
-	left: 0px;
-	top: 0px;
-}
-
+/* ---- Mountain --- */
 #mountain {
-	position: absolute;
-	width: 400px;
-	height: 400px;
-	background-image: url("images/mountain.png");
-	background-size: 100px 100px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  background-image: url(image/texture/mountain.png);
+  background-size: 100% 100%; }
 
-	left: 0px;
-	top: 0px;
-}
+/* ---- Hill ---- */
+#hill {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 15%;
+  z-index: 1;
+  background-image: url(image/texture/hill.png);
+  background-size: 100px 100px; }
 
+/* ---- Forest ---- */
 #forest {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	background-image: url("images/forest.png");
-	background-size: 100px 100px;
+  position: absolute;
+  bottom: 15%;
+  left: 0px;
+  width: 100%;
+  height: 40%;
+  z-index: 1;
+  background-image: url(image/texture/forest.png);
+  background-size: 100px 100px; }
 
-	left: 400px;
-	top: 0px;
-}
+/* ---- Ground ---- */
+#ground {
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  width: 100%;
+  height: 40%;
+  z-index: 1;
+  background-image: url(image/texture/dirt.png);
+  background-size: 500px 500px; }
 
-#cliff {
-	position: absolute;
-	width: 100%;
-	height: 100px;
-	background-image: url("images/cliff.png");
-	background-size: 100px 100px;
+/* ---- Beach ---- */
+#beach {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 25%;
+  z-index: 1;
+  background-image: url(image/texture/beach.png);
+  background-size: 100px 100px; }
 
-	left: 0px;
-	top: 300px;
-}
-
-#road {
-	position: absolute;
-	width: 100%;
-	height: 100px;
-	background-image: url("images/road.png");
-	background-size: 100px 100px;
-
-	left: 400px;
-	top: 300px;
-}
-
+/* ---- Sea ---- */
 #sea {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	background-image: url("images/sea.png");
-	background-size: 100px 100px;
-
-	left: 0px;
-	top: 400px;
-}
-
-#field {
-	position: absolute;
-	width: 400px;
-	height: 400px;
-	background-image: url("images/field.png");
-	background-size: 100px 100px;
-
-	left: 400px;
-	top: 400px;
-}
+  position: absolute;
+  top: 12.5%;
+  left: 0px;
+  width: 100%;
+  height: 87.5%;
+  z-index: 1;
+  background-image: url(image/texture/sea.png);
+  background-size: 100px 100px;
+  opacity: 0.2; }

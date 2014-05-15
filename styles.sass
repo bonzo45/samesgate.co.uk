@@ -1,0 +1,106 @@
+$texture_path: "image/texture/"
+
+$layer_1: 1
+$layer_2: 2
+$layer_3: 3
+$layer_4: 4
+$layer_5: 5
+$layer_6: 6
+
+@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  top: $top
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+@mixin absolute_object_b($bottom, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  bottom: $bottom
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+
+/* ---- Sky ---- */
+$sky_height: 60%
+$texture_sky: $texture_path + "sky.png"
+$texture_sky_size: 300px
+
+#sky
+  @include absolute_object(0px, 0px, 100%, $sky_height, $layer_1)
+  background:
+    image: url(#{$texture_sky})
+    size: $texture_sky_size $texture_sky_size
+
+/* ---- Mountain --- */
+$mountain_height: 100%
+$mountain_width: 50%
+$texture_mountain: $texture_path + "mountain.png"
+$texture_mountain_size: 100%
+
+#mountain
+  @include absolute_object(0px, 0px, $mountain_width, $mountain_height, $layer_2)
+  background:
+    image: url(#{$texture_mountain})
+    size: $texture_mountain_size $texture_mountain_size
+
+/* ---- Hill ---- */
+$hill_height: 15%
+$texture_hill: $texture_path + "hill.png"
+$texture_hill_size: 100px
+
+#hill
+  @include absolute_object_b(0px, 0px, 100%, $hill_height, $layer_1)
+  background:
+    image: url(#{$texture_hill})
+    size: $texture_hill_size $texture_hill_size
+
+/* ---- Forest ----*/
+$forest_height: 40%
+$texture_forest: $texture_path + "forest.png"
+$texture_forest_size: 100px
+
+#forest
+  @include absolute_object_b($hill_height, 0px, 100%, $forest_height, $layer_1)
+  background:
+    image: url(#{$texture_forest})
+    size: $texture_forest_size $texture_forest_size
+
+
+/* ---- Ground ---- */
+$ground_height: 100% - $sky_height
+$texture_ground: $texture_path + "dirt.png"
+$texture_ground_size: 500px
+
+#ground
+  @include absolute_object($sky_height, 0px, 100%, $ground_height, $layer_1)
+  background:
+    image: url(#{$texture_ground})
+    size: $texture_ground_size $texture_ground_size
+
+/* ---- Beach ---- */
+$beach_height: 25%
+$texture_beach: $texture_path + "beach.png"
+$texture_beach_size: 100px
+
+#beach
+  @include absolute_object(0px, 0px, 100%, $beach_height, $layer_1)
+  background:
+    image: url(#{$texture_beach})
+    size: $texture_beach_size $texture_beach_size
+
+/* ---- Sea ---- */
+$beach_sea_overlap: $beach_height / 2
+$sea_height: 100% - ($beach_sea_overlap)
+$texture_sea: $texture_path + "sea.png"
+$texture_sea_size: 100px
+
+#sea
+  @include absolute_object($beach_sea_overlap, 0px, 100%, $sea_height, $layer_1)
+  background:
+    image: url(#{$texture_sea})
+    size: $texture_sea_size $texture_sea_size
+  opacity: 0.2
