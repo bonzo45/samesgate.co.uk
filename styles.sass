@@ -39,10 +39,10 @@ $texture_sky_size: 300px
 $texture_cloud: $texture_path + "Cloud"
 
 @mixin cloud($id, $top, $left)
-  @include absolute_object($left, $top, 600px, 600px)
+  @include absolute_object($left, $top, 100px, 100px)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
-    size: 25% 25%
+    size: 100% 100%
     repeat: no-repeat
 
 #cloud1
@@ -61,17 +61,17 @@ $texture_cloud: $texture_path + "Cloud"
   @include cloud(5, 1500px, 200px)
 
 #cloud6
-  @include cloud(6, 1800px, 50px)
+  @include cloud(6, 1750px, 50px)
 
 
 /* ---- Birds ---- */
 $texture_birds: $texture_path + "birds.png"
 
 #birds
-  @include absolute_object(150px, 1350px, 600px, 200px)
+  @include absolute_object(150px, 1350px, 150px, 50px)
   background:
     image: url(#{$texture_birds})
-    size: 25% 25%
+    size: 100% 100%
     repeat: no-repeat
 
 /* ---- Mountain --- */
