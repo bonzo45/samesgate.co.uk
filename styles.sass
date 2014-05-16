@@ -64,6 +64,16 @@ $texture_cloud: $texture_path + "Cloud"
   @include cloud(6, 1800px, 50px)
 
 
+/* ---- Birds ---- */
+$texture_birds: $texture_path + "birds.png"
+
+#birds
+  @include absolute_object(150px, 1350px, 600px, 200px)
+  background:
+    image: url(#{$texture_birds})
+    size: 25% 25%
+    repeat: no-repeat
+
 /* ---- Mountain --- */
 $mountain_height: 100%
 $mountain_width: 50%
@@ -150,3 +160,12 @@ $texture_sea_size: 100px
     image: url(#{$texture_sea})
     size: $texture_sea_size $texture_sea_size
   opacity: 0.4
+
+$texture_fish: $texture_path + "fish.png"
+
+#fish
+  @include absolute_object(200px, 200px, 300px, 100px)
+  background:
+    image: url(#{$texture_fish})
+    size: 25% 25%
+    repeat: no-repeat
