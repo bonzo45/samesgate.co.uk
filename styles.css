@@ -18,7 +18,9 @@
   height: 100%;
   z-index: 2;
   background-image: url(image/texture/mountain.png);
-  background-size: 100% 100%; }
+  background-repeat: no-repeat;
+  background-position: bottom 0px right 0px;
+  background-size: 1000px 800px; }
 
 /* ---- Hill ---- */
 #hill {
@@ -26,21 +28,32 @@
   bottom: 0px;
   left: 0px;
   width: 100%;
-  height: 15%;
+  height: 50px;
   z-index: 1;
   background-image: url(image/texture/hill.png);
-  background-size: 100px 100px; }
+  background-size: 50px 100%; }
+
+/* ---- Armco ---- */
+#armco {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
+  z-index: 3;
+  background-image: url(image/texture/armco.png);
+  background-size: 425px 100%; }
 
 /* ---- Forest ---- */
 #forest {
   position: absolute;
-  bottom: 15%;
+  bottom: 50px;
   left: 0px;
   width: 100%;
-  height: 40%;
+  height: 250px;
   z-index: 1;
   background-image: url(image/texture/forest.png);
-  background-size: 700px 100%; }
+  background-size: 500px 100%; }
 
 /* ---- Ground ---- */
 #ground {
@@ -59,7 +72,7 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 25%;
+  height: 100px;
   z-index: 1;
   background-image: url(image/texture/beach.png);
   background-size: 100px 100px; }
@@ -67,11 +80,11 @@
 /* ---- Sea ---- */
 #sea {
   position: absolute;
-  top: 12.5%;
+  top: 10%;
   left: 0px;
   width: 100%;
-  height: 87.5%;
+  height: 90%;
   z-index: 1;
   background-image: url(image/texture/sea.png);
   background-size: 100px 100px;
-  opacity: 0.2; }
+  opacity: 0.4; }

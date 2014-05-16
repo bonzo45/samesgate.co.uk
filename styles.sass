@@ -39,30 +39,46 @@ $texture_sky_size: 300px
 $mountain_height: 100%
 $mountain_width: 50%
 $texture_mountain: $texture_path + "mountain.png"
-$texture_mountain_size: 100%
+$texture_mountain_width: 1000px
+$texture_mountain_height: 800px
 
 #mountain
   @include absolute_object(0px, 0px, $mountain_width, $mountain_height, $layer_2)
   background:
     image: url(#{$texture_mountain})
-    size: $texture_mountain_size $texture_mountain_size
+    repeat: no-repeat
+    position: bottom 0px right 0px
+    size: $texture_mountain_width $texture_mountain_height
 
 /* ---- Hill ---- */
-$hill_height: 15%
+$hill_height: 50px
 $texture_hill: $texture_path + "hill.png"
-$texture_hill_size: 100px
+$texture_hill_height: 100%
+$texture_hill_width: 50px
 
 #hill
   @include absolute_object_b(0px, 0px, 100%, $hill_height, $layer_1)
   background:
     image: url(#{$texture_hill})
-    size: $texture_hill_size $texture_hill_size
+    size: $texture_hill_width $texture_hill_height
+
+/* ---- Armco ---- */
+$armco_height: 25px
+$texture_armco: $texture_path + "armco.png"
+$texture_armco_height: 100%
+$texture_armco_width: 425px
+
+#armco
+  @include absolute_object_b(0px, 0px, 100%, $armco_height, $layer_3)
+  background:
+    image: url(#{$texture_armco})
+    size: $texture_armco_width $texture_armco_height
 
 /* ---- Forest ----*/
-$forest_height: 40%
+$forest_height: 250px
 $texture_forest: $texture_path + "forest.png"
 $texture_forest_height: 100%
-$texture_forest_width: 700px
+$texture_forest_width: 500px
 
 #forest
   @include absolute_object_b($hill_height, 0px, 100%, $forest_height, $layer_1)
@@ -83,7 +99,7 @@ $texture_ground_size: 500px
     size: $texture_ground_size $texture_ground_size
 
 /* ---- Beach ---- */
-$beach_height: 25%
+$beach_height: 100px
 $texture_beach: $texture_path + "beach.png"
 $texture_beach_size: 100px
 
@@ -94,7 +110,7 @@ $texture_beach_size: 100px
     size: $texture_beach_size $texture_beach_size
 
 /* ---- Sea ---- */
-$beach_sea_overlap: $beach_height / 2
+$beach_sea_overlap: 10%
 $sea_height: 100% - ($beach_sea_overlap)
 $texture_sea: $texture_path + "sea.png"
 $texture_sea_size: 100px
@@ -104,4 +120,4 @@ $texture_sea_size: 100px
   background:
     image: url(#{$texture_sea})
     size: $texture_sea_size $texture_sea_size
-  opacity: 0.2
+  opacity: 0.4
