@@ -1,0 +1,82 @@
+<html>
+
+  <head>
+
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    
+    <!-- Leaflet.js -->
+    <script src="leaflet/leaflet.js"></script>
+
+    <!-- Leaflet.js Labels Extension -->
+    <script src="leaflet/plugin/leaflet.label.js"></script>
+    <link rel="stylesheet" href="leaflet/plugin/leaflet.label.css"/>
+
+    <!-- Leaflet.js Marker Clusterer Extension -->
+    <script src="leaflet/plugin/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="leaflet/plugin/MarkerCluster.css"/>
+    <link rel="stylesheet" href="leaflet/plugin/MarkerCluster.Default.css"/>
+
+    <!-- Places -->
+    <script src="places.js"></script>
+    <script src="icons.js"></script>
+
+    <script>  
+      function init() {
+        // Create a map and set initial position
+        var map = L.map('map').setView([50, 10], 6);
+
+        // Use Watercolor tiles from Stamen Design
+        var Stamen_Watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            subdomains: 'abcd',
+            minZoom: 3,
+            maxZoom: 16
+        });
+
+        Stamen_Watercolor.addTo(map);
+
+        // Marker Clusterer
+        var markers = L.markerClusterGroup({
+          maxClusterRadius: 40
+        });
+
+        // InterRail Polyline
+        var interrailLine = L.polyline([]).addTo(map);
+        interrailRoute.forEach(function(obj) {
+          interrailLine.addLatLng(obj.latLng);
+        });
+
+        interrail.forEach(function(obj) {
+          var marker = L.marker(obj.latLng, {draggable:false}).bindLabel(obj.name, {noHide: true});
+          markers.addLayer(marker);
+        });
+
+        nice11.forEach(function(obj) {
+          var marker = L.marker(obj.latLng, {icon: redIcon, draggable:false}).bindLabel(obj.name, {noHide: true});
+          markers.addLayer(marker);
+        });
+
+        family.forEach(function(obj) {
+          var marker = L.marker(obj.latLng, {icon: redIcon, draggable:false}).bindLabel(obj.name, {noHide: true});
+          markers.addLayer(marker);
+        });
+
+        bo.forEach(function(obj) {
+          var marker = L.marker(obj.latLng, {icon: redIcon, draggable:false}).bindLabel(obj.name, {noHide: true});
+          markers.addLayer(marker);
+        });
+
+        var homeMarker = L.marker(home.latLng, {icon: homeIcon, draggable:false}).addTo(map);
+
+        map.addLayer(markers);
+      }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <div style="width: 100%; height: 100%;" id="map">
+
+    </div>
+  </body>
+
+</html>
