@@ -2,10 +2,12 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="jquery.min.js"></script>
+  <script src="useful_things.js"></script>
 	<title>crazy-bonzo</title>
 </head>
 
-<body>
+<body onload="insertUsefulThings()">
   <div id="sky">
     <div id="cloud1"></div>
     <div id="cloud2"></div>
@@ -20,7 +22,11 @@
     <div id="armco"></div>
     <div id="forest"></div>
   </div>
+
   <div id="ground">
+    <div id="bonzos_useful_wrapper">
+      <div id="bonzos_useful_things"></div>
+    </div>
     <div id="beach"></div>
     <div id="sea">
       <div id="fish"></div>

@@ -155,7 +155,7 @@ $texture_sea: $texture_path + "sea.png"
 $texture_sea_size: 100px
 
 #sea
-  @include absolute_object($beach_sea_overlap, 0px, 100%, $sea_height, $layer_1)
+  @include absolute_object($beach_sea_overlap, 0px, 100%, $sea_height, $layer_2)
   background:
     image: url(#{$texture_sea})
     size: $texture_sea_size $texture_sea_size
@@ -169,3 +169,40 @@ $texture_fish: $texture_path + "fish.png"
     image: url(#{$texture_fish})
     size: 25% 25%
     repeat: no-repeat
+
+$useful_height: 100px
+$useful_margin: 5px
+
+#bonzos_useful_wrapper
+  @include absolute_object($beach_height + 10px, 0px, 100%, $useful_height, $layer_3)
+
+#bonzos_useful_things
+  position: absolute
+  bottom: 0
+  top: 0
+  left: 0
+  right: 0
+
+  background:
+    color: #2D2222
+
+  margin: $useful_margin
+
+  border:
+    radius: 5px
+
+$icon_margin: 10px
+$useful_icon_size: $useful_height - 2 * $useful_margin - 2 * $icon_margin
+
+.useful_icon
+  display: inline-block
+  width: $useful_icon_size
+  height: $useful_icon_size
+  margin: $icon_margin
+
+$separator_width: 5px
+
+.separator
+  display: inline-block
+  width: $separator_width
+  height: 100%
