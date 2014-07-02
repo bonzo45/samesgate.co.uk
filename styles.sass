@@ -23,23 +23,64 @@ $layer_6: 6
   height: $height
   z-index: $z-index
 
+body
+  margin: 0px 0px 0px 0px
+
+/* ---- Mountain --- */
+$mountain_height: 100%
+$mountain_width: 50%
+$texture_mountain: $texture_path + "mountain.png"
+$texture_mountain_width: 750px
+$texture_mountain_height: 600px
+
+#mountain
+  @include absolute_object_b(0px, 0px, $mountain_width, $mountain_height, $layer_3)
+  background:
+    image: url(#{$texture_mountain})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: $texture_mountain_width $texture_mountain_height
+  min:
+    width: $texture_mountain_width
+    height: $texture_mountain_height
 
 /* ---- Sky ---- */
 $sky_height: 60%
 $texture_sky: $texture_path + "sky.png"
 $texture_sky_size: 300px
 
+$samesgate_color: #DCDCDC
+
+#samesgate
+  @include absolute_object($texture_mountain_height / 2 + 50px, $texture_mountain_width + 50px, 600px, auto, $layer_2)
+  font:
+    family: helvetica
+  color: $samesgate_color
+  line:
+    height: 100pt
+  font-size: 72pt
+  text:
+    align: center
+  border:
+    top: 5px solid $samesgate_color
+    bottom: 5px solid $samesgate_color
+
 #sky
-  @include absolute_object(0px, 0px, 100%, $sky_height, $layer_1)
+  width: 100%
+  height: $sky_height
+  position: relative
   background:
     image: url(#{$texture_sky})
     size: $texture_sky_size $texture_sky_size
+
+  min:
+    height: $texture_mountain_height + 100px
 
 /* ---- Clouds ---- */
 $texture_cloud: $texture_path + "Cloud"
 
 @mixin cloud($id, $top, $left)
-  @include absolute_object($left, $top, 100px, 100px)
+  @include absolute_object($left, $top, 100px, 100px, $layer_1)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
     size: 100% 100%
@@ -63,7 +104,6 @@ $texture_cloud: $texture_path + "Cloud"
 #cloud6
   @include cloud(6, 1750px, 50px)
 
-
 /* ---- Birds ---- */
 $texture_birds: $texture_path + "birds.png"
 
@@ -73,21 +113,6 @@ $texture_birds: $texture_path + "birds.png"
     image: url(#{$texture_birds})
     size: 100% 100%
     repeat: no-repeat
-
-/* ---- Mountain --- */
-$mountain_height: 100%
-$mountain_width: 50%
-$texture_mountain: $texture_path + "mountain.png"
-$texture_mountain_width: 1000px
-$texture_mountain_height: 800px
-
-#mountain
-  @include absolute_object(0px, 0px, $mountain_width, $mountain_height, $layer_2)
-  background:
-    image: url(#{$texture_mountain})
-    repeat: no-repeat
-    position: bottom 0px right 0px
-    size: $texture_mountain_width $texture_mountain_height
 
 /* ---- Hill ---- */
 $hill_height: 50px
@@ -114,10 +139,10 @@ $texture_armco_width: 425px
     size: $texture_armco_width $texture_armco_height
 
 /* ---- Forest ----*/
-$forest_height: 250px
+$forest_height: 125px
 $texture_forest: $texture_path + "forest.png"
-$texture_forest_height: 100%
-$texture_forest_width: 500px
+$texture_forest_height: $forest_height
+$texture_forest_width: 250px
 
 #forest
   @include absolute_object_b($hill_height, 0px, 100%, $forest_height, $layer_1)
@@ -132,10 +157,14 @@ $texture_ground: $texture_path + "dirt.png"
 $texture_ground_size: 500px
 
 #ground
-  @include absolute_object($sky_height, 0px, 100%, $ground_height, $layer_1)
+  width: 100%
+  height: $ground_height
+  position: relative
   background:
     image: url(#{$texture_ground})
     size: $texture_ground_size $texture_ground_size
+  min:
+    height: 600px
 
 /* ---- Beach ---- */
 $beach_height: 100px
@@ -159,15 +188,27 @@ $texture_sea_size: 100px
   background:
     image: url(#{$texture_sea})
     size: $texture_sea_size $texture_sea_size
-  opacity: 0.4
+  opacity: 0.6
+
+$texture_sea_gradient: $texture_path + "sea_gradient.png"
+$sea_gradient_width: 600px
+$sea_gradient_height: 600px
+
+#sea_gradient
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_sea_gradient})
+    size: $sea_gradient_width $sea_gradient_height
+  opacity: 1.0
 
 $texture_fish: $texture_path + "fish.png"
 
 #fish
-  @include absolute_object(200px, 200px, 300px, 100px)
+  @include absolute_object(200px, 200px, 100px, 33px)
   background:
     image: url(#{$texture_fish})
-    size: 25% 25%
+    size: 100% 100%
     repeat: no-repeat
 
 $useful_height: 100px
