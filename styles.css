@@ -1,232 +1,53 @@
-body {
-  margin: 0px 0px 0px 0px; }
+/*
+Syntax error: Invalid CSS after "("cloud1", ": expected mixin argument, was "[left], [0px], ..."
+        on line 138 of styles.sass
 
-/* ---- Mountain --- */
-#mountain {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 50%;
-  height: 100%;
-  z-index: 3;
-  background-image: url(image/texture/mountain.png);
-  background-repeat: no-repeat;
-  background-position: bottom 0px left 0px;
-  background-size: 750px 600px;
-  min-width: 750px;
-  min-height: 600px; }
+133:     repeat: no-repeat
+134: 
+135: #cloud1
+136:   @include cloud(1, 50px, 50px)
+137: 
+138: @include generateKeyframes("cloud1", [left], [0px], [500px], false)
+139: 
+140: #cloud2
+141:   @include cloud(2, 700px, 50px)
+142: 
+143: #cloud3
 
-/* ---- Sky ---- */
-#samesgate {
-  position: absolute;
-  top: 350px;
-  left: 800px;
-  width: 600px;
-  height: auto;
-  z-index: 2;
-  font-family: helvetica;
-  color: gainsboro;
-  line-height: 100pt;
-  font-size: 72pt;
-  text-align: center;
-  border-top: 5px solid gainsboro;
-  border-bottom: 5px solid gainsboro; }
-
-#sky {
-  width: 100%;
-  height: 60%;
-  position: relative;
-  background-image: url(image/texture/sky.png);
-  background-size: 300px 300px;
-  min-height: 700px; }
-
-/* ---- Clouds ---- */
-#cloud1 {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_1.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#cloud2 {
-  position: absolute;
-  top: 50px;
-  left: 700px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_2.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#cloud3 {
-  position: absolute;
-  top: 100px;
-  left: 1000px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_3.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#cloud4 {
-  position: absolute;
-  top: 20px;
-  left: 1200px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_4.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#cloud5 {
-  position: absolute;
-  top: 200px;
-  left: 1500px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_5.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#cloud6 {
-  position: absolute;
-  top: 50px;
-  left: 1750px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/Cloud/Cloud_6.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-/* ---- Birds ---- */
-#birds {
-  position: absolute;
-  top: 150px;
-  left: 1350px;
-  width: 150px;
-  height: 50px;
-  z-index: 1;
-  background-image: url(image/texture/birds.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-/* ---- Hill ---- */
-#hill {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 50px;
-  z-index: 1;
-  background-image: url(image/texture/hill.png);
-  background-size: 50px 100%; }
-
-/* ---- Armco ---- */
-#armco {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 25px;
-  z-index: 3;
-  background-image: url(image/texture/armco.png);
-  background-size: 425px 100%; }
-
-/* ---- Forest ---- */
-#forest {
-  position: absolute;
-  bottom: 50px;
-  left: 0px;
-  width: 100%;
-  height: 125px;
-  z-index: 1;
-  background-image: url(image/texture/forest.png);
-  background-size: 250px 125px; }
-
-/* ---- Ground ---- */
-#ground {
-  width: 100%;
-  height: 40%;
-  position: relative;
-  background-image: url(image/texture/dirt.png);
-  background-size: 500px 500px;
-  min-height: 600px; }
-
-/* ---- Beach ---- */
-#beach {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100px;
-  z-index: 1;
-  background-image: url(image/texture/beach.png);
-  background-size: 100px 100px; }
-
-/* ---- Sea ---- */
-#sea {
-  position: absolute;
-  top: 10%;
-  left: 0px;
-  width: 100%;
-  height: 90%;
-  z-index: 2;
-  background-image: url(image/texture/sea.png);
-  background-size: 100px 100px;
-  opacity: 0.6; }
-
-#sea_gradient {
-  width: 100%;
-  height: 100%;
-  background-image: url(image/texture/sea_gradient.png);
-  background-size: 600px 600px;
-  opacity: 1; }
-
-#fish {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  width: 100px;
-  height: 33px;
-  z-index: 1;
-  background-image: url(image/texture/fish.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-#bonzos_useful_wrapper {
-  position: absolute;
-  top: 110px;
-  left: 0px;
-  width: 100%;
-  height: 100px;
-  z-index: 3; }
-
-#bonzos_useful_things {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #2d2222;
-  margin: 5px;
-  border-radius: 5px; }
-
-.useful_icon {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  margin: 10px; }
-
-.separator {
-  display: inline-block;
-  width: 5px;
-  height: 100%; }
+Backtrace:
+styles.sass:138
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/scss/parser.rb:1314:in `expected'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/lexer.rb:216:in `expected!'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:571:in `assert_expr'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:479:in `block in arglist'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:453:in `loop'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:453:in `arglist'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:442:in `mixin_arglist'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/script/parser.rb:94:in `parse_mixin_include_arglist'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:1110:in `parse_mixin_include'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:1100:in `parse_include_directive'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:806:in `parse_directive'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:653:in `parse_line'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:543:in `build_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:562:in `block in append_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:561:in `each'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:561:in `append_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:412:in `_to_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/engine.rb:274:in `render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `each'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/lib/sass/plugin/compiler.rb:248:in `block in watch'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.3.7/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"(\"cloud1\", \": expected mixin argument, was \"[left], [0px], ...\"\A         on line 138 of styles.sass\A \A 133:     repeat: no-repeat\A 134: \A 135: #cloud1\A 136:   @include cloud(1, 50px, 50px)\A 137: \A 138: @include generateKeyframes(\"cloud1\", [left], [0px], [500px], false)\A 139: \A 140: #cloud2\A 141:   @include cloud(2, 700px, 50px)\A 142: \A 143: #cloud3"; }

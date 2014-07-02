@@ -23,6 +23,51 @@ $layer_6: 6
   height: $height
   z-index: $z-index
 
+/* ---- ANIMATION ---- */
+@mixin generateKeyframes($animationName, $properties, $froms, $tos, $back)
+  $postfix: ""
+  @if $back
+    $postfix: "Open"
+  @-webkit-keyframes #{$animationName}#{$postfix}
+    from
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($froms, $i)
+    to
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($tos, $i)
+  
+  @keyframes #{$animationName}#{$postfix}
+    from
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($froms, $i)
+    to
+      @for $i from 1 to length($properties) + 1
+        #{nth($properties, $i)}: nth($tos, $i)
+
+  @if $back      
+    @-webkit-keyframes #{$animationName}Close
+      from
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($tos, $i)
+      to
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($froms, $i)
+    
+    @keyframes #{$animationName}Close
+      from
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($tos, $i)
+      to
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth($froms, $i)
+
+@mixin animate($animationName, $time, $repeat)
+  $times: ""
+  @if $repeat == forwards
+    $times: 1
+  -webkit-animation: $animationName $time linear #{$times} $repeat
+  animation: $animationName $time linear #{$times} $repeat
+
 body
   margin: 0px 0px 0px 0px
 
@@ -81,6 +126,7 @@ $texture_cloud: $texture_path + "Cloud"
 
 @mixin cloud($id, $top, $left)
   @include absolute_object($left, $top, 100px, 100px, $layer_1)
+  @include animate("cloud1", 5, true)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
     size: 100% 100%
@@ -88,6 +134,8 @@ $texture_cloud: $texture_path + "Cloud"
 
 #cloud1
   @include cloud(1, 50px, 50px)
+
+@include generateKeyframes("cloud1", [left], [0px], [500px], false)
 
 #cloud2
   @include cloud(2, 700px, 50px)
