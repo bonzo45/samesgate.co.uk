@@ -24,42 +24,23 @@ $layer_6: 6
   z-index: $z-index
 
 /* ---- ANIMATION ---- */
-@mixin generateKeyframes($animationName, $properties, $froms, $tos, $back)
-  $postfix: ""
+@mixin generateKeyframes($animationName, $properties, $points, $back)
+  $postfix: ""  
+  $timepoints: length($points) - 1
+  $increment: 100% / $timepoints
   @if $back
     $postfix: "Open"
   @-webkit-keyframes #{$animationName}#{$postfix}
-    from
-      @for $i from 1 to length($properties) + 1
-        #{nth($properties, $i)}: nth($froms, $i)
-    to
-      @for $i from 1 to length($properties) + 1
-        #{nth($properties, $i)}: nth($tos, $i)
-  
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
+      
   @keyframes #{$animationName}#{$postfix}
-    from
-      @for $i from 1 to length($properties) + 1
-        #{nth($properties, $i)}: nth($froms, $i)
-    to
-      @for $i from 1 to length($properties) + 1
-        #{nth($properties, $i)}: nth($tos, $i)
-
-  @if $back      
-    @-webkit-keyframes #{$animationName}Close
-      from
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
         @for $i from 1 to length($properties) + 1
-          #{nth($properties, $i)}: nth($tos, $i)
-      to
-        @for $i from 1 to length($properties) + 1
-          #{nth($properties, $i)}: nth($froms, $i)
-    
-    @keyframes #{$animationName}Close
-      from
-        @for $i from 1 to length($properties) + 1
-          #{nth($properties, $i)}: nth($tos, $i)
-      to
-        @for $i from 1 to length($properties) + 1
-          #{nth($properties, $i)}: nth($froms, $i)
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
 
 @mixin animate($animationName, $time, $repeat)
   $times: ""
@@ -124,33 +105,43 @@ $samesgate_color: #DCDCDC
 /* ---- Clouds ---- */
 $texture_cloud: $texture_path + "Cloud"
 
-@mixin cloud($id, $top, $left)
-  @include absolute_object($left, $top, 100px, 100px, $layer_1)
-  @include animate("cloud1", 5, true)
+@mixin cloud($id, $top, $left, $time)
+  @include absolute_object($left, auto, 100px, 100px, $layer_1)
+  @include animate(cloud#{$id}, $time, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
     size: 100% 100%
     repeat: no-repeat
 
 #cloud1
-  @include cloud(1, 50px, 50px)
+  @include cloud(1, 50px, 50px, 50s)
 
-@include generateKeyframes("cloud1", [left], [0px], [500px], false)
+@include generateKeyframes(cloud1, (right, opacity), ((10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud2
-  @include cloud(2, 700px, 50px)
+  @include cloud(2, 700px, 50px, 58s)
+
+@include generateKeyframes(cloud2, (right, opacity), ((10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud3
-  @include cloud(3, 1000px, 100px)
+  @include cloud(3, 1000px, 100px, 66s)
+
+@include generateKeyframes(cloud3, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud4
-  @include cloud(4, 1200px, 20px)
+  @include cloud(4, 1200px, 20px, 74s)
+
+@include generateKeyframes(cloud4, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud5
-  @include cloud(5, 1500px, 200px)
+  @include cloud(5, 1500px, 200px, 82s)
+
+@include generateKeyframes(cloud5, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud6
-  @include cloud(6, 1750px, 50px)
+  @include cloud(6, 1750px, 50px, 90s)
+
+@include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 /* ---- Birds ---- */
 $texture_birds: $texture_path + "birds.png"
