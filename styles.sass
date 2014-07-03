@@ -76,20 +76,44 @@ $texture_sky: $texture_path + "sky.png"
 $texture_sky_size: 300px
 
 $samesgate_color: #DCDCDC
+$caption_color: $samesgate_color
 
-#samesgate
-  @include absolute_object($texture_mountain_height / 2 + 50px, $texture_mountain_width + 50px, 600px, auto, $layer_2)
+$author_width: 600px
+$author_height: 120pt
+$samesgate_height: 80pt
+$caption_height: $author_height - $samesgate_height
+
+#author
+  @include absolute_object($texture_mountain_height / 2 - 50px, $texture_mountain_width + 150px, $author_width, $author_height, $layer_2)
   font:
     family: helvetica
-  color: $samesgate_color
+
+$samesgate_border: 10px
+
+#samesgate
+  @include absolute_object(0px, 0px, 100%, $samesgate_height, $layer_1)
   line:
-    height: 100pt
-  font-size: 72pt
+    height: $samesgate_height
+  font:
+    size: 72pt
   text:
     align: center
   border:
-    top: 5px solid $samesgate_color
-    bottom: 5px solid $samesgate_color
+    top: ($samesgate_border / 2) solid $samesgate_color
+    bottom: ($samesgate_border / 2) solid $samesgate_color
+  color: $samesgate_color
+
+#caption
+  @include absolute_object($samesgate_height + $samesgate_border, 0px, 100%, $caption_height, $layer_2)
+  text:
+    align: center
+  font:
+    size: 18pt
+  line:
+    height: $caption_height
+  color: $caption_color
+  border:
+    bottom: ($samesgate_border / 4) solid $samesgate_color
 
 #sky
   width: 100%
