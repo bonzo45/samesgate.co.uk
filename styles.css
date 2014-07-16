@@ -20,11 +20,11 @@ body {
 /* ---- Sky ---- */
 #author {
   position: absolute;
-  top: 250px;
+  top: 200px;
   left: 900px;
   width: 600px;
   height: 140pt;
-  z-index: 2;
+  z-index: 1;
   font-family: helvetica; }
 
 #samesgate {
@@ -69,7 +69,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud1 50s linear  infinite;
   animation: cloud1 50s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_1.png);
@@ -114,7 +114,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud2 58s linear  infinite;
   animation: cloud2 58s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_2.png);
@@ -167,7 +167,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud3 66s linear  infinite;
   animation: cloud3 66s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_3.png);
@@ -228,7 +228,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud4 74s linear  infinite;
   animation: cloud4 74s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_4.png);
@@ -297,7 +297,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud5 82s linear  infinite;
   animation: cloud5 82s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_5.png);
@@ -374,7 +374,7 @@ body {
   left: auto;
   width: 100px;
   height: 100px;
-  z-index: 1;
+  z-index: 2;
   -webkit-animation: cloud6 90s linear  infinite;
   animation: cloud6 90s linear  infinite;
   background-image: url(image/texture/Cloud/Cloud_6.png);
@@ -548,31 +548,25 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
-#bonzos_useful_wrapper {
-  position: absolute;
-  top: 110px;
-  left: 0px;
-  width: 100%;
-  height: 100px;
-  z-index: 3; }
-
 #bonzos_useful_things {
   position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 406.66667px;
+  left: 900px;
+  width: 600px;
+  height: auto;
+  z-index: 4;
   background-color: #2d2222;
-  margin: 5px;
-  border-radius: 5px; }
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center; }
 
 .useful_icon {
   display: inline-block;
-  width: 70px;
-  height: 70px;
-  margin: 10px; }
+  width: 40px;
+  height: 40px;
+  margin: 5px; }
 
 .separator {
   display: inline-block;
   width: 5px;
-  height: 100%; }
+  height: 50px; }

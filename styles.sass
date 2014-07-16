@@ -80,11 +80,13 @@ $caption_color: $samesgate_color
 
 $author_width: 600px
 $author_height: 140pt
+$author_left: $texture_mountain_width + 150px
+$author_top: $texture_mountain_height / 2 - 100px
 $samesgate_height: 100pt
 $caption_height: $author_height - $samesgate_height
 
 #author
-  @include absolute_object($texture_mountain_height / 2 - 50px, $texture_mountain_width + 150px, $author_width, $author_height, $layer_2)
+  @include absolute_object($author_top, $author_left, $author_width, $author_height, $layer_1)
   font:
     family: helvetica
 
@@ -130,7 +132,7 @@ $samesgate_border: 10px
 $texture_cloud: $texture_path + "Cloud"
 
 @mixin cloud($id, $top, $left, $time)
-  @include absolute_object($left, auto, 100px, 100px, $layer_1)
+  @include absolute_object($left, auto, 100px, 100px, $layer_2)
   @include animate(cloud#{$id}, $time, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
@@ -274,29 +276,30 @@ $texture_fish: $texture_path + "fish.png"
     size: 100% 100%
     repeat: no-repeat
 
-$useful_height: 100px
+$useful_height: 50px
 $useful_margin: 5px
 
-#bonzos_useful_wrapper
-  @include absolute_object($beach_height + 10px, 0px, 100%, $useful_height, $layer_3)
+$bonzos_wrapper_width: $author_width
+$bonzos_wrapper_height: auto
+$bonzos_wrapper_left: $author_left + (($author_width - $bonzos_wrapper_width) / 2)
+$bonzos_wrapper_top: $author_top + $author_height + 20px
 
 #bonzos_useful_things
-  position: absolute
-  bottom: 0
-  top: 0
-  left: 0
-  right: 0
+  @include absolute_object($bonzos_wrapper_top, $bonzos_wrapper_left, $bonzos_wrapper_width, $bonzos_wrapper_height, $layer_4)
 
   background:
     color: #2D2222
 
-  margin: $useful_margin
+  padding: $useful_margin
 
   border:
     radius: 5px
 
-$icon_margin: 10px
-$useful_icon_size: $useful_height - 2 * $useful_margin - 2 * $icon_margin
+  
+  text-align: center
+
+$icon_margin: 5px
+$useful_icon_size: $useful_height - 2 * $icon_margin
 
 .useful_icon
   display: inline-block
@@ -309,4 +312,4 @@ $separator_width: 5px
 .separator
   display: inline-block
   width: $separator_width
-  height: 100%
+  height: $useful_height
