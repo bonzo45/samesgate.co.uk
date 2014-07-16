@@ -70,6 +70,20 @@ $texture_mountain_height: 600px
     width: $texture_mountain_width
     height: $texture_mountain_height
 
+/* ---- Clock ---- */
+$clock_height: 400px
+$clock_width: $clock_height / 2
+$texture_clock: $texture_path + "Clock.png"
+
+#clock
+  @include absolute_object(0px, 300px, $clock_width, $clock_height)
+  background:
+    image: url(#{$texture_clock})
+    size: $clock_width $clock_height
+  @include animate(clockSwing, 4s, infinite)
+
+@include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
+
 /* ---- Sky ---- */
 $sky_height: 60%
 $texture_sky: $texture_path + "sky.png"

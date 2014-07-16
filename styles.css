@@ -17,6 +17,43 @@ body {
   min-width: 750px;
   min-height: 600px; }
 
+/* ---- Clock ---- */
+#clock {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  width: 200px;
+  height: 400px;
+  z-index: 1;
+  background-image: url(image/texture/Clock.png);
+  background-size: 200px 400px;
+  -webkit-animation: clockSwing 4s linear  infinite;
+  animation: clockSwing 4s linear  infinite; }
+
+@-webkit-keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+@keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
 /* ---- Sky ---- */
 #author {
   position: absolute;
