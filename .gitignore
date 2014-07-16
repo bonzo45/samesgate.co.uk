@@ -1,6 +1,2 @@
 *.sassc
-*.sassc
-.sass-cache/e7c68b4fd78fdd823b259540ab3559fd2b41acc1/styles.sassc
-*.db
-*.sassc
 *.db
