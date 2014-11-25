@@ -1,4 +1,22 @@
+var sidebar_open = false;
+
+function toggleSidebar() {
+  if (sidebar_open) {    
+    $("#sidebar").addClass("sidebar_closed");
+    $("#sidebar").removeClass("sidebar_open");
+  }
+  else {
+    $("#sidebar").addClass("sidebar_open");
+    $("#sidebar").removeClass("sidebar_closed");
+  }
+  
+  sidebar_open = ! sidebar_open;
+}
+
 function insertUsefulThings() {
+  /* TODO: Don't leave this here... that wouldn't be great. */
+  $("#tab").click(toggleSidebar);
+
   /* Go through each section */
   $.each(usefulThings, function(category, entries) {
     var div = $("#bonzos_useful_things");

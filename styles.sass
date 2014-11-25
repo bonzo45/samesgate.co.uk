@@ -52,6 +52,44 @@ $layer_6: 6
 body
   margin: 0px 0px 0px 0px
 
+/* ---- Sidebar ---- */
+
+#sidebar
+  position: fixed
+  right: 0px
+  height: 100%
+  width: 0px
+  background:
+    color: white
+
+  z-index: 2
+  opacity: 0.5
+
+.sidebar_closed
+  @include animate("closeSidebar", 200, forwards)
+  width: 100px !important
+
+.sidebar_open
+  @include animate("openSidebar", 200, forwards)
+  width: 0px !important
+
+@include generateKeyframes("closeSidebar", (width), ((100, 0)), false)
+@include generateKeyframes("openSidebar", (width), ((0, 100)), false)
+
+#tab
+  position: relative
+  width: 100px
+  height: 100px
+  top: 50px
+  left: -100px
+  background-color: black
+
+#sidebar_content
+  position: relative
+  height: 100%
+  width: 100%
+
+
 /* ---- Mountain --- */
 $mountain_height: 100%
 $mountain_width: 50%

@@ -2,6 +2,63 @@
 body {
   margin: 0px 0px 0px 0px; }
 
+/* ---- Sidebar ---- */
+#sidebar {
+  position: fixed;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  z-index: 2;
+  opacity: 0.5; }
+
+.sidebar_closed {
+  -webkit-animation: "closeSidebar" 200 linear 1 forwards;
+  animation: "closeSidebar" 200 linear 1 forwards;
+  width: 100px !important; }
+
+.sidebar_open {
+  -webkit-animation: "openSidebar" 200 linear 1 forwards;
+  animation: "openSidebar" 200 linear 1 forwards;
+  width: 0px !important; }
+
+@-webkit-keyframes closeSidebar {
+  0% {
+    width: 100; }
+
+  100% {
+    width: 0; } }
+@keyframes closeSidebar {
+  0% {
+    width: 100; }
+
+  100% {
+    width: 0; } }
+@-webkit-keyframes openSidebar {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 100; } }
+@keyframes openSidebar {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 100; } }
+#tab {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: -100px;
+  background-color: black; }
+
+#sidebar_content {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
 /* ---- Mountain --- */
 #mountain {
   position: absolute;
