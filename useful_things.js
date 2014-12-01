@@ -14,8 +14,16 @@ function toggleSidebar() {
 }
 
 function insertUsefulThings() {
-  /* TODO: Don't leave this here... that wouldn't be great. */
+  /* TODO: Don't leave these here... that wouldn't be great. */
   $("#tab").click(toggleSidebar);
+
+  $("#got").mouseover(function(){
+    $("#got_cover").addClass("counter_animate");
+  });
+
+  $("#got").mouseout(function(){
+    $("#got_cover").removeClass("counter_animate");
+  });
 
   /* Go through each section */
   $.each(usefulThings, function(category, entries) {

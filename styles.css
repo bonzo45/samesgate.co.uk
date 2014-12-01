@@ -683,3 +683,53 @@ body {
   display: inline-block;
   width: 5px;
   height: 50px; }
+
+#got {
+  position: absolute;
+  top: 40px;
+  left: 200px;
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  text-align: center;
+  overflow: hidden;
+  background-color: black; }
+
+#got_days {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  border-top: 2px #cccccc solid;
+  font-size: 14pt;
+  color: #cccccc;
+  pointer-events: none; }
+  #got_days h1 {
+    font-size: 40pt;
+    line-height: 90%;
+    margin: 5px 0px 0px 0px; }
+
+#got_cover {
+  position: relative;
+  pointer-events: none; }
+
+.counter_animate {
+  -webkit-animation: counterHide 0.3s linear 1 forwards;
+  animation: counterHide 0.3s linear 1 forwards; }
+
+@-webkit-keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -100px;
+    margin-bottom: -100px; } }
+@keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -100px;
+    margin-bottom: -100px; } }
