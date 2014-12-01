@@ -386,3 +386,28 @@ $separator_width: 5px
   display: inline-block
   width: $separator_width
   height: $useful_height
+
+  @mixin countdown($top, $left, $z-index)
+  @include absolute_object($top, $left, 100px, 180px, $z-index)
+  text:
+    align: center
+
+@mixin countdown_days($primary, $secondary)
+  @include absolute_object(100px, 0px, 100%, 80px)
+  background:
+    color: $primary
+  border:
+    top: 2px $secondary solid
+  font:
+    size: 14pt
+  color: $secondary
+  
+  h1
+    font:
+      size: 40pt
+    line:
+      height: 90%
+    margin: 5px 0px 0px 0px
+
+#got
+  @include countdown(40px, 200px, $layer_1)
