@@ -387,48 +387,53 @@ $separator_width: 5px
   width: $separator_width
   height: $useful_height
 
+$countdown_width: 100px
+$countdown_height: 100px
+
 @mixin countdown($top, $left, $z-index)
-  @include absolute_object($top, $left, 100px, 100px, $z-index)
-  text:
-    align: center
+  @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
   overflow: hidden
-  background:
-    color: black
+
+@mixin countdown_cover
+  position: relative
+  pointer-events: none
 
 @mixin countdown_days($primary, $secondary)
   position: relative
   height: 100px
   width: 100%
 
+  pointer-events: none
+
   background:
     color: $primary
+  color: $secondary
+
+  text:
+    align: center
   font:
     size: 40pt
-  color: $secondary
-  
   line:
     height: 100px
 
-#got
-  @include countdown(40px, 200px, $layer_5)
-
-#got_days
-  @include countdown_days(#fff, #ccc)
-  pointer-events: none
-
-#got_cover
-  position: relative
-  pointer-events: none
-
-.counter_hide
+.countdown_hide
   @include animate(counterHide, 0.3s, forwards)
   top: 0px !important
   margin-bottom: 0px !important
 
-.counter_show
+.countdown_show
   @include animate(counterShow, 0.3s, forwards)
   top: -100px !important
   margin-bottom: -100px !important
 
 @include generateKeyframes(counterHide, (top, margin-bottom), ((0px, 0px), (-100px, -100px)), false)
 @include generateKeyframes(counterShow, (top, margin-bottom), ((-100px, -100px), (0px, 0px)), false)
+
+#got
+  @include countdown(100px, 100px, $layer_5)
+
+#got_cover
+  @include countdown_cover
+
+#got_days
+  @include countdown_days(#fff, #ccc)

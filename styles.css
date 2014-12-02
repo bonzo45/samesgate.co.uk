@@ -684,38 +684,13 @@ body {
   width: 5px;
   height: 50px; }
 
-#got {
-  position: absolute;
-  top: 40px;
-  left: 200px;
-  width: 100px;
-  height: 100px;
-  z-index: 5;
-  text-align: center;
-  overflow: hidden;
-  background-color: black; }
-
-#got_days {
-  position: relative;
-  height: 100px;
-  width: 100%;
-  background-color: white;
-  font-size: 40pt;
-  color: #cccccc;
-  line-height: 100px;
-  pointer-events: none; }
-
-#got_cover {
-  position: relative;
-  pointer-events: none; }
-
-.counter_hide {
+.countdown_hide {
   -webkit-animation: counterHide 0.3s linear 1 forwards;
   animation: counterHide 0.3s linear 1 forwards;
   top: 0px !important;
   margin-bottom: 0px !important; }
 
-.counter_show {
+.countdown_show {
   -webkit-animation: counterShow 0.3s linear 1 forwards;
   animation: counterShow 0.3s linear 1 forwards;
   top: -100px !important;
@@ -753,3 +728,26 @@ body {
   100% {
     top: 0px;
     margin-bottom: 0px; } }
+#got {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  overflow: hidden; }
+
+#got_cover {
+  position: relative;
+  pointer-events: none; }
+
+#got_days {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  pointer-events: none;
+  background-color: white;
+  color: #cccccc;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 100px; }
