@@ -18,11 +18,13 @@ function insertUsefulThings() {
   $("#tab").click(toggleSidebar);
 
   $("#got").mouseover(function(){
-    $("#got_cover").addClass("counter_animate");
+    $("#got_cover").addClass("counter_hide");
+    $("#got_cover").removeClass("counter_show");
   });
 
   $("#got").mouseout(function(){
-    $("#got_cover").removeClass("counter_animate");
+    $("#got_cover").addClass("counter_show");
+    $("#got_cover").removeClass("counter_hide");
   });
 
   /* Go through each section */

@@ -700,22 +700,26 @@ body {
   height: 100px;
   width: 100%;
   background-color: white;
-  border-top: 2px #cccccc solid;
-  font-size: 14pt;
+  font-size: 40pt;
   color: #cccccc;
+  line-height: 100px;
   pointer-events: none; }
-  #got_days h1 {
-    font-size: 40pt;
-    line-height: 90%;
-    margin: 5px 0px 0px 0px; }
 
 #got_cover {
   position: relative;
   pointer-events: none; }
 
-.counter_animate {
+.counter_hide {
   -webkit-animation: counterHide 0.3s linear 1 forwards;
-  animation: counterHide 0.3s linear 1 forwards; }
+  animation: counterHide 0.3s linear 1 forwards;
+  top: 0px !important;
+  margin-bottom: 0px !important; }
+
+.counter_show {
+  -webkit-animation: counterShow 0.3s linear 1 forwards;
+  animation: counterShow 0.3s linear 1 forwards;
+  top: -100px !important;
+  margin-bottom: -100px !important; }
 
 @-webkit-keyframes counterHide {
   0% {
@@ -733,3 +737,19 @@ body {
   100% {
     top: -100px;
     margin-bottom: -100px; } }
+@-webkit-keyframes counterShow {
+  0% {
+    top: -100px;
+    margin-bottom: -100px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }
+@keyframes counterShow {
+  0% {
+    top: -100px;
+    margin-bottom: -100px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }

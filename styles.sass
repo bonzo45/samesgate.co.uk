@@ -402,18 +402,12 @@ $separator_width: 5px
 
   background:
     color: $primary
-  border:
-    top: 2px $secondary solid
   font:
-    size: 14pt
+    size: 40pt
   color: $secondary
   
-  h1
-    font:
-      size: 40pt
-    line:
-      height: 90%
-    margin: 5px 0px 0px 0px
+  line:
+    height: 100px
 
 #got
   @include countdown(40px, 200px, $layer_5)
@@ -426,7 +420,15 @@ $separator_width: 5px
   position: relative
   pointer-events: none
 
-.counter_animate
+.counter_hide
   @include animate(counterHide, 0.3s, forwards)
+  top: 0px !important
+  margin-bottom: 0px !important
+
+.counter_show
+  @include animate(counterShow, 0.3s, forwards)
+  top: -100px !important
+  margin-bottom: -100px !important
 
 @include generateKeyframes(counterHide, (top, margin-bottom), ((0px, 0px), (-100px, -100px)), false)
+@include generateKeyframes(counterShow, (top, margin-bottom), ((-100px, -100px), (0px, 0px)), false)
