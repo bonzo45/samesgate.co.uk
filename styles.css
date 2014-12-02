@@ -746,8 +746,8 @@ body {
   height: 100px;
   width: 100%;
   pointer-events: none;
-  background-color: white;
-  color: #cccccc;
+  background-color: #6b6b6b;
+  color: #efefef;
   text-align: center;
   font-size: 40pt;
   line-height: 100px; }
