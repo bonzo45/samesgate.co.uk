@@ -73,7 +73,7 @@ body {
   width: 50%;
   height: 100%;
   z-index: 3;
-  background-image: url(image/texture/mountain.png);
+  background-image: url(image/texture/Mountain.png);
   background-repeat: no-repeat;
   background-position: bottom 0px left 0px;
   background-size: 750px 600px;
@@ -158,7 +158,7 @@ body {
   width: 100%;
   height: 60%;
   position: relative;
-  background-image: url(image/texture/sky.png);
+  background-image: url(image/texture/Sky.png);
   background-size: 300px 300px;
   min-height: 700px;
   z-index: 1; }
@@ -562,7 +562,7 @@ body {
   width: 150px;
   height: 50px;
   z-index: 1;
-  background-image: url(image/texture/birds.png);
+  background-image: url(image/texture/Birds.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -574,7 +574,7 @@ body {
   width: 100%;
   height: 50px;
   z-index: 1;
-  background-image: url(image/texture/hill.png);
+  background-image: url(image/texture/Hill.png);
   background-size: 50px 100%; }
 
 /* ---- Armco ---- */
@@ -585,7 +585,7 @@ body {
   width: 100%;
   height: 25px;
   z-index: 3;
-  background-image: url(image/texture/armco.png);
+  background-image: url(image/texture/Armco.png);
   background-size: 425px 100%; }
 
 /* ---- Forest ---- */
@@ -596,7 +596,7 @@ body {
   width: 100%;
   height: 125px;
   z-index: 1;
-  background-image: url(image/texture/forest.png);
+  background-image: url(image/texture/Forest.png);
   background-size: 250px 125px; }
 
 /* ---- Ground ---- */
@@ -604,7 +604,7 @@ body {
   width: 100%;
   height: 40%;
   position: relative;
-  background-image: url(image/texture/dirt.png);
+  background-image: url(image/texture/Dirt.png);
   background-size: 500px 500px;
   min-height: 600px;
   z-index: 1; }
@@ -617,7 +617,7 @@ body {
   width: 100%;
   height: 100px;
   z-index: 1;
-  background-image: url(image/texture/beach.png);
+  background-image: url(image/texture/Beach.png);
   background-size: 100px 100px; }
 
 /* ---- Sea ---- */
@@ -628,14 +628,14 @@ body {
   width: 100%;
   height: 90%;
   z-index: 2;
-  background-image: url(image/texture/sea.png);
+  background-image: url(image/texture/Sea.png);
   background-size: 100px 100px;
   opacity: 0.6; }
 
 #sea_gradient {
   width: 100%;
   height: 100%;
-  background-image: url(image/texture/sea_gradient.png);
+  background-image: url(image/texture/Sea_Gradient.png);
   background-size: 600px 600px;
   opacity: 1; }
 
@@ -657,7 +657,7 @@ body {
   width: 100px;
   height: 33px;
   z-index: 1;
-  background-image: url(image/texture/fish.png);
+  background-image: url(image/texture/Fish.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 

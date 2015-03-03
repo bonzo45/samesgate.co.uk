@@ -100,7 +100,7 @@ body
 /* ---- Mountain --- */
 $mountain_height: 100%
 $mountain_width: 50%
-$texture_mountain: $texture_path + "mountain.png"
+$texture_mountain: $texture_path + "Mountain.png"
 $texture_mountain_width: 750px
 $texture_mountain_height: 600px
 
@@ -131,7 +131,7 @@ $texture_clock: $texture_path + "Clock.png"
 
 /* ---- Sky ---- */
 $sky_height: 60%
-$texture_sky: $texture_path + "sky.png"
+$texture_sky: $texture_path + "Sky.png"
 $texture_sky_size: 300px
 
 $samesgate_color: #DCDCDC
@@ -231,7 +231,7 @@ $texture_cloud: $texture_path + "Cloud"
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 /* ---- Birds ---- */
-$texture_birds: $texture_path + "birds.png"
+$texture_birds: $texture_path + "Birds.png"
 
 #birds
   @include absolute_object(150px, 1350px, 150px, 50px)
@@ -242,7 +242,7 @@ $texture_birds: $texture_path + "birds.png"
 
 /* ---- Hill ---- */
 $hill_height: 50px
-$texture_hill: $texture_path + "hill.png"
+$texture_hill: $texture_path + "Hill.png"
 $texture_hill_height: 100%
 $texture_hill_width: 50px
 
@@ -254,7 +254,7 @@ $texture_hill_width: 50px
 
 /* ---- Armco ---- */
 $armco_height: 25px
-$texture_armco: $texture_path + "armco.png"
+$texture_armco: $texture_path + "Armco.png"
 $texture_armco_height: 100%
 $texture_armco_width: 425px
 
@@ -266,7 +266,7 @@ $texture_armco_width: 425px
 
 /* ---- Forest ----*/
 $forest_height: 125px
-$texture_forest: $texture_path + "forest.png"
+$texture_forest: $texture_path + "Forest.png"
 $texture_forest_height: $forest_height
 $texture_forest_width: 250px
 
@@ -279,7 +279,7 @@ $texture_forest_width: 250px
 
 /* ---- Ground ---- */
 $ground_height: 100% - $sky_height
-$texture_ground: $texture_path + "dirt.png"
+$texture_ground: $texture_path + "Dirt.png"
 $texture_ground_size: 500px
 
 #ground
@@ -296,7 +296,7 @@ $texture_ground_size: 500px
 
 /* ---- Beach ---- */
 $beach_height: 100px
-$texture_beach: $texture_path + "beach.png"
+$texture_beach: $texture_path + "Beach.png"
 $texture_beach_size: 100px
 
 #beach
@@ -308,7 +308,7 @@ $texture_beach_size: 100px
 /* ---- Sea ---- */
 $beach_sea_overlap: 10%
 $sea_height: 100% - ($beach_sea_overlap)
-$texture_sea: $texture_path + "sea.png"
+$texture_sea: $texture_path + "Sea.png"
 $texture_sea_size: 100px
 
 #sea
@@ -318,7 +318,7 @@ $texture_sea_size: 100px
     size: $texture_sea_size $texture_sea_size
   opacity: 0.6
 
-$texture_sea_gradient: $texture_path + "sea_gradient.png"
+$texture_sea_gradient: $texture_path + "Sea_Gradient.png"
 $sea_gradient_width: 600px
 $sea_gradient_height: 600px
 
@@ -340,7 +340,7 @@ $animation_weather: $animation + "ripple.gif"
   opacity: 0.2
   pointer-events: none
 
-$texture_fish: $texture_path + "fish.png"
+$texture_fish: $texture_path + "Fish.png"
 
 #fish
   @include absolute_object(200px, 200px, 100px, 33px)
