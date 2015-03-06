@@ -48,17 +48,17 @@ body {
     width: 100; } }
 #tab {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   top: 50px;
-  left: -100px;
+  left: -50px;
   background-color: black;
   text-align: center;
   color: white;
-  font-size: 40pt; }
+  font-size: 20pt; }
 
 #tab_icon {
-  line-height: 100px; }
+  line-height: 50px; }
 
 #sidebar_content {
   position: relative;
@@ -158,7 +158,7 @@ body {
   width: 100%;
   height: 60%;
   position: relative;
-  background-image: url(image/texture/Sky.png);
+  background-image: url(image/colours/light_blue.png);
   background-size: 300px 300px;
   min-height: 700px;
   z-index: 1; }
@@ -574,8 +574,7 @@ body {
   width: 100%;
   height: 50px;
   z-index: 1;
-  background-image: url(image/texture/Hill.png);
-  background-size: 50px 100%; }
+  background-image: url(image/colours/dark_green.png); }
 
 /* ---- Armco ---- */
 #armco {
@@ -596,7 +595,7 @@ body {
   width: 100%;
   height: 125px;
   z-index: 1;
-  background-image: url(image/texture/Forest.png);
+  background-image: url(image/colours/TODO.png);
   background-size: 250px 125px; }
 
 /* ---- Ground ---- */
@@ -604,8 +603,7 @@ body {
   width: 100%;
   height: 40%;
   position: relative;
-  background-image: url(image/texture/Dirt.png);
-  background-size: 500px 500px;
+  background-image: url(image/colours/dark_brown.png);
   min-height: 600px;
   z-index: 1; }
 
@@ -617,7 +615,7 @@ body {
   width: 100%;
   height: 100px;
   z-index: 1;
-  background-image: url(image/texture/Beach.png);
+  background-image: url(image/colours/yellow.png);
   background-size: 100px 100px; }
 
 /* ---- Sea ---- */
@@ -628,7 +626,7 @@ body {
   width: 100%;
   height: 90%;
   z-index: 2;
-  background-image: url(image/texture/Sea.png);
+  background-image: url(image/colours/dark_blue.png);
   background-size: 100px 100px;
   opacity: 0.6; }
 
@@ -646,7 +644,7 @@ body {
   width: 100%;
   height: 90%;
   z-index: 3;
-  background-image: url(image/animation/ripple.gif);
+  background-image: url(image/animation/TODOripple.gif);
   opacity: 0.2;
   pointer-events: none; }
 
@@ -730,8 +728,8 @@ body {
     margin-bottom: 0px; } }
 #got {
   position: absolute;
-  top: 100px;
-  left: 100px;
+  bottom: 50px;
+  left: 750px;
   width: 100px;
   height: 100px;
   z-index: 5;

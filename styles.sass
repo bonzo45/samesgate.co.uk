@@ -1,4 +1,5 @@
 $texture_path: "image/texture/"
+$colour_path: "image/colours/"
 
 $layer_1: 1
 $layer_2: 2
@@ -78,17 +79,17 @@ body
 
 #tab
   position: relative
-  width: 100px
-  height: 100px
+  width: 50px
+  height: 50px
   top: 50px
-  left: -100px
+  left: -50px
   background-color: black
   text-align: center
   color: white
-  font-size: 40pt
+  font-size: 20pt
 
 #tab_icon
-  line-height: 100px
+  line-height: 50px
     
 
 #sidebar_content
@@ -131,7 +132,7 @@ $texture_clock: $texture_path + "Clock.png"
 
 /* ---- Sky ---- */
 $sky_height: 60%
-$texture_sky: $texture_path + "Sky.png"
+$texture_sky: $colour_path + "light_blue.png"
 $texture_sky_size: 300px
 
 $samesgate_color: #DCDCDC
@@ -242,15 +243,12 @@ $texture_birds: $texture_path + "Birds.png"
 
 /* ---- Hill ---- */
 $hill_height: 50px
-$texture_hill: $texture_path + "Hill.png"
-$texture_hill_height: 100%
-$texture_hill_width: 50px
+$texture_hill: $colour_path + "dark_green.png"
 
 #hill
   @include absolute_object_b(0px, 0px, 100%, $hill_height, $layer_1)
   background:
     image: url(#{$texture_hill})
-    size: $texture_hill_width $texture_hill_height
 
 /* ---- Armco ---- */
 $armco_height: 25px
@@ -266,7 +264,7 @@ $texture_armco_width: 425px
 
 /* ---- Forest ----*/
 $forest_height: 125px
-$texture_forest: $texture_path + "Forest.png"
+$texture_forest: $colour_path + "TODO.png"
 $texture_forest_height: $forest_height
 $texture_forest_width: 250px
 
@@ -279,8 +277,7 @@ $texture_forest_width: 250px
 
 /* ---- Ground ---- */
 $ground_height: 100% - $sky_height
-$texture_ground: $texture_path + "Dirt.png"
-$texture_ground_size: 500px
+$texture_ground: $colour_path + "dark_brown.png"
 
 #ground
   width: 100%
@@ -288,7 +285,6 @@ $texture_ground_size: 500px
   position: relative
   background:
     image: url(#{$texture_ground})
-    size: $texture_ground_size $texture_ground_size
   min:
     height: 600px
 
@@ -296,7 +292,7 @@ $texture_ground_size: 500px
 
 /* ---- Beach ---- */
 $beach_height: 100px
-$texture_beach: $texture_path + "Beach.png"
+$texture_beach: $colour_path + "yellow.png"
 $texture_beach_size: 100px
 
 #beach
@@ -308,7 +304,7 @@ $texture_beach_size: 100px
 /* ---- Sea ---- */
 $beach_sea_overlap: 10%
 $sea_height: 100% - ($beach_sea_overlap)
-$texture_sea: $texture_path + "Sea.png"
+$texture_sea: $colour_path + "dark_blue.png"
 $texture_sea_size: 100px
 
 #sea
@@ -331,7 +327,7 @@ $sea_gradient_height: 600px
   opacity: 1.0
 
 $animation: "image/animation/"
-$animation_weather: $animation + "ripple.gif"
+$animation_weather: $animation + "TODOripple.gif"
 
 #tint
   @include absolute_object($beach_sea_overlap, 0px, 100%, $sea_height, $layer_3)
@@ -390,8 +386,8 @@ $separator_width: 5px
 $countdown_width: 100px
 $countdown_height: 100px
 
-@mixin countdown($top, $left, $z-index)
-  @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
+@mixin countdown($bottom, $left, $z-index)
+  @include absolute_object_b($bottom, $left, $countdown_width, $countdown_height, $z-index)
   overflow: hidden
 
 @mixin countdown_cover
@@ -430,7 +426,7 @@ $countdown_height: 100px
 @include generateKeyframes(counterShow, (top, margin-bottom), ((-100px, -100px), (0px, 0px)), false)
 
 #got
-  @include countdown(100px, 100px, $layer_5)
+  @include countdown($hill_height, 750px, $layer_5)
 
 #got_cover
   @include countdown_cover

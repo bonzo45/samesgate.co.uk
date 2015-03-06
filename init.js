@@ -1,5 +1,11 @@
 var sidebar_open = false;
 
+function init() {
+  initSideBar();
+  initCountdowns();
+  initUsefulThings();
+}
+
 function toggleSidebar() {
   if (sidebar_open) {    
     $("#sidebar").addClass("sidebar_closed");
@@ -13,10 +19,11 @@ function toggleSidebar() {
   sidebar_open = ! sidebar_open;
 }
 
-function insertUsefulThings() {
-  /* TODO: Don't leave these here... that wouldn't be great. */
+function initSideBar() {
   $("#tab").click(toggleSidebar);
+}
 
+function initCountdowns() {
   $("#got").mouseover(function(){
     $("#got_cover").addClass("countdown_hide");
     $("#got_cover").removeClass("countdown_show");
@@ -26,7 +33,9 @@ function insertUsefulThings() {
     $("#got_cover").addClass("countdown_show");
     $("#got_cover").removeClass("countdown_hide");
   });
+}
 
+function initUsefulThings() {
   /* Go through each section */
   $.each(usefulThings, function(category, entries) {
     var div = $("#bonzos_useful_things");
