@@ -1,8 +1,17 @@
-/* ---- ANIMATION ---- */
+/* ------------------------------------------------------------------- */
+/* -------------------------- Control Panel -------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Util ------------------------------ */
+/* ------------------------------------------------------------------- */
+/* ---- Absolute Positioning ---- */
+/* ---- Animation ---- */
 body {
   margin: 0px 0px 0px 0px; }
 
-/* ---- Sidebar ---- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Sidebar ---------------------------- */
+/* ------------------------------------------------------------------- */
 #sidebar {
   position: fixed;
   right: 0px;
@@ -65,103 +74,34 @@ body {
   height: 100%;
   width: 100%; }
 
-/* ---- Mountain --- */
-#mountain {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 50%;
-  height: 100%;
-  z-index: 3;
-  background-image: url(image/texture/Mountain.png);
-  background-repeat: no-repeat;
-  background-position: bottom 0px left 0px;
-  background-size: 750px 600px;
-  min-width: 750px;
-  min-height: 600px; }
+/* ------------------------------------------------------------------- */
+/* ---------------------------- Centerer ----------------------------- */
+/* ------------------------------------------------------------------- */
+.centerer {
+  position: relative;
+  margin: 0 auto;
+  width: 1280px;
+  height: 100%; }
 
-/* ---- Clock ---- */
-#clock {
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  width: 200px;
-  height: 400px;
-  z-index: 1;
-  background-image: url(image/texture/Clock.png);
-  background-size: 200px 400px;
-  -webkit-animation: clockSwing 4s linear  infinite;
-  animation: clockSwing 4s linear  infinite; }
-
-@-webkit-keyframes clockSwing {
-  0% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); }
-
-  50% {
-    transform: rotate(1deg);
-    -webkit-transform: rotate(1deg); }
-
-  100% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); } }
-@keyframes clockSwing {
-  0% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); }
-
-  50% {
-    transform: rotate(1deg);
-    -webkit-transform: rotate(1deg); }
-
-  100% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); } }
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Sky ------------------------------- */
+/* ------------------------------------------------------------------- */
 /* ---- Sky ---- */
-#author {
-  position: absolute;
-  top: 200px;
-  left: 900px;
-  width: 600px;
-  height: 140pt;
-  z-index: 1;
-  font-family: helvetica; }
-
-#samesgate {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100pt;
-  z-index: 1;
-  line-height: 100pt;
-  font-size: 72pt;
-  text-align: center;
-  border-top: 5px solid gainsboro;
-  border-bottom: 5px solid gainsboro;
-  color: gainsboro; }
-
-#caption {
-  position: absolute;
-  top: 107.5pt;
-  left: 0px;
-  width: 100%;
-  height: 40pt;
-  z-index: 2;
-  text-align: center;
-  font-size: 18pt;
-  line-height: 40pt;
-  color: gainsboro;
-  border-bottom: 2.5px solid gainsboro; }
-
 #sky {
   width: 100%;
   height: 60%;
   position: relative;
   background-image: url(image/colours/light_blue.png);
   background-size: 300px 300px;
-  min-height: 700px;
+  min-height: 600px;
   z-index: 1; }
+
+#sky_tint {
+  width: 100%;
+  height: 100%;
+  background-image: url(image/filter/tint.png);
+  background-size: 400px 100%;
+  opacity: 1; }
 
 /* ---- Clouds ---- */
 #cloud1 {
@@ -557,14 +497,113 @@ body {
 /* ---- Birds ---- */
 #birds {
   position: absolute;
-  top: 150px;
-  left: 1350px;
+  top: -50px;
+  left: 490px;
   width: 150px;
   height: 50px;
   z-index: 1;
   background-image: url(image/texture/Birds.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
+
+/* ---- Sam Esgate ---- */
+#author {
+  position: absolute;
+  top: 100px;
+  left: 590px;
+  width: 640px;
+  height: 100pt;
+  z-index: 3;
+  font-family: helvetica; }
+
+#samesgate {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100pt;
+  z-index: 1;
+  line-height: 100pt;
+  font-size: 72pt;
+  text-align: center;
+  border-top: 5px solid gainsboro;
+  border-bottom: 5px solid gainsboro;
+  color: gainsboro; }
+
+#bonzos_useful_things {
+  position: absolute;
+  top: 243.33333px;
+  left: 590px;
+  width: 630px;
+  height: auto;
+  z-index: 4;
+  background-color: #2d2222;
+  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
+  text-align: center; }
+
+.useful_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 5px; }
+
+.separator {
+  display: inline-block;
+  width: 5px;
+  height: 50px; }
+
+/* ---- Clock ---- */
+#clock {
+  position: absolute;
+  top: 50px;
+  left: 565px;
+  width: 150px;
+  height: 300px;
+  z-index: 1;
+  background-image: url(image/texture/Clock.png);
+  background-size: 150px 300px;
+  -webkit-animation: clockSwing 4s linear  infinite;
+  animation: clockSwing 4s linear  infinite; }
+
+@-webkit-keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+@keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+/* ---- Mountain --- */
+#mountain {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 640px;
+  height: 100%;
+  z-index: 3;
+  background-image: url(image/texture/Mountain.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 640px 600px;
+  min-width: 640px;
+  min-height: 600px; }
 
 /* ---- Hill ---- */
 #hill {
@@ -595,7 +634,7 @@ body {
   width: 100%;
   height: 125px;
   z-index: 1;
-  background-image: url(image/colours/TODO.png);
+  background-image: url(image/texture/Forest.png);
   background-size: 250px 125px; }
 
 /* ---- Ground ---- */
@@ -604,7 +643,7 @@ body {
   height: 40%;
   position: relative;
   background-image: url(image/colours/dark_brown.png);
-  min-height: 600px;
+  min-height: 300px;
   z-index: 1; }
 
 /* ---- Beach ---- */
@@ -613,22 +652,22 @@ body {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100px;
-  z-index: 1;
+  height: 50px;
+  z-index: 3;
   background-image: url(image/colours/yellow.png);
   background-size: 100px 100px; }
 
 /* ---- Sea ---- */
 #sea {
   position: absolute;
-  top: 10%;
+  top: 0px;
   left: 0px;
   width: 100%;
-  height: 90%;
+  height: 100%;
   z-index: 2;
   background-image: url(image/colours/dark_blue.png);
   background-size: 100px 100px;
-  opacity: 0.6; }
+  opacity: 0.8; }
 
 #sea_gradient {
   width: 100%;
@@ -639,10 +678,10 @@ body {
 
 #tint {
   position: absolute;
-  top: 10%;
+  top: 0px;
   left: 0px;
   width: 100%;
-  height: 90%;
+  height: 100%;
   z-index: 3;
   background-image: url(image/animation/TODOripple.gif);
   opacity: 0.2;
@@ -659,29 +698,6 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
-#bonzos_useful_things {
-  position: absolute;
-  top: 406.66667px;
-  left: 900px;
-  width: 600px;
-  height: auto;
-  z-index: 4;
-  background-color: #2d2222;
-  padding: 5px;
-  border-radius: 5px;
-  text-align: center; }
-
-.useful_icon {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 5px; }
-
-.separator {
-  display: inline-block;
-  width: 5px;
-  height: 50px; }
-
 .countdown_hide {
   -webkit-animation: counterHide 0.3s linear 1 forwards;
   animation: counterHide 0.3s linear 1 forwards;
@@ -691,8 +707,8 @@ body {
 .countdown_show {
   -webkit-animation: counterShow 0.3s linear 1 forwards;
   animation: counterShow 0.3s linear 1 forwards;
-  top: -100px !important;
-  margin-bottom: -100px !important; }
+  top: -75px !important;
+  margin-bottom: -75px !important; }
 
 @-webkit-keyframes counterHide {
   0% {
@@ -700,28 +716,28 @@ body {
     margin-bottom: 0px; }
 
   100% {
-    top: -100px;
-    margin-bottom: -100px; } }
+    top: -75px;
+    margin-bottom: -75px; } }
 @keyframes counterHide {
   0% {
     top: 0px;
     margin-bottom: 0px; }
 
   100% {
-    top: -100px;
-    margin-bottom: -100px; } }
+    top: -75px;
+    margin-bottom: -75px; } }
 @-webkit-keyframes counterShow {
   0% {
-    top: -100px;
-    margin-bottom: -100px; }
+    top: -75px;
+    margin-bottom: -75px; }
 
   100% {
     top: 0px;
     margin-bottom: 0px; } }
 @keyframes counterShow {
   0% {
-    top: -100px;
-    margin-bottom: -100px; }
+    top: -75px;
+    margin-bottom: -75px; }
 
   100% {
     top: 0px;
@@ -729,9 +745,9 @@ body {
 #got {
   position: absolute;
   bottom: 50px;
-  left: 750px;
-  width: 100px;
-  height: 100px;
+  left: 650px;
+  width: 75px;
+  height: 75px;
   z-index: 5;
   overflow: hidden; }
 
@@ -741,11 +757,11 @@ body {
 
 #got_days {
   position: relative;
-  height: 100px;
+  height: 75px;
   width: 100%;
   pointer-events: none;
   background-color: #6b6b6b;
   color: #efefef;
   text-align: center;
   font-size: 40pt;
-  line-height: 100px; }
+  line-height: 75px; }
