@@ -605,13 +605,13 @@ body {
   min-width: 640px;
   min-height: 600px; }
 
-/* ---- Hill ---- */
-#hill {
+/* ---- Grass ---- */
+#grass {
   position: absolute;
   bottom: 0px;
   left: 0px;
   width: 100%;
-  height: 50px;
+  height: 60px;
   z-index: 1;
   background-image: url(image/colours/dark_green.png); }
 
@@ -629,7 +629,7 @@ body {
 /* ---- Forest ---- */
 #forest {
   position: absolute;
-  bottom: 50px;
+  bottom: 12.5px;
   left: 0px;
   width: 100%;
   height: 125px;
@@ -744,7 +744,7 @@ body {
     margin-bottom: 0px; } }
 #got {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
   left: 650px;
   width: 75px;
   height: 75px;

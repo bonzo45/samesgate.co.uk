@@ -10,7 +10,7 @@ $sidebar_width: 100px
 
 $height_of_sky: 60%
 $height_of_ground: 100% - $height_of_sky
-$height_of_hill: 50px
+$height_of_grass: 60px
 
 $height_of_beach: 50px
 
@@ -317,13 +317,13 @@ $texture_mountain_height: $height_of_mountain
     width: $texture_mountain_width
     height: $texture_mountain_height
 
-/* ---- Hill ---- */
-$texture_hill: $colour_path + "dark_green.png"
+/* ---- Grass ---- */
+$texture_grass: $colour_path + "dark_green.png"
 
-#hill
-  @include absolute_object_b(0px, 0px, 100%, $height_of_hill, $layer_1)
+#grass
+  @include absolute_object_b(0px, 0px, 100%, $height_of_grass, $layer_1)
   background:
-    image: url(#{$texture_hill})
+    image: url(#{$texture_grass})
 
 /* ---- Armco ---- */
 $armco_height: 25px
@@ -344,7 +344,7 @@ $texture_forest_height: $forest_height
 $texture_forest_width: 250px
 
 #forest
-  @include absolute_object_b($height_of_hill, 0px, 100%, $forest_height, $layer_1)
+  @include absolute_object_b($armco_height / 2, 0px, 100%, $forest_height, $layer_1)
   background:
     image: url(#{$texture_forest})
     size: $texture_forest_width $texture_forest_height
@@ -457,7 +457,7 @@ $texture_fish: $texture_path + "Fish.png"
 @include generateKeyframes(counterShow, (top, margin-bottom), ((-$countdown_height, -$countdown_height), (0px, 0px)), false)
 
 #got
-  @include countdown($height_of_hill, 650px, $layer_5)
+  @include countdown($height_of_grass, 650px, $layer_5)
 
 #got_cover
   @include countdown_cover
