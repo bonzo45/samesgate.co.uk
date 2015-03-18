@@ -73,8 +73,8 @@ $layer_6: 6
   $times: ""
   @if $repeat == forwards
     $times: 1
-  -webkit-animation: $animationName $time linear #{$times} $repeat
-  animation: $animationName $time linear #{$times} $repeat
+  -webkit-animation: $animationName $time linear 0s #{$times} $repeat
+  animation: $animationName $time linear 0s #{$times} $repeat
 
 body
   margin: 0px 0px 0px 0px
@@ -94,15 +94,15 @@ body
   opacity: 0.5
 
 .sidebar_closed
-  @include animate("closeSidebar", 200, forwards)
+  @include animate(closeSidebar, 200ms, forwards)
   width: 100px !important
 
 .sidebar_open
-  @include animate("openSidebar", 200, forwards)
+  @include animate(openSidebar, 200ms, forwards)
   width: 0px !important
 
-@include generateKeyframes("closeSidebar", (width), ((100, 0)), false)
-@include generateKeyframes("openSidebar", (width), ((0, 100)), false)
+@include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
+@include generateKeyframes(openSidebar, (width), ((0px, 100px)), false)
 
 #tab
   position: relative
@@ -325,6 +325,26 @@ $texture_grass: $colour_path + "dark_green.png"
   background:
     image: url(#{$texture_grass})
 
+$texture_gradient: $texture_path + "gradient.png"
+$grass_gradient_width: 600px
+$grass_gradient_height: $height_of_grass * 1.2
+
+#grass_gradient
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_gradient})
+    size: $grass_gradient_width $grass_gradient_height
+  opacity: 1.0
+  // Reverse Gradient
+  transform: scaleY(-1)
+  -webkit-transform: scaleY(-1)
+  -moz-transform: scaleY(-1)
+  -ms-transform: scaleY(-1)
+
+$animation: "image/animation/"
+$animation_weather: $animation + "TODOripple.gif"
+
 /* ---- Armco ---- */
 $armco_height: 25px
 $texture_armco: $texture_path + "Armco.png"
@@ -386,7 +406,6 @@ $texture_sea_size: 100px
     size: $texture_sea_size $texture_sea_size
   opacity: 0.8
 
-$texture_sea_gradient: $texture_path + "Sea_Gradient.png"
 $sea_gradient_width: 600px
 $sea_gradient_height: 600px
 
@@ -394,7 +413,7 @@ $sea_gradient_height: 600px
   width: 100%
   height: 100%
   background:
-    image: url(#{$texture_sea_gradient})
+    image: url(#{$texture_gradient})
     size: $sea_gradient_width $sea_gradient_height
   opacity: 1.0
 

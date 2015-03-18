@@ -22,39 +22,39 @@ body {
   opacity: 0.5; }
 
 .sidebar_closed {
-  -webkit-animation: "closeSidebar" 200 linear 1 forwards;
-  animation: "closeSidebar" 200 linear 1 forwards;
+  -webkit-animation: closeSidebar 200ms linear 0s 1 forwards;
+  animation: closeSidebar 200ms linear 0s 1 forwards;
   width: 100px !important; }
 
 .sidebar_open {
-  -webkit-animation: "openSidebar" 200 linear 1 forwards;
-  animation: "openSidebar" 200 linear 1 forwards;
+  -webkit-animation: openSidebar 200ms linear 0s 1 forwards;
+  animation: openSidebar 200ms linear 0s 1 forwards;
   width: 0px !important; }
 
 @-webkit-keyframes closeSidebar {
   0% {
-    width: 100; }
+    width: 100px; }
 
   100% {
-    width: 0; } }
+    width: 0px; } }
 @keyframes closeSidebar {
   0% {
-    width: 100; }
+    width: 100px; }
 
   100% {
-    width: 0; } }
+    width: 0px; } }
 @-webkit-keyframes openSidebar {
   0% {
-    width: 0; }
+    width: 0px; }
 
   100% {
-    width: 100; } }
+    width: 100px; } }
 @keyframes openSidebar {
   0% {
-    width: 0; }
+    width: 0px; }
 
   100% {
-    width: 100; } }
+    width: 100px; } }
 #tab {
   position: relative;
   width: 50px;
@@ -111,8 +111,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud1 50s linear  infinite;
-  animation: cloud1 50s linear  infinite;
+  -webkit-animation: cloud1 50s linear 0s  infinite;
+  animation: cloud1 50s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_1.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -156,8 +156,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud2 58s linear  infinite;
-  animation: cloud2 58s linear  infinite;
+  -webkit-animation: cloud2 58s linear 0s  infinite;
+  animation: cloud2 58s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -209,8 +209,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud3 66s linear  infinite;
-  animation: cloud3 66s linear  infinite;
+  -webkit-animation: cloud3 66s linear 0s  infinite;
+  animation: cloud3 66s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_3.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -270,8 +270,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud4 74s linear  infinite;
-  animation: cloud4 74s linear  infinite;
+  -webkit-animation: cloud4 74s linear 0s  infinite;
+  animation: cloud4 74s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_4.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -339,8 +339,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud5 82s linear  infinite;
-  animation: cloud5 82s linear  infinite;
+  -webkit-animation: cloud5 82s linear 0s  infinite;
+  animation: cloud5 82s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_5.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -416,8 +416,8 @@ body {
   width: 100px;
   height: 100px;
   z-index: 2;
-  -webkit-animation: cloud6 90s linear  infinite;
-  animation: cloud6 90s linear  infinite;
+  -webkit-animation: cloud6 90s linear 0s  infinite;
+  animation: cloud6 90s linear 0s  infinite;
   background-image: url(image/texture/Cloud/Cloud_6.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -563,8 +563,8 @@ body {
   z-index: 1;
   background-image: url(image/texture/Clock.png);
   background-size: 150px 300px;
-  -webkit-animation: clockSwing 4s linear  infinite;
-  animation: clockSwing 4s linear  infinite; }
+  -webkit-animation: clockSwing 4s linear 0s  infinite;
+  animation: clockSwing 4s linear 0s  infinite; }
 
 @-webkit-keyframes clockSwing {
   0% {
@@ -614,6 +614,17 @@ body {
   height: 60px;
   z-index: 1;
   background-image: url(image/colours/dark_green.png); }
+
+#grass_gradient {
+  width: 100%;
+  height: 100%;
+  background-image: url(image/texture/gradient.png);
+  background-size: 600px 72px;
+  opacity: 1;
+  transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  -moz-transform: scaleY(-1);
+  -ms-transform: scaleY(-1); }
 
 /* ---- Armco ---- */
 #armco {
@@ -672,7 +683,7 @@ body {
 #sea_gradient {
   width: 100%;
   height: 100%;
-  background-image: url(image/texture/Sea_Gradient.png);
+  background-image: url(image/texture/gradient.png);
   background-size: 600px 600px;
   opacity: 1; }
 
@@ -699,14 +710,14 @@ body {
   background-repeat: no-repeat; }
 
 .countdown_hide {
-  -webkit-animation: counterHide 0.3s linear 1 forwards;
-  animation: counterHide 0.3s linear 1 forwards;
+  -webkit-animation: counterHide 0.3s linear 0s 1 forwards;
+  animation: counterHide 0.3s linear 0s 1 forwards;
   top: 0px !important;
   margin-bottom: 0px !important; }
 
 .countdown_show {
-  -webkit-animation: counterShow 0.3s linear 1 forwards;
-  animation: counterShow 0.3s linear 1 forwards;
+  -webkit-animation: counterShow 0.3s linear 0s 1 forwards;
+  animation: counterShow 0.3s linear 0s 1 forwards;
   top: -75px !important;
   margin-bottom: -75px !important; }
 
