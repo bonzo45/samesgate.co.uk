@@ -69,12 +69,12 @@ $layer_6: 6
         @for $i from 1 to length($properties) + 1
           #{nth($properties, $i)}: nth(nth($points, $j), $i)
 
-@mixin animate($animationName, $time, $repeat)
+@mixin animate($animationName, $time, $style, $repeat)
   $times: ""
   @if $repeat == forwards
     $times: 1
-  -webkit-animation: $animationName $time linear 0s #{$times} $repeat
-  animation: $animationName $time linear 0s #{$times} $repeat
+  -webkit-animation: $animationName $time $style 0s #{$times} $repeat
+  animation: $animationName $time $style 0s #{$times} $repeat
 
 body
   margin: 0px 0px 0px 0px
@@ -94,11 +94,11 @@ body
   opacity: 0.5
 
 .sidebar_closed
-  @include animate(closeSidebar, 200ms, forwards)
+  @include animate(closeSidebar, 200ms, ease-out, forwards)
   width: 100px !important
 
 .sidebar_open
-  @include animate(openSidebar, 200ms, forwards)
+  @include animate(openSidebar, 200ms, ease-out, forwards)
   width: 0px !important
 
 @include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
@@ -122,6 +122,7 @@ body
   position: relative
   height: 100%
   width: 100%
+  padding: 5px
 
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Centerer ----------------------------- */
@@ -171,7 +172,7 @@ $texture_cloud: $texture_path + "Cloud"
 
 @mixin cloud($id, $top, $left, $time)
   @include absolute_object($left, auto, 100px, 100px, $layer_2)
-  @include animate(cloud#{$id}, $time, infinite)
+  @include animate(cloud#{$id}, $time, linear, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
     size: 100% 100%
@@ -295,7 +296,7 @@ $texture_clock: $texture_path + "Clock.png"
   background:
     image: url(#{$texture_clock})
     size: $clock_width $clock_height
-  @include animate(clockSwing, 4s, infinite)
+  @include animate(clockSwing, 4s, ease-out, infinite)
 
 @include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
 
@@ -352,10 +353,23 @@ $texture_armco_height: 100%
 $texture_armco_width: 425px
 
 #armco
-  @include absolute_object_b(0px, 0px, 100%, $armco_height, $layer_3)
+  @include absolute_object_b(0px, 0px, 100%, $armco_height, $layer_5)
   background:
     image: url(#{$texture_armco})
     size: $texture_armco_width $texture_armco_height
+
+/* ---- Exocet ---- */
+$exocet_height: 30px
+$exocet_width: 100px
+$texture_exocet: $colour_path + "dark_red.png"
+
+#exocet
+  @include absolute_object_b(0px, 0px, $exocet_width, $exocet_height, $layer_4)
+  background:
+    image: url(#{$texture_exocet})
+  @include animate(exocet, 20s, linear, infinite)
+
+@include generateKeyframes(exocet, (left, opacity), ((0%, 0%), (100%, 100%)), false)
 
 /* ---- Forest ----*/
 $forest_height: 125px
@@ -387,12 +401,16 @@ $texture_ground: $colour_path + "dark_brown.png"
 /* ---- Beach ---- */
 $texture_beach: $colour_path + "yellow.png"
 $texture_beach_size: 100px
+$tarmac_size: 5px
+$tarmac_colour: #252525
 
 #beach
-  @include absolute_object(0px, 0px, 100%, $height_of_beach, $layer_3)
+  @include absolute_object(0px, 0px, 100%, $height_of_beach - $tarmac_size, $layer_3)
   background:
     image: url(#{$texture_beach})
     size: $texture_beach_size $texture_beach_size
+  border:
+    top: 5px solid $tarmac_colour
 
 /* ---- Sea ---- */
 $sea_height: 100%
@@ -436,8 +454,8 @@ $texture_fish: $texture_path + "Fish.png"
     size: 100% 100%
     repeat: no-repeat
 
-@mixin countdown($bottom, $left, $z-index)
-  @include absolute_object_b($bottom, $left, $countdown_width, $countdown_height, $z-index)
+@mixin countdown($top, $left, $z-index)
+  @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
   overflow: hidden
 
 @mixin countdown_cover
@@ -463,12 +481,12 @@ $texture_fish: $texture_path + "Fish.png"
     height: $countdown_height
 
 .countdown_hide
-  @include animate(counterHide, 0.3s, forwards)
+  @include animate(counterHide, 0.3s, ease-out,  forwards)
   top: 0px !important
   margin-bottom: 0px !important
 
 .countdown_show
-  @include animate(counterShow, 0.3s, forwards)
+  @include animate(counterShow, 0.3s, ease-out, forwards)
   top: -$countdown_height !important
   margin-bottom: -$countdown_height !important
 
@@ -476,7 +494,7 @@ $texture_fish: $texture_path + "Fish.png"
 @include generateKeyframes(counterShow, (top, margin-bottom), ((-$countdown_height, -$countdown_height), (0px, 0px)), false)
 
 #got
-  @include countdown($height_of_grass, 650px, $layer_5)
+  @include countdown($height_of_beach + 10px, 650px, $layer_2)
 
 #got_cover
   @include countdown_cover

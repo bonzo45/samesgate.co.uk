@@ -22,13 +22,13 @@ body {
   opacity: 0.5; }
 
 .sidebar_closed {
-  -webkit-animation: closeSidebar 200ms linear 0s 1 forwards;
-  animation: closeSidebar 200ms linear 0s 1 forwards;
+  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  animation: closeSidebar 200ms ease-out 0s 1 forwards;
   width: 100px !important; }
 
 .sidebar_open {
-  -webkit-animation: openSidebar 200ms linear 0s 1 forwards;
-  animation: openSidebar 200ms linear 0s 1 forwards;
+  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
+  animation: openSidebar 200ms ease-out 0s 1 forwards;
   width: 0px !important; }
 
 @-webkit-keyframes closeSidebar {
@@ -72,7 +72,8 @@ body {
 #sidebar_content {
   position: relative;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  padding: 5px; }
 
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Centerer ----------------------------- */
@@ -563,8 +564,8 @@ body {
   z-index: 1;
   background-image: url(image/texture/Clock.png);
   background-size: 150px 300px;
-  -webkit-animation: clockSwing 4s linear 0s  infinite;
-  animation: clockSwing 4s linear 0s  infinite; }
+  -webkit-animation: clockSwing 4s ease-out 0s  infinite;
+  animation: clockSwing 4s ease-out 0s  infinite; }
 
 @-webkit-keyframes clockSwing {
   0% {
@@ -633,10 +634,38 @@ body {
   left: 0px;
   width: 100%;
   height: 25px;
-  z-index: 3;
+  z-index: 5;
   background-image: url(image/texture/Armco.png);
   background-size: 425px 100%; }
 
+/* ---- Exocet ---- */
+#exocet {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: 30px;
+  z-index: 4;
+  background-image: url(image/colours/dark_red.png);
+  -webkit-animation: exocet 20s linear 0s  infinite;
+  animation: exocet 20s linear 0s  infinite; }
+
+@-webkit-keyframes exocet {
+  0% {
+    left: 0%;
+    opacity: 0%; }
+
+  100% {
+    left: 100%;
+    opacity: 100%; } }
+@keyframes exocet {
+  0% {
+    left: 0%;
+    opacity: 0%; }
+
+  100% {
+    left: 100%;
+    opacity: 100%; } }
 /* ---- Forest ---- */
 #forest {
   position: absolute;
@@ -663,10 +692,11 @@ body {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 50px;
+  height: 45px;
   z-index: 3;
   background-image: url(image/colours/yellow.png);
-  background-size: 100px 100px; }
+  background-size: 100px 100px;
+  border-top: 5px solid #252525; }
 
 /* ---- Sea ---- */
 #sea {
@@ -710,14 +740,14 @@ body {
   background-repeat: no-repeat; }
 
 .countdown_hide {
-  -webkit-animation: counterHide 0.3s linear 0s 1 forwards;
-  animation: counterHide 0.3s linear 0s 1 forwards;
+  -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
+  animation: counterHide 0.3s ease-out 0s 1 forwards;
   top: 0px !important;
   margin-bottom: 0px !important; }
 
 .countdown_show {
-  -webkit-animation: counterShow 0.3s linear 0s 1 forwards;
-  animation: counterShow 0.3s linear 0s 1 forwards;
+  -webkit-animation: counterShow 0.3s ease-out 0s 1 forwards;
+  animation: counterShow 0.3s ease-out 0s 1 forwards;
   top: -75px !important;
   margin-bottom: -75px !important; }
 
@@ -755,11 +785,11 @@ body {
     margin-bottom: 0px; } }
 #got {
   position: absolute;
-  bottom: 60px;
+  top: 60px;
   left: 650px;
   width: 75px;
   height: 75px;
-  z-index: 5;
+  z-index: 2;
   overflow: hidden; }
 
 #got_cover {
