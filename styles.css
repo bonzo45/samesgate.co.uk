@@ -7,7 +7,8 @@
 /* ---- Absolute Positioning ---- */
 /* ---- Animation ---- */
 body {
-  margin: 0px 0px 0px 0px; }
+  margin: 0px 0px 0px 0px;
+  overflow: hidden; }
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Sidebar ---------------------------- */
@@ -655,20 +656,16 @@ body {
 
 @-webkit-keyframes exocet {
   0% {
-    left: 0%;
-    opacity: 0%; }
+    left: -10%; }
 
   100% {
-    left: 100%;
-    opacity: 100%; } }
+    left: 110%; } }
 @keyframes exocet {
   0% {
-    left: 0%;
-    opacity: 0%; }
+    left: -10%; }
 
   100% {
-    left: 100%;
-    opacity: 100%; } }
+    left: 110%; } }
 /* ---- Forest ---- */
 #forest {
   position: absolute;
@@ -797,9 +794,69 @@ body {
 
 #got_cover {
   position: relative;
-  pointer-events: none; }
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/got.jpeg);
+  background-size: 100% 100%; }
 
 #got_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#f1 {
+  position: absolute;
+  top: 60px;
+  left: 750px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#f1_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/f1.jpeg);
+  background-size: 100% 100%; }
+
+#f1_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#project {
+  position: absolute;
+  top: 60px;
+  left: 850px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#project_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/imperial.jpeg);
+  background-size: 100% 100%; }
+
+#project_days {
   position: relative;
   height: 75px;
   width: 100%;

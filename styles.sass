@@ -78,6 +78,7 @@ $layer_6: 6
 
 body
   margin: 0px 0px 0px 0px
+  overflow: hidden
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Sidebar ---------------------------- */
@@ -372,7 +373,7 @@ $texture_exocet: $animation + "exocet.gif"
     size: 100% 100%
   @include animate(exocet, 20s, linear, infinite)
 
-@include generateKeyframes(exocet, (left, opacity), ((0%, 0%), (100%, 100%)), false)
+@include generateKeyframes(exocet, (left), ((-10%, 110%)), false)
 
 /* ---- Forest ----*/
 $forest_height: 125px
@@ -457,6 +458,8 @@ $texture_fish: $texture_path + "Fish.png"
     size: 100% 100%
     repeat: no-repeat
 
+$countdown_url: "image/countdown/"
+
 @mixin countdown($top, $left, $z-index)
   @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
   overflow: hidden
@@ -464,6 +467,8 @@ $texture_fish: $texture_path + "Fish.png"
 @mixin countdown_cover
   position: relative
   pointer-events: none
+  width: 100%
+  height: $countdown_height
 
 @mixin countdown_days($primary, $secondary)
   position: relative
@@ -496,11 +501,44 @@ $texture_fish: $texture_path + "Fish.png"
 @include generateKeyframes(counterHide, (top, margin-bottom), ((0px, 0px), (-$countdown_height, -$countdown_height)), false)
 @include generateKeyframes(counterShow, (top, margin-bottom), ((-$countdown_height, -$countdown_height), (0px, 0px)), false)
 
+$countdown_got: $countdown_url + "got.jpeg"
+
 #got
   @include countdown($height_of_beach + 10px, 650px, $layer_2)
 
 #got_cover
   @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
 
 #got_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_got: $countdown_url + "f1.jpeg"
+
+#f1
+  @include countdown($height_of_beach + 10px, 750px, $layer_2)
+
+#f1_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
+
+#f1_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_project: $countdown_url + "imperial.jpeg"
+
+#project
+  @include countdown($height_of_beach + 10px, 850px, $layer_2)
+
+#project_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_project})
+    size: 100% 100%
+
+#project_days
   @include countdown_days(#6B6B6B, #EFEFEF)
