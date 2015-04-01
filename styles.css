@@ -93,7 +93,7 @@ body {
   width: 100%;
   height: 60%;
   position: relative;
-  background-image: url(image/colours/light_blue.png);
+  background-image: url(image/colour/light_blue.png);
   background-size: 300px 300px;
   min-height: 600px;
   z-index: 1; }
@@ -592,6 +592,18 @@ body {
   100% {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); } }
+#house {
+  position: absolute;
+  bottom: 0px;
+  left: 200px;
+  width: 270px;
+  height: 150px;
+  z-index: 4;
+  background-image: url(image/prop/house.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% 100%; }
+
 /* ---- Mountain --- */
 #mountain {
   position: absolute;
@@ -615,7 +627,7 @@ body {
   width: 100%;
   height: 60px;
   z-index: 1;
-  background-image: url(image/colours/dark_green.png); }
+  background-image: url(image/colour/dark_green.png); }
 
 #grass_gradient {
   width: 100%;
@@ -682,7 +694,7 @@ body {
   width: 100%;
   height: 40%;
   position: relative;
-  background-image: url(image/colours/dark_brown.png);
+  background-image: url(image/colour/dark_brown.png);
   min-height: 300px;
   z-index: 1; }
 
@@ -694,7 +706,7 @@ body {
   width: 100%;
   height: 45px;
   z-index: 3;
-  background-image: url(image/colours/yellow.png);
+  background-image: url(image/colour/yellow.png);
   background-size: 100px 100px;
   border-top: 5px solid #252525; }
 
@@ -706,7 +718,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 2;
-  background-image: url(image/colours/dark_blue.png);
+  background-image: url(image/colour/dark_blue.png);
   background-size: 100px 100px;
   opacity: 0.8; }
 

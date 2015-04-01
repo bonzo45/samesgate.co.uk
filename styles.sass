@@ -2,8 +2,9 @@
 /* -------------------------- Control Panel -------------------------- */
 /* ------------------------------------------------------------------- */
 $texture_path: "image/texture/"
-$colour_path: "image/colours/"
+$colour_path: "image/colour/"
 $filter_path: "image/filter/"
+$prop_url: "image/prop/"
 
 $screen_width: 1280px
 $sidebar_width: 100px
@@ -300,6 +301,18 @@ $texture_clock: $texture_path + "Clock.png"
   @include animate(clockSwing, 4s, ease-out, infinite)
 
 @include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
+
+$house_width: 270px
+$house_height: 150px
+$texture_house: $prop_url + "house.png"
+
+#house
+  @include absolute_object_b(0px, 200px, $house_width, $house_height, $layer_4)
+  background:
+    image: url(#{$texture_house})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% 100%
 
 /* ---- Mountain --- */
 $mountain_height: 100%
