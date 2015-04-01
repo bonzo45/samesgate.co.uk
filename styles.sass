@@ -359,14 +359,17 @@ $texture_armco_width: 425px
     size: $texture_armco_width $texture_armco_height
 
 /* ---- Exocet ---- */
-$exocet_height: 30px
-$exocet_width: 100px
-$texture_exocet: $colour_path + "dark_red.png"
+$exocet_height: 65px
+$exocet_width: 172px
+$texture_exocet: $animation + "exocet.gif"
 
 #exocet
   @include absolute_object_b(0px, 0px, $exocet_width, $exocet_height, $layer_4)
+  -webkit-transform: scaleX(-1)
+  transform: scaleX(-1)
   background:
     image: url(#{$texture_exocet})
+    size: 100% 100%
   @include animate(exocet, 20s, linear, infinite)
 
 @include generateKeyframes(exocet, (left, opacity), ((0%, 0%), (100%, 100%)), false)

@@ -643,10 +643,13 @@ body {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  width: 100px;
-  height: 30px;
+  width: 172px;
+  height: 65px;
   z-index: 4;
-  background-image: url(image/colours/dark_red.png);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  background-image: url(image/animation/exocet.gif);
+  background-size: 100% 100%;
   -webkit-animation: exocet 20s linear 0s  infinite;
   animation: exocet 20s linear 0s  infinite; }
 
