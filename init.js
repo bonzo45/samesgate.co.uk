@@ -202,11 +202,11 @@ var usefulThings = {
     url: "http://www.bbc.co.uk/news"
   },
   {
-    icon: "heart internet.png",
+    icon: "heart_internet.png",
     url: "https://customer.heartinternet.co.uk/manage/manage.cgi/hosting"
   },
   {
-    icon: "colour picker.png",
+    icon: "colour_picker.png",
     url: "http://www.w3schools.com/tags/ref_colorpicker.asp"
   }
   ]

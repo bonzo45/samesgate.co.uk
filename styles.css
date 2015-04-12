@@ -115,7 +115,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud1 50s linear 0s  infinite;
   animation: cloud1 50s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_1.png);
+  background-image: url(image/texture/cloud/Cloud_1.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -160,7 +160,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud2 58s linear 0s  infinite;
   animation: cloud2 58s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_2.png);
+  background-image: url(image/texture/cloud/Cloud_2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -213,7 +213,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud3 66s linear 0s  infinite;
   animation: cloud3 66s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_3.png);
+  background-image: url(image/texture/cloud/Cloud_3.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -274,7 +274,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud4 74s linear 0s  infinite;
   animation: cloud4 74s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_4.png);
+  background-image: url(image/texture/cloud/Cloud_4.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -343,7 +343,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud5 82s linear 0s  infinite;
   animation: cloud5 82s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_5.png);
+  background-image: url(image/texture/cloud/Cloud_5.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -420,7 +420,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud6 90s linear 0s  infinite;
   animation: cloud6 90s linear 0s  infinite;
-  background-image: url(image/texture/Cloud/Cloud_6.png);
+  background-image: url(image/texture/cloud/Cloud_6.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -504,7 +504,7 @@ body {
   width: 150px;
   height: 50px;
   z-index: 1;
-  background-image: url(image/texture/Birds.png);
+  background-image: url(image/texture/birds.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
@@ -563,7 +563,7 @@ body {
   width: 150px;
   height: 300px;
   z-index: 1;
-  background-image: url(image/texture/Clock.png);
+  background-image: url(image/texture/clock.png);
   background-size: 150px 300px;
   -webkit-animation: clockSwing 4s ease-out 0s  infinite;
   animation: clockSwing 4s ease-out 0s  infinite; }
@@ -612,7 +612,7 @@ body {
   width: 640px;
   height: 100%;
   z-index: 3;
-  background-image: url(image/texture/Mountain.png);
+  background-image: url(image/texture/mountain.png);
   background-repeat: no-repeat;
   background-position: bottom 0px left 0px;
   background-size: 640px 600px;
@@ -648,7 +648,7 @@ body {
   width: 100%;
   height: 25px;
   z-index: 5;
-  background-image: url(image/texture/Armco.png);
+  background-image: url(image/texture/armco.png);
   background-size: 425px 100%; }
 
 /* ---- Exocet ---- */
@@ -686,7 +686,7 @@ body {
   width: 100%;
   height: 125px;
   z-index: 1;
-  background-image: url(image/texture/Forest.png);
+  background-image: url(image/texture/forest.png);
   background-size: 250px 125px; }
 
 /* ---- Ground ---- */
@@ -736,7 +736,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 3;
-  background-image: url(image/animation/TODOripple.gif);
+  background-image: url(image/animation/todo_ripple.gif);
   opacity: 0.2;
   pointer-events: none; }
 
@@ -747,7 +747,7 @@ body {
   width: 100px;
   height: 33px;
   z-index: 1;
-  background-image: url(image/texture/Fish.png);
+  background-image: url(image/texture/fish.png);
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
