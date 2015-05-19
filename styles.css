@@ -599,7 +599,7 @@ body {
   width: 270px;
   height: 150px;
   z-index: 4;
-  background-image: url(image/prop/house.png);
+  background-image: url(image/prop/house2.png);
   background-repeat: no-repeat;
   background-position: bottom 0px left 0px;
   background-size: 100% 100%; }
@@ -649,7 +649,8 @@ body {
   height: 25px;
   z-index: 5;
   background-image: url(image/texture/armco.png);
-  background-size: 425px 100%; }
+  background-size: 425px 100%;
+  background-position: -50px 0px; }
 
 /* ---- Exocet ---- */
 #exocet {

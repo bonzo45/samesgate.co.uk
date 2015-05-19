@@ -162,21 +162,6 @@ function initUsefulThings() {
 }
 
 var usefulThings = {
-  college: [
-  {
-    icon: "cate.png",
-    url: "https://cate.doc.ic.ac.uk"
-  },
-  {
-    icon: "calendar.png",
-    url: "http://www.doc.ic.ac.uk/~ms6611/table/3"
-  },
-  {
-    icon: "gitlab.png",
-    url: "https://gitlab.doc.ic.ac.uk/"
-  }
-  ],
-
   social: [
   {
     icon: "facebook.png",
@@ -202,12 +187,22 @@ var usefulThings = {
     url: "http://www.bbc.co.uk/news"
   },
   {
-    icon: "heart_internet.png",
-    url: "https://customer.heartinternet.co.uk/manage/manage.cgi/hosting"
+    icon: "netflix.png",
+    url: "http://www.netflix.com"
   },
   {
     icon: "colour_picker.png",
     url: "http://www.w3schools.com/tags/ref_colorpicker.asp"
+  }
+  ],
+  college: [
+  {
+    icon: "cate.png",
+    url: "https://cate.doc.ic.ac.uk"
+  },
+  {
+    icon: "gitlab.png",
+    url: "https://gitlab.doc.ic.ac.uk/"
   }
   ]
 }
