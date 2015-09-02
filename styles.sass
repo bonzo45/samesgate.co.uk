@@ -1,6 +1,12 @@
 /* ------------------------------------------------------------------- */
 /* -------------------------- Control Panel -------------------------- */
 /* ------------------------------------------------------------------- */
+$height_of_sky: 60%
+$height_of_ground: 100% - $height_of_sky
+
+
+
+
 $texture_path: "image/texture/"
 $colour_path: "image/colour/"
 $filter_path: "image/filter/"
@@ -9,8 +15,6 @@ $prop_url: "image/prop/"
 $screen_width: 1280px
 $sidebar_width: 100px
 
-$height_of_sky: 60%
-$height_of_ground: 100% - $height_of_sky
 $height_of_grass: 60px
 
 $height_of_beach: 50px
@@ -77,103 +81,145 @@ $layer_6: 6
   -webkit-animation: $animationName $time $style 0s #{$times} $repeat
   animation: $animationName $time $style 0s #{$times} $repeat
 
-body
-  margin: 0px 0px 0px 0px
-  overflow: hidden
-
-/* ------------------------------------------------------------------- */
-/* ------------------------------ Sidebar ---------------------------- */
-/* ------------------------------------------------------------------- */
-#sidebar
-  position: fixed
-  right: 0px
-  height: 100%
-  width: 0px
-  background:
-    color: white
-
-  z-index: 2
-  opacity: 0.5
-
-.sidebar_closed
-  @include animate(closeSidebar, 200ms, ease-out, forwards)
-  width: 100px !important
-
-.sidebar_open
-  @include animate(openSidebar, 200ms, ease-out, forwards)
-  width: 0px !important
-
-@include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
-@include generateKeyframes(openSidebar, (width), ((0px, 100px)), false)
-
-#tab
-  position: relative
-  width: 50px
-  height: 50px
-  top: 50px
-  left: -50px
-  background-color: black
-  text-align: center
-  color: white
-  font-size: 20pt
-
-#tab_icon
-  line-height: 50px
-    
-#sidebar_content
-  position: relative
-  height: 100%
-  width: 100%
-  padding: 5px
-
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Centerer ----------------------------- */
 /* ------------------------------------------------------------------- */
 
-.centerer
-  position: relative
-  margin: 0 auto
-  width: $screen_width
-  height: 100%
+@media (orientation:portrait)
+  .centerer
+    position: relative
+    margin: 0 auto
+    width: 100vw
+    height: 100%
+
+@media (orientation:landscape)
+  .centerer
+    position: relative
+    margin: 0 auto
+    width: 100vh
+    height: 100%
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Body ------------------------------ */
+/* ------------------------------------------------------------------- */
+
+body
+  margin: 0px 0px 0px 0px
+  background:
+    color: black
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Sky/Land ---------------------------- */
+/* ------------------------------------------------------------------- */
+$sky_height_multiplier: 0.8
+$land_height_multiplier: 0.4
+
+@media (orientation:portrait)
+  #sky
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vw
+    background-color: green
+
+@media (orientation:landscape)    
+  #sky
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vh
+    background-color: green
+
+@media (orientation:portrait)
+  #land
+    position: relative
+    width: 100%
+    height: $land_height_multiplier * 100vw
+    background-color: blue
+
+@media (orientation:landscape)    
+  #land
+    position: relative
+    width: 100%
+    height: $land_height_multiplier * 100vh
+    background-color: blue
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
 /* ------------------------------------------------------------------- */
 
-/* ---- Sky ---- */
-$texture_sky: $colour_path + "light_blue.png"
-$texture_sky_size: 300px
-
-$daynight_path: "image/day-night/"
-$texture_sky_day: $daynight_path + "day.png"
-$texture_sky_night: $daynight_path + "night.png"
-
-
-#sky
-  width: 100%
-  height: $height_of_sky
-  position: relative
-  overflow: hidden
-
-  min:
-    height: $height_of_mountain
-
-  z-index: 1
-
-#sky:before
-  content: ""
+#sky_background
   position: absolute
   width: 100%
-  height: 200%
-  z-index: -1
-  background:
-    image: url(#{$texture_sky_day})
-    size: 100% 100%
-    repeat: repeat
-  transform: rotate(30deg)
-  @include animate(sky_rotate, 10s, linear, infinite)
+  height: 100%
+  z-index: 1
 
-@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
+#sky_foreground
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+  
+#sky_background_black
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  background-color: black
+
+$texture_sky: $colour_path + "light_blue.png"
+$texture_sky_size: 300px
+#sky_background_blue
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+  background:
+    image: url(#{$texture_sky})
+    size: $texture_sky_size $texture_sky_size
+  opacity: 0.82
+
+#sky_background_center
+  z-index: 3
+
+$texture_sun_moon: "image/day-night/day-night.png"
+#sky_background_sun_moon
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  background:
+    image: url(#{$texture_sun_moon})
+    size: 100% 100%
+
+#sky_background_clouds
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+
+
+
+
+
+
+
+
+
+
+
+/* ---- Sky ---- */
+// #sky:before
+//   content: ""
+//   position: absolute
+//   width: 100%
+//   height: 200%
+//   z-index: -1
+//   background:
+//     image: url(#{$texture_sky})
+//     size: 100% 100%
+//     repeat: repeat
+//   //@include animate(sky_rotate, 10s, linear, infinite)
+
+//@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
  
 $texture_sky_tint: $filter_path + "tint.png"
 $sky_tint_width: 400px
@@ -303,6 +349,51 @@ $separator_width: 5px
 
 $countdown_width: 75px
 $countdown_height: 75px
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Sidebar ---------------------------- */
+/* ------------------------------------------------------------------- */
+#sidebar
+  position: fixed
+  right: 0px
+  height: 100%
+  width: 0px
+  background:
+    color: white
+
+  z-index: 2
+  opacity: 0.5
+
+.sidebar_closed
+  @include animate(closeSidebar, 200ms, ease-out, forwards)
+  width: 100px !important
+
+.sidebar_open
+  @include animate(openSidebar, 200ms, ease-out, forwards)
+  width: 0px !important
+
+@include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
+@include generateKeyframes(openSidebar, (width), ((0px, 100px)), false)
+
+#tab
+  position: relative
+  width: 50px
+  height: 50px
+  top: 50px
+  left: -50px
+  background-color: black
+  text-align: center
+  color: white
+  font-size: 20pt
+
+#tab_icon
+  line-height: 50px
+    
+#sidebar_content
+  position: relative
+  height: 100%
+  width: 100%
+  padding: 5px
 
 /* ---- Clock ---- */
 $clock_height: 300px

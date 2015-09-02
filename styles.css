@@ -6,116 +6,104 @@
 /* ------------------------------------------------------------------- */
 /* ---- Absolute Positioning ---- */
 /* ---- Animation ---- */
-body {
-  margin: 0px 0px 0px 0px;
-  overflow: hidden; }
-
-/* ------------------------------------------------------------------- */
-/* ------------------------------ Sidebar ---------------------------- */
-/* ------------------------------------------------------------------- */
-#sidebar {
-  position: fixed;
-  right: 0px;
-  height: 100%;
-  width: 0px;
-  background-color: white;
-  z-index: 2;
-  opacity: 0.5; }
-
-.sidebar_closed {
-  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
-  animation: closeSidebar 200ms ease-out 0s 1 forwards;
-  width: 100px !important; }
-
-.sidebar_open {
-  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
-  animation: openSidebar 200ms ease-out 0s 1 forwards;
-  width: 0px !important; }
-
-@-webkit-keyframes closeSidebar {
-  0% {
-    width: 100px; }
-  100% {
-    width: 0px; } }
-@keyframes closeSidebar {
-  0% {
-    width: 100px; }
-  100% {
-    width: 0px; } }
-@-webkit-keyframes openSidebar {
-  0% {
-    width: 0px; }
-  100% {
-    width: 100px; } }
-@keyframes openSidebar {
-  0% {
-    width: 0px; }
-  100% {
-    width: 100px; } }
-#tab {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  top: 50px;
-  left: -50px;
-  background-color: black;
-  text-align: center;
-  color: white;
-  font-size: 20pt; }
-
-#tab_icon {
-  line-height: 50px; }
-
-#sidebar_content {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 5px; }
-
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Centerer ----------------------------- */
 /* ------------------------------------------------------------------- */
-.centerer {
-  position: relative;
-  margin: 0 auto;
-  width: 1280px;
-  height: 100%; }
+@media (orientation: portrait) {
+  .centerer {
+    position: relative;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100%; } }
+@media (orientation: landscape) {
+  .centerer {
+    position: relative;
+    margin: 0 auto;
+    width: 100vh;
+    height: 100%; } }
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Body ------------------------------ */
+/* ------------------------------------------------------------------- */
+body {
+  margin: 0px 0px 0px 0px;
+  background-color: black; }
 
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Sky/Land ---------------------------- */
+/* ------------------------------------------------------------------- */
+@media (orientation: portrait) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 80vw;
+    background-color: green; } }
+@media (orientation: landscape) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: green; } }
+@media (orientation: portrait) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    background-color: blue; } }
+@media (orientation: landscape) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background-color: blue; } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
 /* ------------------------------------------------------------------- */
-/* ---- Sky ---- */
-#sky {
-  width: 100%;
-  height: 60%;
-  position: relative;
-  overflow: hidden;
-  min-height: 600px;
-  z-index: 1; }
-
-#sky:before {
-  content: "";
+#sky_background {
   position: absolute;
   width: 100%;
-  height: 200%;
-  z-index: -1;
-  background-image: url(image/day-night/day.png);
-  background-size: 100% 100%;
-  background-repeat: repeat;
-  transform: rotate(30deg);
-  -webkit-animation: sky_rotate 10s linear 0s  infinite;
-  animation: sky_rotate 10s linear 0s  infinite; }
+  height: 100%;
+  z-index: 1; }
 
-@-webkit-keyframes sky_rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-@keyframes sky_rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
+#sky_foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2; }
+
+#sky_background_black {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: black; }
+
+#sky_background_blue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: url(image/colour/light_blue.png);
+  background-size: 300px 300px;
+  opacity: 0.82; }
+
+#sky_background_center {
+  z-index: 3; }
+
+#sky_background_sun_moon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url(image/day-night/day-night.png);
+  background-size: 100% 100%; }
+
+#sky_background_clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2; }
+
+/* ---- Sky ---- */
 #sky_tint {
   width: 100%;
   height: 100%;
@@ -506,6 +494,68 @@ body {
   display: inline-block;
   width: 5px;
   height: 50px; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Sidebar ---------------------------- */
+/* ------------------------------------------------------------------- */
+#sidebar {
+  position: fixed;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  z-index: 2;
+  opacity: 0.5; }
+
+.sidebar_closed {
+  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  width: 100px !important; }
+
+.sidebar_open {
+  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
+  animation: openSidebar 200ms ease-out 0s 1 forwards;
+  width: 0px !important; }
+
+@-webkit-keyframes closeSidebar {
+  0% {
+    width: 100px; }
+  100% {
+    width: 0px; } }
+@keyframes closeSidebar {
+  0% {
+    width: 100px; }
+  100% {
+    width: 0px; } }
+@-webkit-keyframes openSidebar {
+  0% {
+    width: 0px; }
+  100% {
+    width: 100px; } }
+@keyframes openSidebar {
+  0% {
+    width: 0px; }
+  100% {
+    width: 100px; } }
+#tab {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 50px;
+  left: -50px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 20pt; }
+
+#tab_icon {
+  line-height: 50px; }
+
+#sidebar_content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 5px; }
 
 /* ---- Clock ---- */
 #clock {
