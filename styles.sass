@@ -128,19 +128,21 @@ $land_height_multiplier: 0.4
     height: $sky_height_multiplier * 100vh
     background-color: green
 
+$texture_land: $colour_path + "dark_brown.png"
+
 @media (orientation:portrait)
   #land
     position: relative
     width: 100%
     height: $land_height_multiplier * 100vw
-    background-color: blue
+    background-image: url(#{$texture_land})
 
 @media (orientation:landscape)    
   #land
     position: relative
     width: 100%
     height: $land_height_multiplier * 100vh
-    background-color: blue
+    background-image: url(#{$texture_land})
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
@@ -175,7 +177,7 @@ $texture_sky_size: 300px
   background:
     image: url(#{$texture_sky})
     size: $texture_sky_size $texture_sky_size
-  opacity: 0.82
+  opacity: 1.0
 
 #sky_background_center
   z-index: 3
@@ -196,44 +198,23 @@ $texture_sun_moon: "image/day-night/day-night.png"
   height: 100%
   z-index: 2
 
-
-
-
-
-
-
-
-
-
-
-/* ---- Sky ---- */
-// #sky:before
-//   content: ""
-//   position: absolute
-//   width: 100%
-//   height: 200%
-//   z-index: -1
-//   background:
-//     image: url(#{$texture_sky})
-//     size: 100% 100%
-//     repeat: repeat
-//   //@include animate(sky_rotate, 10s, linear, infinite)
-
-//@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
- 
 $texture_sky_tint: $filter_path + "tint.png"
 $sky_tint_width: 400px
 $sky_tint_height: 100%
-
-#sky_tint
+#sky_background_tint
+  position: absolute
   width: 100%
   height: 100%
   background:
     image: url(#{$texture_sky_tint})
     size: $sky_tint_width $sky_tint_height
   opacity: 1.0
+  z-index: 4
 
-/* ---- Clouds ---- */
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Clouds ------------------------------- */
+/* ------------------------------------------------------------------- */
 $texture_cloud: $texture_path + "cloud"
 
 @mixin cloud($id, $top, $left, $time)
@@ -273,6 +254,31 @@ $texture_cloud: $texture_path + "cloud"
   @include cloud(6, 1750px, 50px, 90s)
 
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+
+
+
+
+
+
+
+/* ---- Sky ---- */
+// #sky:before
+//   content: ""
+//   position: absolute
+//   width: 100%
+//   height: 200%
+//   z-index: -1
+//   background:
+//     image: url(#{$texture_sky})
+//     size: 100% 100%
+//     repeat: repeat
+//   //@include animate(sky_rotate, 10s, linear, infinite)
+
+//@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
+ 
+
+
 
 /* ---- Birds ---- */
 $texture_birds: $texture_path + "birds.png"
@@ -509,21 +515,6 @@ $texture_forest_width: 250px
   background:
     image: url(#{$texture_forest})
     size: $texture_forest_width $texture_forest_height
-
-/* ---- Ground ---- */
-$texture_ground: $colour_path + "dark_brown.png"
-
-#ground
-  width: 100%
-  height: $height_of_ground
-  position: relative
-  background:
-    image: url(#{$texture_ground})
-
-  min:
-    height: 300px
-
-  z-index: 1
 
 /* ---- Beach ---- */
 $texture_beach: $colour_path + "yellow.png"

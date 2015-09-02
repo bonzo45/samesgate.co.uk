@@ -48,13 +48,13 @@ body {
     position: relative;
     width: 100%;
     height: 40vw;
-    background-color: blue; } }
+    background-image: url(image/colour/dark_brown.png); } }
 @media (orientation: landscape) {
   #land {
     position: relative;
     width: 100%;
     height: 40vh;
-    background-color: blue; } }
+    background-image: url(image/colour/dark_brown.png); } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
 /* ------------------------------------------------------------------- */
@@ -84,7 +84,7 @@ body {
   z-index: 2;
   background-image: url(image/colour/light_blue.png);
   background-size: 300px 300px;
-  opacity: 0.82; }
+  opacity: 1; }
 
 #sky_background_center {
   z-index: 3; }
@@ -103,15 +103,18 @@ body {
   height: 100%;
   z-index: 2; }
 
-/* ---- Sky ---- */
-#sky_tint {
+#sky_background_tint {
+  position: absolute;
   width: 100%;
   height: 100%;
   background-image: url(image/filter/tint.png);
   background-size: 400px 100%;
-  opacity: 1; }
+  opacity: 1;
+  z-index: 4; }
 
-/* ---- Clouds ---- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Clouds ------------------------------- */
+/* ------------------------------------------------------------------- */
 #cloud1 {
   position: absolute;
   top: 50px;
@@ -436,6 +439,7 @@ body {
   100% {
     right: 100%;
     opacity: 0; } }
+/* ---- Sky ---- */
 /* ---- Birds ---- */
 #birds {
   position: absolute;
@@ -683,15 +687,6 @@ body {
   z-index: 1;
   background-image: url(image/texture/forest.png);
   background-size: 250px 125px; }
-
-/* ---- Ground ---- */
-#ground {
-  width: 100%;
-  height: 40%;
-  position: relative;
-  background-image: url(image/colour/dark_brown.png);
-  min-height: 300px;
-  z-index: 1; }
 
 /* ---- Beach ---- */
 #beach {
