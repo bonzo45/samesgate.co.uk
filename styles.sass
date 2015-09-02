@@ -144,19 +144,37 @@ body
 $texture_sky: $colour_path + "light_blue.png"
 $texture_sky_size: 300px
 
+$daynight_path: "image/day-night/"
+$texture_sky_day: $daynight_path + "day.png"
+$texture_sky_night: $daynight_path + "night.png"
+
+
 #sky
   width: 100%
   height: $height_of_sky
   position: relative
-  background:
-    image: url(#{$texture_sky})
-    size: $texture_sky_size $texture_sky_size
+  overflow: hidden
 
   min:
     height: $height_of_mountain
 
   z-index: 1
 
+#sky:before
+  content: ""
+  position: absolute
+  width: 100%
+  height: 200%
+  z-index: -1
+  background:
+    image: url(#{$texture_sky_day})
+    size: 100% 100%
+    repeat: repeat
+  transform: rotate(30deg)
+  @include animate(sky_rotate, 10s, linear, infinite)
+
+@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
+ 
 $texture_sky_tint: $filter_path + "tint.png"
 $sky_tint_width: 400px
 $sky_tint_height: 100%
@@ -385,7 +403,7 @@ $texture_exocet: $animation + "exocet.gif"
   background:
     image: url(#{$texture_exocet})
     size: 100% 100%
-  @include animate(exocet, 20s, linear, infinite)
+  //@include animate(exocet, 20s, linear, infinite)
 
 @include generateKeyframes(exocet, (left), ((-10%, 110%)), false)
 
