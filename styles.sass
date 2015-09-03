@@ -319,13 +319,15 @@ $texture_lighthouse: $prop_url + "lighthouse.png"
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
-
+$texture_bank: $texture_path + "bank.png"
 #bank
   position: absolute
   top: 0px
   width: 100%
   height: 10%
-  background-color: purple
+  background:
+    image: url(#{$texture_bank})
+    size: auto 100%
 
 $texture_beach: $colour_path + "yellow.png"
 $texture_beach_size: 100px
