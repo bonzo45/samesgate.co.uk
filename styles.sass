@@ -259,40 +259,40 @@ $sky_tint_height: 100%
 $texture_cloud: $texture_path + "cloud"
 
 @mixin cloud($id, $top, $left, $time)
-  @include absolute_object($left, auto, 100px, 100px, $layer_2)
+  @include absolute_object($top, auto, 10%, 100%, $layer_2)
   @include animate(cloud#{$id}, $time, linear, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
-    size: 100% 100%
+    size: 100% auto
     repeat: no-repeat
 
 #cloud1
-  @include cloud(1, 50px, 50px, 50s)
+  @include cloud(1, 5%, 5%, 50s)
 
 @include generateKeyframes(cloud1, (right, opacity), ((10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud2
-  @include cloud(2, 700px, 50px, 58s)
+  @include cloud(2, 40%, 5%, 58s)
 
 @include generateKeyframes(cloud2, (right, opacity), ((10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud3
-  @include cloud(3, 1000px, 100px, 66s)
+  @include cloud(3, 30%, 10%, 66s)
 
 @include generateKeyframes(cloud3, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud4
-  @include cloud(4, 1200px, 20px, 74s)
+  @include cloud(4, 50%, 2%, 74s)
 
 @include generateKeyframes(cloud4, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud5
-  @include cloud(5, 1500px, 200px, 82s)
+  @include cloud(5, 15%, 15%, 82s)
 
 @include generateKeyframes(cloud5, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 #cloud6
-  @include cloud(6, 1750px, 50px, 90s)
+  @include cloud(6, 25%, 5%, 90s)
 
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 

@@ -166,15 +166,15 @@ body {
 /* ------------------------------------------------------------------- */
 #cloud1 {
   position: absolute;
-  top: 50px;
+  top: 5%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud1 50s linear 0s  infinite;
   animation: cloud1 50s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_1.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud1 {
@@ -205,15 +205,15 @@ body {
     opacity: 0; } }
 #cloud2 {
   position: absolute;
-  top: 50px;
+  top: 40%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud2 58s linear 0s  infinite;
   animation: cloud2 58s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_2.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud2 {
@@ -250,15 +250,15 @@ body {
     opacity: 0; } }
 #cloud3 {
   position: absolute;
-  top: 100px;
+  top: 30%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud3 66s linear 0s  infinite;
   animation: cloud3 66s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_3.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud3 {
@@ -301,15 +301,15 @@ body {
     opacity: 0; } }
 #cloud4 {
   position: absolute;
-  top: 20px;
+  top: 50%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud4 74s linear 0s  infinite;
   animation: cloud4 74s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_4.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud4 {
@@ -358,15 +358,15 @@ body {
     opacity: 0; } }
 #cloud5 {
   position: absolute;
-  top: 200px;
+  top: 15%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud5 82s linear 0s  infinite;
   animation: cloud5 82s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_5.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud5 {
@@ -421,15 +421,15 @@ body {
     opacity: 0; } }
 #cloud6 {
   position: absolute;
-  top: 50px;
+  top: 25%;
   left: auto;
-  width: 100px;
-  height: 100px;
+  width: 10%;
+  height: 100%;
   z-index: 2;
   -webkit-animation: cloud6 90s linear 0s  infinite;
   animation: cloud6 90s linear 0s  infinite;
   background-image: url(image/texture/cloud/Cloud_6.png);
-  background-size: 100% 100%;
+  background-size: 100% auto;
   background-repeat: no-repeat; }
 
 @-webkit-keyframes cloud6 {
