@@ -138,7 +138,7 @@ body {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 10%;
+  height: 30%;
   display: table; }
 
 #sky_edge_rocks {
@@ -158,8 +158,10 @@ body {
     display: table-cell; } }
 #sky_edge_trees {
   height: 100%;
-  background-color: green;
-  display: table-cell; }
+  display: table-cell;
+  background-image: url(image/texture/forest.png);
+  background-size: auto 100%;
+  background-repeat: repeat-x; }
 
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Clouds ------------------------------ */
@@ -775,17 +777,6 @@ body {
     left: -10%; }
   100% {
     left: 110%; } }
-/* ---- Forest ---- */
-#forest {
-  position: absolute;
-  bottom: 12.5px;
-  left: 0px;
-  width: 100%;
-  height: 125px;
-  z-index: 1;
-  background-image: url(image/texture/forest.png);
-  background-size: 250px 125px; }
-
 .countdown_hide {
   -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
   animation: counterHide 0.3s ease-out 0s 1 forwards;

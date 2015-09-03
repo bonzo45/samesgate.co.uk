@@ -228,7 +228,7 @@ $sky_tint_height: 100%
   position: absolute
   bottom: 0px
   width: 100%
-  height: 10%
+  height: 30%
   display: table
 
 #sky_edge_rocks
@@ -248,10 +248,14 @@ $sky_tint_height: 100%
     height: 100%
     display: table-cell
 
+$texture_trees: $texture_path + "forest.png"
 #sky_edge_trees
   height: 100%
-  background-color: green
   display: table-cell
+  background:
+    image: url(#{$texture_trees})
+    size: auto 100%
+    repeat: repeat-x
 
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Clouds ------------------------------ */
@@ -595,18 +599,6 @@ $texture_exocet: $animation + "exocet.gif"
   //@include animate(exocet, 20s, linear, infinite)
 
 @include generateKeyframes(exocet, (left), ((-10%, 110%)), false)
-
-/* ---- Forest ----*/
-$forest_height: 125px
-$texture_forest: $texture_path + "forest.png"
-$texture_forest_height: $forest_height
-$texture_forest_width: 250px
-
-#forest
-  @include absolute_object_b($armco_height / 2, 0px, 100%, $forest_height, $layer_1)
-  background:
-    image: url(#{$texture_forest})
-    size: $texture_forest_width $texture_forest_height
 
 $countdown_url: "image/countdown/"
 
