@@ -300,6 +300,22 @@ $texture_cloud: $texture_path + "cloud"
 
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
+
+/* ------------------------------------------------------------------- */
+/* --------------------------- Foreground ---------------------------- */
+/* ------------------------------------------------------------------- */
+
+$lighthouse_width: 30%
+$texture_lighthouse: $prop_url + "lighthouse.png"
+
+#lighthouse
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_4)
+  background:
+    image: url(#{$texture_lighthouse})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
@@ -514,17 +530,6 @@ $texture_clock: $texture_path + "clock.png"
   @include animate(clockSwing, 4s, ease-out, infinite)
 
 @include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
-
-$house_width: 30%
-$texture_house: $prop_url + "house2.png"
-
-#house
-  @include absolute_object_b(0px, 10%, $house_width, 100%, $layer_4)
-  background:
-    image: url(#{$texture_house})
-    repeat: no-repeat
-    position: bottom 0px left 0px
-    size: 100% auto
 
 /* ---- Mountain --- */
 $mountain_height: 100%

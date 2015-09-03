@@ -112,11 +112,13 @@ body {
 @-webkit-keyframes day_night {
   0% {
     transform: rotate(0deg); }
+
   100% {
     transform: rotate(360deg); } }
 @keyframes day_night {
   0% {
     transform: rotate(0deg); }
+
   100% {
     transform: rotate(360deg); } }
 #sky_background_clouds {
@@ -183,12 +185,15 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   33.33333% {
     right: 40%;
     opacity: 1; }
+
   66.66667% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -196,12 +201,15 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   33.33333% {
     right: 40%;
     opacity: 1; }
+
   66.66667% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -222,15 +230,19 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   25% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 40%;
     opacity: 1; }
+
   75% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -238,15 +250,19 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   25% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 40%;
     opacity: 1; }
+
   75% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -267,18 +283,23 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   20% {
     right: 10%;
     opacity: 0; }
+
   40% {
     right: 10%;
     opacity: 0; }
+
   60% {
     right: 40%;
     opacity: 1; }
+
   80% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -286,18 +307,23 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   20% {
     right: 10%;
     opacity: 0; }
+
   40% {
     right: 10%;
     opacity: 0; }
+
   60% {
     right: 40%;
     opacity: 1; }
+
   80% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -318,21 +344,27 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   16.66667% {
     right: 10%;
     opacity: 0; }
+
   33.33333% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 10%;
     opacity: 0; }
+
   66.66667% {
     right: 40%;
     opacity: 1; }
+
   83.33333% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -340,21 +372,27 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   16.66667% {
     right: 10%;
     opacity: 0; }
+
   33.33333% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 10%;
     opacity: 0; }
+
   66.66667% {
     right: 40%;
     opacity: 1; }
+
   83.33333% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -375,24 +413,31 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   14.28571% {
     right: 10%;
     opacity: 0; }
+
   28.57143% {
     right: 10%;
     opacity: 0; }
+
   42.85714% {
     right: 10%;
     opacity: 0; }
+
   57.14286% {
     right: 10%;
     opacity: 0; }
+
   71.42857% {
     right: 40%;
     opacity: 1; }
+
   85.71429% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -400,24 +445,31 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   14.28571% {
     right: 10%;
     opacity: 0; }
+
   28.57143% {
     right: 10%;
     opacity: 0; }
+
   42.85714% {
     right: 10%;
     opacity: 0; }
+
   57.14286% {
     right: 10%;
     opacity: 0; }
+
   71.42857% {
     right: 40%;
     opacity: 1; }
+
   85.71429% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -438,27 +490,35 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   12.5% {
     right: 10%;
     opacity: 0; }
+
   25% {
     right: 10%;
     opacity: 0; }
+
   37.5% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 10%;
     opacity: 0; }
+
   62.5% {
     right: 10%;
     opacity: 0; }
+
   75% {
     right: 40%;
     opacity: 1; }
+
   87.5% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
@@ -466,30 +526,53 @@ body {
   0% {
     right: 10%;
     opacity: 0; }
+
   12.5% {
     right: 10%;
     opacity: 0; }
+
   25% {
     right: 10%;
     opacity: 0; }
+
   37.5% {
     right: 10%;
     opacity: 0; }
+
   50% {
     right: 10%;
     opacity: 0; }
+
   62.5% {
     right: 10%;
     opacity: 0; }
+
   75% {
     right: 40%;
     opacity: 1; }
+
   87.5% {
     right: 70%;
     opacity: 1; }
+
   100% {
     right: 100%;
     opacity: 0; } }
+/* ------------------------------------------------------------------- */
+/* --------------------------- Foreground ---------------------------- */
+/* ------------------------------------------------------------------- */
+#lighthouse {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 30%;
+  height: 100%;
+  z-index: 4;
+  background-image: url(image/prop/lighthouse.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
@@ -572,9 +655,9 @@ body {
   line-height: 100pt;
   font-size: 72pt;
   text-align: center;
-  border-top: 5px solid #DCDCDC;
-  border-bottom: 5px solid #DCDCDC;
-  color: #DCDCDC; }
+  border-top: 5px solid gainsboro;
+  border-bottom: 5px solid gainsboro;
+  color: gainsboro; }
 
 #bonzos_useful_things {
   position: absolute;
@@ -583,7 +666,7 @@ body {
   width: 630px;
   height: auto;
   z-index: 4;
-  background-color: #2D2222;
+  background-color: #2d2222;
   padding: 5px;
   border-radius: 0px 0px 5px 5px;
   text-align: center; }
@@ -624,21 +707,25 @@ body {
 @-webkit-keyframes closeSidebar {
   0% {
     width: 100px; }
+
   100% {
     width: 0px; } }
 @keyframes closeSidebar {
   0% {
     width: 100px; }
+
   100% {
     width: 0px; } }
 @-webkit-keyframes openSidebar {
   0% {
     width: 0px; }
+
   100% {
     width: 100px; } }
 @keyframes openSidebar {
   0% {
     width: 0px; }
+
   100% {
     width: 100px; } }
 #tab {
@@ -678,9 +765,11 @@ body {
   0% {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); }
+
   50% {
     transform: rotate(1deg);
     -webkit-transform: rotate(1deg); }
+
   100% {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); } }
@@ -688,24 +777,14 @@ body {
   0% {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); }
+
   50% {
     transform: rotate(1deg);
     -webkit-transform: rotate(1deg); }
+
   100% {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); } }
-#house {
-  position: absolute;
-  bottom: 0px;
-  left: 10%;
-  width: 30%;
-  height: 100%;
-  z-index: 4;
-  background-image: url(image/prop/house2.png);
-  background-repeat: no-repeat;
-  background-position: bottom 0px left 0px;
-  background-size: 100% auto; }
-
 /* ---- Mountain --- */
 #mountain {
   position: absolute;
@@ -770,11 +849,13 @@ body {
 @-webkit-keyframes exocet {
   0% {
     left: -10%; }
+
   100% {
     left: 110%; } }
 @keyframes exocet {
   0% {
     left: -10%; }
+
   100% {
     left: 110%; } }
 .countdown_hide {
@@ -793,6 +874,7 @@ body {
   0% {
     top: 0px;
     margin-bottom: 0px; }
+
   100% {
     top: -75px;
     margin-bottom: -75px; } }
@@ -800,6 +882,7 @@ body {
   0% {
     top: 0px;
     margin-bottom: 0px; }
+
   100% {
     top: -75px;
     margin-bottom: -75px; } }
@@ -807,6 +890,7 @@ body {
   0% {
     top: -75px;
     margin-bottom: -75px; }
+
   100% {
     top: 0px;
     margin-bottom: 0px; } }
@@ -814,6 +898,7 @@ body {
   0% {
     top: -75px;
     margin-bottom: -75px; }
+
   100% {
     top: 0px;
     margin-bottom: 0px; } }
@@ -839,8 +924,8 @@ body {
   height: 75px;
   width: 100%;
   pointer-events: none;
-  background-color: #6B6B6B;
-  color: #EFEFEF;
+  background-color: #6b6b6b;
+  color: #efefef;
   text-align: center;
   font-size: 40pt;
   line-height: 75px; }
@@ -867,8 +952,8 @@ body {
   height: 75px;
   width: 100%;
   pointer-events: none;
-  background-color: #6B6B6B;
-  color: #EFEFEF;
+  background-color: #6b6b6b;
+  color: #efefef;
   text-align: center;
   font-size: 40pt;
   line-height: 75px; }
@@ -895,10 +980,8 @@ body {
   height: 75px;
   width: 100%;
   pointer-events: none;
-  background-color: #6B6B6B;
-  color: #EFEFEF;
+  background-color: #6b6b6b;
+  color: #efefef;
   text-align: center;
   font-size: 40pt;
   line-height: 75px; }
-
-/*# sourceMappingURL=styles.css.map */
