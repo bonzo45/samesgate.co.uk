@@ -518,6 +518,17 @@ body {
   background-size: 100px 100px;
   opacity: 1; }
 
+#fish {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 5%;
+  height: 100%;
+  z-index: 1;
+  background-image: url(image/texture/fish.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
 #lake_tint {
   position: absolute;
   top: 20%;
