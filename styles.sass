@@ -111,8 +111,8 @@ body
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
-$sky_height_multiplier: 0.8
-$land_height_multiplier: 0.4
+$sky_height_multiplier: 0.7
+$land_height_multiplier: 0.5
 
 @media (orientation:portrait)
   #sky
@@ -255,7 +255,7 @@ $sky_tint_height: 100%
   display: table-cell
 
 /* ------------------------------------------------------------------- */
-/* ------------------------------- Clouds ------------------------------- */
+/* ----------------------------- Clouds ------------------------------ */
 /* ------------------------------------------------------------------- */
 $texture_cloud: $texture_path + "cloud"
 
@@ -297,6 +297,77 @@ $texture_cloud: $texture_path + "cloud"
 
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Land ------------------------------- */
+/* ------------------------------------------------------------------- */
+
+#bank
+  position: absolute
+  top: 0px
+  width: 100%
+  height: 10%
+  background-color: purple
+
+$texture_beach: $colour_path + "yellow.png"
+$texture_beach_size: 100px
+#beach
+  position: absolute
+  top: 10%
+  width: 100%
+  height: 20%
+  background:
+    image: url(#{$texture_beach})
+    size: $texture_beach_size $texture_beach_size
+
+// $tarmac_size: 5px
+// $tarmac_colour: #252525
+// border:
+//   top: 5px solid $tarmac_colour
+
+// $height_of_beach - $tarmac_size
+
+/* ---- Sea ---- */
+$sea_height: 80%
+$texture_sea: $colour_path + "dark_blue.png"
+$texture_sea_size: 100px
+
+#sea
+  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_2)
+  background:
+    image: url(#{$texture_sea})
+    size: $texture_sea_size $texture_sea_size
+  opacity: 0.8
+
+$sea_gradient_width: 600px
+$sea_gradient_height: 600px
+$texture_gradient: $texture_path + "gradient.png"
+
+#sea_gradient
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_gradient})
+    size: $sea_gradient_width $sea_gradient_height
+  opacity: 1.0
+
+$animation: "image/animation/"
+$animation_weather: $animation + "todo_ripple.gif"
+
+#tint
+  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_3)
+  background:
+    image: url(#{$animation_weather})
+  opacity: 0.2
+  pointer-events: none
+
+$texture_fish: $texture_path + "fish.png"
+
+#fish
+  @include absolute_object(200px, 200px, 100px, 33px)
+  background:
+    image: url(#{$texture_fish})
+    size: 100% 100%
+    repeat: no-repeat
 
 
 
@@ -476,7 +547,6 @@ $texture_grass: $colour_path + "dark_green.png"
   background:
     image: url(#{$texture_grass})
 
-$texture_gradient: $texture_path + "gradient.png"
 $grass_gradient_width: 600px
 $grass_gradient_height: $height_of_grass * 1.2
 
@@ -536,62 +606,6 @@ $texture_forest_width: 250px
   background:
     image: url(#{$texture_forest})
     size: $texture_forest_width $texture_forest_height
-
-/* ---- Beach ---- */
-$texture_beach: $colour_path + "yellow.png"
-$texture_beach_size: 100px
-$tarmac_size: 5px
-$tarmac_colour: #252525
-
-#beach
-  @include absolute_object(0px, 0px, 100%, $height_of_beach - $tarmac_size, $layer_3)
-  background:
-    image: url(#{$texture_beach})
-    size: $texture_beach_size $texture_beach_size
-  border:
-    top: 5px solid $tarmac_colour
-
-/* ---- Sea ---- */
-$sea_height: 100%
-$texture_sea: $colour_path + "dark_blue.png"
-$texture_sea_size: 100px
-
-#sea
-  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_2)
-  background:
-    image: url(#{$texture_sea})
-    size: $texture_sea_size $texture_sea_size
-  opacity: 0.8
-
-$sea_gradient_width: 600px
-$sea_gradient_height: 600px
-
-#sea_gradient
-  width: 100%
-  height: 100%
-  background:
-    image: url(#{$texture_gradient})
-    size: $sea_gradient_width $sea_gradient_height
-  opacity: 1.0
-
-$animation: "image/animation/"
-$animation_weather: $animation + "todo_ripple.gif"
-
-#tint
-  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_3)
-  background:
-    image: url(#{$animation_weather})
-  opacity: 0.2
-  pointer-events: none
-
-$texture_fish: $texture_path + "fish.png"
-
-#fish
-  @include absolute_object(200px, 200px, 100px, 33px)
-  background:
-    image: url(#{$texture_fish})
-    size: 100% 100%
-    repeat: no-repeat
 
 $countdown_url: "image/countdown/"
 

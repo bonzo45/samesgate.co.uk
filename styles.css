@@ -35,25 +35,25 @@ body {
   #sky {
     position: relative;
     width: 100%;
-    height: 80vw;
+    height: 70vw;
     background-color: green; } }
 @media (orientation: landscape) {
   #sky {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     background-color: green; } }
 @media (orientation: portrait) {
   #land {
     position: relative;
     width: 100%;
-    height: 40vw;
+    height: 50vw;
     background-image: url(image/colour/dark_brown.png); } }
 @media (orientation: landscape) {
   #land {
     position: relative;
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     background-image: url(image/colour/dark_brown.png); } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
@@ -162,7 +162,7 @@ body {
   display: table-cell; }
 
 /* ------------------------------------------------------------------- */
-/* ------------------------------- Clouds ------------------------------- */
+/* ----------------------------- Clouds ------------------------------ */
 /* ------------------------------------------------------------------- */
 #cloud1 {
   position: absolute;
@@ -488,6 +488,65 @@ body {
   100% {
     right: 100%;
     opacity: 0; } }
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Land ------------------------------- */
+/* ------------------------------------------------------------------- */
+#bank {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 10%;
+  background-color: purple; }
+
+#beach {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 20%;
+  background-image: url(image/colour/yellow.png);
+  background-size: 100px 100px; }
+
+/* ---- Sea ---- */
+#sea {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80%;
+  z-index: 2;
+  background-image: url(image/colour/dark_blue.png);
+  background-size: 100px 100px;
+  opacity: 0.8; }
+
+#sea_gradient {
+  width: 100%;
+  height: 100%;
+  background-image: url(image/texture/gradient.png);
+  background-size: 600px 600px;
+  opacity: 1; }
+
+#tint {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80%;
+  z-index: 3;
+  background-image: url(image/animation/todo_ripple.gif);
+  opacity: 0.2;
+  pointer-events: none; }
+
+#fish {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 100px;
+  height: 33px;
+  z-index: 1;
+  background-image: url(image/texture/fish.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
 /* ---- Birds ---- */
 #birds {
   position: absolute;
@@ -735,59 +794,6 @@ body {
   z-index: 1;
   background-image: url(image/texture/forest.png);
   background-size: 250px 125px; }
-
-/* ---- Beach ---- */
-#beach {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 45px;
-  z-index: 3;
-  background-image: url(image/colour/yellow.png);
-  background-size: 100px 100px;
-  border-top: 5px solid #252525; }
-
-/* ---- Sea ---- */
-#sea {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-image: url(image/colour/dark_blue.png);
-  background-size: 100px 100px;
-  opacity: 0.8; }
-
-#sea_gradient {
-  width: 100%;
-  height: 100%;
-  background-image: url(image/texture/gradient.png);
-  background-size: 600px 600px;
-  opacity: 1; }
-
-#tint {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  background-image: url(image/animation/todo_ripple.gif);
-  opacity: 0.2;
-  pointer-events: none; }
-
-#fish {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  width: 100px;
-  height: 33px;
-  z-index: 1;
-  background-image: url(image/texture/fish.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
 
 .countdown_hide {
   -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
