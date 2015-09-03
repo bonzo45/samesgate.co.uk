@@ -91,12 +91,34 @@ body {
 
 #sky_background_sun_moon {
   position: absolute;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  background-image: url(image/day-night/day-night.png);
-  background-size: 100% 100%; }
+  z-index: 1; }
 
+#sky_background_sun_moon:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  z-index: -1;
+  background-image: url(image/day-night/day-night.png);
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  -webkit-animation: day_night 30s linear 0s  infinite;
+  animation: day_night 30s linear 0s  infinite; }
+
+@-webkit-keyframes day_night {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes day_night {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 #sky_background_clouds {
   position: absolute;
   width: 100%;
@@ -439,7 +461,6 @@ body {
   100% {
     right: 100%;
     opacity: 0; } }
-/* ---- Sky ---- */
 /* ---- Birds ---- */
 #birds {
   position: absolute;

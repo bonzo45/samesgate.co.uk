@@ -185,12 +185,26 @@ $texture_sky_size: 300px
 $texture_sun_moon: "image/day-night/day-night.png"
 #sky_background_sun_moon
   position: absolute
+  overflow: hidden
   width: 100%
   height: 100%
   z-index: 1
+
+
+#sky_background_sun_moon:before
+  content: ""
+  position: absolute
+  width: 100%
+  height: 200%
+  z-index: -1
   background:
     image: url(#{$texture_sun_moon})
-    size: 100% 100%
+    position: center
+    size: 100% auto
+    repeat: no-repeat
+  @include animate(day_night, 30s, linear, infinite)
+
+@include generateKeyframes(day_night, (transform), ((rotate(0deg)), (rotate(360deg))), false)
 
 #sky_background_clouds
   position: absolute
@@ -210,7 +224,6 @@ $sky_tint_height: 100%
     size: $sky_tint_width $sky_tint_height
   opacity: 1.0
   z-index: 4
-
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Clouds ------------------------------- */
@@ -256,27 +269,6 @@ $texture_cloud: $texture_path + "cloud"
 @include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
 
 
-
-
-
-
-
-
-/* ---- Sky ---- */
-// #sky:before
-//   content: ""
-//   position: absolute
-//   width: 100%
-//   height: 200%
-//   z-index: -1
-//   background:
-//     image: url(#{$texture_sky})
-//     size: 100% 100%
-//     repeat: repeat
-//   //@include animate(sky_rotate, 10s, linear, infinite)
-
-//@include generateKeyframes(sky_rotate, (transform), ((rotate(0deg)), (rotate(360deg))), false)
- 
 
 
 
