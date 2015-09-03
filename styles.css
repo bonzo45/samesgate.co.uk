@@ -134,6 +134,33 @@ body {
   opacity: 1;
   z-index: 4; }
 
+#sky_edges {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 10%;
+  display: table; }
+
+#sky_edge_rocks {
+  height: 100%;
+  background-color: brown;
+  display: table-cell; }
+
+@media (orientation: portrait) {
+  #sky_edge_spacer {
+    width: 100vw;
+    height: 100%;
+    display: table-cell; } }
+@media (orientation: landscape) {
+  #sky_edge_spacer {
+    width: 100vh;
+    height: 100%;
+    display: table-cell; } }
+#sky_edge_trees {
+  height: 100%;
+  background-color: green;
+  display: table-cell; }
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Clouds ------------------------------- */
 /* ------------------------------------------------------------------- */
