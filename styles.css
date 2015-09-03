@@ -102,7 +102,7 @@ body {
   width: 100%;
   height: 200%;
   z-index: -1;
-  background-image: url(image/day-night/day-night.png);
+  background-image: url(image/texture/day-night.png);
   background-position: center;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -144,9 +144,11 @@ body {
   display: table; }
 
 #sky_edge_rocks {
-  height: 100%;
-  background-color: brown;
-  display: table-cell; }
+  display: table-cell;
+  background-image: url(image/texture/stone.png);
+  background-size: auto 40%;
+  background-position: right 0px bottom 0px;
+  background-repeat: repeat-x; }
 
 @media (orientation: portrait) {
   #sky_edge_spacer {
@@ -159,10 +161,10 @@ body {
     height: 100%;
     display: table-cell; } }
 #sky_edge_trees {
-  height: 100%;
   display: table-cell;
   background-image: url(image/texture/forest.png);
-  background-size: auto 100%;
+  background-size: auto 80%;
+  background-position: left 0px bottom 0px;
   background-repeat: repeat-x; }
 
 /* ------------------------------------------------------------------- */
@@ -565,7 +567,7 @@ body {
   position: absolute;
   bottom: 0px;
   left: 10%;
-  width: 30%;
+  width: 20%;
   height: 100%;
   z-index: 4;
   background-image: url(image/prop/lighthouse.png);
@@ -573,24 +575,52 @@ body {
   background-position: bottom 0px left 0px;
   background-size: 100% auto; }
 
+#stairs {
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  width: 80%;
+  height: 35%;
+  z-index: 1;
+  background-image: url(image/prop/stairs.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%; }
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
+#tarmac {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 1.5%;
+  background-color: #252525; }
+
 #bank {
   position: absolute;
-  top: 0px;
+  top: 1.5%;
   width: 100%;
-  height: 10%;
+  height: 20%;
+  z-index: 2; }
+
+#bank:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -10%;
+  z-index: -1;
   background-image: url(image/texture/bank.png);
   background-size: auto 100%; }
 
 #beach {
   position: absolute;
-  top: 10%;
+  top: 1.5%;
   width: 100%;
-  height: 10%;
-  background-image: url(image/colour/yellow.png);
-  background-size: 100px 100px; }
+  height: 20%;
+  background-image: url(image/texture/beach.png);
+  background-size: 100px 100px;
+  z-index: 1; }
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Lake ------------------------------- */
