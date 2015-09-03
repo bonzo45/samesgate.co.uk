@@ -112,7 +112,7 @@ body
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
 $sky_height_multiplier: 0.7
-$land_height_multiplier: 0.5
+$land_height_multiplier: 0.7
 
 @media (orientation:portrait)
   #sky
@@ -153,6 +153,7 @@ $texture_land: $colour_path + "dark_brown.png"
   width: 100%
   height: 100%
   z-index: 1
+  overflow: hidden
 
 #sky_foreground
   position: absolute
@@ -185,11 +186,9 @@ $texture_sky_size: 300px
 $texture_sun_moon: "image/day-night/day-night.png"
 #sky_background_sun_moon
   position: absolute
-  overflow: hidden
   width: 100%
   height: 100%
   z-index: 1
-
 
 #sky_background_sun_moon:before
   content: ""
@@ -314,7 +313,7 @@ $texture_beach_size: 100px
   position: absolute
   top: 10%
   width: 100%
-  height: 20%
+  height: 10%
   background:
     image: url(#{$texture_beach})
     size: $texture_beach_size $texture_beach_size
@@ -326,48 +325,54 @@ $texture_beach_size: 100px
 
 // $height_of_beach - $tarmac_size
 
-/* ---- Sea ---- */
-$sea_height: 80%
-$texture_sea: $colour_path + "dark_blue.png"
-$texture_sea_size: 100px
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Lake ------------------------------- */
+/* ------------------------------------------------------------------- */
 
-#sea
-  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_2)
-  background:
-    image: url(#{$texture_sea})
-    size: $texture_sea_size $texture_sea_size
-  opacity: 0.8
+$lake_height: 80%
+$texture_lake: $colour_path + "dark_blue.png"
+$texture_lake_size: 100px
 
-$sea_gradient_width: 600px
-$sea_gradient_height: 600px
-$texture_gradient: $texture_path + "gradient.png"
-
-#sea_gradient
+#lake
+  position: absolute
+  top: 20%
   width: 100%
-  height: 100%
+  height: $lake_height
   background:
-    image: url(#{$texture_gradient})
-    size: $sea_gradient_width $sea_gradient_height
+    image: url(#{$texture_lake})
+    size: $texture_lake_size $texture_lake_size
   opacity: 1.0
 
-$animation: "image/animation/"
-$animation_weather: $animation + "todo_ripple.gif"
+$texture_gradient: $texture_path + "gradient.png"
 
-#tint
-  @include absolute_object(0px, 0px, 100%, $sea_height, $layer_3)
+#lake_tint
+  position: absolute
+  top: 20%
+  width: 100%
+  height: $lake_height
   background:
-    image: url(#{$animation_weather})
-  opacity: 0.2
-  pointer-events: none
+    image: url(#{$texture_gradient})
+    size: auto 100%
+  opacity: 1.0
 
-$texture_fish: $texture_path + "fish.png"
+// $animation: "image/animation/"
+// $animation_weather: $animation + "todo_ripple.gif"
 
-#fish
-  @include absolute_object(200px, 200px, 100px, 33px)
-  background:
-    image: url(#{$texture_fish})
-    size: 100% 100%
-    repeat: no-repeat
+// #tint
+//   @include absolute_object(0px, 0px, 100%, $sea_height, $layer_3)
+//   background:
+//     image: url(#{$animation_weather})
+//   opacity: 0.2
+//   pointer-events: none
+
+// $texture_fish: $texture_path + "fish.png"
+
+// #fish
+//   @include absolute_object(200px, 200px, 100px, 33px)
+//   background:
+//     image: url(#{$texture_fish})
+//     size: 100% 100%
+//     repeat: no-repeat
 
 
 
@@ -509,17 +514,16 @@ $texture_clock: $texture_path + "clock.png"
 
 @include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
 
-$house_width: 270px
-$house_height: 150px
+$house_width: 30%
 $texture_house: $prop_url + "house2.png"
 
 #house
-  @include absolute_object_b(0px, 200px, $house_width, $house_height, $layer_4)
+  @include absolute_object_b(0px, 10%, $house_width, 100%, $layer_4)
   background:
     image: url(#{$texture_house})
     repeat: no-repeat
     position: bottom 0px left 0px
-    size: 100% 100%
+    size: 100% auto
 
 /* ---- Mountain --- */
 $mountain_height: 100%

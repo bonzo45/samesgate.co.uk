@@ -47,13 +47,13 @@ body {
   #land {
     position: relative;
     width: 100%;
-    height: 50vw;
+    height: 70vw;
     background-image: url(image/colour/dark_brown.png); } }
 @media (orientation: landscape) {
   #land {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     background-image: url(image/colour/dark_brown.png); } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
@@ -62,7 +62,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1; }
+  z-index: 1;
+  overflow: hidden; }
 
 #sky_foreground {
   position: absolute;
@@ -91,7 +92,6 @@ body {
 
 #sky_background_sun_moon {
   position: absolute;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   z-index: 1; }
@@ -502,50 +502,30 @@ body {
   position: absolute;
   top: 10%;
   width: 100%;
-  height: 20%;
+  height: 10%;
   background-image: url(image/colour/yellow.png);
   background-size: 100px 100px; }
 
-/* ---- Sea ---- */
-#sea {
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Lake ------------------------------- */
+/* ------------------------------------------------------------------- */
+#lake {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 20%;
   width: 100%;
   height: 80%;
-  z-index: 2;
   background-image: url(image/colour/dark_blue.png);
   background-size: 100px 100px;
-  opacity: 0.8; }
-
-#sea_gradient {
-  width: 100%;
-  height: 100%;
-  background-image: url(image/texture/gradient.png);
-  background-size: 600px 600px;
   opacity: 1; }
 
-#tint {
+#lake_tint {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 20%;
   width: 100%;
   height: 80%;
-  z-index: 3;
-  background-image: url(image/animation/todo_ripple.gif);
-  opacity: 0.2;
-  pointer-events: none; }
-
-#fish {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  width: 100px;
-  height: 33px;
-  z-index: 1;
-  background-image: url(image/texture/fish.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat; }
+  background-image: url(image/texture/gradient.png);
+  background-size: auto 100%;
+  opacity: 1; }
 
 /* ---- Birds ---- */
 #birds {
@@ -704,14 +684,14 @@ body {
 #house {
   position: absolute;
   bottom: 0px;
-  left: 200px;
-  width: 270px;
-  height: 150px;
+  left: 10%;
+  width: 30%;
+  height: 100%;
   z-index: 4;
   background-image: url(image/prop/house2.png);
   background-repeat: no-repeat;
   background-position: bottom 0px left 0px;
-  background-size: 100% 100%; }
+  background-size: 100% auto; }
 
 /* ---- Mountain --- */
 #mountain {
