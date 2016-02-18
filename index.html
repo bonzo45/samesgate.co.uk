@@ -64,18 +64,23 @@ To put back... or not...?
 	<link rel="stylesheet" type="text/css" href="styles.css">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="jquery.min.js"></script>
+  <script src='jquery.keyframes.js'></script>
   <script src="init.js"></script>
 	<title>Bonzo45</title>
 </head>
 
 <body onload="init()">
+  <div id="daynightfilter"></div>
+
   <div id="sky">
     <div id="sky_background">
       <div id="sky_background_black"></div>
       <div id="sky_background_blue"></div>
       <div id="sky_background_tint"></div>
       <div id="sky_background_center" class="centerer">
-        <div id="sky_background_sun_moon"></div>
+        <div id="sky_background_sun_moon_static">
+          <div id="sky_background_sun_moon_rotating"></div>
+        </div>
         <div id="sky_background_clouds">
           <div id="cloud1"></div>
           <div id="cloud2"></div>

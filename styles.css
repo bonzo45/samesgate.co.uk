@@ -29,6 +29,18 @@ body {
   background-color: black; }
 
 /* ------------------------------------------------------------------- */
+/* ------------------------- Day/Night Filter ------------------------ */
+/* ------------------------------------------------------------------- */
+#daynightfilter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: black;
+  z-index: 10;
+  pointer-events: none; }
+
+/* ------------------------------------------------------------------- */
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
 @media (orientation: portrait) {
@@ -90,13 +102,13 @@ body {
 #sky_background_center {
   z-index: 3; }
 
-#sky_background_sun_moon {
-  position: absolute;
+#sky_background_sun_moon_static {
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: 1; }
 
-#sky_background_sun_moon:before {
+#sky_background_sun_moon_rotating {
   content: "";
   position: absolute;
   width: 100%;
@@ -105,22 +117,8 @@ body {
   background-image: url(image/texture/day-night.png);
   background-position: center;
   background-size: 100% auto;
-  background-repeat: no-repeat;
-  -webkit-animation: day_night 30s linear 0s  infinite;
-  animation: day_night 30s linear 0s  infinite; }
+  background-repeat: no-repeat; }
 
-@-webkit-keyframes day_night {
-  0% {
-    transform: rotate(0deg); }
-
-  100% {
-    transform: rotate(360deg); } }
-@keyframes day_night {
-  0% {
-    transform: rotate(0deg); }
-
-  100% {
-    transform: rotate(360deg); } }
 #sky_background_clouds {
   position: absolute;
   width: 100%;
@@ -163,7 +161,7 @@ body {
 #sky_edge_trees {
   display: table-cell;
   background-image: url(image/prop/treeline.png);
-  background-size: auto 80%;
+  background-size: auto 100%;
   background-position: left 0px bottom 0px;
   background-repeat: repeat-x; }
 
