@@ -108,12 +108,30 @@ body
   background:
     color: black
 
-
 /* ------------------------------------------------------------------- */
-/* ------------------------- Day/Night Filter ------------------------ */
+/* ---------------------------- Day/Night ---------------------------- */
 /* ------------------------------------------------------------------- */
 
-#daynightfilter
+#time_control
+  position: fixed
+  top: 50px
+  left: 50px
+  width: 200px
+  height: 200px
+  background:
+    color: #2200AA
+  z-index: $layer_6
+  padding: 10px 10px 10px 10px
+
+.time
+  width: 100px
+  height: 75px
+  display: inline-block
+  text-align: center
+  font:
+    size: 60pt
+
+#day_night_filter
   position: fixed
   width: 100%
   height: 100%
