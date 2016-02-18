@@ -216,9 +216,6 @@ $texture_sun_moon: $prop_url + "sun_moon.png"
     position: center
     size: 24% auto
     repeat: no-repeat
-  //@include animate(day_night, 30s, linear, infinite)
-
-//@include generateKeyframes(day_night, (transform), ((rotate(0deg)), (rotate(360deg))), false)
 
 #sky_background_clouds
   position: absolute
@@ -326,6 +323,7 @@ $texture_cloud: $texture_path + "cloud"
 
 $lighthouse_width: 20%
 $texture_lighthouse: $prop_url + "lighthouse.png"
+$texture_lighthouse_mask: $prop_url + "lighthousemask.png"
 
 #lighthouse
   @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_4)
@@ -334,6 +332,15 @@ $texture_lighthouse: $prop_url + "lighthouse.png"
     repeat: no-repeat
     position: bottom 0px left 0px
     size: 100% auto
+
+#lighthouse_mask
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_5)
+  background:
+    image: url(#{$texture_lighthouse_mask})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
 
 $stairs_width: 80%
 $texture_stairs: $prop_url + "stairs.png"

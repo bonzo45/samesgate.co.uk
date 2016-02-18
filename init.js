@@ -211,7 +211,7 @@ var usefulThings = {
 var maxOpacity = 0.7;
 
 function initDayNight() {
-  setTime(new Date(0));
+  setTime(new Date(30000));
 }
 
 function setTime(time) {
@@ -241,7 +241,7 @@ function setTime(time) {
   $.keyframe.define([opacityKeyframes]);
 
   // Add these keyframes to the filter.
-  $('#daynightfilter').playKeyframe('day_night_darkness 60s linear 0s infinite normal forwards');
+  $('.mask').playKeyframe('day_night_darkness 60s linear 0s infinite normal forwards');
 
   // Rotation of Sun/Moon.
   // Calculate where the sun/moon are now.

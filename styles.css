@@ -573,6 +573,18 @@ body {
   background-position: bottom 0px left 0px;
   background-size: 100% auto; }
 
+#lighthouse_mask {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 20%;
+  height: 100%;
+  z-index: 5;
+  background-image: url(image/prop/lighthousemask.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
 #stairs {
   position: absolute;
   top: 0px;
