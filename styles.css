@@ -114,9 +114,9 @@ body {
   width: 100%;
   height: 200%;
   z-index: -1;
-  background-image: url(image/texture/day-night.png);
+  background-image: url(image/prop/sun_moon.png);
   background-position: center;
-  background-size: 100% auto;
+  background-size: 24% auto;
   background-repeat: no-repeat; }
 
 #sky_background_clouds {
