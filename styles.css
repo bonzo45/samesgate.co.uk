@@ -162,7 +162,7 @@ body {
     display: table-cell; } }
 #sky_edge_trees {
   display: table-cell;
-  background-image: url(image/texture/forest.png);
+  background-image: url(image/prop/treeline.png);
   background-size: auto 80%;
   background-position: left 0px bottom 0px;
   background-repeat: repeat-x; }
