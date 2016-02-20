@@ -208,80 +208,78 @@ var usefulThings = {
   ]
 }
 
+// How dark is midnight?
 var maxOpacity = 0.7;
+// What time is it now?
+var currentTime = 0;
 
 function initDayNight() {
   setTime(new Date(30000));
 }
 
 function setTime(time) {
-  // Remove previous animations.
-  $('#sky_background_sun_moon_rotating').resetKeyframe(function() {
-    $('.mask').resetKeyframe(function() {
-      $('#day_night_rotation').remove();
-      $('#day_night_darkness').remove();
+  var newTime = time;
+  var transitionTime = computeTransitionTime(newTime - currentTime);
+  setDarkness(time, transitionTime);
+  setSunMoonRotation(time, transitionTime);
 
-      // Update Display
-      var stringHours = padOneZero(time.getHours() + '');
-      var stringMinutes = padOneZero(time.getMinutes() + '');
-      $("#input_hours").val(stringHours);
-      $("#input_minutes").val(stringMinutes);
+  // Calculate how many hours away from midday we are. (-ve before, +ve after)
+  var difference = hoursFromMidday(time);
 
-      // Light-Dark Cycle.
-      // Calculate how light it is now. Used for keyframes 1 (start) & 4 (end).
-      var opacity14 = timeToOpacity(time);
+  // // Update Display
+  // var stringHours = padOneZero(time.getHours() + '');
+  // var stringMinutes = padOneZero(time.getMinutes() + '');
+  // $("#input_hours").val(stringHours);
+  // $("#input_minutes").val(stringMinutes);
 
-      // Calculate how many hours away from midday we are. (-ve before, +ve after)
-      var difference = differenceFromMidday(time);
+  // // Calculate how long until next keyframe (either midday or midnight).
+  // var keyframe2 = (difference < 0) ? ((-difference / 24) * 100) : 50 - ((difference / 24) * 100);
+  // var opacity2 = (difference < 0) ? 0 : maxOpacity; 
 
-      // Calculate how long until next keyframe (either midday or midnight).
-      var keyframe2 = (difference < 0) ? ((-difference / 24) * 100) : 50 - ((difference / 24) * 100);
-      var opacity2 = (difference < 0) ? 0 : maxOpacity;
 
-      // Calculate how long until the next keyframe (the other one).
-      var keyframe3 = keyframe2 + 50;
-      var opacity3 = (difference < 0) ? maxOpacity : 0;
-
-      // Create the keyframes.
-      var opacityKeyframes = {
-        name: 'day_night_darkness'
-      }
-      opacityKeyframes['0%'] = {'opacity': opacity14};
-      opacityKeyframes[keyframe2 + '%'] = {'opacity' : opacity2};
-      opacityKeyframes[keyframe3 + '%'] = {'opacity' : opacity3};
-      opacityKeyframes['100%'] = {'opacity': opacity14};
-      $.keyframe.define([opacityKeyframes]);
-
-      // Add these keyframes to the filter.
-      $('.mask').playKeyframe('day_night_darkness 60s linear 0s infinite normal forwards');
-
-      // Rotation of Sun/Moon.
-      // Calculate where the sun/moon are now.
-      var rotation = timeToRotation(time); 
-
-      // Create keyframes rotating from this point to +360 degrees.
-      $.keyframe.define([{
-        name: 'day_night_rotation',
-        '0%': {'transform': 'rotate('+ rotation + 'deg)'},
-        '100%': {'transform': 'rotate('+ (rotation + 360) + 'deg)'}
-      }]);
-
-      // Add these keyframes to the sun/moon.
-      $('#sky_background_sun_moon_rotating').playKeyframe('day_night_rotation 60s linear 0s infinite normal forwards');
-
-      // DEBUG.
-      console.log('Time: ' + time + ', Opacity: ' + opacity14 + ', Rotation: ' + rotation);
-    });
-  });
+  // // Calculate how long until the next keyframe (the other one).
+  // var keyframe3 = keyframe2 + 50;
+  // var opacity3 = (difference < 0) ? maxOpacity : 0;
 }
 
+/**
+  * Works out how long the animation of changing time should take, given the time difference.
+  */
+function computeTransitionTime(difference) {
+  // Default transition is three seconds.
+  // TODO: Make larger jumps in time take longer?
+  return 3;
+}
+
+function setDarkness(time, transitionTime) {
+  // Light-Dark Cycle.
+  // Calculate how light it is now. Used for keyframes 1 (start) & 4 (end).
+  var targetOpacity = timeToOpacity(time);
+  console.log("Time: " + time + ", Opacity: " + targetOpacity);
+}
+
+function setSunMoonRotation(time, transitionTime) {
+  // Rotation of Sun/Moon.
+  // Calculate where the sun/moon are now.
+  var rotation = timeToRotation(time); 
+  console.log("Time: " + time + ", Rotation: " + rotation);
+  $("#sky_background_sun_moon_rotating").css("transition", "all " + transitionTime + "s");
+  $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + rotation + "deg)");  
+}
+
+/**
+  * Given the time returns the opacity for the darkness filters. High opacity means darker, low opacity means lighter.
+  */
 function timeToOpacity(time) {
-  return (Math.abs(differenceFromMidday(time)) / 12) * maxOpacity;
+  return (Math.abs(hoursFromMidday(time)) / 12) * maxOpacity;
 }
 
+/**
+  * Given a time returns the associated rotation for the sun/moon image.
+  */
 function timeToRotation(time) {
   var maxRotation = 360;
-  var difference = differenceFromMidday(time);  // Difference is between -12 and 12.
+  var difference = hoursFromMidday(time);  // Difference is between -12 and 12.
   if (difference < 0) {
     difference += 24;
   }                                           // Difference now between 0 and 24.
@@ -294,7 +292,7 @@ function timeToRotation(time) {
   * - Positive if past midday.
   * e.g. 10:30 returns -1.5.
   */
-function differenceFromMidday(time) {
+function hoursFromMidday(time) {
   var hour = time.getHours(); // 0 to 23
   var minutes = time.getMinutes(); // 0 to 59
   var seconds = time.getSeconds(); // 0 to 59
@@ -305,6 +303,9 @@ function differenceFromMidday(time) {
   return (hour + minutes / 60) - 12;
 }
 
+/**
+  * Given a number represented as a string, returns a version with at least two characters.
+  */
 function padOneZero(numberString) {
   while (numberString.length < 2) {
     numberString = '0' + numberString;
