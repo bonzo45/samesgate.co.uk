@@ -214,8 +214,6 @@ var maxOpacity = 0.7;
 var currentTime = new Date(0);
 // How many degrees are the sun/moon rotated by now? (moon at top)
 var currentRotation = 0;
-// Keyframes for animating opacity.
-var opacityKeyframes = [];
 
 function initDayNight() {
   setTime(new Date(0));
@@ -236,23 +234,11 @@ function setTime(newTime) {
 
   currentTime = newTime;
 
-  // // Calculate how many hours away from midday we are. (-ve before, +ve after)
-  // var difference = hoursFromMidday(time);
-
   // // Update Display
   // var stringHours = padOneZero(time.getHours() + '');
   // var stringMinutes = padOneZero(time.getMinutes() + '');
   // $("#input_hours").val(stringHours);
   // $("#input_minutes").val(stringMinutes);
-
-  // // Calculate how long until next keyframe (either midday or midnight).
-  // var keyframe2 = (difference < 0) ? ((-difference / 24) * 100) : 50 - ((difference / 24) * 100);
-  // var opacity2 = (difference < 0) ? 0 : maxOpacity; 
-
-
-  // // Calculate how long until the next keyframe (the other one).
-  // var keyframe3 = keyframe2 + 50;
-  // var opacity3 = (difference < 0) ? maxOpacity : 0;
 }
 
 /**
@@ -296,6 +282,8 @@ function setDarkness(currentTime, nextTime, transitionTime) {
   var direction = (currentTime < nextTime) ? 1 : -1;
 
   // Work from the current time, to the next time, working out darkness 'keyframes'.
+  // Keyframes for animating opacity.
+  var opacityKeyframes = [];
   var totalTimeToGo = Math.abs(nextTime - currentTime);
   var timeToGo = Math.abs(nextTime - currentTime);
   var tempTime = new Date(currentTime.getTime());
@@ -306,7 +294,7 @@ function setDarkness(currentTime, nextTime, transitionTime) {
     if (timeToGo <= timeToNextMiddaynight) {
       opacityKeyframes.push({
         "opacity": targetOpacity,
-        "time": (timeToGo / totalTimeToGo) * transitionTime
+        "duration": (timeToGo / totalTimeToGo) * transitionTime
       });
       timeToGo = 0;
     }
@@ -316,12 +304,35 @@ function setDarkness(currentTime, nextTime, transitionTime) {
       tempTime = new Date(tempTime.getTime() + (direction * timeToNextMiddaynight));
       opacityKeyframes.push({
         "opacity": tempTime.getHours() == 12 ? 0.0 : maxOpacity,
-        "time": (timeToNextMiddaynight / totalTimeToGo) * transitionTime
+        "duration": (timeToNextMiddaynight / totalTimeToGo) * transitionTime
       });
     }
   }
   console.log(opacityKeyframes);
-  opacityKeyframes = [];
+  //opacityKeyframes = [];
+  animateOpacity(opacityKeyframes);
+}
+
+function animateOpacity(opacityKeyframes) {
+
+  // Get next keyframe from list (and remove from list).
+  var keyframe = opacityKeyframes.shift();
+  
+  // Get opacity and duration from keyframe.
+  var opacity = keyframe.opacity;
+  var duration = keyframe.duration;
+
+  // Animate this part.
+  $(".mask").css("transition", "all " + duration + "s");
+  $(".mask").css("opacity", opacity);
+
+  // See if there are any keyframes left.
+  if (opacityKeyframes.length == 0) {
+    return;
+  }
+
+  // Trigger callback for next keyframe.
+  setTimeout(function(){animateOpacity(opacityKeyframes)}, duration * 1000);
 }
 
 function setSunMoonRotation(currentTime, nextTime, transitionTime) {
