@@ -211,20 +211,27 @@ var usefulThings = {
 // How dark is midnight?
 var maxOpacity = 0.7;
 // What time is it now?
-var currentTime = 0;
+var currentTime = new Date(0);
 
 function initDayNight() {
   setTime(new Date(30000));
 }
 
-function setTime(time) {
-  var newTime = time;
-  var transitionTime = computeTransitionTime(newTime - currentTime);
-  setDarkness(time, transitionTime);
-  setSunMoonRotation(time, transitionTime);
+function setTime(newTime) {
+  // If the time is the same as the current one, do nothing.
+  if (newTime.getTime() === currentTime.getTime()) {
+    return;
+  }
 
-  // Calculate how many hours away from midday we are. (-ve before, +ve after)
-  var difference = hoursFromMidday(time);
+  // New time could be years away. For animation's sake clip it to be within 48 hours of current time.
+  var clippedTime = clipTime(currentTime, newTime);
+
+  var transitionTime = computeTransitionTime(clippedTime - currentTime);
+  setDarkness(currentTime, clippedTime, transitionTime);
+  setSunMoonRotation(currentTime, clippedTime, transitionTime);
+
+  // // Calculate how many hours away from midday we are. (-ve before, +ve after)
+  // var difference = hoursFromMidday(time);
 
   // // Update Display
   // var stringHours = padOneZero(time.getHours() + '');
@@ -243,6 +250,25 @@ function setTime(time) {
 }
 
 /**
+  * Returns a 'clipped' version secondTime that is within 48 hours of firstTime, but with the same time.
+  *   i.e. returns a version with the same time as secondTime but with a potentially new date.
+  */
+function clipTime(firstTime, secondTime) {
+  var fortyEightHours = new Date(1970, 0, 2, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
+  var difference = new Date((firstTime < secondTime) ? secondTime - firstTime : firstTime - secondTime);
+
+  // If the difference is less than 48 hours then return secondTime.
+  if (difference <= fortyEightHours) {
+    return secondTime;
+  }
+  // Otherwise mod the difference by 48 hours and add/subtract that to firstTime.
+  else {
+    var clippedDifference = new Date(difference.getTime() % fortyEightHours.getTime());
+    return new Date((firstTime < secondTime) ? firstTime + clippedDifference : firstTime - clippedDifference);
+  }
+}
+
+/**
   * Works out how long the animation of changing time should take, given the time difference.
   */
 function computeTransitionTime(difference) {
@@ -251,18 +277,28 @@ function computeTransitionTime(difference) {
   return 3;
 }
 
-function setDarkness(time, transitionTime) {
+function setDarkness(currentTime, nextTime, transitionTime) {
   // Light-Dark Cycle.
-  // Calculate how light it is now. Used for keyframes 1 (start) & 4 (end).
-  var targetOpacity = timeToOpacity(time);
-  console.log("Time: " + time + ", Opacity: " + targetOpacity);
+  // Calculate how light it should be.
+  var targetOpacity = timeToOpacity(nextTime);
+  console.log("Time: " + nextTime + ", Opacity: " + targetOpacity);
+
+  // Direction is 1 if the next time is in the future, -1 if in the past.
+  var direction = (currentTime < nextTime) ? 1 : -1;
+
+  // Work from the current time, to the next time, working out darkness 'keyframes'.
+  var timeToGo = nextTime - currentTime;
+  var tempTime = new Date(currentTime.getTime());
+  while (timeToGo > 0) {
+    timeToNextMiddaynight = timeToMiddaynight(tempTime, direction);
+  }
 }
 
-function setSunMoonRotation(time, transitionTime) {
+function setSunMoonRotation(currentTime, nextTime, transitionTime) {
   // Rotation of Sun/Moon.
   // Calculate where the sun/moon are now.
-  var rotation = timeToRotation(time); 
-  console.log("Time: " + time + ", Rotation: " + rotation);
+  var rotation = timeToRotation(nextTime); 
+  console.log("Time: " + nextTime + ", Rotation: " + rotation);
   $("#sky_background_sun_moon_rotating").css("transition", "all " + transitionTime + "s");
   $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + rotation + "deg)");  
 }
@@ -272,6 +308,33 @@ function setSunMoonRotation(time, transitionTime) {
   */
 function timeToOpacity(time) {
   return (Math.abs(hoursFromMidday(time)) / 12) * maxOpacity;
+}
+
+/**
+  * Returns the number of hours (going forwards if direction is +ve, going backwards if direction is -ve) to the nearest midday or midnight.
+  */
+function timeToMiddaynight(time, direction) {
+  var differenceMidday = hoursFromMidday(time);
+  // If it's before (or exactly) midday and we're going backwards.
+  if (differenceMidday <= 0 && direction < 0) {
+    return 12 + differenceMidday;
+  }
+  // If it's before midday and we're going forwards.
+  else if (differenceMidday < 0 && direction > 0) {
+    return -differenceMidday;
+  }
+  // If it's after midday and we're going backwards.
+  else if (differenceMidday > 0 && direction < 0) {
+    return differenceMidday;
+  }
+  // If it's after (or exactly) midday and we're going forwards.
+  else if (differenceMidday >= 0 && direction > 0) {
+    return 12 - differenceMidday;
+  }
+  // Error case.
+  console.log("timeToMiddaynight cannot deal with the following parameters:");
+  console.log("time: " + time + ", direction: " + direction);
+  return -10000;
 }
 
 /**
@@ -298,9 +361,9 @@ function hoursFromMidday(time) {
   var seconds = time.getSeconds(); // 0 to 59
 
   // 60 second version (for debugging)
-  return ((seconds - 30) / 30) * 12;
+  // return ((seconds - 30) / 30) * 12;
   // 24 hour version (for release)
-  return (hour + minutes / 60) - 12;
+  return (hour + (minutes / 60) + (seconds / 3600)) - 12;
 }
 
 /**

@@ -39,7 +39,9 @@ body {
   height: 200px;
   background-color: #2200aa;
   z-index: 6;
-  padding: 10px 10px 10px 10px; }
+  padding: 10px 10px 10px 10px;
+  border-radius: 50%;
+  vertical-align: center; }
 
 .time {
   width: 100px;
