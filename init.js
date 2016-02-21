@@ -212,6 +212,8 @@ var usefulThings = {
 var maxOpacity = 0.7;
 // What time is it now?
 var currentTime = new Date(0);
+// Keyframes for animating opacity.
+var opacityKeyframes = [];
 
 function initDayNight() {
   setTime(new Date(30000));
@@ -229,6 +231,8 @@ function setTime(newTime) {
   var transitionTime = computeTransitionTime(clippedTime - currentTime);
   setDarkness(currentTime, clippedTime, transitionTime);
   setSunMoonRotation(currentTime, clippedTime, transitionTime);
+
+  currentTime = newTime;
 
   // // Calculate how many hours away from midday we are. (-ve before, +ve after)
   // var difference = hoursFromMidday(time);
@@ -254,7 +258,7 @@ function setTime(newTime) {
   *   i.e. returns a version with the same time as secondTime but with a potentially new date.
   */
 function clipTime(firstTime, secondTime) {
-  var fortyEightHours = new Date(1970, 0, 2, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
+  var fortyEightHours = new Date(1970, 0, 3, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
   var difference = new Date((firstTime < secondTime) ? secondTime - firstTime : firstTime - secondTime);
 
   // If the difference is less than 48 hours then return secondTime.
@@ -287,11 +291,32 @@ function setDarkness(currentTime, nextTime, transitionTime) {
   var direction = (currentTime < nextTime) ? 1 : -1;
 
   // Work from the current time, to the next time, working out darkness 'keyframes'.
-  var timeToGo = nextTime - currentTime;
+  var totalTimeToGo = Math.abs(nextTime - currentTime);
+  var timeToGo = Math.abs(nextTime - currentTime);
   var tempTime = new Date(currentTime.getTime());
   while (timeToGo > 0) {
+    // See how long until the next midday/midnight.
     timeToNextMiddaynight = timeToMiddaynight(tempTime, direction);
+    // If our time to go is less than this we have reached the last 'keyframe'.
+    if (timeToGo <= timeToNextMiddaynight) {
+      opacityKeyframes.push({
+        "opacity": targetOpacity,
+        "time": (timeToGo / totalTimeToGo) * transitionTime
+      });
+      timeToGo = 0;
+    }
+    // If not then this midday/midnight is our next keyframe, then we continue.
+    else {
+      timeToGo -= timeToNextMiddaynight;
+      tempTime = new Date(tempTime.getTime() + (direction * timeToNextMiddaynight));
+      opacityKeyframes.push({
+        "opacity": tempTime.getHours() == 12 ? 0.0 : maxOpacity,
+        "time": (timeToNextMiddaynight / totalTimeToGo) * transitionTime
+      });
+    }
   }
+  console.log(opacityKeyframes);
+  opacityKeyframes = [];
 }
 
 function setSunMoonRotation(currentTime, nextTime, transitionTime) {
@@ -314,10 +339,11 @@ function timeToOpacity(time) {
   * Returns the number of hours (going forwards if direction is +ve, going backwards if direction is -ve) to the nearest midday or midnight.
   */
 function timeToMiddaynight(time, direction) {
-  var differenceMidday = hoursFromMidday(time);
+  var twelveHours = 12 * 60 * 60 * 1000;
+  var differenceMidday = timeFromMidday(time);
   // If it's before (or exactly) midday and we're going backwards.
   if (differenceMidday <= 0 && direction < 0) {
-    return 12 + differenceMidday;
+    return twelveHours + differenceMidday;
   }
   // If it's before midday and we're going forwards.
   else if (differenceMidday < 0 && direction > 0) {
@@ -329,7 +355,7 @@ function timeToMiddaynight(time, direction) {
   }
   // If it's after (or exactly) midday and we're going forwards.
   else if (differenceMidday >= 0 && direction > 0) {
-    return 12 - differenceMidday;
+    return twelveHours - differenceMidday;
   }
   // Error case.
   console.log("timeToMiddaynight cannot deal with the following parameters:");
@@ -356,14 +382,23 @@ function timeToRotation(time) {
   * e.g. 10:30 returns -1.5.
   */
 function hoursFromMidday(time) {
-  var hour = time.getHours(); // 0 to 23
-  var minutes = time.getMinutes(); // 0 to 59
-  var seconds = time.getSeconds(); // 0 to 59
-
-  // 60 second version (for debugging)
+  // // 60 second version (for debugging)
+  // var seconds = time.getSeconds(); // 0 to 59
   // return ((seconds - 30) / 30) * 12;
+
   // 24 hour version (for release)
-  return (hour + (minutes / 60) + (seconds / 3600)) - 12;
+  return ((timeFromMidday(time) / 1000) / 60) / 60;
+}
+
+/**
+  * Returns the time (in milliseconds) between the given time and midday.
+  * - Negative if before midday.
+  * - Positive if past midday.
+  */
+function timeFromMidday(time) {
+  var justTime = new Date(0, 0, 0, time.getHours(), time.getMinutes(), time.getSeconds(), time.getMilliseconds());
+  var midday = new Date(0, 0, 0, 12, 0, 0, 0);
+  return justTime  - midday;
 }
 
 /**
