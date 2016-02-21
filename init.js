@@ -210,13 +210,15 @@ var usefulThings = {
 
 // How dark is midnight?
 var maxOpacity = 0.7;
-// What time is it now?
+// What time is it now? (midnight)
 var currentTime = new Date(0);
+// How many degrees are the sun/moon rotated by now? (moon at top)
+var currentRotation = 0;
 // Keyframes for animating opacity.
 var opacityKeyframes = [];
 
 function initDayNight() {
-  setTime(new Date(30000));
+  setTime(new Date(0));
 }
 
 function setTime(newTime) {
@@ -258,17 +260,20 @@ function setTime(newTime) {
   *   i.e. returns a version with the same time as secondTime but with a potentially new date.
   */
 function clipTime(firstTime, secondTime) {
-  var fortyEightHours = new Date(1970, 0, 3, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
+  var twentyFourHours = new Date(1970, 0, 2, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
+  var fortyEightHours = new Date(1970, 0, 3, 0, 0, 0, 0);
   var difference = new Date((firstTime < secondTime) ? secondTime - firstTime : firstTime - secondTime);
 
-  // If the difference is less than 48 hours then return secondTime.
+  // If the difference is less than or equal to 48 hours then return secondTime.
   if (difference <= fortyEightHours) {
     return secondTime;
   }
-  // Otherwise mod the difference by 48 hours and add/subtract that to firstTime.
+  // Otherwise mod the difference by 24 hours and add/subtract that to firstTime.
   else {
-    var clippedDifference = new Date(difference.getTime() % fortyEightHours.getTime());
-    return new Date((firstTime < secondTime) ? firstTime + clippedDifference : firstTime - clippedDifference);
+    var clippedDifference = new Date(difference.getTime() % twentyFourHours.getTime());
+    return new Date((firstTime < secondTime) 
+      ? fortyEightHours.getTime() + firstTime.getTime() + clippedDifference.getTime()
+      : fortyEightHours.getTime() + (firstTime - clippedDifference));
   }
 }
 
@@ -322,10 +327,11 @@ function setDarkness(currentTime, nextTime, transitionTime) {
 function setSunMoonRotation(currentTime, nextTime, transitionTime) {
   // Rotation of Sun/Moon.
   // Calculate where the sun/moon are now.
-  var rotation = timeToRotation(nextTime); 
+  var rotation = timeToRotation(currentTime, nextTime);
+  currentRotation += rotation;
   console.log("Time: " + nextTime + ", Rotation: " + rotation);
   $("#sky_background_sun_moon_rotating").css("transition", "all " + transitionTime + "s");
-  $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + rotation + "deg)");  
+  $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + currentRotation + "deg)");
 }
 
 /**
@@ -364,15 +370,12 @@ function timeToMiddaynight(time, direction) {
 }
 
 /**
-  * Given a time returns the associated rotation for the sun/moon image.
+  * Returns the number of degrees required to get from one time to another.
   */
-function timeToRotation(time) {
+function timeToRotation(time1, time2) {
   var maxRotation = 360;
-  var difference = hoursFromMidday(time);  // Difference is between -12 and 12.
-  if (difference < 0) {
-    difference += 24;
-  }                                           // Difference now between 0 and 24.
-  return (difference / 24) * maxRotation;
+  var difference = time2 - time1;
+  return (difference / (24 * 60 * 60 * 1000)) * maxRotation;
 }
 
 /**
