@@ -1,119 +1,1047 @@
-html {
-  height: 90%;
- }
-
+/* ------------------------------------------------------------------- */
+/* -------------------------- Control Panel -------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Util ------------------------------ */
+/* ------------------------------------------------------------------- */
+/* ---- Absolute Positioning ---- */
+/* ---- Animation ---- */
+/* ------------------------------------------------------------------- */
+/* ---------------------------- Centerer ----------------------------- */
+/* ------------------------------------------------------------------- */
+@media (orientation: portrait) {
+  .centerer {
+    position: relative;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100%; } }
+@media (orientation: landscape) {
+  .centerer {
+    position: relative;
+    margin: 0 auto;
+    width: 100vh;
+    height: 100%; } }
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Body ------------------------------ */
+/* ------------------------------------------------------------------- */
 body {
-  background-image: url(images/background-trimmed.jpg);
-  font-family: "Verdana";
-  height: 100%;
-}
+  margin: 0px 0px 0px 0px;
+  background-color: black; }
 
-div.bonzo {
-  position:absolute;
-  white-space:nowrap;
-  top: -350px;
-}
-
-#pullDownObject {
-
-  width: 900px;
-  height: 450px;
-  background-color: #000000;
+/* ------------------------------------------------------------------- */
+/* ---------------------------- Day/Night ---------------------------- */
+/* ------------------------------------------------------------------- */
+#time_control {
+  position: fixed;
+  top: 50px;
   left: 50px;
-  top: -450px;
-  
-  background-image: url(images/wall.jpg);
-  border: 1px solid black;
-  border-radius: 3px;
-}
+  width: 200px;
+  height: 200px;
+  background-color: #2200aa;
+  z-index: 6;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50%;
+  vertical-align: center; }
 
-#bonzothegreat {
+.time {
+  width: 100px;
+  height: 75px;
+  display: inline-block;
+  text-align: center;
+  font-size: 60pt; }
+
+#day_night_filter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: black;
+  z-index: 10;
+  pointer-events: none; }
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Sky/Land ---------------------------- */
+/* ------------------------------------------------------------------- */
+@media (orientation: portrait) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 70vw;
+    background-color: green; } }
+@media (orientation: landscape) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: green; } }
+@media (orientation: portrait) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 70vw;
+    background-image: url(image/colour/dark_brown.png); } }
+@media (orientation: landscape) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-image: url(image/colour/dark_brown.png); } }
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Sky ------------------------------- */
+/* ------------------------------------------------------------------- */
+#sky_background {
   position: absolute;
-  left: 55px;
-  top: 10px;
-  width: 230px;
-  //border: 5px solid black;
-}
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden; }
 
-#sticky {
+#sky_foreground {
   position: absolute;
-  width: 350px;
-  right: 110px;
-  top: 110px;
-}
+  width: 100%;
+  height: 100%;
+  z-index: 2; }
 
-#bonzoObject {
-  left:50px;
-}
- 
-#bonzoObject2 {
-  left:300px;
-}
-
-#bonzoObject3 {
-  left:550px;
-}
- 
-#bonzoObject4 {
-  left:800px;
-}
-
-.title {
-  color: #FFFFFF;
-  font-size: 45pt;
-  text-align: right;
-  text-shadow:1px 1px 3px #000000;
-  
+#sky_background_black {
   position: absolute;
-  top: 20px;
-  right: 0px;
-  
-  margin-right: 1em;
-}
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: black; }
 
-.footer {
-  color: #FFFFFF;
-  font-size: 45pt;
-  text-align: right;
-  text-shadow:1px 1px 3px #000000;
-  
+#sky_background_blue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: url(image/colour/light_blue.png);
+  background-size: 300px 300px;
+  opacity: 1; }
+
+#sky_background_center {
+  z-index: 3; }
+
+#sky_background_sun_moon_static {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+#sky_background_sun_moon_rotating {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  z-index: -1;
+  background-image: url(image/prop/sun_moon.png);
+  background-position: center;
+  background-size: 24% auto;
+  background-repeat: no-repeat; }
+
+#sky_background_clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2; }
+
+#sky_background_tint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(image/filter/tint.png);
+  background-size: 400px 100%;
+  opacity: 1;
+  z-index: 4; }
+
+#sky_edges {
   position: absolute;
   bottom: 0px;
+  width: 100%;
+  height: 30%;
+  display: table; }
+
+#sky_edge_rocks {
+  display: table-cell;
+  background-image: url(image/texture/stone.png);
+  background-size: auto 40%;
+  background-position: right 0px bottom 0px;
+  background-repeat: repeat-x; }
+
+@media (orientation: portrait) {
+  #sky_edge_spacer {
+    width: 100vw;
+    height: 100%;
+    display: table-cell; } }
+@media (orientation: landscape) {
+  #sky_edge_spacer {
+    width: 100vh;
+    height: 100%;
+    display: table-cell; } }
+#sky_edge_trees {
+  display: table-cell;
+  background-image: url(image/prop/treeline.png);
+  background-size: auto 100%;
+  background-position: left 0px bottom 0px;
+  background-repeat: repeat-x; }
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Clouds ------------------------------ */
+/* ------------------------------------------------------------------- */
+#cloud1 {
+  position: absolute;
+  top: 5%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud1 50s linear 0s  infinite;
+  animation: cloud1 50s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_1.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud1 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 40%;
+    opacity: 1; }
+
+  66.66667% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud1 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 40%;
+    opacity: 1; }
+
+  66.66667% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud2 {
+  position: absolute;
+  top: 40%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud2 58s linear 0s  infinite;
+  animation: cloud2 58s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_2.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud2 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 40%;
+    opacity: 1; }
+
+  75% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud2 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 40%;
+    opacity: 1; }
+
+  75% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud3 {
+  position: absolute;
+  top: 30%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud3 66s linear 0s  infinite;
+  animation: cloud3 66s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_3.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud3 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  20% {
+    right: 10%;
+    opacity: 0; }
+
+  40% {
+    right: 10%;
+    opacity: 0; }
+
+  60% {
+    right: 40%;
+    opacity: 1; }
+
+  80% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud3 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  20% {
+    right: 10%;
+    opacity: 0; }
+
+  40% {
+    right: 10%;
+    opacity: 0; }
+
+  60% {
+    right: 40%;
+    opacity: 1; }
+
+  80% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud4 {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud4 74s linear 0s  infinite;
+  animation: cloud4 74s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_4.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud4 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  16.66667% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  66.66667% {
+    right: 40%;
+    opacity: 1; }
+
+  83.33333% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud4 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  16.66667% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  66.66667% {
+    right: 40%;
+    opacity: 1; }
+
+  83.33333% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud5 {
+  position: absolute;
+  top: 15%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud5 82s linear 0s  infinite;
+  animation: cloud5 82s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_5.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud5 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  14.28571% {
+    right: 10%;
+    opacity: 0; }
+
+  28.57143% {
+    right: 10%;
+    opacity: 0; }
+
+  42.85714% {
+    right: 10%;
+    opacity: 0; }
+
+  57.14286% {
+    right: 10%;
+    opacity: 0; }
+
+  71.42857% {
+    right: 40%;
+    opacity: 1; }
+
+  85.71429% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud5 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  14.28571% {
+    right: 10%;
+    opacity: 0; }
+
+  28.57143% {
+    right: 10%;
+    opacity: 0; }
+
+  42.85714% {
+    right: 10%;
+    opacity: 0; }
+
+  57.14286% {
+    right: 10%;
+    opacity: 0; }
+
+  71.42857% {
+    right: 40%;
+    opacity: 1; }
+
+  85.71429% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud6 {
+  position: absolute;
+  top: 25%;
+  left: auto;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  -webkit-animation: cloud6 90s linear 0s  infinite;
+  animation: cloud6 90s linear 0s  infinite;
+  background-image: url(image/texture/cloud/Cloud_6.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud6 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  12.5% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  37.5% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  62.5% {
+    right: 10%;
+    opacity: 0; }
+
+  75% {
+    right: 40%;
+    opacity: 1; }
+
+  87.5% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud6 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  12.5% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  37.5% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  62.5% {
+    right: 10%;
+    opacity: 0; }
+
+  75% {
+    right: 40%;
+    opacity: 1; }
+
+  87.5% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+/* ------------------------------------------------------------------- */
+/* --------------------------- Foreground ---------------------------- */
+/* ------------------------------------------------------------------- */
+#lighthouse {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 20%;
+  height: 100%;
+  z-index: 4;
+  background-image: url(image/prop/lighthouse.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
+#lighthouse_mask {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 20%;
+  height: 100%;
+  z-index: 5;
+  background-image: url(image/prop/lighthousemask.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
+#stairs {
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  width: 80%;
+  height: 35%;
+  z-index: 1;
+  background-image: url(image/prop/stairs.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Land ------------------------------- */
+/* ------------------------------------------------------------------- */
+#tarmac {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 1.5%;
+  background-color: #252525; }
+
+#bank {
+  position: absolute;
+  top: 1.5%;
+  width: 100%;
+  height: 20%;
+  z-index: 2; }
+
+#bank:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -10%;
+  z-index: -1;
+  background-image: url(image/texture/bank.png);
+  background-size: auto 100%; }
+
+#beach {
+  position: absolute;
+  top: 1.5%;
+  width: 100%;
+  height: 20%;
+  background-image: url(image/texture/beach.png);
+  background-size: 100px 100px;
+  z-index: 1; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Lake ------------------------------- */
+/* ------------------------------------------------------------------- */
+#lake {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 80%;
+  background-image: url(image/colour/dark_blue.png);
+  background-size: 100px 100px;
+  opacity: 1; }
+
+#fish {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 5%;
+  height: 100%;
+  z-index: 1;
+  background-image: url(image/texture/fish.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#lake_tint {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 80%;
+  background-image: url(image/texture/gradient.png);
+  background-size: auto 100%;
+  opacity: 1; }
+
+/* ---- Birds ---- */
+#birds {
+  position: absolute;
+  top: -50px;
+  left: 490px;
+  width: 150px;
+  height: 50px;
+  z-index: 1;
+  background-image: url(image/texture/birds.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
+/* ---- Sam Esgate ---- */
+#author {
+  position: absolute;
+  top: 100px;
+  left: 590px;
+  width: 640px;
+  height: 100pt;
+  z-index: 3;
+  font-family: helvetica; }
+
+#samesgate {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100pt;
+  z-index: 1;
+  line-height: 100pt;
+  font-size: 72pt;
+  text-align: center;
+  border-top: 5px solid gainsboro;
+  border-bottom: 5px solid gainsboro;
+  color: gainsboro; }
+
+#bonzos_useful_things {
+  position: absolute;
+  top: 243.33333px;
+  left: 590px;
+  width: 630px;
+  height: auto;
+  z-index: 4;
+  background-color: #2d2222;
+  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
+  text-align: center; }
+
+.useful_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 5px; }
+
+.separator {
+  display: inline-block;
+  width: 5px;
+  height: 50px; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Sidebar ---------------------------- */
+/* ------------------------------------------------------------------- */
+#sidebar {
+  position: fixed;
   right: 0px;
-  
-  margin-right: 1em;
-  margin-bottom: 1em;
-}
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  z-index: 2;
+  opacity: 0.5; }
 
-#spacer {
-  height: 50%;
-}
+.sidebar_closed {
+  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  width: 100px !important; }
 
-.image {
-    position:relative;
-    width: 200px;
-    float: left;
-    
-  cursor: pointer;
-}
+.sidebar_open {
+  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
+  animation: openSidebar 200ms ease-out 0s 1 forwards;
+  width: 0px !important; }
 
-img#menu{
-  width:200px;
-}
+@-webkit-keyframes closeSidebar {
+  0% {
+    width: 100px; }
 
-.text {
-    left: 0;
-    position:absolute;
-    text-align:center;
-    top: 328px;
-    width: 100%;
-    
-    text-shadow:0px 0px 10px #FFFFFF;
-    
-    -webkit-user-select: none; /* Chrome/Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
+  100% {
+    width: 0px; } }
+@keyframes closeSidebar {
+  0% {
+    width: 100px; }
 
-    font-size: 26pt;
-    color: #000000;
-}
+  100% {
+    width: 0px; } }
+@-webkit-keyframes openSidebar {
+  0% {
+    width: 0px; }
+
+  100% {
+    width: 100px; } }
+@keyframes openSidebar {
+  0% {
+    width: 0px; }
+
+  100% {
+    width: 100px; } }
+#tab {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 50px;
+  left: -50px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 20pt; }
+
+#tab_icon {
+  line-height: 50px; }
+
+#sidebar_content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 5px; }
+
+/* ---- Clock ---- */
+#clock {
+  position: absolute;
+  top: 50px;
+  left: 565px;
+  width: 150px;
+  height: 300px;
+  z-index: 1;
+  background-image: url(image/texture/clock.png);
+  background-size: 150px 300px;
+  -webkit-animation: clockSwing 4s ease-out 0s  infinite;
+  animation: clockSwing 4s ease-out 0s  infinite; }
+
+@-webkit-keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+@keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+/* ---- Mountain --- */
+#mountain {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 640px;
+  height: 100%;
+  z-index: 3;
+  background-image: url(image/texture/mountain.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 640px 600px;
+  min-width: 640px;
+  min-height: 600px; }
+
+/* ---- Grass ---- */
+#grass {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  background-image: url(image/colour/dark_green.png); }
+
+#grass_gradient {
+  width: 100%;
+  height: 100%;
+  background-image: url(image/texture/gradient.png);
+  background-size: 600px 72px;
+  opacity: 1;
+  transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  -moz-transform: scaleY(-1);
+  -ms-transform: scaleY(-1); }
+
+/* ---- Armco ---- */
+#armco {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
+  z-index: 5;
+  background-image: url(image/texture/armco.png);
+  background-size: 425px 100%;
+  background-position: -50px 0px; }
+
+/* ---- Exocet ---- */
+#exocet {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 172px;
+  height: 65px;
+  z-index: 4;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  background-image: url(image/animation/exocet.gif);
+  background-size: 100% 100%; }
+
+@-webkit-keyframes exocet {
+  0% {
+    left: -10%; }
+
+  100% {
+    left: 110%; } }
+@keyframes exocet {
+  0% {
+    left: -10%; }
+
+  100% {
+    left: 110%; } }
+.countdown_hide {
+  -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
+  animation: counterHide 0.3s ease-out 0s 1 forwards;
+  top: 0px !important;
+  margin-bottom: 0px !important; }
+
+.countdown_show {
+  -webkit-animation: counterShow 0.3s ease-out 0s 1 forwards;
+  animation: counterShow 0.3s ease-out 0s 1 forwards;
+  top: -75px !important;
+  margin-bottom: -75px !important; }
+
+@-webkit-keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -75px;
+    margin-bottom: -75px; } }
+@keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -75px;
+    margin-bottom: -75px; } }
+@-webkit-keyframes counterShow {
+  0% {
+    top: -75px;
+    margin-bottom: -75px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }
+@keyframes counterShow {
+  0% {
+    top: -75px;
+    margin-bottom: -75px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }
+#got {
+  position: absolute;
+  top: 60px;
+  left: 650px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#got_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/got.jpeg);
+  background-size: 100% 100%; }
+
+#got_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#f1 {
+  position: absolute;
+  top: 60px;
+  left: 750px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#f1_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/f1.jpeg);
+  background-size: 100% 100%; }
+
+#f1_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#project {
+  position: absolute;
+  top: 60px;
+  left: 850px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#project_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/imperial.jpeg);
+  background-size: 100% 100%; }
+
+#project_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }

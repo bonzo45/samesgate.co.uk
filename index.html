@@ -1,525 +1,131 @@
-<!doctype html>
-
 <html>
 
-<link rel="stylesheet" type="text/css" href="styles.css"/>
-
-  <head>
-    <title>crazy-bonzo</title>
-  </head>
-  
-  <body>
-  
-  <div id="spacer"></div>
-  
-  <div class="footer">Sam Esgate</div>
-
-  <div class ="bonzo" id="bonzoObject">
-    <div class="image" id="first">
-        <img id="menu" src="images/wood_dangle.png"/>
-        <div class="text">
-           Main
-        </div>
+<!--
+To put back... or not...?
+  <div id="sidebar" class="">
+    <div id="tab">
+      <i id="tab_icon" class="fa fa-bars"></i>
     </div>
-  </div>
-  
-  <div class="bonzo" id="bonzoObject2">
-    <div class="image">
-        <img id="menu" src="images/wood_dangle.png"/>
-        <div class="text">
-           Shopping
-        </div>
-    </div>
-  </div>
-  
-  <div class="bonzo" id="bonzoObject3">
-    <div class="image">
-        <img id="menu" src="images/wood_dangle.png"/>
-        <div class="text">
-           Work
-        </div>
-    </div>
-  </div>
-  
-  <div class="bonzo" id="bonzoObject4">
-    <div class="image">
-        <img id="menu" src="images/wood_dangle.png"/>
-        <div class="text">
-           Play
-        </div>
+    <div id="sidebar_content">
+      TODO...
     </div>
   </div>
 
-  <div class="bonzo" id="pullDownObject">
-    <img id="bonzothegreat" src="images/bonzo3.png">
-    <img id="sticky" src="images/sticky.png">
-    <div class="title">crazy-bonzo.com</div>
+  <div class="centerer">
+
+  <div id="author">
+    <div id="samesgate">Sam Esgate</div>
+    <div id="birds"></div>
+    <div id="clock"></div>
   </div>
-  
-  <script type="text/javascript" src="jstween-1.1/jquery-1.9.1.js"></script>
-  <script type="text/javascript" src="jstween-1.1/jstween-1.1.js"></script>
-  <script type="text/javascript" src="jstween-1.1/jstween-1.1.min.js"></script>
-  
-  <script>
-  
-  var LEFT_START = 70;
-  var LEFT_STOP = 50;
-  var TOP_START = -350;
-  var TOP_STOP = -270;
-  
-  var LEFT_OFFSET = 220;
-  var TOP_OFFSET = 0;
-  
-  var PULL_DOWN_OFFSET = 200;
-  
-  var DROP_VALUE = 630;
-  
-  var LEFT_DURATION = 1;
-  var TOP_DURATION = 0.75;
-  
-  var LEFT_EFFECT = 'expoInOut';
-  var TOP_EFFECT = 'expoInOut'
-  
-  var DIFF_2 = 1;
-  var DIFF_3 = 2;
-  var DIFF_4 = 3;
-  
-  var bonzo1 = null;
-  var bonzo2 = null;
-  var bonzo3 = null;
-  var bonzo4 = null;
-  
-  var pullDown = null;
-  
-  var state1 = 0;
-  var state2 = 0;
-  var state3 = 0;
-  var state4 = 0;
-  
-  var lock1 = 2;
-  var lock2 = 2;
-  var lock3 = 2;
-  var lock4 = 2;
-  
-  window.onload = function () {
-      
-    var lock1 = 2;
-    var lock2 = 2;
-    var lock3 = 2;
-    var lock4 = 2;
-        
-   $(bonzoObject).tween({
-     left:{
-        start: LEFT_START,
-        stop: LEFT_STOP,
-        time: 0,
-        units: 'px',
-        duration: LEFT_DURATION,
-        effect:LEFT_EFFECT,
-        onStop: function(){
-          lock1--;
-        }   
-     },
-     top:{
-        start: TOP_START,
-        stop: TOP_STOP,
-        time: 0.1,
-        units: 'px',
-        duration: TOP_DURATION,
-        effect:TOP_EFFECT,
-        onStop: function(){
-          lock1--;
-        }   
-     }
-  });
 
-    $(bonzoObject2).tween({
-     left:{
-        start: LEFT_START + DIFF_2 * LEFT_OFFSET,
-        stop: LEFT_STOP + DIFF_2 * LEFT_OFFSET,
-        time: 0,
-        units: 'px',
-        duration: LEFT_DURATION,
-        effect:LEFT_EFFECT,
-        onStop: function(){
-          lock2--;
-        }  
-     },
-     top:{
-        start: TOP_START + DIFF_2 * TOP_OFFSET,
-        stop: TOP_STOP + DIFF_2 * TOP_OFFSET,
-        time: 0.2,
-        units: 'px',
-        duration: TOP_DURATION,
-        effect:TOP_EFFECT,
-        onStop: function(){
-          lock2--;
-        }  
-     }
-  });
+  <div id="bonzos_useful_things"></div>
 
-    $(bonzoObject3).tween({
-     left:{
-        start: LEFT_START + DIFF_3 * LEFT_OFFSET,
-        stop: LEFT_STOP + DIFF_3 * LEFT_OFFSET,
-        time: 0,
-        units: 'px',
-        duration: LEFT_DURATION,
-        effect:LEFT_EFFECT,
-        onStop: function(){
-          lock3--;
-        }  
-     },
-     top:{
-        start: TOP_START + DIFF_3 * TOP_OFFSET,
-        stop: TOP_STOP + DIFF_3 * TOP_OFFSET,
-        time: 0.2,
-        units: 'px',
-        duration: TOP_DURATION,
-        effect:TOP_EFFECT,
-        onStop: function(){
-          lock3--;
-        }  
-     }
-  });
+  <div id="house"></div>
 
-    $(bonzoObject4).tween({
-     left:{
-        start: LEFT_START + DIFF_4 * LEFT_OFFSET,
-        stop: LEFT_STOP + DIFF_4 * LEFT_OFFSET,
-        time: 0,
-        units: 'px',
-        duration: LEFT_DURATION,
-        effect:LEFT_EFFECT,
-        onStop: function(){
-          lock4--;
-        }  
-     },
-     top:{
-        start: TOP_START + DIFF_4 * TOP_OFFSET,
-        stop: TOP_STOP + DIFF_4 * TOP_OFFSET,
-        time: 0.1,
-        units: 'px',
-        duration: TOP_DURATION,
-        effect:TOP_EFFECT,
-        onStop: function(){
-          lock4--;
-        }  
-     }
-  });
+  <div id="mountain"></div>
 
-    $(document).ready(function(){
-      $("#bonzoObject").click(function(event){
-        //alert("Don't panic... don't panic!");
-        if (lock1 != 0) {
-          return;
-        }
-        lock1 = 2;
-        if (state1 == 0) {
-          // Currently not down
-          $(bonzo1).tween({
-            left:{
-              start: LEFT_STOP,
-              stop: LEFT_STOP,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock1--;
-              }     
-            },
-            top:{
-              start: TOP_STOP,
-              stop: TOP_STOP + DROP_VALUE,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock1--;
-              }     
-            }
-          });
-          
-          $(pullDown).tween({
-            left:{
-              start: LEFT_STOP,
-              stop: LEFT_STOP,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-            },
-            top:{
-              start: TOP_STOP - PULL_DOWN_OFFSET,
-              stop: TOP_STOP + DROP_VALUE - PULL_DOWN_OFFSET,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,    
-            }
-          });
-          
-        }
-        else {
-          $(bonzo1).tween({
-            left:{
-              start: LEFT_STOP,
-              stop: LEFT_STOP,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock1--;
-              }     
-            },
-            top:{
-              start: TOP_STOP + DROP_VALUE,
-              stop: TOP_STOP,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock1--;
-              }     
-            }
-          });
-          
-          $(pullDown).tween({
-            left:{
-              start: LEFT_STOP,
-              stop: LEFT_STOP,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-            },
-            top:{
-              start: TOP_STOP + DROP_VALUE - PULL_DOWN_OFFSET,
-              stop: TOP_STOP - PULL_DOWN_OFFSET,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,    
-            }
-          });          
-        }        
-        state1 = 1 - state1;
-        $.play();
-      });
-    });
-    
-    $(document).ready(function(){
-      $("#bonzoObject2").click(function(event){
-        //alert("Don't panic... don't panic!");
-        if (lock2 != 0) {
-          return;
-        }
-        lock2 = 2;
-        if (state2 == 0) {
-          // Currently not down
-          $(bonzo2).tween({
-            left:{
-              start: LEFT_STOP + DIFF_2 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_2 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock2--;
-              }     
-            },
-            top:{
-              start: TOP_STOP + DIFF_2 * TOP_OFFSET,
-              stop: TOP_STOP + DIFF_2 * TOP_OFFSET + DROP_VALUE,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock2--;
-              }     
-            }
-          });
-        }
-        else {
-          $(bonzo2).tween({
-            left:{
-              start: LEFT_STOP + DIFF_2 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_2 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock2--;
-              }     
-            },
-            top:{
-              start: TOP_STOP + DIFF_2 * TOP_OFFSET + DROP_VALUE,
-              stop: TOP_STOP + DIFF_2 * TOP_OFFSET,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock2--;
-              }     
-            }
-          });
-        }        
-        state2 = 1 - state2;
-        $.play();
-      });
-    });    
-    
-    $(document).ready(function(){
-      $("#bonzoObject3").click(function(event){
-        if (lock3 != 0) {
-          return;
-        }
-        lock3 = 2;
-        //alert("Don't panic... don't panic!");
-        if (state3 == 0) {
-          // Currently not down
-          $(bonzo3).tween({
-            left:{
-              start: LEFT_STOP + DIFF_3 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_3 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock3--;
-              }                  
-            },
-            top:{
-              start: TOP_STOP + DIFF_3 * TOP_OFFSET,
-              stop: TOP_STOP + DIFF_3 * TOP_OFFSET + DROP_VALUE,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock3--;
-              }     
-            }
-          });
-        }
-        else {
-          $(bonzo3).tween({
-            left:{
-              start: LEFT_STOP + DIFF_3 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_3 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock3--;
-              }     
-            },
-            top:{
-              start: TOP_STOP + DIFF_3 * TOP_OFFSET + DROP_VALUE,
-              stop: TOP_STOP + DIFF_3 * TOP_OFFSET,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock3--;
-              }     
-            }
-          });
-        }        
-        state3 = 1 - state3;
-        $.play();
-      });
-    });      
-    
-    $(document).ready(function(){
-      $("#bonzoObject4").click(function(event){
-        if (lock4 != 0) {
-          return;
-        }        
-        lock4 = 2;
-        //alert("Don't panic... don't panic!");
-        if (state4 == 0) {
-          // Currently not down
-          $(bonzo4).tween({
-            left:{
-              start: LEFT_STOP + DIFF_4 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_4 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock4--;
-              }              
-            },
-            top:{
-              start: TOP_STOP + DIFF_4 * TOP_OFFSET,
-              stop: TOP_STOP + DIFF_4 * TOP_OFFSET + DROP_VALUE,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock4--;
-              }
-            }
-          });
-        }
-        else {
-          $(bonzo4).tween({
-            left:{
-              start: LEFT_STOP + DIFF_4 * LEFT_OFFSET,
-              stop: LEFT_STOP + DIFF_4 * LEFT_OFFSET,
-              time: 0,
-              units: 'px',
-              duration: LEFT_DURATION,
-              effect:LEFT_EFFECT,
-              onStop: function(){
-                lock4--;
-              }              
-            },
-            top:{
-              start: TOP_STOP + DIFF_4 * TOP_OFFSET + DROP_VALUE,
-              stop: TOP_STOP + DIFF_4 * TOP_OFFSET,
-              time: 0.1,
-              units: 'px',
-              duration: TOP_DURATION,
-              effect:TOP_EFFECT,
-              onStop: function(){
-                lock4--;
-              }
-            }
-          });
-        }        
-        state4 = 1 - state4;
-        $.play();
-        //alert("Don't panic, don't panic! They do not like it up 'em, sir!");
-      });
-    });    
-        
-    bonzo1 = $(bonzoObject);
-    bonzo2 = $(bonzoObject2);
-    bonzo3 = $(bonzoObject3);
-    bonzo4 = $(bonzoObject4);
-    
-    pullDown = $(pullDownObject);
-    
-    
-    
-    $.play();
-  };
+  <div id="grass">
+    <div id="grass_gradient"></div>
+    <div id="forest"></div>
+  </div>
 
-  </script>
-  </body>
+  <div id="armco"></div>
+  <div id="exocet"></div>
+
+  <div id="sky_tint">
+  </div>
+</div>
+
+<div id="got">
+  <a href="http://www.hbo.com/game-of-thrones" target="_blank"><div id="got_cover"></div></a>
+  <div id="got_days">-</div>
+</div>
+<div id="f1">
+  <a href="http://www.formula1.com/" target="_blank"><div id="f1_cover"></div></a>
+  <div id="f1_days">-</div>
+</div>
+<div id="project">
+  <a href="https://gitlab.doc.ic.ac.uk/sae11/final-year-project" target="_blank"><div id="project_cover"></div></a>
+  <div id="project_days">-</div>
+</div>
+
+<div id="beach"></div>
+<div id="tint"></div>
+<div id="sea">
+  <div id="sea_gradient"></div>
+  
+
+</div>
+
+-->
+
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src='jquery.keyframes.js'></script>
+  <script src="init.js"></script>
+	<title>Bonzo45</title>
+</head>
+
+<body onload="init()">
+  <div id="day_night_filter" class="mask"></div>
+
+  <div id="time_control">
+    <form>
+      <input id="input_hours" class="time" type="text"></input><!--
+   --><input id="input_minutes" class="time" type="text"></input>
+    </form>
+  </div>
+
+  <div id="sky">
+    <div id="sky_background">
+      <div id="sky_background_black"></div>
+      <div id="sky_background_blue"></div>
+      <div id="sky_background_tint"></div>
+      <div id="sky_background_center" class="centerer">
+        <div id="sky_background_sun_moon_static">
+          <div id="sky_background_sun_moon_rotating"></div>
+        </div>
+        <div id="sky_background_clouds">
+          <div id="cloud1"></div>
+          <div id="cloud2"></div>
+          <div id="cloud3"></div>
+          <div id="cloud4"></div>
+          <div id="cloud5"></div>
+          <div id="cloud6"></div>
+        </div>  
+      </div>
+    </div>
+    
+    <div id="sky_foreground">
+      <div id="sky_edges">
+        <div id="sky_edge_rocks"></div><!--
+     --><div id="sky_edge_spacer"></div><!--
+     --><div id="sky_edge_trees"></div>
+      </div>
+      <div id="sky_background_center" class="centerer">
+        <div id="lighthouse"></div>
+        <div id="lighthouse_mask" class="mask"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="land">
+    <div id="tarmac"></div>
+    <div id="bank">
+      <div id="bank_center" class="centerer">
+        <div id="stairs"></div>
+      </div>
+    </div>
+    <div id="beach"></div>
+    <div id="lake">
+      <div id="lake_center" class="centerer">
+        <div id="fish"></div>
+      </div>
+    </div>
+    <div id="lake_tint"></div>
+  </div>
+</body>
 </html>

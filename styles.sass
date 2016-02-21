@@ -1,0 +1,765 @@
+/* ------------------------------------------------------------------- */
+/* -------------------------- Control Panel -------------------------- */
+/* ------------------------------------------------------------------- */
+$height_of_sky: 60%
+$height_of_ground: 100% - $height_of_sky
+
+
+
+
+$texture_path: "image/texture/"
+$colour_path: "image/colour/"
+$filter_path: "image/filter/"
+$prop_url: "image/prop/"
+
+$screen_width: 1280px
+$sidebar_width: 100px
+
+$height_of_grass: 60px
+
+$height_of_beach: 50px
+
+$height_of_mountain: 600px
+$width_of_mountain: $screen_width / 2
+
+$author_width: $screen_width / 2
+$author_height: 100pt
+$author_left: $width_of_mountain - 50px
+$author_top: 100px
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Util ------------------------------ */
+/* ------------------------------------------------------------------- */
+
+$layer_1: 1
+$layer_2: 2
+$layer_3: 3
+$layer_4: 4
+$layer_5: 5
+$layer_6: 6
+
+/* ---- Absolute Positioning ---- */
+@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  top: $top
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+@mixin absolute_object_b($bottom, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  bottom: $bottom
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+/* ---- Animation ---- */
+@mixin generateKeyframes($animationName, $properties, $points, $back)
+  $postfix: ""  
+  $timepoints: length($points) - 1
+  $increment: 100% / $timepoints
+  @if $back
+    $postfix: "Open"
+  @-webkit-keyframes #{$animationName}#{$postfix}
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
+      
+  @keyframes #{$animationName}#{$postfix}
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
+
+@mixin animate($animationName, $time, $style, $repeat)
+  $times: ""
+  @if $repeat == forwards
+    $times: 1
+  -webkit-animation: $animationName $time $style 0s #{$times} $repeat
+  animation: $animationName $time $style 0s #{$times} $repeat
+
+/* ------------------------------------------------------------------- */
+/* ---------------------------- Centerer ----------------------------- */
+/* ------------------------------------------------------------------- */
+
+@media (orientation:portrait)
+  .centerer
+    position: relative
+    margin: 0 auto
+    width: 100vw
+    height: 100%
+
+@media (orientation:landscape)
+  .centerer
+    position: relative
+    margin: 0 auto
+    width: 100vh
+    height: 100%
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Body ------------------------------ */
+/* ------------------------------------------------------------------- */
+
+body
+  margin: 0px 0px 0px 0px
+  background:
+    color: black
+
+/* ------------------------------------------------------------------- */
+/* ---------------------------- Day/Night ---------------------------- */
+/* ------------------------------------------------------------------- */
+
+#time_control
+  position: fixed
+  top: 50px
+  left: 50px
+  width: 200px
+  height: 200px
+  background:
+    color: #2200AA
+  z-index: $layer_6
+  padding: 10px 10px 10px 10px
+  border-radius: 50%
+  vertical-align: center
+
+.time
+  width: 100px
+  height: 75px
+  display: inline-block
+  text-align: center
+  font:
+    size: 60pt
+
+#day_night_filter
+  position: fixed
+  width: 100%
+  height: 100%
+  opacity: 0.5
+  background:
+    color: black
+  z-index: 10 // In front of everything.
+  pointer-events: none // Can't click it.
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Sky/Land ---------------------------- */
+/* ------------------------------------------------------------------- */
+$sky_height_multiplier: 0.7
+$land_height_multiplier: 0.7
+
+@media (orientation:portrait)
+  #sky
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vw
+    background-color: green
+
+@media (orientation:landscape)    
+  #sky
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vh
+    background-color: green
+
+$texture_land: $colour_path + "dark_brown.png"
+
+@media (orientation:portrait)
+  #land
+    position: relative
+    width: 100%
+    height: $land_height_multiplier * 100vw
+    background-image: url(#{$texture_land})
+
+@media (orientation:landscape)    
+  #land
+    position: relative
+    width: 100%
+    height: $land_height_multiplier * 100vh
+    background-image: url(#{$texture_land})
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Sky ------------------------------- */
+/* ------------------------------------------------------------------- */
+
+#sky_background
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  overflow: hidden
+
+#sky_foreground
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+  
+#sky_background_black
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  background-color: black
+
+$texture_sky: $colour_path + "light_blue.png"
+$texture_sky_size: 300px
+#sky_background_blue
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+  background:
+    image: url(#{$texture_sky})
+    size: $texture_sky_size $texture_sky_size
+  opacity: 1.0
+
+#sky_background_center
+  z-index: 3
+
+$texture_sun_moon: $prop_url + "sun_moon.png"
+#sky_background_sun_moon_static
+  position: relative
+  width: 100%
+  height: 100%
+  z-index: 1
+
+#sky_background_sun_moon_rotating
+  content: ""
+  position: absolute
+  width: 100%
+  height: 200%
+  z-index: -1
+  background:
+    image: url(#{$texture_sun_moon})
+    position: center
+    size: 24% auto
+    repeat: no-repeat
+
+#sky_background_clouds
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
+
+$texture_sky_tint: $filter_path + "tint.png"
+$sky_tint_width: 400px
+$sky_tint_height: 100%
+#sky_background_tint
+  position: absolute
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_sky_tint})
+    size: $sky_tint_width $sky_tint_height
+  opacity: 1.0
+  z-index: 4
+
+#sky_edges
+  position: absolute
+  bottom: 0px
+  width: 100%
+  height: 30%
+  display: table
+
+$texture_rocks: $texture_path + "stone.png"
+#sky_edge_rocks
+  display: table-cell
+  background:
+    image: url(#{$texture_rocks})
+    size: auto 40%
+    position: right 0px bottom 0px
+    repeat: repeat-x
+
+@media (orientation:portrait)
+  #sky_edge_spacer
+    width: 100vw
+    height: 100%
+    display: table-cell
+    
+@media (orientation:landscape)
+  #sky_edge_spacer
+    width: 100vh
+    height: 100%
+    display: table-cell
+
+$texture_trees: $prop_url + "treeline.png"
+#sky_edge_trees
+  display: table-cell
+  background:
+    image: url(#{$texture_trees})
+    size: auto 100%
+    position: left 0px bottom 0px
+    repeat: repeat-x
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------- Clouds ------------------------------ */
+/* ------------------------------------------------------------------- */
+$texture_cloud: $texture_path + "cloud"
+
+@mixin cloud($id, $top, $left, $time)
+  @include absolute_object($top, auto, 10%, 100%, $layer_2)
+  @include animate(cloud#{$id}, $time, linear, infinite)
+  background:
+    image: url(#{$texture_cloud}/Cloud_#{$id}.png)
+    size: 100% auto
+    repeat: no-repeat
+
+#cloud1
+  @include cloud(1, 5%, 5%, 50s)
+
+@include generateKeyframes(cloud1, (right, opacity), ((10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+#cloud2
+  @include cloud(2, 40%, 5%, 58s)
+
+@include generateKeyframes(cloud2, (right, opacity), ((10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+#cloud3
+  @include cloud(3, 30%, 10%, 66s)
+
+@include generateKeyframes(cloud3, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+#cloud4
+  @include cloud(4, 50%, 2%, 74s)
+
+@include generateKeyframes(cloud4, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+#cloud5
+  @include cloud(5, 15%, 15%, 82s)
+
+@include generateKeyframes(cloud5, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+#cloud6
+  @include cloud(6, 25%, 5%, 90s)
+
+@include generateKeyframes(cloud6, (right, opacity), ((10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (10%, 0.0), (40%, 1.0), (70%, 1.0), (100%, 0.0)), false)
+
+
+/* ------------------------------------------------------------------- */
+/* --------------------------- Foreground ---------------------------- */
+/* ------------------------------------------------------------------- */
+
+$lighthouse_width: 20%
+$texture_lighthouse: $prop_url + "lighthouse.png"
+$texture_lighthouse_mask: $prop_url + "lighthousemask.png"
+
+#lighthouse
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_4)
+  background:
+    image: url(#{$texture_lighthouse})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
+#lighthouse_mask
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_5)
+  background:
+    image: url(#{$texture_lighthouse_mask})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
+
+$stairs_width: 80%
+$texture_stairs: $prop_url + "stairs.png"
+#stairs
+  @include absolute_object(0px, 25%, $stairs_width, 35%)
+  background:
+    image: url(#{$texture_stairs})
+    repeat: no-repeat
+    size: auto 100%
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Land ------------------------------- */
+/* ------------------------------------------------------------------- */
+
+$tarmac_size: 1.5%
+$tarmac_colour: #252525
+#tarmac
+  position: absolute
+  top: 0%
+  width: 100%
+  height: $tarmac_size
+  background-color: $tarmac_colour
+
+$texture_bank: $texture_path + "bank.png"
+#bank
+  position: absolute
+  top: $tarmac_size
+  width: 100%
+  height: 20%
+  z-index: 2
+
+#bank:before
+  content: ""
+  position: absolute
+  width: 100%
+  height: 100%
+  top: -10%
+  z-index: -1
+  background:
+    image: url(#{$texture_bank})
+    size: auto 100%
+
+$texture_beach: $texture_path + "beach.png"
+$texture_beach_size: 100px
+#beach
+  position: absolute
+  top: $tarmac_size
+  width: 100%
+  height: 20%
+  background:
+    image: url(#{$texture_beach})
+    size: $texture_beach_size $texture_beach_size
+  z-index: 1
+
+
+
+// $height_of_beach - $tarmac_size
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Lake ------------------------------- */
+/* ------------------------------------------------------------------- */
+
+$lake_height: 80%
+$texture_lake: $colour_path + "dark_blue.png"
+$texture_lake_size: 100px
+
+#lake
+  position: absolute
+  top: 20%
+  width: 100%
+  height: $lake_height
+  background:
+    image: url(#{$texture_lake})
+    size: $texture_lake_size $texture_lake_size
+  opacity: 1.0
+
+$texture_fish: $texture_path + "fish.png"
+#fish
+  @include absolute_object(10%, 10%, 5%, 100%)
+  background:
+    image: url(#{$texture_fish})
+    size: 100% auto
+    repeat: no-repeat
+
+$texture_gradient: $texture_path + "gradient.png"
+
+#lake_tint
+  position: absolute
+  top: 20%
+  width: 100%
+  height: $lake_height
+  background:
+    image: url(#{$texture_gradient})
+    size: auto 100%
+  opacity: 1.0
+
+// $animation: "image/animation/"
+// $animation_weather: $animation + "todo_ripple.gif"
+
+// #tint
+//   @include absolute_object(0px, 0px, 100%, $sea_height, $layer_3)
+//   background:
+//     image: url(#{$animation_weather})
+//   opacity: 0.2
+//   pointer-events: none
+
+
+/* ---- Birds ---- */
+$texture_birds: $texture_path + "birds.png"
+$birds_width: 150px
+$birds_height: 50px
+
+#birds
+  @include absolute_object(-$birds_height, $author_width - $birds_width, $birds_width, $birds_height)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% 100%
+    repeat: no-repeat
+
+/* ---- Sam Esgate ---- */
+$samesgate_color: #DCDCDC
+$samesgate_height: $author_height
+
+#author
+  @include absolute_object($author_top, $author_left, $author_width, $author_height, $layer_3)
+  font:
+    family: helvetica
+
+$samesgate_border: 10px
+
+#samesgate
+  @include absolute_object(0px, 0px, 100%, $samesgate_height, $layer_1)
+  line:
+    height: $samesgate_height
+  font:
+    size: 72pt
+  text:
+    align: center
+  border:
+    top: ($samesgate_border / 2) solid $samesgate_color
+    bottom: ($samesgate_border / 2) solid $samesgate_color
+  color: $samesgate_color
+
+$useful_height: 50px
+$useful_margin: 5px
+
+$bonzos_wrapper_width: $author_width
+$bonzos_wrapper_height: auto
+$bonzos_wrapper_left: $author_left + (($author_width - $bonzos_wrapper_width) / 2)
+$bonzos_wrapper_top: $author_top + $author_height + $samesgate_border
+
+#bonzos_useful_things
+  @include absolute_object($bonzos_wrapper_top, $bonzos_wrapper_left, $bonzos_wrapper_width - 2 * $useful_margin, $bonzos_wrapper_height, $layer_4)
+
+  background:
+    color: #2D2222
+
+  padding: $useful_margin
+
+  border:
+    radius: 0px 0px 5px 5px
+  
+  text-align: center
+
+$icon_margin: 5px
+$useful_icon_size: $useful_height - 2 * $icon_margin
+
+.useful_icon
+  display: inline-block
+  width: $useful_icon_size
+  height: $useful_icon_size
+  margin: $icon_margin
+
+$separator_width: 5px
+
+.separator
+  display: inline-block
+  width: $separator_width
+  height: $useful_height
+
+$countdown_width: 75px
+$countdown_height: 75px
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Sidebar ---------------------------- */
+/* ------------------------------------------------------------------- */
+#sidebar
+  position: fixed
+  right: 0px
+  height: 100%
+  width: 0px
+  background:
+    color: white
+
+  z-index: 2
+  opacity: 0.5
+
+.sidebar_closed
+  @include animate(closeSidebar, 200ms, ease-out, forwards)
+  width: 100px !important
+
+.sidebar_open
+  @include animate(openSidebar, 200ms, ease-out, forwards)
+  width: 0px !important
+
+@include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
+@include generateKeyframes(openSidebar, (width), ((0px, 100px)), false)
+
+#tab
+  position: relative
+  width: 50px
+  height: 50px
+  top: 50px
+  left: -50px
+  background-color: black
+  text-align: center
+  color: white
+  font-size: 20pt
+
+#tab_icon
+  line-height: 50px
+    
+#sidebar_content
+  position: relative
+  height: 100%
+  width: 100%
+  padding: 5px
+
+/* ---- Clock ---- */
+$clock_height: 300px
+$clock_width: $clock_height / 2
+$clock_top: $useful_height
+$clock_left: $bonzos_wrapper_width - $clock_width / 2
+$texture_clock: $texture_path + "clock.png"
+
+#clock
+  @include absolute_object($clock_top, $clock_left, $clock_width, $clock_height)
+  background:
+    image: url(#{$texture_clock})
+    size: $clock_width $clock_height
+  @include animate(clockSwing, 4s, ease-out, infinite)
+
+@include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
+
+/* ---- Mountain --- */
+$mountain_height: 100%
+$mountain_width: $width_of_mountain
+$texture_mountain: $texture_path + "mountain.png"
+$texture_mountain_width: $width_of_mountain
+$texture_mountain_height: $height_of_mountain
+
+#mountain
+  @include absolute_object_b(0px, 0px, $mountain_width, $mountain_height, $layer_3)
+  background:
+    image: url(#{$texture_mountain})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: $texture_mountain_width $texture_mountain_height
+  min:
+    width: $texture_mountain_width
+    height: $texture_mountain_height
+
+/* ---- Grass ---- */
+$texture_grass: $colour_path + "dark_green.png"
+
+#grass
+  @include absolute_object_b(0px, 0px, 100%, $height_of_grass, $layer_1)
+  background:
+    image: url(#{$texture_grass})
+
+$grass_gradient_width: 600px
+$grass_gradient_height: $height_of_grass * 1.2
+
+#grass_gradient
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_gradient})
+    size: $grass_gradient_width $grass_gradient_height
+  opacity: 1.0
+  // Reverse Gradient
+  transform: scaleY(-1)
+  -webkit-transform: scaleY(-1)
+  -moz-transform: scaleY(-1)
+  -ms-transform: scaleY(-1)
+
+$animation: "image/animation/"
+$animation_weather: $animation + "todo_ripple.gif"
+
+/* ---- Armco ---- */
+$armco_height: 25px
+$texture_armco: $texture_path + "armco.png"
+$texture_armco_height: 100%
+$texture_armco_width: 425px
+
+#armco
+  @include absolute_object_b(0px, 0px, 100%, $armco_height, $layer_5)
+  background:
+    image: url(#{$texture_armco})
+    size: $texture_armco_width $texture_armco_height
+    position: -50px 0px
+
+/* ---- Exocet ---- */
+$exocet_height: 65px
+$exocet_width: 172px
+$texture_exocet: $animation + "exocet.gif"
+
+#exocet
+  @include absolute_object_b(0px, 0px, $exocet_width, $exocet_height, $layer_4)
+  -webkit-transform: scaleX(-1)
+  transform: scaleX(-1)
+  background:
+    image: url(#{$texture_exocet})
+    size: 100% 100%
+  //@include animate(exocet, 20s, linear, infinite)
+
+@include generateKeyframes(exocet, (left), ((-10%, 110%)), false)
+
+$countdown_url: "image/countdown/"
+
+@mixin countdown($top, $left, $z-index)
+  @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
+  overflow: hidden
+
+@mixin countdown_cover
+  position: relative
+  pointer-events: none
+  width: 100%
+  height: $countdown_height
+
+@mixin countdown_days($primary, $secondary)
+  position: relative
+  height: $countdown_height
+  width: 100%
+
+  pointer-events: none
+
+  background:
+    color: $primary
+  color: $secondary
+
+  text:
+    align: center
+  font:
+    size: 40pt
+  line:
+    height: $countdown_height
+
+.countdown_hide
+  @include animate(counterHide, 0.3s, ease-out,  forwards)
+  top: 0px !important
+  margin-bottom: 0px !important
+
+.countdown_show
+  @include animate(counterShow, 0.3s, ease-out, forwards)
+  top: -$countdown_height !important
+  margin-bottom: -$countdown_height !important
+
+@include generateKeyframes(counterHide, (top, margin-bottom), ((0px, 0px), (-$countdown_height, -$countdown_height)), false)
+@include generateKeyframes(counterShow, (top, margin-bottom), ((-$countdown_height, -$countdown_height), (0px, 0px)), false)
+
+$countdown_got: $countdown_url + "got.jpeg"
+
+#got
+  @include countdown($height_of_beach + 10px, 650px, $layer_2)
+
+#got_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
+
+#got_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_got: $countdown_url + "f1.jpeg"
+
+#f1
+  @include countdown($height_of_beach + 10px, 750px, $layer_2)
+
+#f1_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
+
+#f1_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_project: $countdown_url + "imperial.jpeg"
+
+#project
+  @include countdown($height_of_beach + 10px, 850px, $layer_2)
+
+#project_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_project})
+    size: 100% 100%
+
+#project_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
