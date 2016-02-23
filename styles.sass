@@ -4,9 +4,6 @@
 $height_of_sky: 60%
 $height_of_ground: 100% - $height_of_sky
 
-
-
-
 $texture_path: "image/texture/"
 $colour_path: "image/colour/"
 $filter_path: "image/filter/"
@@ -203,8 +200,8 @@ body
 
 #day_night_filter
   position: fixed
-  width: 100%
-  height: 100%
+  width: 100vw
+  height: 100vh
   opacity: 0.5
   background:
     color: black
@@ -215,7 +212,7 @@ body
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
 $sky_height_multiplier: 0.7
-$land_height_multiplier: 0.7
+$land_height_multiplier: 0.3
 
 @media (orientation:portrait)
   #sky
@@ -255,20 +252,20 @@ $texture_land: $colour_path + "dark_brown.png"
   position: absolute
   width: 100%
   height: 100%
-  z-index: 1
+  z-index: $layer_1
   overflow: hidden
 
 #sky_foreground
   position: absolute
   width: 100%
   height: 100%
-  z-index: 2
+  z-index: $layer_2
   
 #sky_background_black
   position: absolute
   width: 100%
   height: 100%
-  z-index: 1
+  z-index: $layer_1
   background-color: black
 
 $texture_sky: $colour_path + "light_blue.png"
@@ -277,39 +274,11 @@ $texture_sky_size: 300px
   position: absolute
   width: 100%
   height: 100%
-  z-index: 2
+  z-index: $layer_2
   background:
     image: url(#{$texture_sky})
     size: $texture_sky_size $texture_sky_size
   opacity: 1.0
-
-#sky_background_center
-  z-index: 3
-
-$texture_sun_moon: $prop_url + "sun_moon.png"
-#sky_background_sun_moon_static
-  position: relative
-  width: 100%
-  height: 100%
-  z-index: 1
-
-#sky_background_sun_moon_rotating
-  content: ""
-  position: absolute
-  width: 100%
-  height: 200%
-  z-index: -1
-  background:
-    image: url(#{$texture_sun_moon})
-    position: center
-    size: 24% auto
-    repeat: no-repeat
-
-#sky_background_clouds
-  position: absolute
-  width: 100%
-  height: 100%
-  z-index: 2
 
 $texture_sky_tint: $filter_path + "tint.png"
 $sky_tint_width: 400px
@@ -322,7 +291,34 @@ $sky_tint_height: 100%
     image: url(#{$texture_sky_tint})
     size: $sky_tint_width $sky_tint_height
   opacity: 1.0
-  z-index: 4
+  z-index: $layer_3
+
+#sky_background_center
+  z-index: 3
+
+$texture_sun_moon: $prop_url + "sun_moon.png"
+#sky_background_sun_moon_static
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_4
+
+
+#sky_background_sun_moon_rotating
+  position: relative
+  width: 100%
+  height: 200%
+  background:
+    image: url(#{$texture_sun_moon})
+    position: center
+    size: 22% auto
+    repeat: no-repeat
+
+#sky_background_clouds
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 2
 
 #sky_edges
   position: absolute
@@ -367,7 +363,7 @@ $texture_trees: $prop_url + "treeline.png"
 $texture_cloud: $texture_path + "cloud"
 
 @mixin cloud($id, $top, $left, $time)
-  @include absolute_object($top, auto, 10%, 100%, $layer_2)
+  @include absolute_object($top, auto, 10%, 100% - $top, $layer_2)
   @include animate(cloud#{$id}, $time, linear, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
@@ -452,24 +448,17 @@ $tarmac_colour: #252525
   height: $tarmac_size
   background-color: $tarmac_colour
 
-$texture_bank: $texture_path + "bank.png"
+$texture_bank: $prop_url + "stones.png"
 #bank
   position: absolute
-  top: $tarmac_size
+  top: $tarmac_size / 2
   width: 100%
-  height: 20%
+  height: 12.5%
   z-index: 2
-
-#bank:before
-  content: ""
-  position: absolute
-  width: 100%
-  height: 100%
-  top: -10%
-  z-index: -1
   background:
     image: url(#{$texture_bank})
     size: auto 100%
+    position: center
 
 $texture_beach: $texture_path + "beach.png"
 $texture_beach_size: 100px
@@ -482,10 +471,6 @@ $texture_beach_size: 100px
     image: url(#{$texture_beach})
     size: $texture_beach_size $texture_beach_size
   z-index: 1
-
-
-
-// $height_of_beach - $tarmac_size
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Lake ------------------------------- */
@@ -507,7 +492,7 @@ $texture_lake_size: 100px
 
 $texture_fish: $texture_path + "fish.png"
 #fish
-  @include absolute_object(10%, 10%, 5%, 100%)
+  @include absolute_object(10%, 10%, 5%, 90%)
   background:
     image: url(#{$texture_fish})
     size: 100% auto
