@@ -212,7 +212,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 2; }
+  z-index: 5; }
 
 #sky_edges {
   position: absolute;
@@ -670,7 +670,7 @@ body {
   top: 0px;
   left: 25%;
   width: 80%;
-  height: 35%;
+  height: 100%;
   z-index: 1;
   background-image: url(image/prop/stairs.png);
   background-repeat: no-repeat;
@@ -683,12 +683,12 @@ body {
   position: absolute;
   top: 0%;
   width: 100%;
-  height: 1.5%;
+  height: 5%;
   background-color: #252525; }
 
-#bank {
+#stones {
   position: absolute;
-  top: 0.75%;
+  top: 0px;
   width: 100%;
   height: 12.5%;
   z-index: 2;
@@ -696,9 +696,9 @@ body {
   background-size: auto 100%;
   background-position: center; }
 
-#beach {
+#sand {
   position: absolute;
-  top: 1.5%;
+  top: 5%;
   width: 100%;
   height: 20%;
   background-image: url(image/texture/beach.png);

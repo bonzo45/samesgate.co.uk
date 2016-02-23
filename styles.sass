@@ -318,7 +318,7 @@ $texture_sun_moon: $prop_url + "sun_moon.png"
   position: absolute
   width: 100%
   height: 100%
-  z-index: 2
+  z-index: $layer_5
 
 #sky_edges
   position: absolute
@@ -429,7 +429,7 @@ $texture_lighthouse_mask: $prop_url + "lighthousemask.png"
 $stairs_width: 80%
 $texture_stairs: $prop_url + "stairs.png"
 #stairs
-  @include absolute_object(0px, 25%, $stairs_width, 35%)
+  @include absolute_object(0px, 25%, $stairs_width, 100%)
   background:
     image: url(#{$texture_stairs})
     repeat: no-repeat
@@ -439,7 +439,7 @@ $texture_stairs: $prop_url + "stairs.png"
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
 
-$tarmac_size: 1.5%
+$tarmac_size: 5%
 $tarmac_colour: #252525
 #tarmac
   position: absolute
@@ -449,9 +449,9 @@ $tarmac_colour: #252525
   background-color: $tarmac_colour
 
 $texture_bank: $prop_url + "stones.png"
-#bank
+#stones
   position: absolute
-  top: $tarmac_size / 2
+  top: 0px
   width: 100%
   height: 12.5%
   z-index: 2
@@ -462,7 +462,7 @@ $texture_bank: $prop_url + "stones.png"
 
 $texture_beach: $texture_path + "beach.png"
 $texture_beach_size: 100px
-#beach
+#sand
   position: absolute
   top: $tarmac_size
   width: 100%

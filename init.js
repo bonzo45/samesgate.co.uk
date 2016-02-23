@@ -226,6 +226,7 @@ function initDayNight() {
     var timeAfter = new Date(currentTime.getTime() + 60 * 60 * 1000);
     setTime(timeAfter);
   });
+  setTime(new Date(12 * 60 * 60 * 1000));
 }
 
 function setTime(newTime) {
