@@ -9,18 +9,17 @@
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Centerer ----------------------------- */
 /* ------------------------------------------------------------------- */
+.centerer {
+  position: relative;
+  margin: 0 auto;
+  height: 100%; }
+
 @media (orientation: portrait) {
   .centerer {
-    position: relative;
-    margin: 0 auto;
-    width: 100vw;
-    height: 100%; } }
+    width: 100vw; } }
 @media (orientation: landscape) {
   .centerer {
-    position: relative;
-    margin: 0 auto;
-    width: 100vh;
-    height: 100%; } }
+    width: 100vh; } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Body ------------------------------ */
 /* ------------------------------------------------------------------- */
@@ -31,24 +30,77 @@ body {
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Day/Night ---------------------------- */
 /* ------------------------------------------------------------------- */
-#time_control {
+#watch {
   position: fixed;
-  top: 50px;
-  left: 50px;
-  width: 200px;
-  height: 200px;
-  background-color: #2200aa;
-  z-index: 6;
-  padding: 10px 10px 10px 10px;
+  z-index: 10;
   border-radius: 50%;
-  vertical-align: center; }
+  background-color: black;
+  display: flex;
+  align-items: center; }
 
-.time {
-  width: 100px;
-  height: 75px;
-  display: inline-block;
+@media (orientation: portrait) {
+  #watch {
+    top: 5vw;
+    left: 5vw;
+    width: 22.5vw;
+    height: 22.5vw; } }
+@media (orientation: landscape) {
+  #watch {
+    top: 5vh;
+    left: 5vh;
+    width: 22.5vh;
+    height: 22.5vh; } }
+#watch_inner_ring {
+  position: relative;
+  width: 78%;
+  height: 78%;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #222222;
+  display: flex;
+  align-items: center; }
+
+#watch_inner {
+  position: relative;
+  width: 93%;
+  height: 93%;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #efefef; }
+
+#watch_name {
+  height: 10%;
+  line-height: 100%;
+  margin: 0 auto;
+  margin-top: 20%;
+  margin-bottom: 7.5%; }
+
+#input_time {
+  width: 70%;
+  height: 25%;
+  margin: 0 auto;
+  font-size: 25pt; }
+
+#input_date {
+  margin: 0 auto;
+  margin-top: 10%;
+  margin-bottom: 12.5%;
+  width: 40%;
+  height: 15%;
+  font-size: 12pt; }
+
+.watch_input {
   text-align: center;
-  font-size: 60pt; }
+  line-height: 100%;
+  font-family: monospace;
+  background-color: #dddddd;
+  border: solid 0px;
+  border-radius: 3%; }
 
 #day_night_filter {
   position: fixed;
@@ -56,7 +108,7 @@ body {
   height: 100%;
   opacity: 0.5;
   background-color: black;
-  z-index: 10;
+  z-index: 7;
   pointer-events: none; }
 
 /* ------------------------------------------------------------------- */
