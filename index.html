@@ -70,8 +70,7 @@ To put back... or not...?
 </head>
 
 <body onload="init()">
-  <div id="day_night_filter" class="mask"></div>
-
+  
   <div id="watch">
     <div id="watch_inner_ring">
       <div id="watch_inner">
@@ -108,11 +107,12 @@ To put back... or not...?
     </div>
     
     <div id="sky_foreground">
-      <div id="sky_edges">
+      <div id="sky_foreground_edges">
         <div id="sky_edge_rocks"></div><!--
      --><div id="sky_edge_spacer"></div><!--
      --><div id="sky_edge_trees"></div>
       </div>
+      <div id="sky_mask" class="mask"></div>
       <div id="sky_foreground_center" class="centerer">
         <div id="lighthouse"></div>
         <div id="lighthouse_mask" class="mask"></div>
@@ -121,6 +121,7 @@ To put back... or not...?
   </div>
 
   <div id="land">
+    <div id="land_mask" class="mask"></div>
     <div id="tarmac"></div>
     <div id="stones">
       <div id="bank_center" class="centerer">

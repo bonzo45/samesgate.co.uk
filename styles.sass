@@ -34,8 +34,8 @@ $layer_3: 3
 $layer_4: 4
 $layer_5: 5
 $layer_6: 6
-$layer_7: 7
-$layer_above_all: 10
+$layer_filter: 9
+$layer_overlay: 10
 
 /* ---- Absolute Positioning ---- */
 @mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
@@ -112,7 +112,7 @@ body
 
 #watch
   position: fixed
-  z-index: $layer_above_all
+  z-index: $layer_overlay
   border-radius: 50%
   background:
     color: black
@@ -205,7 +205,7 @@ body
   opacity: 0.5
   background:
     color: black
-  z-index: $layer_7 // In front of everything (apart from watch).
+  z-index: $layer_filter // In front of everything (apart from watch).
   pointer-events: none // Can't click it.
 
 /* ------------------------------------------------------------------- */
@@ -320,12 +320,23 @@ $texture_sun_moon: $prop_url + "sun_moon.png"
   height: 100%
   z-index: $layer_5
 
-#sky_edges
+#sky_foreground_edges
   position: absolute
   bottom: 0px
   width: 100%
   height: 30%
   display: table
+  z-index: $layer_1
+
+#sky_mask
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color: black
+  z-index: $layer_2
+
+#sky_foreground_center
+  z-index: $layer_3
 
 $texture_rocks: $texture_path + "stone.png"
 #sky_edge_rocks
@@ -438,6 +449,13 @@ $texture_stairs: $prop_url + "stairs.png"
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
+
+#land_mask
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color: black
+  z-index: $layer_filter
 
 $tarmac_size: 5%
 $tarmac_colour: #252525

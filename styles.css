@@ -119,7 +119,7 @@ body {
   height: 100vh;
   opacity: 0.5;
   background-color: black;
-  z-index: 7;
+  z-index: 9;
   pointer-events: none; }
 
 /* ------------------------------------------------------------------- */
@@ -214,12 +214,23 @@ body {
   height: 100%;
   z-index: 5; }
 
-#sky_edges {
+#sky_foreground_edges {
   position: absolute;
   bottom: 0px;
   width: 100%;
   height: 30%;
-  display: table; }
+  display: table;
+  z-index: 1; }
+
+#sky_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 2; }
+
+#sky_foreground_center {
+  z-index: 3; }
 
 #sky_edge_rocks {
   display: table-cell;
@@ -679,6 +690,13 @@ body {
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
+#land_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9; }
+
 #tarmac {
   position: absolute;
   top: 0%;
