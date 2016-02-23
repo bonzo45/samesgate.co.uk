@@ -115,11 +115,11 @@ body {
 
 #day_night_filter {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   opacity: 0.5;
   background-color: black;
-  z-index: 7;
+  z-index: 9;
   pointer-events: none; }
 
 /* ------------------------------------------------------------------- */
@@ -141,13 +141,13 @@ body {
   #land {
     position: relative;
     width: 100%;
-    height: 70vw;
+    height: 30vw;
     background-image: url(image/colour/dark_brown.png); } }
 @media (orientation: landscape) {
   #land {
     position: relative;
     width: 100%;
-    height: 70vh;
+    height: 30vh;
     background-image: url(image/colour/dark_brown.png); } }
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Sky ------------------------------- */
@@ -181,32 +181,6 @@ body {
   background-size: 300px 300px;
   opacity: 1; }
 
-#sky_background_center {
-  z-index: 3; }
-
-#sky_background_sun_moon_static {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1; }
-
-#sky_background_sun_moon_rotating {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 200%;
-  z-index: -1;
-  background-image: url(image/prop/sun_moon.png);
-  background-position: center;
-  background-size: 24% auto;
-  background-repeat: no-repeat; }
-
-#sky_background_clouds {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2; }
-
 #sky_background_tint {
   position: absolute;
   width: 100%;
@@ -214,14 +188,49 @@ body {
   background-image: url(image/filter/tint.png);
   background-size: 400px 100%;
   opacity: 1;
+  z-index: 3; }
+
+#sky_background_center {
+  z-index: 3; }
+
+#sky_background_sun_moon_static {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   z-index: 4; }
 
-#sky_edges {
+#sky_background_sun_moon_rotating {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background-image: url(image/prop/sun_moon.png);
+  background-position: center;
+  background-size: 22% auto;
+  background-repeat: no-repeat; }
+
+#sky_background_clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5; }
+
+#sky_foreground_edges {
   position: absolute;
   bottom: 0px;
   width: 100%;
   height: 30%;
-  display: table; }
+  display: table;
+  z-index: 1; }
+
+#sky_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 2; }
+
+#sky_foreground_center {
+  z-index: 3; }
 
 #sky_edge_rocks {
   display: table-cell;
@@ -255,7 +264,7 @@ body {
   top: 5%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 95%;
   z-index: 2;
   -webkit-animation: cloud1 50s linear 0s  infinite;
   animation: cloud1 50s linear 0s  infinite;
@@ -300,7 +309,7 @@ body {
   top: 40%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 60%;
   z-index: 2;
   -webkit-animation: cloud2 58s linear 0s  infinite;
   animation: cloud2 58s linear 0s  infinite;
@@ -353,7 +362,7 @@ body {
   top: 30%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 70%;
   z-index: 2;
   -webkit-animation: cloud3 66s linear 0s  infinite;
   animation: cloud3 66s linear 0s  infinite;
@@ -414,7 +423,7 @@ body {
   top: 50%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 50%;
   z-index: 2;
   -webkit-animation: cloud4 74s linear 0s  infinite;
   animation: cloud4 74s linear 0s  infinite;
@@ -483,7 +492,7 @@ body {
   top: 15%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 85%;
   z-index: 2;
   -webkit-animation: cloud5 82s linear 0s  infinite;
   animation: cloud5 82s linear 0s  infinite;
@@ -560,7 +569,7 @@ body {
   top: 25%;
   left: auto;
   width: 10%;
-  height: 100%;
+  height: 75%;
   z-index: 2;
   -webkit-animation: cloud6 90s linear 0s  infinite;
   animation: cloud6 90s linear 0s  infinite;
@@ -672,7 +681,7 @@ body {
   top: 0px;
   left: 25%;
   width: 80%;
-  height: 35%;
+  height: 100%;
   z-index: 1;
   background-image: url(image/prop/stairs.png);
   background-repeat: no-repeat;
@@ -681,33 +690,33 @@ body {
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Land ------------------------------- */
 /* ------------------------------------------------------------------- */
+#land_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9; }
+
 #tarmac {
   position: absolute;
   top: 0%;
   width: 100%;
-  height: 1.5%;
+  height: 5%;
   background-color: #252525; }
 
-#bank {
+#stones {
   position: absolute;
-  top: 1.5%;
+  top: 0px;
   width: 100%;
-  height: 20%;
-  z-index: 2; }
+  height: 12.5%;
+  z-index: 2;
+  background-image: url(image/prop/stones.png);
+  background-size: auto 100%;
+  background-position: center; }
 
-#bank:before {
-  content: "";
+#sand {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: -10%;
-  z-index: -1;
-  background-image: url(image/texture/bank.png);
-  background-size: auto 100%; }
-
-#beach {
-  position: absolute;
-  top: 1.5%;
+  top: 5%;
   width: 100%;
   height: 20%;
   background-image: url(image/texture/beach.png);
@@ -731,7 +740,7 @@ body {
   top: 10%;
   left: 10%;
   width: 5%;
-  height: 100%;
+  height: 90%;
   z-index: 1;
   background-image: url(image/texture/fish.png);
   background-size: 100% auto;

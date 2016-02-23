@@ -70,8 +70,7 @@ To put back... or not...?
 </head>
 
 <body onload="init()">
-  <div id="day_night_filter" class="mask"></div>
-
+  
   <div id="watch">
     <div id="watch_inner_ring">
       <div id="watch_inner">
@@ -91,6 +90,7 @@ To put back... or not...?
       <div id="sky_background_black"></div>
       <div id="sky_background_blue"></div>
       <div id="sky_background_tint"></div>
+
       <div id="sky_background_center" class="centerer">
         <div id="sky_background_sun_moon_static">
           <div id="sky_background_sun_moon_rotating"></div>
@@ -107,12 +107,13 @@ To put back... or not...?
     </div>
     
     <div id="sky_foreground">
-      <div id="sky_edges">
+      <div id="sky_foreground_edges">
         <div id="sky_edge_rocks"></div><!--
      --><div id="sky_edge_spacer"></div><!--
      --><div id="sky_edge_trees"></div>
       </div>
-      <div id="sky_background_center" class="centerer">
+      <div id="sky_mask" class="mask"></div>
+      <div id="sky_foreground_center" class="centerer">
         <div id="lighthouse"></div>
         <div id="lighthouse_mask" class="mask"></div>
       </div>
@@ -120,13 +121,14 @@ To put back... or not...?
   </div>
 
   <div id="land">
+    <div id="land_mask" class="mask"></div>
     <div id="tarmac"></div>
-    <div id="bank">
+    <div id="stones">
       <div id="bank_center" class="centerer">
         <div id="stairs"></div>
       </div>
     </div>
-    <div id="beach"></div>
+    <div id="sand"></div>
     <div id="lake">
       <div id="lake_center" class="centerer">
         <div id="fish"></div>
