@@ -208,6 +208,9 @@ body
   z-index: $layer_filter // In front of everything (apart from watch).
   pointer-events: none // Can't click it.
 
+.mask
+  pointer-events: none
+
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
@@ -303,7 +306,6 @@ $texture_sun_moon: $prop_url + "sun_moon.png"
   height: 100%
   z-index: $layer_4
 
-
 #sky_background_sun_moon_rotating
   position: relative
   width: 100%
@@ -335,15 +337,19 @@ $texture_sun_moon: $prop_url + "sun_moon.png"
   background-color: black
   z-index: $layer_2
 
-#sky_foreground_center
+#sky_center
   z-index: $layer_3
 
 $texture_rocks: $texture_path + "stone.png"
-#sky_edge_rocks
-  display: table-cell
+#sky_left
+  position: absolute
+  bottom: 0px
+  left: 0px
+  height: 20%
+  width: calc((100vw - 100vh) / 2)
   background:
     image: url(#{$texture_rocks})
-    size: auto 40%
+    size: auto 100%
     position: right 0px bottom 0px
     repeat: repeat-x
 
@@ -360,8 +366,12 @@ $texture_rocks: $texture_path + "stone.png"
     display: table-cell
 
 $texture_trees: $prop_url + "treeline.png"
-#sky_edge_trees
-  display: table-cell
+#sky_right
+  position: absolute
+  bottom: 0px
+  right: 0px
+  height: 30%
+  width: calc(((100vw - 100vh) / 2) + (100vmin / 2))
   background:
     image: url(#{$texture_trees})
     size: auto 100%

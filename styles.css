@@ -122,6 +122,9 @@ body {
   z-index: 9;
   pointer-events: none; }
 
+.mask {
+  pointer-events: none; }
+
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Sky/Land ---------------------------- */
 /* ------------------------------------------------------------------- */
@@ -229,13 +232,17 @@ body {
   background-color: black;
   z-index: 2; }
 
-#sky_foreground_center {
+#sky_center {
   z-index: 3; }
 
-#sky_edge_rocks {
-  display: table-cell;
+#sky_left {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 20%;
+  width: calc((100vw - 100vh) / 2);
   background-image: url(image/texture/stone.png);
-  background-size: auto 40%;
+  background-size: auto 100%;
   background-position: right 0px bottom 0px;
   background-repeat: repeat-x; }
 
@@ -249,8 +256,12 @@ body {
     width: 100vh;
     height: 100%;
     display: table-cell; } }
-#sky_edge_trees {
-  display: table-cell;
+#sky_right {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 30%;
+  width: calc(((100vw - 100vh) / 2) + (100vmin / 2));
   background-image: url(image/prop/treeline.png);
   background-size: auto 100%;
   background-position: left 0px bottom 0px;
