@@ -217,6 +217,15 @@ var currentRotation = 0;
 
 function initDayNight() {
   setTime(new Date(0));
+  setWatch(new Date(0));
+  $("#watch_time_minus").click(function() {
+    var timeBefore = new Date(currentTime.getTime() - 60 * 60 * 1000);
+    setTime(timeBefore);
+  });
+  $("#watch_time_plus").click(function() {
+    var timeAfter = new Date(currentTime.getTime() + 60 * 60 * 1000);
+    setTime(timeAfter);
+  });
 }
 
 function setTime(newTime) {
@@ -231,14 +240,9 @@ function setTime(newTime) {
   var transitionTime = computeTransitionTime(clippedTime - currentTime);
   setDarkness(currentTime, clippedTime, transitionTime);
   setSunMoonRotation(currentTime, clippedTime, transitionTime);
+  setWatch(newTime);
 
   currentTime = newTime;
-
-  // // Update Display
-  // var stringHours = padOneZero(time.getHours() + '');
-  // var stringMinutes = padOneZero(time.getMinutes() + '');
-  // $("#input_hours").val(stringHours);
-  // $("#input_minutes").val(stringMinutes);
 }
 
 /**
@@ -267,9 +271,9 @@ function clipTime(firstTime, secondTime) {
   * Works out how long the animation of changing time should take, given the time difference.
   */
 function computeTransitionTime(difference) {
-  // Default transition is three seconds.
+  // Default transition.
   // TODO: Make larger jumps in time take longer?
-  return 3;
+  return 1.25;
 }
 
 function setDarkness(currentTime, nextTime, transitionTime) {
@@ -358,6 +362,11 @@ function timeToOpacity(time) {
 function timeToMiddaynight(time, direction) {
   var twelveHours = 12 * 60 * 60 * 1000;
   var differenceMidday = timeFromMidday(time);
+  
+  // If it's midnight, return 12.
+  if (Math.abs(differenceMidday) == twelveHours) {
+    return twelveHours;
+  }
   // If it's before (or exactly) midday and we're going backwards.
   if (differenceMidday <= 0 && direction < 0) {
     return twelveHours + differenceMidday;
@@ -416,6 +425,14 @@ function timeFromMidday(time) {
 }
 
 /**
+  * Sets the watch to the time given.
+  */
+function setWatch(time) {
+  $("#input_time").val(padOneZero(time.getHours() + "") + ":" + padOneZero(time.getMinutes() + ""));
+  $("#input_date").val(padOneZero(time.getDate()));
+}
+
+/**
   * Given a number represented as a string, returns a version with at least two characters.
   */
 function padOneZero(numberString) {
@@ -423,4 +440,4 @@ function padOneZero(numberString) {
     numberString = '0' + numberString;
   }
   return numberString;
-}
+}  
