@@ -5,6 +5,7 @@ function init() {
   initCountdowns();
   initUsefulThings();
   initDayNight();
+  initExocet();
 }
 
 function toggleSidebar() {
@@ -314,7 +315,6 @@ function setDarkness(currentTime, nextTime, transitionTime) {
     }
   }
   console.log(opacityKeyframes);
-  //opacityKeyframes = [];
   animateOpacity(opacityKeyframes);
 }
 
@@ -442,3 +442,22 @@ function padOneZero(numberString) {
   }
   return numberString;
 }  
+
+/**
+  * Add the click handlers for Exocet animation.
+  */
+function initExocet() {
+  $("#exocet_wrapper").css("transition", "all 0s");
+  $("#exocet_wrapper").css("transform", "translateX(100%)");
+  $("#watch_control_car").click(animateExocet);
+}
+
+function animateExocet() {
+  $("#exocet_wrapper").css("transition", "all 0s");
+  $("#exocet_wrapper").css("transform", "translateX(100%)");
+  setTimeout(function(){
+    $("#exocet_wrapper").css("transition", "all 4s");
+    $("#exocet_wrapper").css("transform", "translateX(100vw)"); 
+  }, 100);
+ 
+}
