@@ -429,8 +429,8 @@ function timeFromMidday(time) {
   * Sets the watch to the time given.
   */
 function setWatch(time) {
-  $("#input_time").val(padOneZero(time.getHours() + "") + ":" + padOneZero(time.getMinutes() + ""));
-  $("#input_date").val(padOneZero(time.getDate()));
+  $("#watch_time").val(padOneZero(time.getHours() + "") + ":" + padOneZero(time.getMinutes() + ""));
+  $("#watch_date").val(padOneZero(time.getDate()));
 }
 
 /**
