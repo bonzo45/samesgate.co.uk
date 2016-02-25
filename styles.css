@@ -119,6 +119,10 @@ body {
   top: 1%;
   left: 45%; }
 
+#watch_control_birds {
+  top: 45%;
+  left: 1%; }
+
 .watch_control_symbol {
   position: absolute;
   display: flex;
@@ -234,11 +238,41 @@ body {
 #birds {
   position: absolute;
   bottom: 20%;
-  left: 30%;
+  left: 100%;
   width: 10%;
   height: 10%;
+  z-index: 1; }
+
+#bird1 {
+  position: absolute;
+  bottom: 0%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
   z-index: 1;
-  background-image: url(image/prop/birds.png);
+  background-image: url(image/animation/bird.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#bird2 {
+  position: absolute;
+  bottom: 40%;
+  left: 70%;
+  width: 30%;
+  height: 30%;
+  z-index: 1;
+  background-image: url(image/animation/bird.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#bird3 {
+  position: absolute;
+  bottom: 30%;
+  left: 0%;
+  width: 25%;
+  height: 25%;
+  z-index: 1;
+  background-image: url(image/animation/bird.gif);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 

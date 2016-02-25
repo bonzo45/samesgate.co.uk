@@ -188,6 +188,10 @@ body
   top: 1%
   left: 45%
 
+#watch_control_birds
+  top: 45%
+  left: 1%
+
 .watch_control_symbol
   position: absolute
   display: flex
@@ -319,9 +323,26 @@ $texture_sun_moon: $prop_path + "sun_moon.png"
   height: 100%
   z-index: $layer_5
 
-$texture_birds: $prop_path + "birds.png"
 #birds
-  @include absolute_object_b(20%, 30%, 10%, 10%)
+  @include absolute_object_b(20%, 100%, 10%, 10%)
+
+$texture_birds: $animation_path + "bird.gif"
+#bird1
+  @include absolute_object_b(0%, 30%, 50%, 50%)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% auto
+    repeat: no-repeat
+
+#bird2
+  @include absolute_object_b(40%, 70%, 30%, 30%)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% auto
+    repeat: no-repeat
+
+#bird3
+  @include absolute_object_b(30%, 0%, 25%, 25%)
   background:
     image: url(#{$texture_birds})
     size: 100% auto

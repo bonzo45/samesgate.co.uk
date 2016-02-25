@@ -6,6 +6,7 @@ function init() {
   initUsefulThings();
   initDayNight();
   initExocet();
+  initBirds();
 }
 
 function toggleSidebar() {
@@ -456,8 +457,23 @@ function animateExocet() {
   $("#exocet_wrapper").css("transition", "all 0s");
   $("#exocet_wrapper").css("transform", "translateX(100%)");
   setTimeout(function(){
-    $("#exocet_wrapper").css("transition", "all 4s");
+    $("#exocet_wrapper").css("transition", "all 10s");
     $("#exocet_wrapper").css("transform", "translateX(100vw)"); 
   }, 100);
  
+}
+
+function initBirds() {
+  $("#birds").css("transition", "all 0s");
+  $("#birds").css("transform", "");
+  $("#watch_control_birds").click(animateBirds);
+}
+
+function animateBirds() {
+  $("#birds").css("transition", "all 0s");
+  $("#birds").css("transform", "");
+  setTimeout(function(){
+    $("#birds").css("transition", "all linear 20s");
+    $("#birds").css("transform", "translate(-100vw, -30vh) scale(1.2, 1.2)"); 
+  }, 100);
 }
