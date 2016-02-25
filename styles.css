@@ -308,7 +308,7 @@ body {
   position: absolute;
   top: 5%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 95%;
   z-index: 2;
   -webkit-animation: cloud1 50s linear 0s  infinite;
@@ -353,7 +353,7 @@ body {
   position: absolute;
   top: 40%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 60%;
   z-index: 2;
   -webkit-animation: cloud2 58s linear 0s  infinite;
@@ -406,7 +406,7 @@ body {
   position: absolute;
   top: 30%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 70%;
   z-index: 2;
   -webkit-animation: cloud3 66s linear 0s  infinite;
@@ -467,7 +467,7 @@ body {
   position: absolute;
   top: 50%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 50%;
   z-index: 2;
   -webkit-animation: cloud4 74s linear 0s  infinite;
@@ -536,7 +536,7 @@ body {
   position: absolute;
   top: 15%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 85%;
   z-index: 2;
   -webkit-animation: cloud5 82s linear 0s  infinite;
@@ -613,7 +613,7 @@ body {
   position: absolute;
   top: 25%;
   left: auto;
-  width: 10%;
+  width: 15%;
   height: 75%;
   z-index: 2;
   -webkit-animation: cloud6 90s linear 0s  infinite;
@@ -783,7 +783,7 @@ body {
   position: absolute;
   top: 5%;
   width: 100%;
-  height: 25%;
+  height: 35%;
   background-image: url(image/texture/beach.png);
   background-size: 100px 100px;
   z-index: 1; }
@@ -802,7 +802,7 @@ body {
 
 #fish {
   position: absolute;
-  top: 20%;
+  top: 35%;
   left: 10%;
   width: 5%;
   height: 80%;

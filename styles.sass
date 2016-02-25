@@ -383,7 +383,7 @@ $texture_trees: $prop_path + "treeline.png"
 $texture_cloud: $texture_path + "cloud"
 
 @mixin cloud($id, $top, $left, $time)
-  @include absolute_object($top, auto, 10%, 100% - $top, $layer_2)
+  @include absolute_object($top, auto, 15%, 100% - $top, $layer_2)
   @include animate(cloud#{$id}, $time, linear, infinite)
   background:
     image: url(#{$texture_cloud}/Cloud_#{$id}.png)
@@ -511,7 +511,7 @@ $texture_beach_size: 100px
   position: absolute
   top: $tarmac_size
   width: 100%
-  height: 25%
+  height: 35%
   background:
     image: url(#{$texture_beach})
     size: $texture_beach_size $texture_beach_size
@@ -537,7 +537,7 @@ $texture_lake_size: 100px
 
 $texture_fish: $texture_path + "fish.png"
 #fish
-  @include absolute_object(20%, 10%, 5%, 80%)
+  @include absolute_object(35%, 10%, 5%, 80%)
   background:
     image: url(#{$texture_fish})
     size: 100% auto
