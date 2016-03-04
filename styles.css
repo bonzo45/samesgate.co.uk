@@ -836,10 +836,10 @@ body {
   right: 5%;
   bottom: 60%;
   font-family: helvetica;
-  font-size: 3.5vmin;
+  font-size: 5vmin;
+  line-height: 7.5vmin;
   text-align: center;
-  border-top: 5px solid gainsboro;
-  border-bottom: 5px solid gainsboro;
+  border-bottom: 0.5vmin solid gainsboro;
   color: gainsboro;
   z-index: 6; }
 
@@ -853,7 +853,7 @@ body {
   right: 5%;
   top: 40%;
   background-color: #2d2222;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
   z-index: 6; }
 
 .useful_icon {

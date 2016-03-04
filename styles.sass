@@ -568,7 +568,7 @@ $texture_gradient: $texture_path + "gradient.png"
 
 /* ---- Sam Esgate ---- */
 $samesgate_color: #DCDCDC
-$samesgate_border: 10px
+$samesgate_border: 1vmin
 
 #samesgate
   position: absolute
@@ -578,10 +578,11 @@ $samesgate_border: 10px
   bottom: 60%
   font:
     family: helvetica
-  font-size: 3.5vmin
+  font-size: 5vmin
+  line-height: 7.5vmin
   text-align: center
   border:
-    top: ($samesgate_border / 2) solid $samesgate_color
+    //top: ($samesgate_border / 2) solid $samesgate_color
     bottom: ($samesgate_border / 2) solid $samesgate_color
   color: $samesgate_color
   z-index: $layer_6
@@ -598,7 +599,7 @@ $samesgate_border: 10px
   background:
     color: #2D2222
   border:
-    radius: 5px
+    radius: 0px 0px 5px 5px
   z-index: $layer_6
 
 .useful_icon
