@@ -295,12 +295,17 @@ body {
   bottom: 0px;
   right: 0px;
   height: 30%;
-  width: calc(((100vw - 100vh) / 2) + (100vmin / 2));
   background-image: url(image/prop/treeline.png);
   background-size: auto 100%;
   background-position: left 0px bottom 0px;
   background-repeat: repeat-x; }
 
+@media (orientation: landscape) {
+  #sky_right {
+    width: calc(((100vw - 100vh) / 2) + 50vh); } }
+@media (orientation: portrait) {
+  #sky_right {
+    width: 50vw; } }
 /* ------------------------------------------------------------------- */
 /* ----------------------------- Clouds ------------------------------ */
 /* ------------------------------------------------------------------- */
