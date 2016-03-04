@@ -602,8 +602,12 @@ $bonzos_wrapper_left: $author_left + (($author_width - $bonzos_wrapper_width) / 
 $bonzos_wrapper_top: $author_top + $author_height + $samesgate_border
 
 #bonzos_useful_things
-  @include absolute_object($bonzos_wrapper_top, $bonzos_wrapper_left, $bonzos_wrapper_width - 2 * $useful_margin, $bonzos_wrapper_height, $layer_4)
-
+  position: absolute
+  bottom: 40%
+  right: 0%
+  width: $bonzos_wrapper_width - 2 * $useful_margin
+  height: $bonzos_wrapper_height
+  z-index: $layer_4
   background:
     color: #2D2222
 

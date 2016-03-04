@@ -851,8 +851,8 @@ body {
 
 #bonzos_useful_things {
   position: absolute;
-  top: 243.33333px;
-  left: 50px;
+  bottom: 40%;
+  right: 0%;
   width: 290px;
   height: auto;
   z-index: 4;
