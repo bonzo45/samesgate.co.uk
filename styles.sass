@@ -257,6 +257,7 @@ $texture_land: $colour_path + "dark_brown.png"
   height: 100%
   z-index: $layer_2
   overflow: hidden
+  pointer-events: none
 
 #sky_background_black
   position: absolute
@@ -322,6 +323,7 @@ $texture_sun_moon: $prop_path + "sun_moon.png"
   width: 100%
   height: 100%
   z-index: $layer_5
+  pointer-events: none
 
 #birds
   @include absolute_object_b(20%, 100%, 10%, 10%)
@@ -362,6 +364,7 @@ $texture_rocks: $texture_path + "stone.png"
     repeat: repeat-x
 
 #sky_center
+  pointer-events: none
   z-index: $layer_3
 
 $texture_trees: $prop_path + "treeline.png"
@@ -563,41 +566,25 @@ $texture_gradient: $texture_path + "gradient.png"
     size: auto 100%
   opacity: 1.0
 
-$author_width: 300px
-$author_height: 100pt
-$author_left: 50px
-$author_top: 100px
- 
-
-
 /* ---- Sam Esgate ---- */
 $samesgate_color: #DCDCDC
-$samesgate_height: $author_height
-
-#author
-  @include absolute_object($author_top, $author_left, $author_width, $author_height, $layer_3)
-  font:
-    family: helvetica
-
 $samesgate_border: 10px
 
 #samesgate
-  @include absolute_object(0px, 0px, 100%, $samesgate_height, $layer_1)
-  line:
-    height: $samesgate_height
+  position: absolute
+  width: 35vmin
+  height: auto
+  right: 5%
+  bottom: 60%
   font:
-    size: 72pt
-  text:
-    align: center
+    family: helvetica
+  font-size: 3.5vmin
+  text-align: center
   border:
     top: ($samesgate_border / 2) solid $samesgate_color
     bottom: ($samesgate_border / 2) solid $samesgate_color
   color: $samesgate_color
-
-$bonzos_wrapper_width: $author_width
-$bonzos_wrapper_height: auto
-$bonzos_wrapper_left: $author_left + (($author_width - $bonzos_wrapper_width) / 2)
-$bonzos_wrapper_top: $author_top + $author_height + $samesgate_border
+  z-index: $layer_6
 
 #bonzos_useful_things
   position: absolute
@@ -607,11 +594,12 @@ $bonzos_wrapper_top: $author_top + $author_height + $samesgate_border
   justify-content: center
   align-items: center
   right: 5%
-  bottom: 35%
+  top: 40%
   background:
     color: #2D2222
   border:
     radius: 5px
+  z-index: $layer_6
 
 .useful_icon
   width: 10vmin
@@ -669,7 +657,7 @@ $countdown_height: 75px
 $clock_height: 300px
 $clock_width: $clock_height / 2
 $clock_top: 0px
-$clock_left: $bonzos_wrapper_width - $clock_width / 2
+$clock_left: 0px
 $texture_clock: $texture_path + "clock.png"
 
 #clock
