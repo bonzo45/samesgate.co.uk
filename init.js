@@ -145,8 +145,8 @@ var project_due = function() {
 }
 
 function initUsefulThings() {
-  var totalWidth = 40;
-  var columns = 4;
+  var totalWidth = 35;
+  var columns = 6;
   var paddingRatio = 3;
   var unitWidth = totalWidth / (columns * paddingRatio + columns + 1);
 

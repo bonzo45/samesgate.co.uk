@@ -810,7 +810,7 @@ body {
   top: 35%;
   left: 10%;
   width: 5%;
-  height: 80%;
+  height: 65%;
   z-index: 1;
   background-image: url(image/texture/fish.png);
   background-size: 100% auto;
@@ -856,8 +856,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  right: 0%;
-  top: 0%;
+  right: 5%;
+  bottom: 35%;
   background-color: #2d2222;
   border-radius: 5px; }
 
