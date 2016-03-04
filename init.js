@@ -145,23 +145,29 @@ var project_due = function() {
 }
 
 function initUsefulThings() {
+  var totalWidth = 40;
+  var columns = 4;
+  var paddingRatio = 3;
+  var unitWidth = totalWidth / (columns * paddingRatio + columns + 1);
+
+  $("#bonzos_useful_things").css("width", (totalWidth - unitWidth) + "vmin");
+  $("#bonzos_useful_things").css("height", "auto");
+  $("#bonzos_useful_things").css("padding", (unitWidth / 2) + "vmin");
+
   /* Go through each section */
   $.each(usefulThings, function(category, entries) {
-    var div = $("#bonzos_useful_things");
-    var separator = "<div class=\"separator\"></div>";
-    div.append(separator);
-
     /* Go through each entry */
     $.each(entries, function() {
       var div = $("#bonzos_useful_things");
       var image = "<img src=\"image/icon/" + this.icon + "\" class=\"useful_icon\"></a>";
       var link = "<a href=\"" + this.url + "\">" + image + "</a>";
       div.append(link);
-
-      var separator = "<div class=\"separator\"></div>";
-      div.append(separator);
     });
   });
+
+  $(".useful_icon").css("width", (unitWidth * paddingRatio) + "vmin");
+  $(".useful_icon").css("height", (unitWidth * paddingRatio) + "vmin");
+  $(".useful_icon").css("padding", (unitWidth / 2) + "vmin");
 }
 
 var usefulThings = {

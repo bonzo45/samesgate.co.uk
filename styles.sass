@@ -593,9 +593,6 @@ $samesgate_border: 10px
     bottom: ($samesgate_border / 2) solid $samesgate_color
   color: $samesgate_color
 
-$useful_height: 50px
-$useful_margin: 5px
-
 $bonzos_wrapper_width: $author_width
 $bonzos_wrapper_height: auto
 $bonzos_wrapper_left: $author_left + (($author_width - $bonzos_wrapper_width) / 2)
@@ -603,36 +600,21 @@ $bonzos_wrapper_top: $author_top + $author_height + $samesgate_border
 
 #bonzos_useful_things
   position: absolute
-  bottom: 40%
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
   right: 0%
-  width: $bonzos_wrapper_width - 2 * $useful_margin
-  height: $bonzos_wrapper_height
-  z-index: $layer_4
+  top: 0%
   background:
     color: #2D2222
-
-  padding: $useful_margin
-
   border:
-    radius: 0px 0px 5px 5px
-  
-  text-align: center
-
-$icon_margin: 5px
-$useful_icon_size: $useful_height - 2 * $icon_margin
+    radius: 5px
 
 .useful_icon
-  display: inline-block
-  width: $useful_icon_size
-  height: $useful_icon_size
-  margin: $icon_margin
-
-$separator_width: 5px
-
-.separator
-  display: inline-block
-  width: $separator_width
-  height: $useful_height
+  width: 10vmin
+  height: 10vmin
 
 $countdown_width: 75px
 $countdown_height: 75px
@@ -685,7 +667,7 @@ $countdown_height: 75px
 /* ---- Clock ---- */
 $clock_height: 300px
 $clock_width: $clock_height / 2
-$clock_top: $useful_height
+$clock_top: 0px
 $clock_left: $bonzos_wrapper_width - $clock_width / 2
 $texture_clock: $texture_path + "clock.png"
 
