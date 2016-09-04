@@ -21,6 +21,7 @@ $layer_5: 5
 $layer_6: 6
 $layer_filter: 9
 $layer_overlay: 10
+$layer_overlay2: 11
 
 /* ---- Positioning ---- */
 @mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
@@ -111,14 +112,35 @@ body
 /* ---------------------------- Day/Night ---------------------------- */
 /* ------------------------------------------------------------------- */
 
-$texture_land: $prop_path + 'watch.png'
-#watch
+$texture_watch_indicator: $prop_path + 'watch_indicator.png'
+#watch_indicator
   position: fixed
   z-index: $layer_overlay
   background:
-    image: url(#{$texture_land})
+    image: url(#{$texture_watch_indicator})
     size: 100% 100%
-  margin: 0 auto
+
+@media (orientation:portrait)
+  #watch_indicator
+    top: 5vw
+    left: 5vw
+    width: 22.5vw
+    height: 22.5vw
+
+@media (orientation:landscape)
+  #watch_indicator
+    top: 5vh
+    left: 5vh
+    width: 22.5vh
+    height: 22.5vh
+
+$texture_watch: $prop_path + 'watch.png'
+#watch
+  position: fixed
+  z-index: $layer_overlay2
+  background:
+    image: url(#{$texture_watch})
+    size: 100% 100%
   display: flex
   flex-direction: column
   justify-content: center

@@ -44,12 +44,29 @@ body {
 /* ------------------------------------------------------------------- */
 /* ---------------------------- Day/Night ---------------------------- */
 /* ------------------------------------------------------------------- */
-#watch {
+#watch_indicator {
   position: fixed;
   z-index: 10;
+  background-image: url(image/prop/watch_indicator.png);
+  background-size: 100% 100%; }
+
+@media (orientation: portrait) {
+  #watch_indicator {
+    top: 5vw;
+    left: 5vw;
+    width: 22.5vw;
+    height: 22.5vw; } }
+@media (orientation: landscape) {
+  #watch_indicator {
+    top: 5vh;
+    left: 5vh;
+    width: 22.5vh;
+    height: 22.5vh; } }
+#watch {
+  position: fixed;
+  z-index: 11;
   background-image: url(image/prop/watch.png);
   background-size: 100% 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
