@@ -146,7 +146,7 @@ var project_due = function() {
 
 function initUsefulThings() {
   var totalWidth = 35;
-  var columns = 6;
+  var columns = 5;
   var paddingRatio = 3;
   var unitWidth = totalWidth / (columns * paddingRatio + columns + 1);
 
@@ -190,7 +190,7 @@ var usefulThings = {
   }
   ],
 
-  misc: [
+  website: [
   {
     icon: "bbc.png",
     url: "http://www.bbc.co.uk/news"
@@ -202,16 +202,21 @@ var usefulThings = {
   {
     icon: "colour_picker.png",
     url: "http://www.w3schools.com/tags/ref_colorpicker.asp"
-  }
-  ],
-  college: [
-  {
-    icon: "cate.png",
-    url: "https://cate.doc.ic.ac.uk"
   },
   {
-    icon: "gitlab.png",
-    url: "https://gitlab.doc.ic.ac.uk/"
+    icon: "heart_internet.png",
+    url: "https://www.heartinternet.uk/login"
+  }
+  ],
+
+  coding: [
+  {
+    icon: "github.png",
+    url: "https://github.com/bonzo45"
+  },
+  {
+    icon: "linkedin.png",
+    url: "https://uk.linkedin.com/in/sam-esgate-b93b0468"
   }
   ]
 }
