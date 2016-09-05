@@ -240,6 +240,21 @@ function initDayNight() {
     setTime(timeAfter);
   });
   setTime(new Date(12 * 60 * 60 * 1000));
+
+  $("#watch").click(function(e) {
+    var parentOffset = $(this).offset(); 
+    var x = e.pageX - parentOffset.left;
+    var y = e.pageY - parentOffset.top;
+    
+    var xMax = $(this).width();
+    var yMax = $(this).height();
+
+    var theta = 90 + ((180 / Math.PI) * Math.atan2((y - (yMax / 2)), (x - (xMax / 2))));
+
+    console.log("Theta:" + theta);
+
+    $("#watch_indicator").css("transform", "rotate(" + theta + "deg)");
+  });
 }
 
 function setTime(newTime) {
