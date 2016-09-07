@@ -159,11 +159,34 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
   }
 
   /**
+    * Sets just the watch indicator to the angle given.
+    */
+  function setWatchIndicator(angle) {
+    $("#watch_indicator").css("transform", "rotate(" + angle + "deg)");
+  }
+
+  /**
     * Computes the rotation of the indicator for a given time.
     */
   function timeToIndicatorAngle(time) {
     var msFrom12 = Util.timeToMiddayNight(time, -1);
     return (msFrom12 / (12 * Const.HOUR_MS)) * 360;
+  }
+
+  function getWatchCoordinates(e, parentOffset, watchSize) {
+    // Get coordinate clicked within watch.
+    var x = e.pageX - parentOffset.left;
+    var y = e.pageY - parentOffset.top;
+    
+    // Compute coordinates of center of watch.
+    var center = watchSize / 2;
+
+    return {'x' : x - center, 'y' : y - center};
+  }
+
+  function getWatchDistance(coordinates, watchSize) {
+    var distanceFromCenter = Math.pow(Math.pow(coordinates.x, 2) + Math.pow(coordinates.y, 2), 0.5);
+    return distanceFromCenter / watchSize;
   }
 
   return {
@@ -178,29 +201,33 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
         setTime(timeAfter);
       });
 
-      $("#watch").click(function(e) {
-        // Get coordinate clicked within watch.
-        var parentOffset = $(this).offset(); 
-        var x = e.pageX - parentOffset.left;
-        var y = e.pageY - parentOffset.top;
-        
-        // Get size of watch.
+      $("#watch").mousedown(function(e) {
+        var parentOffset = $(this).offset();
         var watchSize = $(this).width();
-        
-        // Compute coordinates of center of watch.
-        var center = watchSize / 2;
-
-        // Rotate indicator if click is on rim.
-        var distanceFromCenter = Math.pow(Math.pow(x - center, 2) + Math.pow(y - center, 2), 0.5);
-        var normalisedDistance = distanceFromCenter / watchSize;
-        if (0.325 < normalisedDistance && normalisedDistance < 0.42) {
+        var coordinates = getWatchCoordinates(e, parentOffset, watchSize);
+        var normalisedDistance = getWatchDistance(coordinates, watchSize);
+        if (0.325 < normalisedDistance) {
+          $(this).mousemove(function(e) {        
+            var parentOffset = $(this).offset();
+            var watchSize = $(this).width();
+            var coordinates = getWatchCoordinates(e, parentOffset, watchSize);
+            //  Compute angle to rotate indicator.
+            var angle = 90 + ((180 / Math.PI) * Math.atan2((coordinates.y), (coordinates.x)));
+            setWatchIndicator(angle);
+          });
+        }
+      }).mouseup(function(e) {
+          var parentOffset = $(this).offset();
+          var watchSize = $(this).width();
+          var coordinates = getWatchCoordinates(e, parentOffset, watchSize);
+          var normalisedDistance = getWatchDistance(coordinates, watchSize);
           //  Compute angle to rotate indicator.
-          var angle = 90 + ((180 / Math.PI) * Math.atan2((y - center), (x - center)));
+          var angle = 90 + ((180 / Math.PI) * Math.atan2((coordinates.y), (coordinates.x)));
           var angleDifference = Util.difference180(angle, timeToIndicatorAngle(currentTime));
           var angleHours = 12 * (angleDifference / 360);
           var timeDifference = new Date(angleHours * Const.HOUR_MS);
           setTime(new Date(currentTime.getTime() + timeDifference.getTime()));
-        }
+        $(this).unbind('mousemove');
       });
 
       setTime(new Date());
