@@ -242,19 +242,48 @@ function initDayNight() {
   setTime(new Date(12 * 60 * 60 * 1000));
 
   $("#watch").click(function(e) {
+    // Get coordinate clicked within watch.
     var parentOffset = $(this).offset(); 
     var x = e.pageX - parentOffset.left;
     var y = e.pageY - parentOffset.top;
     
-    var xMax = $(this).width();
-    var yMax = $(this).height();
+    // Get size of watch.
+    var watchSize = $(this).width();
+    
+    // Compute coordinates of center of watch.
+    var center = watchSize / 2;
 
-    var theta = 90 + ((180 / Math.PI) * Math.atan2((y - (yMax / 2)), (x - (xMax / 2))));
+    // Rotate indicator if click is on rim.
+    var distanceFromCenter = Math.pow(Math.pow(x - center, 2) + Math.pow(y - center, 2), 0.5);
+    var normalisedDistance = distanceFromCenter / watchSize;
+    if (0.325 < normalisedDistance && normalisedDistance < 0.42) {
+      //  Compute angle to rotate indicator.
+      var angle = 90 + ((180 / Math.PI) * Math.atan2((y - center), (x - center)));
+      var angleDifference = difference180(angle, timeToIndicatorAngle(currentTime));
+      var angleHours = 12 * (angleDifference / 360);
+      var timeDifference = new Date(angleHours * 60 * 60 * 1000);
+      setTime(new Date(currentTime.getTime() + timeDifference.getTime()));
+    }
 
-    console.log("Theta:" + theta);
-
-    $("#watch_indicator").css("transform", "rotate(" + theta + "deg)");
+    console.log("Angle:" + angle + ", Distance: " + normalisedDistance);
   });
+}
+
+/**
+  * Given two angles between 0 and 360 degrees, returns the difference.
+  * This function wraps around (i.e. result is between -180 and 180).
+  */
+function difference180(newAngle, oldAngle) {
+  var absoluteDifference = newAngle - oldAngle;
+  if (absoluteDifference < -180) {
+    return absoluteDifference + 360;
+  }
+  else if (absoluteDifference > 180) {
+    return absoluteDifference - 360;
+  }
+  else {
+    return absoluteDifference;
+  }
 }
 
 function setTime(newTime) {
@@ -458,6 +487,12 @@ function timeFromMidday(time) {
 function setWatch(time) {
   $("#watch_time").html(padOneZero(time.getHours() + "") + ":" + padOneZero(time.getMinutes() + ""));
   $("#watch_date").html(padOneZero(time.getDate()));
+  $("#watch_indicator").css("transform", "rotate(" + timeToIndicatorAngle(time) + "deg)");
+}
+
+function timeToIndicatorAngle(time) {
+  var millisecondsSince12 = time.getTime() % (1000 * 60 * 60 * 12);
+  return (millisecondsSince12 / (12 * 60 * 60 * 1000)) * 360;
 }
 
 /**
