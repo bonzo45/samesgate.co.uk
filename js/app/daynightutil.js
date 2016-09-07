@@ -29,11 +29,11 @@ define(["app/constant"], function(Const) {
     },
 
     /**
-    * Returns the number of hours (going forwards if direction is +ve, going backwards if direction is -ve) to the nearest midday or midnight.
+    * Returns the number of ms (going forwards if direction is +ve, going backwards if direction is -ve) to the nearest midday or midnight.
     */
     timeToMiddayNight : function(time, direction) {
       var twelveHours = 12 * Const.HOUR_MS;
-      var differenceMidday = this.timeFromMidday(time);
+      var differenceMidday = this.msFromMidday(time);
       
       // If it's midnight, return 12.
       if (Math.abs(differenceMidday) == twelveHours) {
@@ -68,7 +68,7 @@ define(["app/constant"], function(Const) {
       * e.g. 10:30 returns -1.5.
       */
     hoursFromMidday : function(time) {
-      return this.timeFromMidday(time) / Const.HOUR_MS;
+      return this.msFromMidday(time) / Const.HOUR_MS;
     },
 
     /**
@@ -76,10 +76,15 @@ define(["app/constant"], function(Const) {
       * - Negative if before midday.
       * - Positive if past midday.
       */
-    timeFromMidday : function(time) {
+    msFromMidday : function(time) {
       var justTime = new Date(0, 0, 0, time.getHours(), time.getMinutes(), time.getSeconds(), time.getMilliseconds());
       var midday = new Date(0, 0, 0, 12, 0, 0, 0);
-      return justTime  - midday;
+      return justTime.getTime() - midday.getTime();
+    },
+
+    mostRecentMidnight : function(time) {
+      var midnight = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 0, 0, 0);
+      return midnight;
     }
   }
 })

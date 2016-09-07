@@ -2,8 +2,8 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
 
   // How dark is midnight?
   var maxOpacity = 0.7;
-  // What time is it now? (midnight)
-  var currentTime = new Date(0);
+  // What time is it now? (
+  var currentTime = Util.mostRecentMidnight(new Date());
   // How many degrees are the sun/moon rotated by now? (moon at top)
   var currentRotation = 0;
 
@@ -12,7 +12,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     */
   function setTime(newTime) {
     // If the time is the same as the current one, do nothing.
-    if (newTime.getTime() === currentTime.getTime()) {
+    if (newTime.getTime() == currentTime.getTime()) {
       return;
     }
 
@@ -145,9 +145,8 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     * Returns the number of degrees required to get from one time to another.
     */
   function timeToRotation(time1, time2) {
-    var maxRotation = 360;
-    var difference = time2 - time1;
-    return (difference / Const.DAY_MS) * maxRotation;
+    var difference = time2.getTime() - time1.getTime();
+    return (difference / Const.DAY_MS) * 360;
   }
 
   /**
@@ -163,25 +162,21 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     * Computes the rotation of the indicator for a given time.
     */
   function timeToIndicatorAngle(time) {
-    var millisecondsSince12 = time.getTime() % (12 * Const.HOUR_MS);
-    return (millisecondsSince12 / (12 * Const.HOUR_MS)) * 360;
+    var msFrom12 = Util.timeToMiddayNight(time, -1);
+    return (msFrom12 / (12 * Const.HOUR_MS)) * 360;
   }
 
   return {
     init: function() {
-      setTime(new Date(0));
-      setWatch(new Date(0));
       $("#watch_time_minus").click(function() {
-        var timeBefore = new Date(currentTime.getTime() - 60 * 60 * 1000);
+        var timeBefore = new Date(currentTime.getTime() - Const.HOUR_MS);
         setTime(timeBefore);
       });
 
       $("#watch_time_plus").click(function() {
-        var timeAfter = new Date(currentTime.getTime() + 60 * 60 * 1000);
+        var timeAfter = new Date(currentTime.getTime() + Const.HOUR_MS);
         setTime(timeAfter);
       });
-
-      setTime(new Date(12 * 60 * 60 * 1000));
 
       $("#watch").click(function(e) {
         // Get coordinate clicked within watch.
@@ -203,10 +198,12 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
           var angle = 90 + ((180 / Math.PI) * Math.atan2((y - center), (x - center)));
           var angleDifference = Util.difference180(angle, timeToIndicatorAngle(currentTime));
           var angleHours = 12 * (angleDifference / 360);
-          var timeDifference = new Date(angleHours * 60 * 60 * 1000);
+          var timeDifference = new Date(angleHours * Const.HOUR_MS);
           setTime(new Date(currentTime.getTime() + timeDifference.getTime()));
         }
       });
+
+      setTime(new Date());
     }
   }
 })
