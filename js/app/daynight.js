@@ -1,4 +1,4 @@
-define(["jquery"], function($) {
+define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) {
 
   // How dark is midnight?
   var maxOpacity = 0.7;
@@ -28,23 +28,6 @@ define(["jquery"], function($) {
   }
 
   /**
-  * Given two angles between 0 and 360 degrees, returns the difference.
-  * This function wraps around (i.e. result is between -180 and 180).
-  */
-  function difference180(newAngle, oldAngle) {
-    var absoluteDifference = newAngle - oldAngle;
-    if (absoluteDifference < -180) {
-      return absoluteDifference + 360;
-    }
-    else if (absoluteDifference > 180) {
-      return absoluteDifference - 360;
-    }
-    else {
-      return absoluteDifference;
-    }
-  }
-
-  /**
     * Returns a new Date within 48 hours of first, with the same time as second.
     *   i.e. brings second closer to first.
     */
@@ -70,7 +53,6 @@ define(["jquery"], function($) {
     * Works out how long the animation of changing time should take, given the time difference.
     */
   function computeTransitionTime(difference) {
-    // Default transition.
     // TODO: Make larger jumps in time take longer?
     return 1.25;
   }
@@ -82,7 +64,6 @@ define(["jquery"], function($) {
     // Light-Dark Cycle.
     // Calculate how light it should be.
     var targetOpacity = timeToOpacity(nextTime);
-    console.log("Time: " + nextTime + ", Opacity: " + targetOpacity);
 
     // Direction is 1 if the next time is in the future, -1 if in the past.
     var direction = (currentTime < nextTime) ? 1 : -1;
@@ -95,7 +76,7 @@ define(["jquery"], function($) {
     var tempTime = new Date(currentTime.getTime());
     while (timeToGo > 0) {
       // See how long until the next midday/midnight.
-      timeToNextMiddaynight = timeToMiddaynight(tempTime, direction);
+      timeToNextMiddaynight = Util.timeToMiddayNight(tempTime, direction);
       // If our time to go is less than this we have reached the last 'keyframe'.
       if (timeToGo <= timeToNextMiddaynight) {
         opacityKeyframes.push({
@@ -114,7 +95,6 @@ define(["jquery"], function($) {
         });
       }
     }
-    console.log(opacityKeyframes);
     animateOpacity(opacityKeyframes);
   }
 
@@ -150,7 +130,6 @@ define(["jquery"], function($) {
     // Calculate where the sun/moon are now.
     var rotation = timeToRotation(currentTime, nextTime);
     currentRotation += rotation;
-    console.log("Time: " + nextTime + ", Rotation: " + rotation);
     $("#sky_background_sun_moon_rotating").css("transition", "all " + transitionTime + "s");
     $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + currentRotation + "deg)");
   }
@@ -159,40 +138,7 @@ define(["jquery"], function($) {
     * Given the time returns the opacity for the darkness filters. High opacity means darker, low opacity means lighter.
     */
   function timeToOpacity(time) {
-    return (Math.abs(hoursFromMidday(time)) / 12) * maxOpacity;
-  }
-
-  /**
-    * Returns the number of hours (going forwards if direction is +ve, going backwards if direction is -ve) to the nearest midday or midnight.
-    */
-  function timeToMiddaynight(time, direction) {
-    var twelveHours = 12 * 60 * 60 * 1000;
-    var differenceMidday = timeFromMidday(time);
-    
-    // If it's midnight, return 12.
-    if (Math.abs(differenceMidday) == twelveHours) {
-      return twelveHours;
-    }
-    // If it's before (or exactly) midday and we're going backwards.
-    if (differenceMidday <= 0 && direction < 0) {
-      return twelveHours + differenceMidday;
-    }
-    // If it's before midday and we're going forwards.
-    else if (differenceMidday < 0 && direction > 0) {
-      return -differenceMidday;
-    }
-    // If it's after midday and we're going backwards.
-    else if (differenceMidday > 0 && direction < 0) {
-      return differenceMidday;
-    }
-    // If it's after (or exactly) midday and we're going forwards.
-    else if (differenceMidday >= 0 && direction > 0) {
-      return twelveHours - differenceMidday;
-    }
-    // Error case.
-    console.log("timeToMiddaynight cannot deal with the following parameters:");
-    console.log("time: " + time + ", direction: " + direction);
-    return -10000;
+    return (Math.abs(Util.hoursFromMidday(time)) / 12) * maxOpacity;
   }
 
   /**
@@ -201,58 +147,25 @@ define(["jquery"], function($) {
   function timeToRotation(time1, time2) {
     var maxRotation = 360;
     var difference = time2 - time1;
-    return (difference / (24 * 60 * 60 * 1000)) * maxRotation;
-  }
-
-  /**
-    * Returns the number of hours between the given time and midday.
-    * - Negative if before midday.
-    * - Positive if past midday.
-    * e.g. 10:30 returns -1.5.
-    */
-  function hoursFromMidday(time) {
-    // // 60 second version (for debugging)
-    // var seconds = time.getSeconds(); // 0 to 59
-    // return ((seconds - 30) / 30) * 12;
-
-    // 24 hour version (for release)
-    return ((timeFromMidday(time) / 1000) / 60) / 60;
-  }
-
-  /**
-    * Returns the time (in milliseconds) between the given time and midday.
-    * - Negative if before midday.
-    * - Positive if past midday.
-    */
-  function timeFromMidday(time) {
-    var justTime = new Date(0, 0, 0, time.getHours(), time.getMinutes(), time.getSeconds(), time.getMilliseconds());
-    var midday = new Date(0, 0, 0, 12, 0, 0, 0);
-    return justTime  - midday;
+    return (difference / Const.DAY_MS) * maxRotation;
   }
 
   /**
     * Sets the watch to the time given.
     */
   function setWatch(time) {
-    $("#watch_time").html(padOneZero(time.getHours() + "") + ":" + padOneZero(time.getMinutes() + ""));
-    $("#watch_date").html(padOneZero(time.getDate()));
+    $("#watch_time").html(Util.padTwoChars(time.getHours() + "") + ":" + Util.padTwoChars(time.getMinutes() + ""));
+    $("#watch_date").html(Util.padTwoChars(time.getDate()));
     $("#watch_indicator").css("transform", "rotate(" + timeToIndicatorAngle(time) + "deg)");
   }
 
-  function timeToIndicatorAngle(time) {
-    var millisecondsSince12 = time.getTime() % (1000 * 60 * 60 * 12);
-    return (millisecondsSince12 / (12 * 60 * 60 * 1000)) * 360;
-  }
-
   /**
-    * Given a number represented as a string, returns a version with at least two characters.
+    * Computes the rotation of the indicator for a given time.
     */
-  function padOneZero(numberString) {
-    while (numberString.length < 2) {
-      numberString = '0' + numberString;
-    }
-    return numberString;
-  }  
+  function timeToIndicatorAngle(time) {
+    var millisecondsSince12 = time.getTime() % (12 * Const.HOUR_MS);
+    return (millisecondsSince12 / (12 * Const.HOUR_MS)) * 360;
+  }
 
   return {
     init: function() {
@@ -288,13 +201,11 @@ define(["jquery"], function($) {
         if (0.325 < normalisedDistance && normalisedDistance < 0.42) {
           //  Compute angle to rotate indicator.
           var angle = 90 + ((180 / Math.PI) * Math.atan2((y - center), (x - center)));
-          var angleDifference = difference180(angle, timeToIndicatorAngle(currentTime));
+          var angleDifference = Util.difference180(angle, timeToIndicatorAngle(currentTime));
           var angleHours = 12 * (angleDifference / 360);
           var timeDifference = new Date(angleHours * 60 * 60 * 1000);
           setTime(new Date(currentTime.getTime() + timeDifference.getTime()));
         }
-
-        console.log("Angle:" + angle + ", Distance: " + normalisedDistance);
       });
     }
   }
