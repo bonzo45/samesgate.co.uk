@@ -217,16 +217,18 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
           });
         }
       }).mouseup(function(e) {
-          var parentOffset = $(this).offset();
-          var watchSize = $(this).width();
-          var coordinates = getWatchCoordinates(e, parentOffset, watchSize);
-          var normalisedDistance = getWatchDistance(coordinates, watchSize);
+        var parentOffset = $(this).offset();
+        var watchSize = $(this).width();
+        var coordinates = getWatchCoordinates(e, parentOffset, watchSize);
+        var normalisedDistance = getWatchDistance(coordinates, watchSize);
+        if (0.325 < normalisedDistance && normalisedDistance < 0.42) {
           //  Compute angle to rotate indicator.
           var angle = 90 + ((180 / Math.PI) * Math.atan2((coordinates.y), (coordinates.x)));
           var angleDifference = Util.difference180(angle, timeToIndicatorAngle(currentTime));
           var angleHours = 12 * (angleDifference / 360);
           var timeDifference = new Date(angleHours * Const.HOUR_MS);
           setTime(new Date(currentTime.getTime() + timeDifference.getTime()));
+        }
         $(this).unbind('mousemove');
       });
 
