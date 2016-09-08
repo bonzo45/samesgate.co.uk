@@ -1,0 +1,8 @@
+$texture_fish: $animation_path + "fish/"
+@mixin fish($id, $bottom, $time)
+  @include absolute_object_b($bottom, auto, 5%, 60% - $bottom, $layer_2)
+  @include animate(fish#{$id}, $time, linear, infinite)
+  background:
+    image: url(#{$texture_fish}/fish_#{$id}.gif)
+    size: 100% auto
+    repeat: no-repeat

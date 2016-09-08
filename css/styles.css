@@ -1063,17 +1063,91 @@ body {
   background-size: 100px 100px;
   opacity: 1; }
 
-#fish {
+#fish1 {
   position: absolute;
-  top: 35%;
-  left: 10%;
+  bottom: 5%;
+  left: auto;
   width: 5%;
-  height: 65%;
-  z-index: 1;
-  background-image: url(../image/texture/fish.png);
+  height: 55%;
+  z-index: 2;
+  -webkit-animation: fish1 25s linear 0s  infinite;
+  animation: fish1 25s linear 0s  infinite;
+  background-image: url(../image/animation/fish//fish_1.gif);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
+@-webkit-keyframes fish1 {
+  0% {
+    left: 10%;
+    transform: scaleX(1); }
+
+  12.5% {
+    left: 40%;
+    transform: scaleX(1); }
+
+  25% {
+    left: 70%;
+    transform: scaleX(1); }
+
+  37.5% {
+    left: 85%;
+    transform: scaleX(1); }
+
+  50% {
+    left: 90%;
+    transform: scaleX(-1); }
+
+  62.5% {
+    left: 70%;
+    transform: scaleX(-1); }
+
+  75% {
+    left: 40%;
+    transform: scaleX(-1); }
+
+  87.5% {
+    left: 15%;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 10%;
+    transform: scaleX(1); } }
+@keyframes fish1 {
+  0% {
+    left: 10%;
+    transform: scaleX(1); }
+
+  12.5% {
+    left: 40%;
+    transform: scaleX(1); }
+
+  25% {
+    left: 70%;
+    transform: scaleX(1); }
+
+  37.5% {
+    left: 85%;
+    transform: scaleX(1); }
+
+  50% {
+    left: 90%;
+    transform: scaleX(-1); }
+
+  62.5% {
+    left: 70%;
+    transform: scaleX(-1); }
+
+  75% {
+    left: 40%;
+    transform: scaleX(-1); }
+
+  87.5% {
+    left: 15%;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 10%;
+    transform: scaleX(1); } }
 #lake_tint {
   position: absolute;
   top: 20%;

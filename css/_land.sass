@@ -79,14 +79,16 @@ $texture_lake_size: 100px
     size: $texture_lake_size $texture_lake_size
   opacity: 1.0
 
-$texture_fish: $texture_path + "fish.png"
-$fish_top: 35%
-#fish
-  @include absolute_object($fish_top, 10%, 5%, 100% - $fish_top)
-  background:
-    image: url(#{$texture_fish})
-    size: 100% auto
-    repeat: no-repeat
+@import fishies
+
+// $texture_fish: $animation_path + "fish.gif"
+// $fish_top: 35%
+// #fish
+//   @include absolute_object($fish_top, 10%, 5%, 100% - $fish_top)
+//   background:
+//     image: url(#{$texture_fish})
+//     size: 100% auto
+//     repeat: no-repeat
 
 $texture_gradient: $texture_path + "gradient.png"
 
