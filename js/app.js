@@ -8,7 +8,8 @@ requirejs.config({
     //the paths config could be for a directory.
     paths: {
         app: '../app',
-        jquery: 'jquery.min'
+        jquery: 'jquery/jquery',
+        moment: 'moment/moment'
     }
 });
 

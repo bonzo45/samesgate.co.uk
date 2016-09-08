@@ -2,3 +2,4 @@
 *.db
 Thumbs.db
 styles.css.map
+bower_components

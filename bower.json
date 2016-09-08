@@ -1,0 +1,25 @@
+{
+  "name": "crazy-bonzo",
+  "description": "Website of Sam Esgate",
+  "main": "",
+  "authors": [
+    "Sam Esgate"
+  ],
+  "license": "None",
+  "homepage": "www.samesgate.co.uk",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "moment": "^2.14.1"
+  },
+  "install": {
+    "path": "js/lib"
+  }
+}
