@@ -1,0 +1,1060 @@
+<!doctype html>
+
+<html>
+
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+
+var STEAM_GAMES = 4;
+
+$(document).ready(function(){
+  $("#home").hide();
+  $("#work").hide();  
+  $("#home").fadeTo("slow", 1);
+  
+  // Toggle Home/Work
+  $("#sign_to_work").click(toggle_screens);
+  $("#poster").click(toggle_screens);
+  $("#sams_garage").click(toggle_garage);
+  $("#bunker_trapdoor").click(toggle_trapdoor);
+  $("#harmonica_image").click(toggle_harmonica);
+  
+  // Countdowns
+  update_timers();
+  setInterval(update_timers, 60000);
+  
+  // Steam
+  $.getJSON("steam.php", function(data) {
+    $.each(data.response.games, function(index, value) {
+      STEAM_GAMES--;
+      if (STEAM_GAMES > 0) {
+        $(".steam_image").last().after("<img class='steam_image' src='http://media.steampowered.com/steamcommunity/public/images/apps/" + value.appid + "/" + value.img_logo_url + ".jpg'></img>");
+      }
+    });
+  });
+})
+
+var toggle_screens = function() {
+  $("#main_black").fadeTo("slow", 0, function() {
+    $("#home").toggle(0);
+    $("#work").toggle(0, function() {
+      $("#main_black").fadeTo("slow", 1);
+    });  
+  });
+}
+
+var garage_open = false;
+
+var toggle_garage = function() {
+  if (garage_open) {    
+    $("#garage_door").addClass("garage_closed");
+    $("#garage_door").removeClass("garage_open");
+  }
+  else {
+    $("#garage_door").addClass("garage_open");
+    $("#garage_door").removeClass("garage_closed");
+  }
+  
+  garage_open = ! garage_open;
+}
+
+var harmonica_open = false;
+
+var toggle_harmonica = function() {
+  if (harmonica_open) {    
+    $("#harmonica_links").addClass("harmonica_closed");
+    $("#harmonica_links").removeClass("harmonica_open");
+  }
+  else {
+    $("#harmonica_links").addClass("harmonica_open");
+    $("#harmonica_links").removeClass("harmonica_closed");
+  }
+  
+  harmonica_open = ! harmonica_open;
+}
+
+var trapdoor_open = false;
+
+var toggle_trapdoor = function() {
+  if (trapdoor_open) {  
+    $("#bunker_trapdoor").addClass("trapdoor_closed");
+    $("#bunker_trapdoor").removeClass("trapdoor_open");
+  }
+  else {
+    $("#bunker_trapdoor").addClass("trapdoor_open");
+    $("#bunker_trapdoor").removeClass("trapdoor_closed");
+  }
+  trapdoor_open = ! trapdoor_open;  
+}
+
+var update_timers = function() {     
+  $("#got_days").empty();
+  $("#f1_days").empty();
+  $("#got_days").append("<h1>" + days_until(next_game_of_thrones()) + "</h1> Days");
+  $("#f1_days").append("<h1>" + days_until(next_f1()) + "</h1> Days");
+}
+
+var days_until = function(then) {
+  if (then == null) {
+    return "\u2639";
+  }
+  var now = new Date();
+  var diff_ms = then - now;
+  var diff_days = diff_ms / (1000 * 60 * 60 * 24);
+  return pad(Math.floor(diff_days));
+}
+
+var next_game_of_thrones = function() {
+  var next_date = new Date("04/07/2014 21:00");
+  var today = new Date();
+  
+  // Go through each of the episodes.
+  for (var i = 2; i <= 11; i++) {
+    if (today < next_date) {
+      return next_date;
+    }
+    
+    // Each episode is 7 days later
+    next_date.setDate(next_date.getDate() + 7);
+    // The eighth episode is delayed an extra week.
+    if (i == 8) {
+      next_date.setDate(next_date.getDate() + 7);
+    }
+  }  
+  return null;
+}
+
+var next_f1 = function() {
+  var f1_races = new Array();
+  f1_races[0] = new Date("03/16/2014");
+  f1_races[1] = new Date("03/30/2014");
+  f1_races[2] = new Date("04/06/2014");
+  f1_races[3] = new Date("04/20/2014");
+  f1_races[4] = new Date("05/11/2014");
+  f1_races[5] = new Date("05/25/2014");
+  f1_races[6] = new Date("06/08/2014");
+  f1_races[7] = new Date("06/22/2014");
+  f1_races[8] = new Date("07/06/2014");
+  f1_races[9] = new Date("07/20/2014");
+  f1_races[10] = new Date("07/27/2014");
+  f1_races[11] = new Date("08/24/2014");
+  f1_races[12] = new Date("09/07/2014");
+  f1_races[13] = new Date("09/21/2014");
+  f1_races[14] = new Date("10/05/2014");
+  f1_races[15] = new Date("10/12/2014");
+  f1_races[16] = new Date("11/02/2014");
+  f1_races[17] = new Date("11/09/2014");
+  f1_races[18] = new Date("11/23/2014");
+  
+  var today = new Date();
+  
+  for (var i = 0; i < f1_races.length; i++) {
+    if (today < f1_races[i]) {
+      return f1_races[i];
+    }
+  }
+  
+  return null;
+}
+
+var pad = function(number) {
+  var string = "" + number;
+  if (string.length == 1) {
+    return "0" + string;
+  }
+  
+  return string;
+}
+
+</script>
+
+  <head>
+    <title>crazy-bonzo</title>
+  </head>
+  
+  <body>
+    <div id="main">
+    <div id="main_black">      
+      <div id="home" class="main_inner">      
+        <div id="sky"></div>
+        <div id="mountain_central" class="central">
+          <div id="mountain">
+            <img style="width:350px;" src="images/mountain.png"></img>
+          </div>
+        </div>
+        <div id="upper_bank" class="bank">
+          <div id="upper_bank_central" class="central">
+            <div id="sams_sign">
+              <img class="clickable" style="width:150px;" src="images/sign.png"></img>
+            </div>
+            <div id="bike">
+              <img style="width:110px;" src="images/bike.png"></img>
+            </div>
+            <div id="tree">
+              <img style="width:200px;" src="images/big_tree.png"></img>
+            </div>
+            <div id="smoke1" class="smoke">
+              <img style="width:40px;" src="images/smoke.png"></img>
+            </div>
+            <div id="smoke2" class="smoke">
+              <img style="width:20px;" src="images/smoke.png"></img>
+            </div>
+            <div id="smoke3" class="smoke">
+              <img style="width:20px;" src="images/smoke.png"></img>
+            </div>
+            <div id="smoke4" class="smoke">
+              <img style="width:40px;" src="images/smoke.png"></img>
+            </div>
+            <div id="smoke5" class="smoke">
+              <img style="width:20px;" src="images/smoke.png"></img>
+            </div>
+            <div id="smoke6" class="smoke">
+              <img style="width:20px;" src="images/smoke.png"></img>
+            </div>
+            <div id="sams_house">
+              <img style="width:400px;" src="images/house.png"></img>
+            </div>
+            <div id="sams_garage">
+              <img class="clickable" style="width:300px;" src="images/garage.png"></img>
+            </div>            
+            <div id="garage_door">
+              <img style="height:100%; width: 100%;" src="images/garage_door.png"></img>
+            </div>
+          </div>
+        </div>
+        <div id="river"></div>        
+        <div id="lower_bank" class="bank">
+          <div id="lower_bank_central" class="central">
+          
+            <div id="nest_sign">
+              <img style="width:300px;" src="images/nest_sign.png"></img>
+            </div>
+            <div id="nest">
+              <div id="nest_inner">
+                <div id="nest_list">
+                  <a href="https://cate.doc.ic.ac.uk" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/cate.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="http://www.doc.ic.ac.uk/~ms6611/table/3" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/calendar.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="https://gitlab.doc.ic.ac.uk/" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/gitlab.png"></img></div></a><!--
+               --><div class="separator"></div><!--
+               --><a href="http://www.facebook.com/bonzo45" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/facebook.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="http://www.twitter.com/bonzo450" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/twitter.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="https://plus.google.com/u/0/+SamEsgate/" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/g+.png"></img></div></a><!--
+               --><div class="separator"></div><!--
+               --><a href="http://www.youtube.com/user/Bonzo450/videos" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/youtube.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="http://www.bbc.co.uk/news" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/bbc.png"></img></div></a><!--
+               --><div class="separator"></div><!--
+               --><a href="https://customer.heartinternet.co.uk/manage/manage.cgi/hosting" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/heart internet.png"></img></div></a><!--
+               --><div class="separator invisible"></div><!--
+               --><a href="http://www.w3schools.com/tags/ref_colorpicker.asp" target="_blank"><div class="nest_item"><img class="nest_thumb" src="images/icons/colour picker.png"></img></div></a><!--
+               --><div class="separator invisible"></div>
+                </div>
+                <div id="nest_grass"></div>
+              </div>
+            </div>
+            
+          </div>          
+        </div>
+        <div id="lawn">
+          <div id="lawn_central" class="central">
+            
+            <div id="bonzo_div">
+              <img id="bonzo" src="images/bonzo_transparent.png" style="height: 100%;" alt="Bonzo"><img>
+            </div>
+            <div id="got">
+              <a href="http://www.hbo.com/game-of-thrones" target="_blank"><img src="images/Game of Thrones.jpg" style="width:100%;"></img></a>
+              <div id="got_days"></div>
+            </div>
+            <div id="f1">
+              <a href="http://www.formula1.com/" target="_blank"><img src="images/Formula 1.png" style="width:100%;"></img></a>
+              <div id="f1_days"></div>
+            </div>
+            
+            <div id="harmonica">
+              <img id="harmonica_image" class="clickable" src="images/harmonica.png" style="width:100%;" alt="Harmonica"></img>
+              <div id="harmonica_links">
+                <div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=164" target="_blank"><img src="images/harp/freewheelin.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=95" target="_blank"><img src="images/harp/bringing.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=597" target="_blank"><img src="images/harp/jurassic.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16611" target="_blank"><img src="images/harp/lotr.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16804" target="_blank"><img src="images/harp/pirates.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=3500" target="_blank"><img src="images/harp/beyond.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=1299" target="_blank"><img src="images/harp/hallelujah.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=7104" target="_blank"><img src="images/harp/brother.jpg" style="width:100%;"></img></a>
+                </div><!--
+             --><div class="harp_tab">
+                  <a href="http://www.harptabs.com/song.php?ID=16166" target="_blank"><img src="images/harp/cheers.jpg" style="width:100%;"></img></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="lawn_edge"></div>
+        <div id="underground" class="central">
+          <div id="chamber">
+          
+            <div id="ladder"></div>
+            <canvas id="webGLDemo" class="clickable" onclick="webGLStart()">Click for WebGL</canvas>
+            <div id="todo">
+              <div id="todo_left">
+                <h1>// TODO:</h1>
+                <ul>
+                  <li>
+                    Get Exocet IVA Ready
+                    <hr>
+                    <a href="http://www.mevltd.co.uk/exocet_gallery.htm" target="_blank"><img style="width:180px; height:80px;" src="images/exocet.jpg"></img></a>
+                  </li>
+                  <li>
+                    Learn WebGL
+                    <hr>
+                    <a href="http://learningwebgl.com/blog/?page_id=1217" target="_blank"><img style="width:80px; height:80px;" src="images/earth.png"></img></a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div id="todo_right">                
+                <h1>Courses</h1>
+                <ul>
+                  <li>
+                    Graphics
+                    <hr>
+                    <a href="http://wwwhomes.doc.ic.ac.uk/~dr/index.php?n=Main.ComputerGraphics2014" target="_blank"><img style="width:180px; height:80px;" src="images/graphics.png"></img></a>
+                  </li>
+                  <li>
+                    Robotics
+                    <hr>
+                    <a href="http://www.doc.ic.ac.uk/~ajd/Robotics/index.html" target="_blank"><img style="width:180px; height:80px;" src="images/robotics.jpg"></img></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="bunker_floor1">
+            </div>
+            
+            <div id="bunker_floor2">
+            </div>
+            
+            <div id="bunker_trapdoor">
+              <div id="bunker_trapdoor_panel"></div>
+            </div>
+          </div>
+          <div id="bunker_under_floor">
+            <div id="steam_stats">
+              <img class="steam_image" src="images/steam_banner.png" alt="Steam Banner"></img>
+            </div>
+            
+            <div id="box1" class="crate">
+              <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
+                  <img class="box_icon" src="images/icons/steam.png">
+              </a>
+            </div>
+          
+            <div id="box2" class="crate">
+              <a href="http://open.spotify.com/user/bonzo45" target="_blank" alt="Spotify">
+                <img class="box_icon" src="images/icons/spotify.png">
+              </a>
+            </div>
+          </div>
+      </div>      
+      
+      <div id="work" class="main_inner">
+        <div id="bunker_left">
+          <div id="bunker_left_ceiling">
+          </div>
+          
+          <div id="bunker_left_tunnel">
+
+          </div>
+          
+          <div id="bunker_left_ground">
+          </div>
+        </div>
+
+        <div id="bunker_container">
+          <div id="bunker">
+            <div id="bunker_stairs">
+            </div>
+            
+            <div id="bunker_under_stairs">
+            </div>
+            
+            <div id="bunker_ceiling">
+              <img src="images/ceiling.png" alt="Ceiling" style="width:100%; height:100%;"></img>
+            </div>
+            
+
+          
+            <img id="poster" src="images/Game of Bonzo.jpg" alt="Game of Bonzo"></img>
+            
+            <a id="cv" href="files/Sam Esgate - CV.pdf"><img src="images/cv.png" alt="CV" style="width:100%; height:100%;"></img></a>
+            
+            <img id="monitors" src="images/monitors.png" alt="Monitors"></img>
+            
+            <img id="rspeaker" class="speaker" src="images/speaker.png" alt="Right Speaker"></img>
+            
+            <img id="lspeaker" class="speaker" src="images/speaker.png" alt="Left Speaker"></img>
+
+            <img id="desktop" src="images/desktop.png" alt="Desktop"></img>
+            
+            <img id="bench" src="images/bench.png" alt="Bench"></img>
+            
+            <div id="bunker_floor1">
+            </div>
+            
+            <div id="bunker_floor2">
+            </div>
+            
+            <div id="bunker_trapdoor">
+            </div>
+            
+            <div id="bunker_under_floor">
+            
+              <div id="steam_stats">
+                <img class="steam_image3" src="images/steam_banner.png" alt="Steam Banner"></img>
+              </div>
+              
+              <div id="box1">
+                <a href="http://steamcommunity.com/id/bonzo45" target="_target" alt="Steam">
+                  <div class="crate">
+                    <img class="box_icon" src="images/icons/steam.png">
+                  </div>
+                </a>
+              </div>
+            
+              <div id="box2">
+                <a href="http://open.spotify.com/user/bonzo45" target="_blank" alt="Spotify">
+                  <div class="crate">
+                    <img class="box_icon" src="images/icons/spotify.png">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="bunker_right">
+        </div>
+        
+      </div>
+    </div>
+    </div>  
+  </body>
+
+<!-- WEBGL NONSENSE -->
+<script type="text/javascript" src="lib/glMatrix-0.9.5.min.js"></script>
+<script type="text/javascript" src="lib/webgl-utils.js"></script>
+
+<!-- A fragment (or pixel) shader, used for interpolating and gradients. -->
+<script id="shader-fs" type="x-shader/x-fragment">
+  precision mediump float;
+
+  varying vec2 vTextureCoord;
+  varying vec3 vLightWeighting;
+
+  uniform sampler2D uSampler;
+
+  void main(void) {
+      vec4 textureColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
+      gl_FragColor = vec4(textureColor.rgb * vLightWeighting, textureColor.a);
+  }
+</script>
+
+<!-- A vertex shader, one that colours vertices (points). -->
+<script id="shader-vs" type="x-shader/x-vertex">
+  attribute vec3 aVertexPosition;
+  attribute vec3 aVertexNormal;
+  attribute vec2 aTextureCoord;
+
+  uniform mat4 uMVMatrix;
+  uniform mat4 uPMatrix;
+  uniform mat3 uNMatrix;
+
+  uniform vec3 uAmbientColor;
+
+  uniform vec3 uLightingPosition;
+  uniform vec3 uDirectionalColor;
+
+  varying vec2 vTextureCoord;
+  varying vec3 vLightWeighting;
+
+  void main(void) {
+    // Pass texture coordinate through to geometry shader.
+    vTextureCoord = aTextureCoord;
+    
+    // This is like the world position of the vertex.
+    vec4 mvPosition = uMVMatrix * vec4(aVertexPosition, 1.0);
+    // This is the screen position of the vertex.
+    gl_Position = uPMatrix * mvPosition;
+    
+    // This is the world position of the light.
+    vec4 lightPosition = uMVMatrix * vec4(uLightingPosition, 1.0);
+   
+    vec3 lightingDirection = normalize(lightPosition.xyz - mvPosition.xyz);
+    
+    vec3 transformedNormal = uNMatrix * aVertexNormal;
+    float directionalLightWeighting = max(dot(transformedNormal, lightingDirection), 0.0);
+    vLightWeighting = uAmbientColor + uDirectionalColor * directionalLightWeighting;
+  }
+</script>
+
+<script type="text/javascript">
+
+/* A magic object, created in initGL, that does all of the WebGL wizardry. */ 
+var gl;
+
+/* Initialisation Code*/
+function initGL(canvas) {
+    try {
+        gl = canvas.getContext("experimental-webgl");
+        gl.viewportWidth = canvas.width;
+        gl.viewportHeight = canvas.height;
+    }
+    catch (e) {
+      /* Apparently we're doing nothing if creating it fails... */
+    }
+    if (!gl) {
+        alert("Could not initialise WebGL, sorry :-(");
+    }
+}
+
+/* Resize the WebGL canvas */
+function updateCanvasSize(canvas) {
+  if (canvas.width != canvas.clientWidth || canvas.height != canvas.clientHeight) {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    gl.viewportWidth = canvas.width;
+    gl.viewportHeight = canvas.height;
+  }
+}
+
+/* Gets a shader? */
+function getShader(gl, id) {
+  var shaderScript = document.getElementById(id);
+  if (!shaderScript) {
+    return null;
+  }
+
+  var str = "";
+  var k = shaderScript.firstChild;
+  while (k) {
+    if (k.nodeType == 3) {
+      str += k.textContent;
+    }
+    k = k.nextSibling;
+  }
+
+  var shader;
+  if (shaderScript.type == "x-shader/x-fragment") {
+    shader = gl.createShader(gl.FRAGMENT_SHADER);
+  }
+  else if (shaderScript.type == "x-shader/x-vertex") {
+    shader = gl.createShader(gl.VERTEX_SHADER);
+  }
+  else {
+    return null;
+  }
+
+  gl.shaderSource(shader, str);
+  gl.compileShader(shader);
+
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    alert(gl.getShaderInfoLog(shader));
+    return null;
+  }
+
+  return shader;
+}
+
+/* An object, created in initShaders(), which is attached to both the fragment and vertex shader. */
+var shaderProgram;
+
+function initShaders() {
+  var fragmentShader = getShader(gl, "shader-fs");
+  var vertexShader = getShader(gl, "shader-vs");
+
+  shaderProgram = gl.createProgram();
+  gl.attachShader(shaderProgram, vertexShader);
+  gl.attachShader(shaderProgram, fragmentShader);
+  gl.linkProgram(shaderProgram);
+
+  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+    alert("Could not initialise shaders");
+  }
+
+  gl.useProgram(shaderProgram);
+
+  shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+  gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+
+  shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
+  gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
+
+  shaderProgram.vertexNormalAttribute = gl.getAttribLocation(shaderProgram, "aVertexNormal");
+  gl.enableVertexAttribArray(shaderProgram.vertexNormalAttribute);
+
+  shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
+  shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+  shaderProgram.nMatrixUniform = gl.getUniformLocation(shaderProgram, "uNMatrix");
+  shaderProgram.samplerUniform = gl.getUniformLocation(shaderProgram, "uSampler");
+  shaderProgram.useLightingUniform = gl.getUniformLocation(shaderProgram, "uUseLighting");
+  shaderProgram.ambientColorUniform = gl.getUniformLocation(shaderProgram, "uAmbientColor");
+  shaderProgram.lightingPositionUniform = gl.getUniformLocation(shaderProgram, "uLightingPosition");
+  shaderProgram.directionalColorUniform = gl.getUniformLocation(shaderProgram, "uDirectionalColor");
+}
+
+function handleLoadedTexture(texture) {
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture.image);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+  gl.generateMipmap(gl.TEXTURE_2D);
+
+  gl.bindTexture(gl.TEXTURE_2D, null);
+}
+
+var earthTexture;
+var moonTexture;
+
+function initTexture() {
+  earthTexture = gl.createTexture();
+  earthTexture.image = new Image();
+  earthTexture.image.onload = function () {
+    handleLoadedTexture(earthTexture)
+  }
+  earthTexture.image.src = "images/earth.gif";
+
+  moonTexture = gl.createTexture();
+  moonTexture.image = new Image();
+  moonTexture.image.onload = function () {
+    handleLoadedTexture(moonTexture)
+  }
+  moonTexture.image.src = "images/moon.gif";
+  
+}
+
+var mvMatrix = mat4.create();
+var mvMatrixStack = [];
+var pMatrix = mat4.create();
+
+function mvPushMatrix() {
+  var copy = mat4.create();
+  mat4.set(mvMatrix, copy);
+  mvMatrixStack.push(copy);
+}
+
+function mvPopMatrix() {
+  if (mvMatrixStack.length == 0) {
+    throw "Invalid popMatrix!";
+  }
+  mvMatrix = mvMatrixStack.pop();
+}
+
+function setMatrixUniforms() {
+  gl.uniformMatrix4fv(shaderProgram.pMatrixUniform, false, pMatrix);
+  gl.uniformMatrix4fv(shaderProgram.mvMatrixUniform, false, mvMatrix);
+
+  var normalMatrix = mat3.create();
+  mat4.toInverseMat3(mvMatrix, normalMatrix);
+  mat3.transpose(normalMatrix);
+  gl.uniformMatrix3fv(shaderProgram.nMatrixUniform, false, normalMatrix);
+}
+
+// Converts degrees to radians
+function degToRad(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+var mouseDown = 0;
+const LEFT_CLICK_MASK = 1;
+const MIDDLE_CLICK_MASK = 2;
+const RIGHT_CLICK_MASK = 4;
+var lastMouseX = null;
+var lastMouseY = null;
+
+var earthRotationMatrix = mat4.create();
+mat4.identity(earthRotationMatrix);
+
+var zTranslation = -15;
+var zRotation = 0;
+
+function handleMouseDown(event) {
+  switch (event.button) {
+    // LEFT CLICK
+    case 0:
+      mouseDown = mouseDown | LEFT_CLICK_MASK;
+      break;
+    // MIDDLE CLICK
+    case 1:
+      mouseDown = mouseDown | MIDDLE_CLICK_MASK;
+      break;
+    // RIGHT CLICK
+    case 2:
+      mouseDown = mouseDown | RIGHT_CLICK_MASK;
+      break;
+  }
+  
+  lastMouseX = event.clientX;
+  lastMouseY = event.clientY;
+}
+
+function handleMouseUp(event) {
+  switch (event.button) {
+    // LEFT CLICK
+    case 0:
+      mouseDown = mouseDown &! LEFT_CLICK_MASK;
+      break;
+    // MIDDLE CLICK
+    case 1:
+      mouseDown = mouseDown &! MIDDLE_CLICK_MASK;
+      break;
+    // RIGHT CLICK
+    case 2:
+      mouseDown = mouseDown &! RIGHT_CLICK_MASK;
+      break;
+  }
+}
+
+function handleMouseMove(event) {
+
+    
+  var newX = event.clientX;
+  var newY = event.clientY;
+  
+  if ((mouseDown & LEFT_CLICK_MASK) != 0) {
+    var deltaX = newX - lastMouseX;
+    zTranslation += 10 * deltaX / gl.viewportWidth;
+  }
+  
+  if ((mouseDown & MIDDLE_CLICK_MASK) != 0) {
+    var deltaY = newY - lastMouseY;
+    zRotation += 2 * Math.PI * deltaY / gl.viewportHeight;
+  }
+
+  lastMouseX = newX
+  lastMouseY = newY;
+}
+
+var earthVertexPositionBuffer;
+var earthVertexNormalBuffer;
+var earthVertexTextureCoordBuffer;
+var earthVertexIndexBuffer;
+
+var moonVertexPositionBuffer;
+var moonVertexNormalBuffer;
+var moonVertexTextureCoordBuffer;
+var moonVertexIndexBuffer;
+
+function initBuffers() {
+  var latitudeBands = 30;
+  var longitudeBands = 30;
+  var moonRadius = 1;
+  var earthRadius = 2;
+
+  /* Earth Vertices, Normal and Texture Coordinate Data */
+  var earthVertexPositionData = [];
+  var earthNormalData = [];
+  var earthTextureCoordData = [];
+
+  /* Moon Vertices, Normal and Texture Coordinate Data */
+  var moonVertexPositionData = [];
+  var moonNormalData = [];
+  var moonTextureCoordData = [];
+  
+  for (var latNumber=0; latNumber <= latitudeBands; latNumber++) {
+    var theta = latNumber * Math.PI / latitudeBands;
+    var sinTheta = Math.sin(theta);
+    var cosTheta = Math.cos(theta);
+
+    for (var longNumber=0; longNumber <= longitudeBands; longNumber++) {
+      var phi = longNumber * 2 * Math.PI / longitudeBands;
+      var sinPhi = Math.sin(phi);
+      var cosPhi = Math.cos(phi);
+
+      var x = cosPhi * sinTheta;
+      var y = cosTheta;
+      var z = sinPhi * sinTheta;
+      var u = 1 - (longNumber / longitudeBands);
+      var v = 1 - (latNumber / latitudeBands);
+
+      /* Use calculations to create Earth */
+      earthNormalData.push(x);
+      earthNormalData.push(y);
+      earthNormalData.push(z);
+      earthTextureCoordData.push(u);
+      earthTextureCoordData.push(v);
+      earthVertexPositionData.push(earthRadius * x);
+      earthVertexPositionData.push(earthRadius * y);
+      earthVertexPositionData.push(earthRadius * z);
+      
+      /* Use calculations to create Moon */
+      moonNormalData.push(x);
+      moonNormalData.push(y);
+      moonNormalData.push(z);
+      moonTextureCoordData.push(u);
+      moonTextureCoordData.push(v);
+      moonVertexPositionData.push(moonRadius * x);
+      moonVertexPositionData.push(moonRadius * y);
+      moonVertexPositionData.push(moonRadius * z);
+    }
+  }
+
+  var indexData = [];
+  for (var latNumber=0; latNumber < latitudeBands; latNumber++) {
+    for (var longNumber=0; longNumber < longitudeBands; longNumber++) {
+      var first = (latNumber * (longitudeBands + 1)) + longNumber;
+      var second = first + longitudeBands + 1;
+      indexData.push(first);
+      indexData.push(second);
+      indexData.push(first + 1);
+
+      indexData.push(second);
+      indexData.push(second + 1);
+      indexData.push(first + 1);
+    }
+  }
+
+  /* Create Earth Buffers */
+  earthVertexNormalBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexNormalBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(earthNormalData), gl.STATIC_DRAW);
+  earthVertexNormalBuffer.itemSize = 3;
+  earthVertexNormalBuffer.numItems = earthNormalData.length / 3;
+
+  earthVertexTextureCoordBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexTextureCoordBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(earthTextureCoordData), gl.STATIC_DRAW);
+  earthVertexTextureCoordBuffer.itemSize = 2;
+  earthVertexTextureCoordBuffer.numItems = earthTextureCoordData.length / 2;
+
+  earthVertexPositionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexPositionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(earthVertexPositionData), gl.STATIC_DRAW);
+  earthVertexPositionBuffer.itemSize = 3;
+  earthVertexPositionBuffer.numItems = earthVertexPositionData.length / 3;
+
+  earthVertexIndexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, earthVertexIndexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexData), gl.STATIC_DRAW);
+  earthVertexIndexBuffer.itemSize = 1;
+  earthVertexIndexBuffer.numItems = indexData.length;
+  
+  /* Create Moon Buffers */
+  moonVertexNormalBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexNormalBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(moonNormalData), gl.STATIC_DRAW);
+  moonVertexNormalBuffer.itemSize = 3;
+  moonVertexNormalBuffer.numItems = moonNormalData.length / 3;
+
+  moonVertexTextureCoordBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexTextureCoordBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(moonTextureCoordData), gl.STATIC_DRAW);
+  moonVertexTextureCoordBuffer.itemSize = 2;
+  moonVertexTextureCoordBuffer.numItems = moonTextureCoordData.length / 2;
+
+  moonVertexPositionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexPositionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(moonVertexPositionData), gl.STATIC_DRAW);
+  moonVertexPositionBuffer.itemSize = 3;
+  moonVertexPositionBuffer.numItems = moonVertexPositionData.length / 3;
+
+  moonVertexIndexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, moonVertexIndexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indexData), gl.STATIC_DRAW);
+  moonVertexIndexBuffer.itemSize = 1;
+  moonVertexIndexBuffer.numItems = indexData.length;
+}
+
+var rotation = 0;
+var lastTime = 0;
+
+moonX = 4;
+moonY = 0;
+moonZ = 0;
+moonAngle = 0.0;
+
+function drawScene() {
+  // Bodge to fix the fullscreen problem.
+  updateCanvasSize(canvas);
+
+  gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  mat4.perspective(45, gl.viewportWidth / gl.viewportHeight, 0.1, 100.0, pMatrix);
+ 
+  /* SHADERS -- LIGHTING -- SHADERS */
+  // Ambient Colour
+  gl.uniform3f(
+    shaderProgram.ambientColorUniform,
+    0.2,
+    0.2,
+    0.2
+  );
+
+  // Direction of Light
+  var lightingPosition = [
+    moonX,
+    moonY,
+    moonZ
+  ];
+  gl.uniform3fv(
+    shaderProgram.lightingPositionUniform,
+    lightingPosition
+  );
+
+  // Directional Colour
+  gl.uniform3f(
+    shaderProgram.directionalColorUniform,
+    0.8,
+    0.8,
+    0.8
+  );
+
+  // Reset the position.
+  mat4.identity(mvMatrix);
+      
+  // Move Model further away
+  mat4.translate(mvMatrix, [0, 0, zTranslation]);
+  
+  // Rotate Model
+  mat4.rotate(mvMatrix, zRotation, [0, 0, 1]);
+  
+  // Go to Earth
+  drawEarth();
+  
+  // Go to the Moon
+  drawMoon();
+}
+
+function drawEarth() {
+  // Save Earth
+  mvPushMatrix();
+
+  // Rotate Earth
+  // mat4.rotate(mvMatrix, degToRad(rotation), [0, 1, 0]);
+
+  // Set the earth texture.
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, earthTexture);
+  gl.uniform1i(shaderProgram.samplerUniform, 0);
+
+  // Draw the Earth
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexPositionBuffer);
+  gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, earthVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexTextureCoordBuffer);
+  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, earthVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, earthVertexNormalBuffer);
+  gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, earthVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, earthVertexIndexBuffer);
+  setMatrixUniforms();
+  gl.drawElements(gl.TRIANGLES, earthVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+  
+  // Restore Earth
+  mvPopMatrix();
+}
+
+function drawMoon() {
+  mvPushMatrix();
+  
+  mat4.translate(mvMatrix, [moonX, moonY, moonZ]);
+  // Rotate the Moon
+  // mat4.rotate(mvMatrix, degToRad(-rotation), [0, 1, 0]);
+  
+  // Set the moon texture.
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, moonTexture);
+  gl.uniform1i(shaderProgram.samplerUniform, 0);
+  
+  // Draw the Moon
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexPositionBuffer);
+  gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, moonVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexTextureCoordBuffer);
+  gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, moonVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, moonVertexNormalBuffer);
+  gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute, moonVertexNormalBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, moonVertexIndexBuffer);
+  setMatrixUniforms();
+  gl.drawElements(gl.TRIANGLES, earthVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+  
+  mvPopMatrix();
+}
+
+function tick() {
+  requestAnimFrame(tick);
+  drawScene();
+  animate();
+}
+
+function animate() {
+  rotation += 1;       
+  var timeNow = new Date().getTime();
+  if (lastTime != 0) {
+    // Rotation of Earth and Moon
+    var elapsed = timeNow - lastTime;
+    rotation += (22.5 * elapsed) / 1000.0;
+
+    // Rotation of Earth around Moon
+    // Approximating the distance travelled to a straight line, not curved.
+    var speedOfMoon = 2;
+    var distanceToMoon = 4;
+    var distanceTravelled = elapsed * speedOfMoon / 1000;
+    var angleDelta = Math.asin(distanceTravelled/distanceToMoon);
+    moonAngle += angleDelta;
+    moonAngle = moonAngle % (2 * Math.PI);
+    moonX = distanceToMoon * Math.cos(moonAngle);
+    moonY = moonY; 
+    moonZ = distanceToMoon * Math.sin(moonAngle);
+  }
+  lastTime = timeNow;
+}
+
+var canvas;
+
+function webGLStart() {
+  canvas = document.getElementById("webGLDemo");
+  initGL(canvas);
+  initShaders();
+  initBuffers();
+  initTexture();
+
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.enable(gl.DEPTH_TEST);
+
+  canvas.onmousedown = handleMouseDown;
+  document.onmouseup = handleMouseUp;
+  document.onmousemove = handleMouseMove;
+
+  tick();
+}
+
+</script>
+
+</html>
