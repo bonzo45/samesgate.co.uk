@@ -1,9 +1,9 @@
-define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) {
+define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Moment, Util, Const) {
 
   // How dark is midnight?
   var maxOpacity = 0.7;
   // What time is it now? (
-  var currentTime = Util.mostRecentMidnight(new Date());
+  var currentTime = Moment().startOf('day');
   // How many degrees are the sun/moon rotated by now? (moon at top)
   var currentRotation = 0;
 
@@ -12,7 +12,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     */
   function setTime(newTime) {
     // If the time is the same as the current one, do nothing.
-    if (newTime.getTime() == currentTime.getTime()) {
+    if (newTime.isSame(currentTime)) {
       return;
     }
 
@@ -28,31 +28,26 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
   }
 
   /**
-    * Returns a new Date within 48 hours of first, with the same time as second.
+    * Returns a new Moment within 48 hours of first, with the same time as second.
     *   i.e. brings second closer to first.
     */
   function clipTime(first, second) {
-    var twentyFourHours = new Date(1970, 0, 2, 0, 0, 0, 0); // (y, m, d, h, m, s, ms) 
-    var fortyEightHours = new Date(1970, 0, 3, 0, 0, 0, 0);
-    var difference = new Date((first < second) ? second - first : first - second);
-
-    // If the difference is less than or equal to 48 hours then return second.
-    if (difference <= fortyEightHours) {
+    var lowerLimit = Moment(first).subtract(2, 'days');
+    var upperLimit = Moment(first).add(2, 'days');
+    if (second.isBetween(lowerLimit, upperLimit))
       return second;
-    }
-    // Otherwise mod the difference by 24 hours and add/subtract that to first.
-    else {
-      var clippedDifference = new Date(difference.getTime() % twentyFourHours.getTime());
-      return new Date((first < second) 
-        ? fortyEightHours.getTime() + first.getTime() + clippedDifference.getTime()
-        : fortyEightHours.getTime() + (first - clippedDifference));
-    }
+
+    if (second.isBefore(first))
+      return Moment(second).add(Math.ceil(lowerLimit.diff(second, 'hours') / 24), 'days');
+
+    else
+      return Moment(second).remove(Math.ceil(second.diff(upperLimit, 'hours') / 24), 'days');
   }
 
   /**
     * Works out how long the animation of changing time should take, given the time difference.
     */
-  function computeTransitionTime(difference) {
+  function computeTransitionTime(duration) {
     // TODO: Make larger jumps in time take longer?
     return 1.25;
   }
@@ -66,14 +61,14 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     var targetOpacity = timeToOpacity(nextTime);
 
     // Direction is 1 if the next time is in the future, -1 if in the past.
-    var direction = (currentTime < nextTime) ? 1 : -1;
+    var direction = (currentTime.isBefore(nextTime)) ? 1 : -1;
 
     // Work from the current time, to the next time, working out darkness 'keyframes'.
     // Keyframes for animating opacity.
     var opacityKeyframes = [];
-    var totalTimeToGo = Math.abs(nextTime - currentTime);
-    var timeToGo = Math.abs(nextTime - currentTime);
-    var tempTime = new Date(currentTime.getTime());
+    var totalTimeToGo = Math.abs(nextTime.diff(currentTime));
+    var timeToGo = Math.abs(nextTime.diff(currentTime));
+    var tempTime = Moment(currentTime);
     while (timeToGo > 0) {
       // See how long until the next midday/midnight.
       timeToNextMiddaynight = Util.timeToMiddayNight(tempTime, direction);
@@ -83,18 +78,20 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
           "opacity": targetOpacity,
           "duration": (timeToGo / totalTimeToGo) * transitionTime
         });
-        timeToGo = 0;
+        timeToGo = Moment.duration(0);
       }
       // If not then this midday/midnight is our next keyframe, then we continue.
       else {
         timeToGo -= timeToNextMiddaynight;
-        tempTime = new Date(tempTime.getTime() + (direction * timeToNextMiddaynight));
+        tempTime = (direction == 1) ? Moment(tempTime).add(timeToNextMiddaynight) : Moment(tempTime).subtract(timeToNextMiddaynight);
+          //new Date(tempTime.getTime() + (direction * timeToNextMiddaynight));
         opacityKeyframes.push({
-          "opacity": tempTime.getHours() == 12 ? 0.0 : maxOpacity,
+          "opacity": tempTime.hours() == 12 ? 0.0 : maxOpacity,
           "duration": (timeToNextMiddaynight / totalTimeToGo) * transitionTime
         });
       }
     }
+
     animateOpacity(opacityKeyframes);
   }
 
@@ -145,7 +142,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     * Returns the number of degrees required to get from one time to another.
     */
   function timeToRotation(time1, time2) {
-    var difference = time2.getTime() - time1.getTime();
+    var difference = time2.diff(time1, 'milliseconds');
     return (difference / Const.DAY_MS) * 360;
   }
 
@@ -153,8 +150,8 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     * Sets the watch to the time given.
     */
   function setWatch(time) {
-    $("#watch_time").html(Util.padTwoChars(time.getHours() + "") + ":" + Util.padTwoChars(time.getMinutes() + ""));
-    $("#watch_date").html(Util.padTwoChars(time.getDate()));
+    $("#watch_time").html(time.format("HH:mm"));
+    $("#watch_date").html(time.format("D"));
     $("#watch_indicator").css("transform", "rotate(" + timeToIndicatorAngle(time) + "deg)");
   }
 
@@ -187,7 +184,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
     return {
       'x' : x - center,
       'y' : y - center,
-      'distance' : Math.pow(Math.pow(x - center, 2) + Math.pow(y - center, 2), 0.5)
+      'distance' : Math.pow(Math.pow(x - center, 2) + Math.pow(y - center, 2), 0.5) / watchSize
     };
   }
 
@@ -198,8 +195,8 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
   function getNearbyTime(currentTime, newAngle) {
     var currentAngle = timeToIndicatorAngle(currentTime);
     var angleDifference = Util.difference180(newAngle, currentAngle);
-    var timeDifference = new Date(degreesToMs(angleDifference));
-    return new Date(currentTime.getTime() + timeDifference.getTime());
+    var timeDifference = Moment.duration(degreesToMs(angleDifference));
+    return Moment(currentTime).add(timeDifference);
   }
 
   function degreesToMs(theta) {
@@ -209,13 +206,11 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
   return {
     init: function() {
       $("#watch_time_minus").click(function() {
-        var timeBefore = new Date(currentTime.getTime() - Const.HOUR_MS);
-        setTime(timeBefore);
+        setTime(Moment(currentTime).subtract(1, 'hour'));
       });
 
       $("#watch_time_plus").click(function() {
-        var timeAfter = new Date(currentTime.getTime() + Const.HOUR_MS);
-        setTime(timeAfter);
+        setTime(Moment(currentTime).add(1, 'hour'));
       });
 
       // Holds the time of the last click/drag event.
@@ -223,7 +218,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
 
       $("#watch").mousedown(function(e) {
         var coordinates = getWatchCoordinates(e, $(this));
-        mousedownTime = currentTime;
+        mousedownTime = Moment(currentTime);
         if (0.325 < coordinates.distance) {
           $(this).mousemove(function(e) {
             var coordinates = getWatchCoordinates(e, $(this));
@@ -240,7 +235,7 @@ define(["jquery", "app/daynightutil", "app/constant"], function($, Util, Const) 
         $(this).unbind('mousemove');
       });
 
-      setTime(new Date());
+      setTime(Moment());
     }
   }
 })

@@ -1,4 +1,4 @@
-define(["app/constant"], function(Const) {
+define(["moment", "app/constant"], function(Moment, Const) {
   
   return {
     /**
@@ -77,14 +77,12 @@ define(["app/constant"], function(Const) {
       * - Positive if past midday.
       */
     msFromMidday : function(time) {
-      var justTime = new Date(0, 0, 0, time.getHours(), time.getMinutes(), time.getSeconds(), time.getMilliseconds());
-      var midday = new Date(0, 0, 0, 12, 0, 0, 0);
-      return justTime.getTime() - midday.getTime();
+      var midday = Moment(time).hour(12).minute(0).second(0).millisecond(0);
+      return time.diff(midday);
     },
 
     mostRecentMidnight : function(time) {
-      var midnight = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 0, 0, 0);
-      return midnight;
+      return Moment(time).startOf('day');
     }
   }
 })
