@@ -1,0 +1,72 @@
+#sky_foreground
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_2
+  overflow: hidden
+  pointer-events: none
+
+#sky_center
+  pointer-events: none
+  z-index: $layer_3
+
+$lighthouse_width: 25%
+$texture_lighthouse: $prop_path + "lighthouse.png"
+$texture_lighthouse_mask: $prop_path + "lighthousemask.png"
+
+#lighthouse
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_4)
+  background:
+    image: url(#{$texture_lighthouse})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
+#lighthouse_mask
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_5)
+  background:
+    image: url(#{$texture_lighthouse_mask})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
+/* ---- Exocet ---- */
+$exocet_size: 12.5%
+$texture_exocet: $animation_path + "exocet.gif"
+
+#exocet_wrapper
+  @include absolute_object_b(0px, 0px, $exocet_size, $exocet_size, $layer_3)
+  transform: translateX(100%)
+
+#exocet
+  position: absolute
+  width: 100%
+  height: 100%
+  transform: scaleX(-1)
+  background:
+    image: url(#{$texture_exocet})
+    size: 100% auto
+    repeat: no-repeat
+    position: bottom
+
+/* ---- Clock ---- */
+$clock_height: 300px
+$clock_width: $clock_height / 2
+$clock_top: 0px
+$clock_left: 0px
+$texture_clock: $texture_path + "clock.png"
+
+#clock
+  @include absolute_object($clock_top, $clock_left, $clock_width, $clock_height)
+  background:
+    image: url(#{$texture_clock})
+    size: $clock_width $clock_height
+  @include animate(clockSwing, 4s, ease-out, infinite)
+
+@include generateKeyframes(clockSwing,(transform, -webkit-transform), ((rotate(-1deg), rotate(-1deg)), (rotate(1deg), rotate(1deg)), (rotate(-1deg), rotate(-1deg))), false)
+
+/* ---- Armco ---- */
+$armco_height: 25px
+$texture_armco: $texture_path + "armco.png"
+$texture_armco_height: 100%
+$texture_armco_width: 425px

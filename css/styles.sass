@@ -1,0 +1,38 @@
+/* ------------------------------------------------------------------- */
+/* -------------------------- Control Panel -------------------------- */
+/* ------------------------------------------------------------------- */
+$image_path: "../image/"
+$texture_path: $image_path + "texture/"
+$filter_path: $image_path + "filter/"
+$prop_path: $image_path + "prop/"
+$animation_path: $image_path + "animation/"
+
+$sky_height_multiplier: 0.7
+$land_height_multiplier: 1 - $sky_height_multiplier
+
+$font_default_colour: #DCDCDC
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Util ------------------------------ */
+/* ------------------------------------------------------------------- */
+
+@import layers
+@import util
+@import animation
+
+@import watch
+@import overlay
+@import useful
+@import daynight
+@import countdown
+
+body
+  margin: 0px 0px 0px 0px
+  color: $font_default_colour
+  background:
+    color: black
+  font:
+    family: helvetica
+  
+@import sky
+@import land

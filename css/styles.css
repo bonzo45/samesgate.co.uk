@@ -1,0 +1,1084 @@
+/* ------------------------------------------------------------------- */
+/* -------------------------- Control Panel -------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Util ------------------------------ */
+/* ------------------------------------------------------------------- */
+/* ---- Positioning ---- */
+.centerer {
+  position: relative;
+  margin: 0 auto;
+  height: 100%; }
+  @media (orientation: portrait) {
+    .centerer {
+      width: 100vw; } }
+  @media (orientation: landscape) {
+    .centerer {
+      width: 100vh; } }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer; }
+
+#watch_indicator {
+  position: fixed;
+  z-index: 10;
+  background-image: url(../image/prop/watch_indicator.png);
+  background-size: 100% 100%; }
+
+@media (orientation: portrait) {
+  #watch_indicator {
+    top: 5vw;
+    left: 5vw;
+    width: 22.5vw;
+    height: 22.5vw; } }
+@media (orientation: landscape) {
+  #watch_indicator {
+    top: 5vh;
+    left: 5vh;
+    width: 22.5vh;
+    height: 22.5vh; } }
+#watch {
+  position: fixed;
+  z-index: 11;
+  background-image: url(../image/prop/watch.png);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  @media (orientation: portrait) {
+    #watch {
+      top: 5vw;
+      left: 5vw;
+      width: 22.5vw;
+      height: 22.5vw;
+      font-size: 22.5vw; } }
+  @media (orientation: landscape) {
+    #watch {
+      top: 5vh;
+      left: 5vh;
+      width: 22.5vh;
+      height: 22.5vh;
+      font-size: 22.5vh; } }
+
+.watch_bar {
+  width: 63%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+#watch_time_bar {
+  height: 25%; }
+
+#watch_date_bar {
+  height: 20%; }
+
+#watch_name {
+  height: 20%;
+  line-height: 100%;
+  margin: 0 auto;
+  font-size: 5%; }
+
+.watch_time_symbol {
+  width: 15%;
+  font-size: 5%;
+  text-align: center; }
+
+#watch_time {
+  width: 70%;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15%;
+  padding-bottom: 2%; }
+
+#watch_date {
+  width: 14%;
+  font-size: 5%;
+  text-align: center;
+  margin-bottom: 5%; }
+
+.watch_control_symbol {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 18%;
+  height: 58%;
+  background-color: #444444;
+  border-radius: 50%;
+  font-size: 5%;
+  margin-bottom: 6%; }
+
+#old_site {
+  position: absolute;
+  width: 15vmin;
+  height: auto;
+  top: 0%;
+  right: 2.5%;
+  padding: 1vmin;
+  background-color: #009999;
+  font-size: 2vmin;
+  text-align: center;
+  text-decoration: none;
+  z-index: 6;
+  color: white; }
+
+#sidebar {
+  position: fixed;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  background-color: white;
+  z-index: 2;
+  opacity: 0.5; }
+
+.sidebar_closed {
+  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  animation: closeSidebar 200ms ease-out 0s 1 forwards;
+  width: 100px !important; }
+
+.sidebar_open {
+  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
+  animation: openSidebar 200ms ease-out 0s 1 forwards;
+  width: 0px !important; }
+
+@-webkit-keyframes closeSidebar {
+  0% {
+    width: 100px; }
+
+  100% {
+    width: 0px; } }
+@keyframes closeSidebar {
+  0% {
+    width: 100px; }
+
+  100% {
+    width: 0px; } }
+@-webkit-keyframes openSidebar {
+  0% {
+    width: 0px; }
+
+  100% {
+    width: 100px; } }
+@keyframes openSidebar {
+  0% {
+    width: 0px; }
+
+  100% {
+    width: 100px; } }
+#tab {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 50px;
+  left: -50px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 20pt; }
+
+#tab_icon {
+  line-height: 50px; }
+
+#sidebar_content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 5px; }
+
+/* ---- Sam Esgate ---- */
+#samesgate {
+  position: absolute;
+  width: 35vmin;
+  height: auto;
+  right: 5%;
+  bottom: 60%;
+  font-family: helvetica;
+  font-size: 5vmin;
+  line-height: 7.5vmin;
+  text-align: center;
+  border-bottom: 0.5vmin solid gainsboro;
+  color: gainsboro;
+  z-index: 6; }
+
+#bonzos_useful_things {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  right: 5%;
+  top: 40%;
+  background-color: #2d2222;
+  border-radius: 0px 0px 5px 5px;
+  z-index: 6; }
+
+.useful_icon {
+  width: 10vmin;
+  height: 10vmin; }
+
+.mask {
+  pointer-events: none; }
+
+.countdown_hide {
+  -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
+  animation: counterHide 0.3s ease-out 0s 1 forwards;
+  top: 0px !important;
+  margin-bottom: 0px !important; }
+
+.countdown_show {
+  -webkit-animation: counterShow 0.3s ease-out 0s 1 forwards;
+  animation: counterShow 0.3s ease-out 0s 1 forwards;
+  top: -75px !important;
+  margin-bottom: -75px !important; }
+
+@-webkit-keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -75px;
+    margin-bottom: -75px; } }
+@keyframes counterHide {
+  0% {
+    top: 0px;
+    margin-bottom: 0px; }
+
+  100% {
+    top: -75px;
+    margin-bottom: -75px; } }
+@-webkit-keyframes counterShow {
+  0% {
+    top: -75px;
+    margin-bottom: -75px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }
+@keyframes counterShow {
+  0% {
+    top: -75px;
+    margin-bottom: -75px; }
+
+  100% {
+    top: 0px;
+    margin-bottom: 0px; } }
+#got {
+  position: absolute;
+  top: 10px;
+  left: 650px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#got_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/got.jpeg);
+  background-size: 100% 100%; }
+
+#got_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#f1 {
+  position: absolute;
+  top: 10px;
+  left: 750px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#f1_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/f1.jpeg);
+  background-size: 100% 100%; }
+
+#f1_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+#project {
+  position: absolute;
+  top: 10px;
+  left: 850px;
+  width: 75px;
+  height: 75px;
+  z-index: 2;
+  overflow: hidden; }
+
+#project_cover {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+  height: 75px;
+  background-image: url(image/countdown/imperial.jpeg);
+  background-size: 100% 100%; }
+
+#project_days {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  pointer-events: none;
+  background-color: #6b6b6b;
+  color: #efefef;
+  text-align: center;
+  font-size: 40pt;
+  line-height: 75px; }
+
+body {
+  margin: 0px 0px 0px 0px;
+  color: gainsboro;
+  background-color: black;
+  font-family: helvetica; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Sky ------------------------------- */
+/* ------------------------------------------------------------------- */
+@media (orientation: portrait) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 70vw;
+    background-color: green; } }
+@media (orientation: landscape) {
+  #sky {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: green; } }
+
+#sky_background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden; }
+
+#sky_background_black {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: black; }
+
+#sky_background_blue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-image: url(../image/texture/sky.png);
+  background-size: 300px 300px;
+  opacity: 1; }
+
+#sky_background_tint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/filter/tint.png);
+  background-size: 400px 100%;
+  opacity: 1;
+  z-index: 3; }
+
+#sky_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 2; }
+
+#cloud1 {
+  position: absolute;
+  top: 5%;
+  left: auto;
+  width: 15%;
+  height: 95%;
+  z-index: 2;
+  -webkit-animation: cloud1 50s linear 0s  infinite;
+  animation: cloud1 50s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_1.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud1 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 40%;
+    opacity: 1; }
+
+  66.66667% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud1 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 40%;
+    opacity: 1; }
+
+  66.66667% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud2 {
+  position: absolute;
+  top: 40%;
+  left: auto;
+  width: 15%;
+  height: 60%;
+  z-index: 2;
+  -webkit-animation: cloud2 58s linear 0s  infinite;
+  animation: cloud2 58s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_2.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud2 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 40%;
+    opacity: 1; }
+
+  75% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud2 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 40%;
+    opacity: 1; }
+
+  75% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud3 {
+  position: absolute;
+  top: 30%;
+  left: auto;
+  width: 15%;
+  height: 70%;
+  z-index: 2;
+  -webkit-animation: cloud3 66s linear 0s  infinite;
+  animation: cloud3 66s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_3.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud3 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  20% {
+    right: 10%;
+    opacity: 0; }
+
+  40% {
+    right: 10%;
+    opacity: 0; }
+
+  60% {
+    right: 40%;
+    opacity: 1; }
+
+  80% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud3 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  20% {
+    right: 10%;
+    opacity: 0; }
+
+  40% {
+    right: 10%;
+    opacity: 0; }
+
+  60% {
+    right: 40%;
+    opacity: 1; }
+
+  80% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud4 {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  width: 15%;
+  height: 50%;
+  z-index: 2;
+  -webkit-animation: cloud4 74s linear 0s  infinite;
+  animation: cloud4 74s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_4.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud4 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  16.66667% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  66.66667% {
+    right: 40%;
+    opacity: 1; }
+
+  83.33333% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud4 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  16.66667% {
+    right: 10%;
+    opacity: 0; }
+
+  33.33333% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  66.66667% {
+    right: 40%;
+    opacity: 1; }
+
+  83.33333% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud5 {
+  position: absolute;
+  top: 15%;
+  left: auto;
+  width: 15%;
+  height: 85%;
+  z-index: 2;
+  -webkit-animation: cloud5 82s linear 0s  infinite;
+  animation: cloud5 82s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_5.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud5 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  14.28571% {
+    right: 10%;
+    opacity: 0; }
+
+  28.57143% {
+    right: 10%;
+    opacity: 0; }
+
+  42.85714% {
+    right: 10%;
+    opacity: 0; }
+
+  57.14286% {
+    right: 10%;
+    opacity: 0; }
+
+  71.42857% {
+    right: 40%;
+    opacity: 1; }
+
+  85.71429% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud5 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  14.28571% {
+    right: 10%;
+    opacity: 0; }
+
+  28.57143% {
+    right: 10%;
+    opacity: 0; }
+
+  42.85714% {
+    right: 10%;
+    opacity: 0; }
+
+  57.14286% {
+    right: 10%;
+    opacity: 0; }
+
+  71.42857% {
+    right: 40%;
+    opacity: 1; }
+
+  85.71429% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#cloud6 {
+  position: absolute;
+  top: 25%;
+  left: auto;
+  width: 15%;
+  height: 75%;
+  z-index: 2;
+  -webkit-animation: cloud6 90s linear 0s  infinite;
+  animation: cloud6 90s linear 0s  infinite;
+  background-image: url(../image/texture/cloud/Cloud_6.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes cloud6 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  12.5% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  37.5% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  62.5% {
+    right: 10%;
+    opacity: 0; }
+
+  75% {
+    right: 40%;
+    opacity: 1; }
+
+  87.5% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+@keyframes cloud6 {
+  0% {
+    right: 10%;
+    opacity: 0; }
+
+  12.5% {
+    right: 10%;
+    opacity: 0; }
+
+  25% {
+    right: 10%;
+    opacity: 0; }
+
+  37.5% {
+    right: 10%;
+    opacity: 0; }
+
+  50% {
+    right: 10%;
+    opacity: 0; }
+
+  62.5% {
+    right: 10%;
+    opacity: 0; }
+
+  75% {
+    right: 40%;
+    opacity: 1; }
+
+  87.5% {
+    right: 70%;
+    opacity: 1; }
+
+  100% {
+    right: 100%;
+    opacity: 0; } }
+#sky_background_center {
+  z-index: 3; }
+
+#sky_background_sun_moon_static {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4; }
+
+#sky_background_sun_moon_rotating {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background-image: url(../image/prop/sun_moon.png);
+  background-position: center;
+  background-size: 22% auto;
+  background-repeat: no-repeat; }
+
+#sky_background_clouds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none; }
+
+#birds {
+  position: absolute;
+  bottom: 20%;
+  left: 100%;
+  width: 10%;
+  height: 10%;
+  z-index: 1; }
+
+#bird1 {
+  position: absolute;
+  bottom: 0%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+  background-image: url(../image/animation/bird.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#bird2 {
+  position: absolute;
+  bottom: 40%;
+  left: 70%;
+  width: 30%;
+  height: 30%;
+  z-index: 1;
+  background-image: url(../image/animation/bird.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#bird3 {
+  position: absolute;
+  bottom: 30%;
+  left: 0%;
+  width: 25%;
+  height: 25%;
+  z-index: 1;
+  background-image: url(../image/animation/bird.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#sky_left {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 20%;
+  width: calc((100vw - 100vh) / 2);
+  background-image: url(../image/texture/stone.png);
+  background-size: auto 100%;
+  background-position: right 0px bottom 0px;
+  background-repeat: repeat-x; }
+
+#sky_right {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 30%;
+  background-image: url(../image/prop/treeline.png);
+  background-size: auto 100%;
+  background-position: left 0px bottom 0px;
+  background-repeat: repeat-x; }
+  @media (orientation: landscape) {
+    #sky_right {
+      width: calc(((100vw - 100vh) / 2) + 50vh); } }
+  @media (orientation: portrait) {
+    #sky_right {
+      width: 50vw; } }
+
+#sky_foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none; }
+
+#sky_center {
+  pointer-events: none;
+  z-index: 3; }
+
+#lighthouse {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 25%;
+  height: 100%;
+  z-index: 4;
+  background-image: url(../image/prop/lighthouse.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
+#lighthouse_mask {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 25%;
+  height: 100%;
+  z-index: 5;
+  background-image: url(../image/prop/lighthousemask.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
+/* ---- Exocet ---- */
+#exocet_wrapper {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 12.5%;
+  height: 12.5%;
+  z-index: 3;
+  transform: translateX(100%); }
+
+#exocet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+  background-image: url(../image/animation/exocet.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom; }
+
+/* ---- Clock ---- */
+#clock {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  height: 300px;
+  z-index: 1;
+  background-image: url(../image/texture/clock.png);
+  background-size: 150px 300px;
+  -webkit-animation: clockSwing 4s ease-out 0s  infinite;
+  animation: clockSwing 4s ease-out 0s  infinite; }
+
+@-webkit-keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+@keyframes clockSwing {
+  0% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); }
+
+  50% {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg); }
+
+  100% {
+    transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg); } }
+/* ---- Armco ---- */
+@media (orientation: portrait) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 30.0vw;
+    background-image: url(../image/texture/dirt.png); } }
+@media (orientation: landscape) {
+  #land {
+    position: relative;
+    width: 100%;
+    height: 30.0vh;
+    background-image: url(../image/texture/dirt.png); } }
+
+#land_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9; }
+
+#tarmac {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 5%;
+  background-color: #252525; }
+
+#stones {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 25%;
+  z-index: 2;
+  background-image: url(../image/prop/stones.png);
+  background-size: auto 100%;
+  background-position: center; }
+
+#sand {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  height: 35%;
+  background-image: url(../image/texture/beach.png);
+  background-size: 100px 100px;
+  z-index: 1; }
+
+#stairs {
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  width: 80%;
+  height: 100%;
+  z-index: 1;
+  background-image: url(../image/prop/stairs.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%; }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------ Lake ------------------------------- */
+/* ------------------------------------------------------------------- */
+#lake {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 80%;
+  background-image: url(../image/texture/lake.png);
+  background-size: 100px 100px;
+  opacity: 1; }
+
+#fish {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  width: 5%;
+  height: 65%;
+  z-index: 1;
+  background-image: url(../image/texture/fish.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+#lake_tint {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 80%;
+  background-image: url(../image/texture/gradient.png);
+  background-size: auto 100%;
+  opacity: 1; }

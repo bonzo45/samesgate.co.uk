@@ -1,0 +1,24 @@
+@mixin generateKeyframes($animationName, $properties, $points, $back)
+  $postfix: ""  
+  $timepoints: length($points) - 1
+  $increment: 100% / $timepoints
+  @if $back
+    $postfix: "Open"
+  @-webkit-keyframes #{$animationName}#{$postfix}
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
+      
+  @keyframes #{$animationName}#{$postfix}
+    @for $j from 1 to length($points) + 1
+      #{($j - 1) * $increment}
+        @for $i from 1 to length($properties) + 1
+          #{nth($properties, $i)}: nth(nth($points, $j), $i)
+
+@mixin animate($animationName, $time, $style, $repeat)
+  $times: ""
+  @if $repeat == forwards
+    $times: 1
+  -webkit-animation: $animationName $time $style 0s #{$times} $repeat
+  animation: $animationName $time $style 0s #{$times} $repeat

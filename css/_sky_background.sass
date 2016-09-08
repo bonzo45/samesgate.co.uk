@@ -1,0 +1,128 @@
+#sky_background
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_1
+  overflow: hidden
+
+#sky_background_black
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_1
+  background-color: black
+
+$texture_sky: $texture_path + "sky.png"
+$texture_sky_size: 300px
+#sky_background_blue
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_2
+  background:
+    image: url(#{$texture_sky})
+    size: $texture_sky_size $texture_sky_size
+  opacity: 1.0
+
+$texture_sky_tint: $filter_path + "tint.png"
+$sky_tint_width: 400px
+$sky_tint_height: 100%
+#sky_background_tint
+  position: absolute
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_sky_tint})
+    size: $sky_tint_width $sky_tint_height
+  opacity: 1.0
+  z-index: $layer_3
+
+#sky_mask
+  position: absolute
+  width: 100%
+  height: 100%
+  background-color: black
+  z-index: $layer_2
+
+@import clouds
+
+#sky_background_center
+  z-index: 3
+
+$texture_sun_moon: $prop_path + "sun_moon.png"
+#sky_background_sun_moon_static
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_4
+
+#sky_background_sun_moon_rotating
+  position: relative
+  width: 100%
+  height: 200%
+  background:
+    image: url(#{$texture_sun_moon})
+    position: center
+    size: 22% auto
+    repeat: no-repeat
+
+#sky_background_clouds
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: $layer_5
+  pointer-events: none
+
+#birds
+  @include absolute_object_b(20%, 100%, 10%, 10%)
+
+$texture_birds: $animation_path + "bird.gif"
+#bird1
+  @include absolute_object_b(0%, 30%, 50%, 50%)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% auto
+    repeat: no-repeat
+
+#bird2
+  @include absolute_object_b(40%, 70%, 30%, 30%)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% auto
+    repeat: no-repeat
+
+#bird3
+  @include absolute_object_b(30%, 0%, 25%, 25%)
+  background:
+    image: url(#{$texture_birds})
+    size: 100% auto
+    repeat: no-repeat
+
+$texture_rocks: $texture_path + "stone.png"
+#sky_left
+  position: absolute
+  bottom: 0px
+  left: 0px
+  height: 20%
+  width: calc((100vw - 100vh) / 2)
+  background:
+    image: url(#{$texture_rocks})
+    size: auto 100%
+    position: right 0px bottom 0px
+    repeat: repeat-x
+
+$texture_trees: $prop_path + "treeline.png"
+#sky_right
+  position: absolute
+  bottom: 0px
+  right: 0px
+  @media (orientation:landscape)
+    width: calc(((100vw - 100vh) / 2) + 50vh)
+  @media (orientation:portrait)    
+    width: 50vw
+  height: 30%
+  background:
+    image: url(#{$texture_trees})
+    size: auto 100%
+    position: left 0px bottom 0px
+    repeat: repeat-x

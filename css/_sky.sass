@@ -1,0 +1,18 @@
+/* ------------------------------------------------------------------- */
+/* ------------------------------- Sky ------------------------------- */
+/* ------------------------------------------------------------------- */
+#sky
+  @media (orientation:portrait)
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vw
+    background-color: green
+
+  @media (orientation:landscape)
+    position: relative
+    width: 100%
+    height: $sky_height_multiplier * 100vh
+    background-color: green
+
+@import sky_background
+@import sky_foreground

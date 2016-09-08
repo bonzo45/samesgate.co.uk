@@ -1,0 +1,34 @@
+/* ---- Positioning ---- */
+@mixin absolute_object($top, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  top: $top
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+@mixin absolute_object_b($bottom, $left, $width, $height, $z-index: $layer_1)
+  position: absolute
+  bottom: $bottom
+  left: $left
+  width: $width
+  height: $height
+  z-index: $z-index
+
+.centerer
+  position: relative
+  margin: 0 auto
+  height: 100%
+  @media (orientation:portrait)
+    width: 100vw
+  @media (orientation:landscape)
+    width: 100vh
+
+.noselect
+  -webkit-touch-callout: none /* iOS Safari */
+  -webkit-user-select: none   /* Chrome/Safari/Opera */
+  -khtml-user-select: none    /* Konqueror */
+  -moz-user-select: none      /* Firefox */
+  -ms-user-select: none       /* Internet Explorer/Edge */
+  user-select: none           /* Non-prefixed version, currently not supported by any browser */
+  cursor: pointer

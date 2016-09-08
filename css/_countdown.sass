@@ -1,0 +1,86 @@
+$countdown_width: 75px
+$countdown_height: 75px
+$countdown_url: "image/countdown/"
+
+@mixin countdown($top, $left, $z-index)
+  @include absolute_object($top, $left, $countdown_width, $countdown_height, $z-index)
+  overflow: hidden
+
+@mixin countdown_cover
+  position: relative
+  pointer-events: none
+  width: 100%
+  height: $countdown_height
+
+@mixin countdown_days($primary, $secondary)
+  position: relative
+  height: $countdown_height
+  width: 100%
+
+  pointer-events: none
+
+  background:
+    color: $primary
+  color: $secondary
+
+  text:
+    align: center
+  font:
+    size: 40pt
+  line:
+    height: $countdown_height
+
+.countdown_hide
+  @include animate(counterHide, 0.3s, ease-out,  forwards)
+  top: 0px !important
+  margin-bottom: 0px !important
+
+.countdown_show
+  @include animate(counterShow, 0.3s, ease-out, forwards)
+  top: -$countdown_height !important
+  margin-bottom: -$countdown_height !important
+
+@include generateKeyframes(counterHide, (top, margin-bottom), ((0px, 0px), (-$countdown_height, -$countdown_height)), false)
+@include generateKeyframes(counterShow, (top, margin-bottom), ((-$countdown_height, -$countdown_height), (0px, 0px)), false)
+
+$countdown_got: $countdown_url + "got.jpeg"
+
+#got
+  @include countdown(10px, 650px, $layer_2)
+
+#got_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
+
+#got_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_got: $countdown_url + "f1.jpeg"
+
+#f1
+  @include countdown(10px, 750px, $layer_2)
+
+#f1_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_got})
+    size: 100% 100%
+
+#f1_days
+  @include countdown_days(#6B6B6B, #EFEFEF)
+
+$countdown_project: $countdown_url + "imperial.jpeg"
+
+#project
+  @include countdown(10px, 850px, $layer_2)
+
+#project_cover
+  @include countdown_cover
+  background:
+    image: url(#{$countdown_project})
+    size: 100% 100%
+
+#project_days
+  @include countdown_days(#6B6B6B, #EFEFEF)

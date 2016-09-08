@@ -1,0 +1,56 @@
+#old_site
+  position: absolute
+  width: 15vmin
+  height: auto
+  top: 0%
+  right: 2.5%
+  padding: 1vmin
+  background:
+    color: #009999
+  font-size: 2vmin
+  text-align: center
+  text-decoration: none
+  z-index: $layer_6
+  color: white
+
+#sidebar
+  position: fixed
+  right: 0px
+  height: 100%
+  width: 0px
+  background:
+    color: white
+
+  z-index: 2
+  opacity: 0.5
+
+.sidebar_closed
+  @include animate(closeSidebar, 200ms, ease-out, forwards)
+  width: 100px !important
+
+.sidebar_open
+  @include animate(openSidebar, 200ms, ease-out, forwards)
+  width: 0px !important
+
+@include generateKeyframes(closeSidebar, (width), ((100px, 0px)), false)
+@include generateKeyframes(openSidebar, (width), ((0px, 100px)), false)
+
+#tab
+  position: relative
+  width: 50px
+  height: 50px
+  top: 50px
+  left: -50px
+  background-color: black
+  text-align: center
+  color: white
+  font-size: 20pt
+
+#tab_icon
+  line-height: 50px
+    
+#sidebar_content
+  position: relative
+  height: 100%
+  width: 100%
+  padding: 5px
