@@ -8,9 +8,16 @@ $prop_path: $image_path + "prop/"
 $animation_path: $image_path + "animation/"
 
 $sky_height_multiplier: 0.7
-$land_height_multiplier: 1 - $sky_height_multiplier
+$sea_height_multiplier: 1 - $sky_height_multiplier
 
 $font_default_colour: #DCDCDC
+
+.foreground
+  right: 0%
+  @media (orientation:landscape)
+    width: calc(((100vw - 100vh) / 2) + 100vh)
+  @media (orientation:portrait)    
+    width: 100vw
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Util ------------------------------ */
@@ -35,4 +42,4 @@ body
     family: helvetica
   
 @import sky
-@import land
+@import sea

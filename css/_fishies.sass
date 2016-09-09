@@ -1,5 +1,19 @@
 @import fish
 
+$fish_max_height: 100% - ($beach_height + $tarmac_height)
+
 #fish1
-  @include fish(1, 5%, 25s)
-@include generateKeyframes(fish1, (left, transform), ((10%, scaleX(1)), (40%,scaleX(1)), (70%, scaleX(1)), (85%, scaleX(1)), (90%, scaleX(-1)), (70%, scaleX(-1)), (40%, scaleX(-1)), (15%, scaleX(-1)), (10%, scaleX(1))), false)
+  @include fish(1, 1.0, $fish_max_height * 0.9, 25s)
+@include fishAnimation(1, 0%, 100%, 'right')
+
+#fish2
+  @include fish(2, 0.8, $fish_max_height * 0.6, 30s)
+@include fishAnimation(2, 10%, 90%, 'left')
+
+#fish3
+  @include fish(3, 0.7, $fish_max_height * 0.4, 36s)
+@include fishAnimation(3, 0%, 80%, 'right')
+
+#fish4
+  @include fish(4, 0.9, $fish_max_height * 0.7, 24s)
+@include fishAnimation(4, 20%, 90%, 'left')

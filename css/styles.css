@@ -1,6 +1,15 @@
 /* ------------------------------------------------------------------- */
 /* -------------------------- Control Panel -------------------------- */
 /* ------------------------------------------------------------------- */
+.foreground {
+  right: 0%; }
+  @media (orientation: landscape) {
+    .foreground {
+      width: calc(((100vw - 100vh) / 2) + 100vh); } }
+  @media (orientation: portrait) {
+    .foreground {
+      width: 100vw; } }
+
 /* ------------------------------------------------------------------- */
 /* ------------------------------- Util ------------------------------ */
 /* ------------------------------------------------------------------- */
@@ -15,6 +24,28 @@
   @media (orientation: landscape) {
     .centerer {
       width: 100vh; } }
+
+.lefterer {
+  position: relative;
+  left: 0%;
+  height: 100%; }
+  @media (orientation: portrait) {
+    .lefterer {
+      width: 100vw; } }
+  @media (orientation: landscape) {
+    .lefterer {
+      width: 100vh; } }
+
+.righterer {
+  position: absolute;
+  height: 100%;
+  right: 0%; }
+  @media (orientation: landscape) {
+    .righterer {
+      width: calc(((100vw - 100vh) / 2) + 100vh); } }
+  @media (orientation: portrait) {
+    .righterer {
+      width: 100vw; } }
 
 .noselect {
   -webkit-touch-callout: none;
@@ -385,13 +416,6 @@ body {
   z-index: 1;
   overflow: hidden; }
 
-#sky_background_black {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: black; }
-
 #sky_background_blue {
   position: absolute;
   width: 100%;
@@ -415,7 +439,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: black;
-  z-index: 2; }
+  z-index: 4; }
 
 #cloud1 {
   position: absolute;
@@ -892,7 +916,8 @@ body {
   background-image: url(../image/prop/treeline.png);
   background-size: auto 100%;
   background-position: left 0px bottom 0px;
-  background-repeat: repeat-x; }
+  background-repeat: repeat-x;
+  z-index: 3; }
   @media (orientation: landscape) {
     #sky_right {
       width: calc(((100vw - 100vh) / 2) + 50vh); } }
@@ -901,12 +926,7 @@ body {
       width: 50vw; } }
 
 #sky_foreground {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none; }
+  z-index: 2; }
 
 #sky_center {
   pointer-events: none;
@@ -994,25 +1014,46 @@ body {
     transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg); } }
 /* ---- Armco ---- */
-@media (orientation: portrait) {
-  #land {
-    position: relative;
-    width: 100%;
-    height: 30.0vw;
-    background-image: url(../image/texture/dirt.png); } }
-@media (orientation: landscape) {
-  #land {
-    position: relative;
-    width: 100%;
-    height: 30.0vh;
-    background-image: url(../image/texture/dirt.png); } }
+#sea {
+  position: relative;
+  width: 100%;
+  background-image: url(../image/texture/sea.png); }
+  @media (orientation: portrait) {
+    #sea {
+      height: 30.0vw; } }
+  @media (orientation: landscape) {
+    #sea {
+      height: 30.0vh; } }
 
-#land_mask {
+#sea_mask {
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: black;
   z-index: 9; }
+
+#sea_foreground {
+  z-index: 2; }
+
+#land {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%; }
+  @media (orientation: landscape) {
+    #land {
+      width: calc(((100vw - 100vh) / 2) + 100vh); } }
+  @media (orientation: portrait) {
+    #land {
+      width: 100vw; } }
+
+#sea_tint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/texture/gradient.png);
+  background-size: auto 100%;
+  opacity: 1; }
 
 #tarmac {
   position: absolute;
@@ -1051,24 +1092,12 @@ body {
   background-repeat: no-repeat;
   background-size: auto 100%; }
 
-/* ------------------------------------------------------------------- */
-/* ------------------------------ Lake ------------------------------- */
-/* ------------------------------------------------------------------- */
-#lake {
-  position: absolute;
-  top: 20%;
-  width: 100%;
-  height: 80%;
-  background-image: url(../image/texture/lake.png);
-  background-size: 100px 100px;
-  opacity: 1; }
-
 #fish1 {
   position: absolute;
   bottom: 0;
   left: auto;
   width: 5%;
-  height: 60%;
+  height: 54%;
   z-index: 2;
   -webkit-animation: fish1 25s linear 0s  infinite;
   animation: fish1 25s linear 0s  infinite;
@@ -1355,11 +1384,3 @@ body {
     left: 20%;
     opacity: 0;
     transform: scaleX(-1); } }
-#lake_tint {
-  position: absolute;
-  top: 20%;
-  width: 100%;
-  height: 80%;
-  background-image: url(../image/texture/gradient.png);
-  background-size: auto 100%;
-  opacity: 1; }

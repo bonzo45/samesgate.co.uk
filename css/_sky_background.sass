@@ -5,13 +5,6 @@
   z-index: $layer_1
   overflow: hidden
 
-#sky_background_black
-  position: absolute
-  width: 100%
-  height: 100%
-  z-index: $layer_1
-  background-color: black
-
 $texture_sky: $texture_path + "sky.png"
 $texture_sky_size: 300px
 #sky_background_blue
@@ -42,7 +35,7 @@ $sky_tint_height: 100%
   width: 100%
   height: 100%
   background-color: black
-  z-index: $layer_2
+  z-index: $layer_4
 
 @import clouds
 
@@ -126,3 +119,4 @@ $texture_trees: $prop_path + "treeline.png"
     size: auto 100%
     position: left 0px bottom 0px
     repeat: repeat-x
+  z-index: $layer_3

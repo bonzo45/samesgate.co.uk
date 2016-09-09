@@ -1,16 +1,12 @@
 $texture_land: $texture_path + "dirt.png"
 #land
+  position: relative
+  background-image: url(#{$texture_land})
   @media (orientation:portrait)
-    position: relative
-    width: 100%
     height: $land_height_multiplier * 100vw
-    background-image: url(#{$texture_land})
-
   @media (orientation:landscape)    
-    position: relative
-    width: 100%
     height: $land_height_multiplier * 100vh
-    background-image: url(#{$texture_land})
+    
 
 #land_mask
   position: absolute
@@ -18,48 +14,6 @@ $texture_land: $texture_path + "dirt.png"
   height: 100%
   background-color: black
   z-index: $layer_filter
-
-$tarmac_height: 5%
-$tarmac_colour: #252525
-#tarmac
-  position: absolute
-  top: 0%
-  width: 100%
-  height: $tarmac_height
-  background-color: $tarmac_colour
-
-$texture_bank: $prop_path + "stones.png"
-#stones
-  position: absolute
-  top: 0px
-  width: 100%
-  height: 25%
-  z-index: 2
-  background:
-    image: url(#{$texture_bank})
-    size: auto 100%
-    position: center
-
-$texture_beach: $texture_path + "beach.png"
-$beach_height: 35%
-#sand
-  position: absolute
-  top: $tarmac_height
-  width: 100%
-  height: $beach_height
-  background:
-    image: url(#{$texture_beach})
-    size: auto 50%
-  z-index: 1
-
-$stairs_width: 80%
-$texture_stairs: $prop_path + "stairs.png"
-#stairs
-  @include absolute_object(0px, 25%, $stairs_width, 100%)
-  background:
-    image: url(#{$texture_stairs})
-    repeat: no-repeat
-    size: auto 100%
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------ Lake ------------------------------- */
@@ -79,7 +33,7 @@ $texture_lake_size: 100px
     size: $texture_lake_size $texture_lake_size
   opacity: 1.0
 
-@import fishies
+
 
 $texture_gradient: $texture_path + "gradient.png"
 

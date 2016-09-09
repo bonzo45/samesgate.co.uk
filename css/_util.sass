@@ -24,6 +24,24 @@
   @media (orientation:landscape)
     width: 100vh
 
+.lefterer
+  position: relative
+  left: 0%
+  height: 100%
+  @media (orientation:portrait)
+    width: 100vw
+  @media (orientation:landscape)
+    width: 100vh
+
+.righterer
+  position: absolute
+  height: 100%
+  right: 0%
+  @media (orientation:landscape)
+    width: calc(((100vw - 100vh) / 2) + 100vh)
+  @media (orientation:portrait)    
+    width: 100vw    
+
 .noselect
   -webkit-touch-callout: none /* iOS Safari */
   -webkit-user-select: none   /* Chrome/Safari/Opera */

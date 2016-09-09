@@ -27,64 +27,66 @@
 
   <div id="sky">
     <div id="sky_background">
-      <div id="sky_background_black"></div>
+      <div id="sky_mask" class="mask"></div>
       <div id="sky_background_blue"></div>
       <div id="sky_background_tint"></div>
 
-      <div id="sky_background_center" class="centerer">
-        <a href="old-site/index.html" id="old_site"><i class="fa fa-clock-o"></i> Old Site</a>
-        <div id="samesgate">Sam Esgate</div>
-        <!--<div id="clock"></div>-->
-        <div id="bonzos_useful_things"></div>
-        <div id="sky_background_sun_moon_static">
-          <div id="sky_background_sun_moon_rotating"></div>
-        </div>
-        <div id="sky_background_clouds">
-          <div id="cloud1"></div>
-          <div id="cloud2"></div>
-          <div id="cloud3"></div>
-          <div id="cloud4"></div>
-          <div id="cloud5"></div>
-          <div id="cloud6"></div>
-        </div> 
-        <div id="birds">
-          <div id="bird1"></div>
-          <div id="bird2"></div>
-          <div id="bird3"></div>
+      <div id="sky_background_right" class="righterer">
+        <div id="sky_background_center" class="lefterer">
+          <a href="old-site/index.html" id="old_site"><i class="fa fa-clock-o"></i> Old Site</a>
+          <div id="samesgate">Sam Esgate</div>
+          <!--<div id="clock"></div>-->
+          <div id="bonzos_useful_things"></div>
+          <div id="sky_background_sun_moon_static">
+            <div id="sky_background_sun_moon_rotating"></div>
+          </div>
+          <div id="sky_background_clouds">
+            <div id="cloud1"></div>
+            <div id="cloud2"></div>
+            <div id="cloud3"></div>
+            <div id="cloud4"></div>
+            <div id="cloud5"></div>
+            <div id="cloud6"></div>
+          </div> 
+          <div id="birds">
+            <div id="bird1"></div>
+            <div id="bird2"></div>
+            <div id="bird3"></div>
+          </div>
         </div>
       </div>
+      <div id="sky_right"></div>
     </div>
     
-    <div id="sky_foreground">
-      <div id="sky_mask" class="mask"></div>
-      <div id="sky_left"></div>
-      <div id="sky_center" class="centerer">
+    <div id="sky_foreground" class="righterer">
+      <div id="sky_foreground_center" class="lefterer">
         <div id="lighthouse"></div>
         <div id="lighthouse_mask" class="mask"></div>
         <div id="exocet_wrapper"><div id="exocet"></div></div>
       </div>
-      <div id="sky_right"></div>
     </div>
   </div>
 
-  <div id="land">
-    <div id="land_mask" class="mask"></div>
-    <div id="tarmac"></div>
-    <div id="stones">
-      <div id="bank_center" class="centerer">
-        <div id="stairs"></div>
+  <div id="sea">
+    <div id="sea_tint"></div>
+    <div id="sea_mask" class="mask"></div>
+    <div id="land" class="righterer">
+      <div id="tarmac"></div>
+      <div id="stones">
+        <div id="stones_center" class="lefterer">
+          <div id="stairs"></div>
+        </div>
       </div>
+      <div id="sand"></div>
     </div>
-    <div id="sand"></div>
-    <div id="lake">
-      <div id="lake_center" class="centerer">
+    <div id="sea_foreground" class="righterer">
+      <div id="sea_center" class="lefterer">
         <div id="fish1"></div>
         <div id="fish2"></div>
         <div id="fish3"></div>
         <div id="fish4"></div>
       </div>
     </div>
-    <div id="lake_tint"></div>
   </div>
 </body>
 </html>
