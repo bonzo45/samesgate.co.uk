@@ -1,7 +1,10 @@
 define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Moment, Util, Const) {
 
+  // Which div contains the sun/moon.
+  var SUN_MOON_DIV = "#sun_moon_rotating";
   // How dark is midnight?
-  var maxOpacity = 0.7;
+  var MAX_OPACITY = 0.7;
+
   // What time is it now? (
   var currentTime = Moment().startOf('day');
   // How many degrees are the sun/moon rotated by now? (moon at top)
@@ -86,7 +89,7 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
         tempTime = (direction == 1) ? Moment(tempTime).add(timeToNextMiddaynight) : Moment(tempTime).subtract(timeToNextMiddaynight);
           //new Date(tempTime.getTime() + (direction * timeToNextMiddaynight));
         opacityKeyframes.push({
-          "opacity": tempTime.hours() == 12 ? 0.0 : maxOpacity,
+          "opacity": tempTime.hours() == 12 ? 0.0 : MAX_OPACITY,
           "duration": (timeToNextMiddaynight / totalTimeToGo) * transitionTime
         });
       }
@@ -127,15 +130,15 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
     // Calculate where the sun/moon are now.
     var rotation = timeToRotation(currentTime, nextTime);
     currentRotation += rotation;
-    $("#sky_background_sun_moon_rotating").css("transition", "all " + transitionTime + "s");
-    $("#sky_background_sun_moon_rotating").css("transform", "rotate(" + currentRotation + "deg)");
+    $(SUN_MOON_DIV).css("transition", "all " + transitionTime + "s");
+    $(SUN_MOON_DIV).css("transform", "rotate(" + currentRotation + "deg)");
   }
 
   /**
     * Given the time returns the opacity for the darkness filters. High opacity means darker, low opacity means lighter.
     */
   function timeToOpacity(time) {
-    return (Math.abs(Util.hoursFromMidday(time)) / 12) * maxOpacity;
+    return (Math.abs(Util.hoursFromMidday(time)) / 12) * MAX_OPACITY;
   }
 
   /**

@@ -25,9 +25,8 @@
     width: 100vh
 
 .lefterer
-  position: relative
+  position: absolute
   left: 0%
-  height: 100%
   @media (orientation:portrait)
     width: 100vw
   @media (orientation:landscape)
@@ -35,7 +34,6 @@
 
 .righterer
   position: absolute
-  height: 100%
   right: 0%
   @media (orientation:landscape)
     width: calc(((100vw - 100vh) / 2) + 100vh)

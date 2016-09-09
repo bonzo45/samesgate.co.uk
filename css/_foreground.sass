@@ -1,0 +1,17 @@
+@import util
+
+#foreground
+  @extend .righterer
+  @media (orientation:landscape)
+    height: 100vh
+  @media (orientation:portrait)
+    height: 100vw
+  z-index: $layer_2
+
+.foreground
+  position: relative
+  width: 100%
+
+@import foreground_sky
+@import foreground_land
+@import foreground_sea

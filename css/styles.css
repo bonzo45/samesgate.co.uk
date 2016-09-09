@@ -1,45 +1,11 @@
-/* ---- Positioning ---- */
-.centerer {
-  position: relative;
-  margin: 0 auto;
-  height: 100%; }
-  @media (orientation: portrait) {
-    .centerer {
-      width: 100vw; } }
-  @media (orientation: landscape) {
-    .centerer {
-      width: 100vh; } }
-
-.lefterer {
-  position: relative;
-  left: 0%;
-  height: 100%; }
-  @media (orientation: portrait) {
-    .lefterer {
-      width: 100vw; } }
-  @media (orientation: landscape) {
-    .lefterer {
-      width: 100vh; } }
-
-.righterer {
+body {
   position: absolute;
+  width: 100%;
   height: 100%;
-  right: 0%; }
-  @media (orientation: landscape) {
-    .righterer {
-      width: calc(((100vw - 100vh) / 2) + 100vh); } }
-  @media (orientation: portrait) {
-    .righterer {
-      width: 100vw; } }
-
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer; }
+  margin: 0px 0px 0px 0px;
+  color: gainsboro;
+  background-color: black;
+  font-family: helvetica; }
 
 #watch_indicator {
   position: fixed;
@@ -146,285 +112,123 @@
   z-index: 6;
   color: white; }
 
-#sidebar {
-  position: fixed;
-  right: 0px;
-  height: 100%;
-  width: 0px;
-  background-color: white;
-  z-index: 2;
-  opacity: 0.5; }
-
-.sidebar_closed {
-  -webkit-animation: closeSidebar 200ms ease-out 0s 1 forwards;
-  animation: closeSidebar 200ms ease-out 0s 1 forwards;
-  width: 100px !important; }
-
-.sidebar_open {
-  -webkit-animation: openSidebar 200ms ease-out 0s 1 forwards;
-  animation: openSidebar 200ms ease-out 0s 1 forwards;
-  width: 0px !important; }
-
-@-webkit-keyframes closeSidebar {
-  0% {
-    width: 100px; }
-
-  100% {
-    width: 0px; } }
-@keyframes closeSidebar {
-  0% {
-    width: 100px; }
-
-  100% {
-    width: 0px; } }
-@-webkit-keyframes openSidebar {
-  0% {
-    width: 0px; }
-
-  100% {
-    width: 100px; } }
-@keyframes openSidebar {
-  0% {
-    width: 0px; }
-
-  100% {
-    width: 100px; } }
-#tab {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  top: 50px;
-  left: -50px;
-  background-color: black;
-  text-align: center;
-  color: white;
-  font-size: 20pt; }
-
-#tab_icon {
-  line-height: 50px; }
-
-#sidebar_content {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 5px; }
-
-/* ---- Sam Esgate ---- */
-#samesgate {
+#background, #foreground_background_mask {
   position: absolute;
-  width: 35vmin;
-  height: auto;
-  right: 5%;
-  bottom: 60%;
-  font-family: helvetica;
-  font-size: 5vmin;
-  line-height: 7.5vmin;
-  text-align: center;
-  border-bottom: 0.5vmin solid gainsboro;
-  color: gainsboro;
-  z-index: 6; }
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1; }
+  @media (orientation: landscape) {
+    #background, #foreground_background_mask {
+      height: 100vh; } }
+  @media (orientation: portrait) {
+    #background, #foreground_background_mask {
+      height: 100vw; } }
 
-#bonzos_useful_things {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  right: 5%;
-  top: 40%;
-  background-color: #2d2222;
-  border-radius: 0px 0px 5px 5px;
-  z-index: 6; }
-
-.useful_icon {
-  width: 10vmin;
-  height: 10vmin; }
-
-.mask {
-  pointer-events: none; }
-
-.countdown_hide {
-  -webkit-animation: counterHide 0.3s ease-out 0s 1 forwards;
-  animation: counterHide 0.3s ease-out 0s 1 forwards;
-  top: 0px !important;
-  margin-bottom: 0px !important; }
-
-.countdown_show {
-  -webkit-animation: counterShow 0.3s ease-out 0s 1 forwards;
-  animation: counterShow 0.3s ease-out 0s 1 forwards;
-  top: -75px !important;
-  margin-bottom: -75px !important; }
-
-@-webkit-keyframes counterHide {
-  0% {
-    top: 0px;
-    margin-bottom: 0px; }
-
-  100% {
-    top: -75px;
-    margin-bottom: -75px; } }
-@keyframes counterHide {
-  0% {
-    top: 0px;
-    margin-bottom: 0px; }
-
-  100% {
-    top: -75px;
-    margin-bottom: -75px; } }
-@-webkit-keyframes counterShow {
-  0% {
-    top: -75px;
-    margin-bottom: -75px; }
-
-  100% {
-    top: 0px;
-    margin-bottom: 0px; } }
-@keyframes counterShow {
-  0% {
-    top: -75px;
-    margin-bottom: -75px; }
-
-  100% {
-    top: 0px;
-    margin-bottom: 0px; } }
-#got {
-  position: absolute;
-  top: 10px;
-  left: 650px;
-  width: 75px;
-  height: 75px;
-  z-index: 2;
-  overflow: hidden; }
-
-#got_cover {
+#background_sky {
   position: relative;
-  pointer-events: none;
   width: 100%;
-  height: 75px;
-  background-image: url(image/countdown/got.jpeg);
-  background-size: 100% 100%; }
-
-#got_days {
-  position: relative;
-  height: 75px;
-  width: 100%;
-  pointer-events: none;
-  background-color: #6b6b6b;
-  color: #efefef;
-  text-align: center;
-  font-size: 40pt;
-  line-height: 75px; }
-
-#f1 {
-  position: absolute;
-  top: 10px;
-  left: 750px;
-  width: 75px;
-  height: 75px;
-  z-index: 2;
-  overflow: hidden; }
-
-#f1_cover {
-  position: relative;
-  pointer-events: none;
-  width: 100%;
-  height: 75px;
-  background-image: url(image/countdown/f1.jpeg);
-  background-size: 100% 100%; }
-
-#f1_days {
-  position: relative;
-  height: 75px;
-  width: 100%;
-  pointer-events: none;
-  background-color: #6b6b6b;
-  color: #efefef;
-  text-align: center;
-  font-size: 40pt;
-  line-height: 75px; }
-
-#project {
-  position: absolute;
-  top: 10px;
-  left: 850px;
-  width: 75px;
-  height: 75px;
-  z-index: 2;
-  overflow: hidden; }
-
-#project_cover {
-  position: relative;
-  pointer-events: none;
-  width: 100%;
-  height: 75px;
-  background-image: url(image/countdown/imperial.jpeg);
-  background-size: 100% 100%; }
-
-#project_days {
-  position: relative;
-  height: 75px;
-  width: 100%;
-  pointer-events: none;
-  background-color: #6b6b6b;
-  color: #efefef;
-  text-align: center;
-  font-size: 40pt;
-  line-height: 75px; }
-
-body {
-  margin: 0px 0px 0px 0px;
-  color: gainsboro;
-  background-color: black;
-  font-family: helvetica; }
-
-/* ------------------------------------------------------------------- */
-/* ------------------------------- Sky ------------------------------- */
-/* ------------------------------------------------------------------- */
-@media (orientation: portrait) {
-  #sky {
-    position: relative;
-    width: 100%;
-    height: 70vw;
-    background-color: green; } }
-@media (orientation: landscape) {
-  #sky {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    background-color: green; } }
-
-#sky_background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden; }
-
-#sky_background_blue {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-image: url(../image/texture/sky.png);
-  background-size: 300px 300px;
-  opacity: 1; }
+  height: 70%;
+  background-image: url(../image/texture/sky.png); }
 
 #sky_background_tint {
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: url(../image/filter/tint.png);
-  background-size: 400px 100%;
-  opacity: 1;
-  z-index: 3; }
+  background-size: 100% 100%; }
 
-#sky_mask {
+#background_sea {
+  position: relative;
+  width: 100%;
+  height: 30.0%;
+  background-image: url(../image/texture/sea.png); }
+
+#sea_tint {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: black;
-  z-index: 5; }
+  background-image: url(../image/filter/tint.png);
+  background-size: 100% 100%;
+  transform: scaleY(-1); }
+
+/* ---- Positioning ---- */
+.centerer {
+  position: relative;
+  margin: 0 auto;
+  height: 100%; }
+  @media (orientation: portrait) {
+    .centerer {
+      width: 100vw; } }
+  @media (orientation: landscape) {
+    .centerer {
+      width: 100vh; } }
+
+.lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+  position: absolute;
+  left: 0%; }
+  @media (orientation: portrait) {
+    .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+      width: 100vw; } }
+  @media (orientation: landscape) {
+    .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+      width: 100vh; } }
+
+.righterer, #foreground, #lighting {
+  position: absolute;
+  right: 0%; }
+  @media (orientation: landscape) {
+    .righterer, #foreground, #lighting {
+      width: calc(((100vw - 100vh) / 2) + 100vh); } }
+  @media (orientation: portrait) {
+    .righterer, #foreground, #lighting {
+      width: 100vw; } }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer; }
+
+#foreground {
+  z-index: 2; }
+  @media (orientation: landscape) {
+    #foreground {
+      height: 100vh; } }
+  @media (orientation: portrait) {
+    #foreground {
+      height: 100vw; } }
+
+.foreground, #foreground_sky, #foreground_land, #foreground_sea {
+  position: relative;
+  width: 100%; }
+
+#foreground_sky {
+  height: 60%; }
+
+#foreground_sky_center {
+  height: 100%; }
+
+#sun_moon_static {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+#sun_moon_rotating {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background-image: url(../image/prop/sun_moon.png);
+  background-position: center;
+  background-size: 20% auto;
+  background-repeat: no-repeat; }
+
+#clouds {
+  z-index: 2; }
 
 #cloud1 {
   position: absolute;
@@ -816,30 +620,24 @@ body {
   100% {
     right: 100%;
     opacity: 0; } }
-#sky_background_center {
-  z-index: 4; }
+#exocet_wrapper {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 12.5%;
+  height: 12.5%;
+  z-index: 3;
+  transform: translateX(100%); }
 
-#sky_background_sun_moon_static {
+#exocet {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 4; }
-
-#sky_background_sun_moon_rotating {
-  position: relative;
-  width: 100%;
-  height: 200%;
-  background-image: url(../image/prop/sun_moon.png);
-  background-position: center;
-  background-size: 22% auto;
-  background-repeat: no-repeat; }
-
-#sky_background_clouds {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  pointer-events: none; }
+  transform: scaleX(-1);
+  background-image: url(../image/animation/exocet.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom; }
 
 #birds {
   position: absolute;
@@ -847,7 +645,7 @@ body {
   left: 100%;
   width: 10%;
   height: 10%;
-  z-index: 1; }
+  z-index: 4; }
 
 #bird1 {
   position: absolute;
@@ -882,18 +680,37 @@ body {
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
-#sky_left {
+/* ---- Sam Esgate ---- */
+#samesgate {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  height: 20%;
-  width: calc((100vw - 100vh) / 2);
-  background-image: url(../image/texture/stone.png);
-  background-size: auto 100%;
-  background-position: right 0px bottom 0px;
-  background-repeat: repeat-x; }
+  width: 35vmin;
+  height: auto;
+  right: 5%;
+  bottom: 60%;
+  font-size: 5vmin;
+  line-height: 7.5vmin;
+  text-align: center;
+  border-bottom: 0.5vmin solid gainsboro;
+  z-index: 3; }
 
-#sky_right {
+#bonzos_useful_things {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #222222;
+  border-radius: 0px 0px 5px 5px;
+  z-index: 3; }
+
+.useful_icon {
+  width: 10vmin;
+  height: 10vmin; }
+
+#forest {
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -902,470 +719,92 @@ body {
   background-size: auto 100%;
   background-position: left 0px bottom 0px;
   background-repeat: repeat-x;
-  z-index: 3; }
+  z-index: 2; }
   @media (orientation: landscape) {
-    #sky_right {
+    #forest {
       width: calc(((100vw - 100vh) / 2) + 50vh); } }
   @media (orientation: portrait) {
-    #sky_right {
+    #forest {
       width: 50vw; } }
 
-#sky_foreground {
-  z-index: 2; }
+#foreground_land {
+  height: 20%; }
 
-#sky_center {
-  pointer-events: none;
-  z-index: 3; }
-
-#lighthouse {
-  position: absolute;
-  bottom: 0px;
-  left: 10%;
-  width: 25%;
-  height: 100%;
-  z-index: 4;
-  background-image: url(../image/prop/lighthouse.png);
-  background-repeat: no-repeat;
-  background-position: bottom 0px left 0px;
-  background-size: 100% auto; }
-
-#lighthouse_mask {
-  position: absolute;
-  bottom: 0px;
-  left: 10%;
-  width: 25%;
-  height: 100%;
-  z-index: 5;
-  background-image: url(../image/prop/lighthousemask.png);
-  background-repeat: no-repeat;
-  background-position: bottom 0px left 0px;
-  background-size: 100% auto; }
-
-/* ---- Exocet ---- */
-#exocet_wrapper {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 12.5%;
-  height: 12.5%;
-  z-index: 3;
-  transform: translateX(100%); }
-
-#exocet {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: scaleX(-1);
-  background-image: url(../image/animation/exocet.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: bottom; }
-
-/* ---- Clock ---- */
-#clock {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 150px;
-  height: 300px;
-  z-index: 1;
-  background-image: url(../image/texture/clock.png);
-  background-size: 150px 300px;
-  -webkit-animation: clockSwing 4s ease-out 0s  infinite;
-  animation: clockSwing 4s ease-out 0s  infinite; }
-
-@-webkit-keyframes clockSwing {
-  0% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); }
-
-  50% {
-    transform: rotate(1deg);
-    -webkit-transform: rotate(1deg); }
-
-  100% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); } }
-@keyframes clockSwing {
-  0% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); }
-
-  50% {
-    transform: rotate(1deg);
-    -webkit-transform: rotate(1deg); }
-
-  100% {
-    transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg); } }
-/* ---- Armco ---- */
-#sea {
-  position: relative;
-  width: 100%;
-  background-image: url(../image/texture/sea.png); }
-  @media (orientation: portrait) {
-    #sea {
-      height: 30.0vw; } }
-  @media (orientation: landscape) {
-    #sea {
-      height: 30.0vh; } }
-
-#sea_mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 9; }
-
-#sea_foreground {
-  z-index: 2; }
-
-#land {
-  position: absolute;
-  top: 0%;
-  right: 0%;
+#foreground_land_center {
   height: 100%; }
+
+#foreground_sea {
+  height: 20.0%; }
+
+#foreground_sea_center {
+  height: 100%; }
+
+#foreground_background_mask {
+  z-index: 3;
+  background-color: black; }
+
+.mask {
+  pointer-events: none; }
+
+/* ---- Positioning ---- */
+.centerer {
+  position: relative;
+  margin: 0 auto;
+  height: 100%; }
+  @media (orientation: portrait) {
+    .centerer {
+      width: 100vw; } }
   @media (orientation: landscape) {
-    #land {
+    .centerer {
+      width: 100vh; } }
+
+.lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+  position: absolute;
+  left: 0%; }
+  @media (orientation: portrait) {
+    .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+      width: 100vw; } }
+  @media (orientation: landscape) {
+    .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
+      width: 100vh; } }
+
+.righterer, #foreground, #lighting {
+  position: absolute;
+  right: 0%; }
+  @media (orientation: landscape) {
+    .righterer, #foreground, #lighting {
       width: calc(((100vw - 100vh) / 2) + 100vh); } }
   @media (orientation: portrait) {
-    #land {
+    .righterer, #foreground, #lighting {
       width: 100vw; } }
 
-#sea_tint {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url(../image/texture/gradient.png);
-  background-size: auto 100%;
-  opacity: 1; }
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer; }
 
-#tarmac {
-  position: absolute;
-  top: 0%;
-  width: 100%;
-  height: 5%;
-  background-color: #252525; }
+#lighting {
+  z-index: 4; }
+  @media (orientation: landscape) {
+    #lighting {
+      height: 100vh; } }
+  @media (orientation: portrait) {
+    #lighting {
+      height: 100vw; } }
 
-#stones {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 25%;
-  z-index: 2;
-  background-image: url(../image/prop/stones.png);
-  background-size: auto 100%;
-  background-position: center; }
+.lighting, #lighting_sky, #lighting_land, #lighting_sea {
+  position: relative;
+  width: 100%; }
 
-#sand {
-  position: absolute;
-  top: 5%;
-  width: 100%;
-  height: 35%;
-  background-image: url(../image/texture/beach.png);
-  background-size: auto 50%;
-  z-index: 1; }
+#lighting_sky {
+  height: 60%; }
 
-#stairs {
-  position: absolute;
-  top: 0px;
-  left: 25%;
-  width: 80%;
-  height: 100%;
-  z-index: 1;
-  background-image: url(../image/prop/stairs.png);
-  background-repeat: no-repeat;
-  background-size: auto 100%; }
+#lighting_land {
+  height: 20%; }
 
-#fish1 {
-  position: absolute;
-  bottom: 0;
-  left: auto;
-  width: 5%;
-  height: 54%;
-  z-index: 2;
-  -webkit-animation: fish1 25s linear 0s  infinite;
-  animation: fish1 25s linear 0s  infinite;
-  background-image: url(../image/animation/fish/fish_small_1.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
-
-@-webkit-keyframes fish1 {
-  0% {
-    right: 100%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  20% {
-    right: 100%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  40% {
-    right: 75%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  60% {
-    right: 50%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  80% {
-    right: 25%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  100% {
-    right: 0%;
-    opacity: 0;
-    transform: scaleX(1); } }
-@keyframes fish1 {
-  0% {
-    right: 100%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  20% {
-    right: 100%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  40% {
-    right: 75%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  60% {
-    right: 50%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  80% {
-    right: 25%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  100% {
-    right: 0%;
-    opacity: 0;
-    transform: scaleX(1); } }
-#fish2 {
-  position: absolute;
-  bottom: 0;
-  left: auto;
-  width: 4%;
-  height: 36%;
-  z-index: 2;
-  -webkit-animation: fish2 30s linear 0s  infinite;
-  animation: fish2 30s linear 0s  infinite;
-  background-image: url(../image/animation/fish/fish_small_2.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
-
-@-webkit-keyframes fish2 {
-  0% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  20% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  40% {
-    left: 70%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  60% {
-    left: 50%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  80% {
-    left: 30%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  100% {
-    left: 10%;
-    opacity: 0;
-    transform: scaleX(-1); } }
-@keyframes fish2 {
-  0% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  20% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  40% {
-    left: 70%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  60% {
-    left: 50%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  80% {
-    left: 30%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  100% {
-    left: 10%;
-    opacity: 0;
-    transform: scaleX(-1); } }
-#fish3 {
-  position: absolute;
-  bottom: 0;
-  left: auto;
-  width: 3.5%;
-  height: 24%;
-  z-index: 2;
-  -webkit-animation: fish3 36s linear 0s  infinite;
-  animation: fish3 36s linear 0s  infinite;
-  background-image: url(../image/animation/fish/fish_small_3.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
-
-@-webkit-keyframes fish3 {
-  0% {
-    right: 80%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  20% {
-    right: 80%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  40% {
-    right: 60%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  60% {
-    right: 40%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  80% {
-    right: 20%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  100% {
-    right: 0%;
-    opacity: 0;
-    transform: scaleX(1); } }
-@keyframes fish3 {
-  0% {
-    right: 80%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  20% {
-    right: 80%;
-    opacity: 0;
-    transform: scaleX(1); }
-
-  40% {
-    right: 60%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  60% {
-    right: 40%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  80% {
-    right: 20%;
-    opacity: 1;
-    transform: scaleX(1); }
-
-  100% {
-    right: 0%;
-    opacity: 0;
-    transform: scaleX(1); } }
-#fish4 {
-  position: absolute;
-  bottom: 0;
-  left: auto;
-  width: 4.5%;
-  height: 42%;
-  z-index: 2;
-  -webkit-animation: fish4 24s linear 0s  infinite;
-  animation: fish4 24s linear 0s  infinite;
-  background-image: url(../image/animation/fish/fish_small_4.gif);
-  background-size: 100% auto;
-  background-repeat: no-repeat; }
-
-@-webkit-keyframes fish4 {
-  0% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  20% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  40% {
-    left: 72.5%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  60% {
-    left: 55%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  80% {
-    left: 37.5%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  100% {
-    left: 20%;
-    opacity: 0;
-    transform: scaleX(-1); } }
-@keyframes fish4 {
-  0% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  20% {
-    left: 90%;
-    opacity: 0;
-    transform: scaleX(-1); }
-
-  40% {
-    left: 72.5%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  60% {
-    left: 55%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  80% {
-    left: 37.5%;
-    opacity: 1;
-    transform: scaleX(-1); }
-
-  100% {
-    left: 20%;
-    opacity: 0;
-    transform: scaleX(-1); } }
+#lighting_sea {
+  height: 20.0%; }

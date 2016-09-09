@@ -1,6 +1,6 @@
 /* ---- Sam Esgate ---- */
-$samesgate_color: #DCDCDC
 $samesgate_border: 1vmin
+$useful_background_colour: #222222
 
 #samesgate
   position: absolute
@@ -8,30 +8,30 @@ $samesgate_border: 1vmin
   height: auto
   right: 5%
   bottom: 60%
-  font:
-    family: helvetica
   font-size: 5vmin
   line-height: 7.5vmin
   text-align: center
   border:
-    bottom: ($samesgate_border / 2) solid $samesgate_color
-  color: $samesgate_color
-  z-index: $layer_6
+    bottom: ($samesgate_border / 2) solid $font_default_colour
+  z-index: $layer_3
 
 #bonzos_useful_things
   position: absolute
+  right: 5%
+  top: 40%
+
   display: flex
   flex-direction: row
   flex-wrap: wrap
   justify-content: center
   align-items: center
-  right: 5%
-  top: 40%
+
   background:
-    color: #2D2222
+    color: $useful_background_colour
   border:
     radius: 0px 0px 5px 5px
-  z-index: $layer_6
+
+  z-index: $layer_3
 
 .useful_icon
   width: 10vmin

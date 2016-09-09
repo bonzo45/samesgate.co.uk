@@ -1,0 +1,44 @@
+$texture_sky: $texture_path + "sky.png"
+$texture_sea: $texture_path + "sea.png"
+$texture_tint: $filter_path + "tint.png"
+
+#background
+  position: absolute
+  top: 0%
+  left: 0%
+  right: 0%
+  @media (orientation:landscape)
+    height: 100vh
+  @media (orientation:portrait)
+    height: 100vw
+  z-index: $layer_1
+
+#background_sky
+  position: relative
+  width: 100%
+  height: $sky_background_height * 100%
+  background:
+    image: url(#{$texture_sky})
+
+#sky_background_tint
+  position: absolute
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_tint})
+    size: 100% 100%
+
+#background_sea
+  position: relative
+  width: 100%
+  height: $sea_background_height * 100%
+  background-image: url(#{$texture_sea})
+
+#sea_tint
+  position: absolute
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_tint})
+    size: 100% 100%
+  transform: scaleY(-1)

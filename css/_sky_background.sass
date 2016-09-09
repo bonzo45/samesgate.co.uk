@@ -42,54 +42,12 @@ $sky_tint_height: 100%
 #sky_background_center
   z-index: 4
 
-$texture_sun_moon: $prop_path + "sun_moon.png"
-#sky_background_sun_moon_static
-  position: absolute
-  width: 100%
-  height: 100%
-  z-index: $layer_4
-
-#sky_background_sun_moon_rotating
-  position: relative
-  width: 100%
-  height: 200%
-  background:
-    image: url(#{$texture_sun_moon})
-    position: center
-    size: 22% auto
-    repeat: no-repeat
-
 #sky_background_clouds
   position: absolute
   width: 100%
   height: 100%
   z-index: $layer_5
   pointer-events: none
-
-#birds
-  @include absolute_object_b(20%, 100%, 10%, 10%)
-
-$texture_birds: $animation_path + "bird.gif"
-#bird1
-  @include absolute_object_b(0%, 30%, 50%, 50%)
-  background:
-    image: url(#{$texture_birds})
-    size: 100% auto
-    repeat: no-repeat
-
-#bird2
-  @include absolute_object_b(40%, 70%, 30%, 30%)
-  background:
-    image: url(#{$texture_birds})
-    size: 100% auto
-    repeat: no-repeat
-
-#bird3
-  @include absolute_object_b(30%, 0%, 25%, 25%)
-  background:
-    image: url(#{$texture_birds})
-    size: 100% auto
-    repeat: no-repeat
 
 $texture_rocks: $texture_path + "stone.png"
 #sky_left

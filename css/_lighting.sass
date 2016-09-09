@@ -1,0 +1,25 @@
+@import util
+
+#lighting
+  @extend .righterer
+  @media (orientation:landscape)
+    height: 100vh
+  @media (orientation:portrait)
+    height: 100vw
+  z-index: $layer_4
+
+.lighting
+  position: relative
+  width: 100%
+
+#lighting_sky
+  @extend .lighting
+  height: $sky_lighting_height * 100%
+
+#lighting_land
+  @extend .lighting
+  height: $land_lighting_height * 100%
+
+#lighting_sea
+  @extend .lighting
+  height: $sea_lighting_height * 100%
