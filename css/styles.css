@@ -439,7 +439,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: black;
-  z-index: 4; }
+  z-index: 5; }
 
 #cloud1 {
   position: absolute;
@@ -832,7 +832,7 @@ body {
     right: 100%;
     opacity: 0; } }
 #sky_background_center {
-  z-index: 3; }
+  z-index: 4; }
 
 #sky_background_sun_moon_static {
   position: absolute;
