@@ -1,0 +1,19 @@
+$lighthouse_width: 25%
+$texture_lighthouse: $prop_path + "lighthouse.png"
+$texture_lighthouse_mask: $prop_path + "lighthousemask.png"
+
+#lighthouse
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_4)
+  background:
+    image: url(#{$texture_lighthouse})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
+
+#lighthouse_mask
+  @include absolute_object_b(0px, 10%, $lighthouse_width, 100%, $layer_5)
+  background:
+    image: url(#{$texture_lighthouse_mask})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto

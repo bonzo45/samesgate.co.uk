@@ -19,6 +19,7 @@ $texture_tint: $filter_path + "tint.png"
   height: $sky_background_height * 100%
   background:
     image: url(#{$texture_sky})
+  overflow: hidden
 
 #sky_background_tint
   position: absolute
@@ -27,6 +28,12 @@ $texture_tint: $filter_path + "tint.png"
   background:
     image: url(#{$texture_tint})
     size: 100% 100%
+
+#background_sky_center
+  @extend .centerer
+  height: 100%
+
+@import sun_moon  
 
 #background_sea
   position: relative

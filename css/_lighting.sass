@@ -1,7 +1,7 @@
 @import util
 
 #lighting
-  @extend .righterer
+  @extend .centerer
   @media (orientation:landscape)
     height: 100vh
   @media (orientation:portrait)
@@ -12,14 +12,6 @@
   position: relative
   width: 100%
 
-#lighting_sky
-  @extend .lighting
-  height: $sky_lighting_height * 100%
-
-#lighting_land
-  @extend .lighting
-  height: $land_lighting_height * 100%
-
-#lighting_sea
-  @extend .lighting
-  height: $sea_lighting_height * 100%
+@import lighting_sky
+@import lighting_land
+@import lighting_sea

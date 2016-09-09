@@ -129,7 +129,8 @@ body {
   position: relative;
   width: 100%;
   height: 70%;
-  background-image: url(../image/texture/sky.png); }
+  background-image: url(../image/texture/sky.png);
+  overflow: hidden; }
 
 #sky_background_tint {
   position: absolute;
@@ -137,6 +138,24 @@ body {
   height: 100%;
   background-image: url(../image/filter/tint.png);
   background-size: 100% 100%; }
+
+#background_sky_center {
+  height: 100%; }
+
+#sun_moon_static {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+#sun_moon_rotating {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  background-image: url(../image/prop/sun_moon.png);
+  background-position: center;
+  background-size: 20% auto;
+  background-repeat: no-repeat; }
 
 #background_sea {
   position: relative;
@@ -153,15 +172,15 @@ body {
   transform: scaleY(-1); }
 
 /* ---- Positioning ---- */
-.centerer {
+.centerer, #background_sky_center, #lighting {
   position: relative;
   margin: 0 auto;
   height: 100%; }
   @media (orientation: portrait) {
-    .centerer {
+    .centerer, #background_sky_center, #lighting {
       width: 100vw; } }
   @media (orientation: landscape) {
-    .centerer {
+    .centerer, #background_sky_center, #lighting {
       width: 100vh; } }
 
 .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
@@ -174,14 +193,14 @@ body {
     .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
       width: 100vh; } }
 
-.righterer, #foreground, #lighting {
+.righterer, #foreground {
   position: absolute;
   right: 0%; }
   @media (orientation: landscape) {
-    .righterer, #foreground, #lighting {
+    .righterer, #foreground {
       width: calc(((100vw - 100vh) / 2) + 100vh); } }
   @media (orientation: portrait) {
-    .righterer, #foreground, #lighting {
+    .righterer, #foreground {
       width: 100vw; } }
 
 .noselect {
@@ -207,25 +226,10 @@ body {
   width: 100%; }
 
 #foreground_sky {
-  height: 60%; }
+  height: 67.5%; }
 
 #foreground_sky_center {
   height: 100%; }
-
-#sun_moon_static {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1; }
-
-#sun_moon_rotating {
-  position: relative;
-  width: 100%;
-  height: 200%;
-  background-image: url(../image/prop/sun_moon.png);
-  background-position: center;
-  background-size: 20% auto;
-  background-repeat: no-repeat; }
 
 #clouds {
   z-index: 2; }
@@ -245,35 +249,35 @@ body {
 
 @-webkit-keyframes cloud1 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   33.33333% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   66.66667% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud1 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   33.33333% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   66.66667% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #cloud2 {
   position: absolute;
@@ -290,43 +294,43 @@ body {
 
 @-webkit-keyframes cloud2 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   25% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   75% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud2 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   25% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   75% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #cloud3 {
   position: absolute;
@@ -343,51 +347,51 @@ body {
 
 @-webkit-keyframes cloud3 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   20% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   40% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   60% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   80% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud3 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   20% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   40% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   60% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   80% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #cloud4 {
   position: absolute;
@@ -404,59 +408,59 @@ body {
 
 @-webkit-keyframes cloud4 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   16.66667% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   33.33333% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   66.66667% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   83.33333% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud4 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   16.66667% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   33.33333% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   66.66667% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   83.33333% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #cloud5 {
   position: absolute;
@@ -473,67 +477,67 @@ body {
 
 @-webkit-keyframes cloud5 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   14.28571% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   28.57143% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   42.85714% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   57.14286% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   71.42857% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   85.71429% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud5 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   14.28571% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   28.57143% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   42.85714% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   57.14286% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   71.42857% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   85.71429% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #cloud6 {
   position: absolute;
@@ -550,75 +554,75 @@ body {
 
 @-webkit-keyframes cloud6 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   12.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   25% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   37.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   62.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   75% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   87.5% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 @keyframes cloud6 {
   0% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   12.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   25% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   37.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   50% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   62.5% {
-    right: 10%;
+    transform: translateX(10vmin);
     opacity: 0; }
 
   75% {
-    right: 40%;
+    transform: translateX(40vmin);
     opacity: 1; }
 
   87.5% {
-    right: 70%;
+    transform: translateX(70vmin);
     opacity: 1; }
 
   100% {
-    right: 100%;
+    transform: translateX(100vmin);
     opacity: 0; } }
 #exocet_wrapper {
   position: absolute;
@@ -645,7 +649,8 @@ body {
   left: 100%;
   width: 10%;
   height: 10%;
-  z-index: 4; }
+  z-index: 4;
+  opacity: 0; }
 
 #bird1 {
   position: absolute;
@@ -728,17 +733,342 @@ body {
       width: 50vw; } }
 
 #foreground_land {
-  height: 20%; }
+  height: 10%; }
 
 #foreground_land_center {
   height: 100%; }
 
+#tarmac {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 10%;
+  background-color: #252525;
+  z-index: 1;
+  border-radius: 5px 0px 0px 0px; }
+
+#stones {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 54%;
+  z-index: 2;
+  background-image: url(../image/prop/stones.png);
+  background-size: auto 100%;
+  background-position: center;
+  border-radius: 10px 0px 0px 0px; }
+
+#sand {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 90%;
+  background-image: url(../image/texture/beach.png);
+  background-size: auto 50%;
+  z-index: 1;
+  border-radius: 0% 0% 0% 30%; }
+
 #foreground_sea {
-  height: 20.0%; }
+  height: 22.5%; }
 
 #foreground_sea_center {
   height: 100%; }
 
+#fishies {
+  height: 100%; }
+
+#fish1 {
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  width: 5%;
+  height: 90%;
+  z-index: 2;
+  -webkit-animation: fish1 25s linear 0s  infinite;
+  animation: fish1 25s linear 0s  infinite;
+  background-image: url(../image/animation/fish/fish_small_1.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes fish1 {
+  0% {
+    right: 100%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  20% {
+    right: 100%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  40% {
+    right: 75%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  60% {
+    right: 50%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  80% {
+    right: 25%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  100% {
+    right: 0%;
+    opacity: 0;
+    transform: scaleX(1); } }
+@keyframes fish1 {
+  0% {
+    right: 100%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  20% {
+    right: 100%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  40% {
+    right: 75%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  60% {
+    right: 50%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  80% {
+    right: 25%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  100% {
+    right: 0%;
+    opacity: 0;
+    transform: scaleX(1); } }
+#fish2 {
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  width: 4%;
+  height: 60%;
+  z-index: 2;
+  -webkit-animation: fish2 30s linear 0s  infinite;
+  animation: fish2 30s linear 0s  infinite;
+  background-image: url(../image/animation/fish/fish_small_2.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes fish2 {
+  0% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  20% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  40% {
+    left: 70%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  60% {
+    left: 50%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  80% {
+    left: 30%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 10%;
+    opacity: 0;
+    transform: scaleX(-1); } }
+@keyframes fish2 {
+  0% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  20% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  40% {
+    left: 70%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  60% {
+    left: 50%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  80% {
+    left: 30%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 10%;
+    opacity: 0;
+    transform: scaleX(-1); } }
+#fish3 {
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  width: 3.5%;
+  height: 40%;
+  z-index: 2;
+  -webkit-animation: fish3 36s linear 0s  infinite;
+  animation: fish3 36s linear 0s  infinite;
+  background-image: url(../image/animation/fish/fish_small_3.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes fish3 {
+  0% {
+    right: 80%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  20% {
+    right: 80%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  40% {
+    right: 60%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  60% {
+    right: 40%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  80% {
+    right: 20%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  100% {
+    right: 0%;
+    opacity: 0;
+    transform: scaleX(1); } }
+@keyframes fish3 {
+  0% {
+    right: 80%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  20% {
+    right: 80%;
+    opacity: 0;
+    transform: scaleX(1); }
+
+  40% {
+    right: 60%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  60% {
+    right: 40%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  80% {
+    right: 20%;
+    opacity: 1;
+    transform: scaleX(1); }
+
+  100% {
+    right: 0%;
+    opacity: 0;
+    transform: scaleX(1); } }
+#fish4 {
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  width: 4.5%;
+  height: 70%;
+  z-index: 2;
+  -webkit-animation: fish4 24s linear 0s  infinite;
+  animation: fish4 24s linear 0s  infinite;
+  background-image: url(../image/animation/fish/fish_small_4.gif);
+  background-size: 100% auto;
+  background-repeat: no-repeat; }
+
+@-webkit-keyframes fish4 {
+  0% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  20% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  40% {
+    left: 72.5%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  60% {
+    left: 55%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  80% {
+    left: 37.5%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 20%;
+    opacity: 0;
+    transform: scaleX(-1); } }
+@keyframes fish4 {
+  0% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  20% {
+    left: 90%;
+    opacity: 0;
+    transform: scaleX(-1); }
+
+  40% {
+    left: 72.5%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  60% {
+    left: 55%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  80% {
+    left: 37.5%;
+    opacity: 1;
+    transform: scaleX(-1); }
+
+  100% {
+    left: 20%;
+    opacity: 0;
+    transform: scaleX(-1); } }
 #foreground_background_mask {
   z-index: 3;
   background-color: black; }
@@ -747,15 +1077,15 @@ body {
   pointer-events: none; }
 
 /* ---- Positioning ---- */
-.centerer {
+.centerer, #background_sky_center, #lighting {
   position: relative;
   margin: 0 auto;
   height: 100%; }
   @media (orientation: portrait) {
-    .centerer {
+    .centerer, #background_sky_center, #lighting {
       width: 100vw; } }
   @media (orientation: landscape) {
-    .centerer {
+    .centerer, #background_sky_center, #lighting {
       width: 100vh; } }
 
 .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
@@ -768,14 +1098,14 @@ body {
     .lefterer, #foreground_sky_center, #foreground_land_center, #foreground_sea_center {
       width: 100vh; } }
 
-.righterer, #foreground, #lighting {
+.righterer, #foreground {
   position: absolute;
   right: 0%; }
   @media (orientation: landscape) {
-    .righterer, #foreground, #lighting {
+    .righterer, #foreground {
       width: calc(((100vw - 100vh) / 2) + 100vh); } }
   @media (orientation: portrait) {
-    .righterer, #foreground, #lighting {
+    .righterer, #foreground {
       width: 100vw; } }
 
 .noselect {
@@ -801,10 +1131,34 @@ body {
   width: 100%; }
 
 #lighting_sky {
-  height: 60%; }
+  height: 67.5%; }
+
+#lighthouse {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 25%;
+  height: 100%;
+  z-index: 4;
+  background-image: url(../image/prop/lighthouse.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+
+#lighthouse_mask {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 25%;
+  height: 100%;
+  z-index: 5;
+  background-image: url(../image/prop/lighthousemask.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
 
 #lighting_land {
-  height: 20%; }
+  height: 10%; }
 
 #lighting_sea {
-  height: 20.0%; }
+  height: 22.5%; }

@@ -31,8 +31,16 @@ define(["jquery"], function($) {
       $("#birds").css("transition", "all 0s");
       $("#birds").css("transform", "");
       setTimeout(function(){
-        $("#birds").css("transition", "all linear 20s");
-        $("#birds").css("transform", "translate(-100vw, -30vh) scale(1.2, 1.2)"); 
+        $("#birds").css("transition", "all linear 0.5s");
+        $("#birds").css("opacity", "1");
+        setTimeout(function(){
+          $("#birds").css("transition", "all linear 20s");
+          $("#birds").css("transform", "translate(-100vw, -30vh) scale(1.2, 1.2)");
+          setTimeout(function(){
+            $("#birds").css("transition", "all linear 0.5s");
+            $("#birds").css("opacity", "0"); 
+          }, 20000);
+        }, 600);
       }, 100);
     }
   }

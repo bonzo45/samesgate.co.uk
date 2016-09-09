@@ -5,3 +5,42 @@
 #foreground_land_center
   height: 100%
   @extend .lefterer
+
+$tarmac_height: 10%
+$beach_height: 100% - $tarmac_height
+$stones_height: 3 * ($beach_height / 5)
+
+$tarmac_colour: #252525
+#tarmac
+  position: absolute
+  top: 0%
+  width: 100%
+  height: $tarmac_height
+  background-color: $tarmac_colour
+  z-index: 1
+  border-radius: 5px 0px 0px 0px
+
+$texture_bank: $prop_path + "stones.png"
+#stones
+  position: absolute
+  top: 0px
+  width: 100%
+  height: $stones_height
+  z-index: 2
+  background:
+    image: url(#{$texture_bank})
+    size: auto 100%
+    position: center
+  border-radius: 10px 0px 0px 0px
+
+$texture_beach: $texture_path + "beach.png"
+#sand
+  position: absolute
+  top: $tarmac_height
+  width: 100%
+  height: $beach_height
+  background:
+    image: url(#{$texture_beach})
+    size: auto 50%
+  z-index: 1
+  border-radius: 0% 0% 0% 30%
