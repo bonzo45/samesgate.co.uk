@@ -5,7 +5,8 @@ body {
   margin: 0px 0px 0px 0px;
   color: gainsboro;
   background-color: black;
-  font-family: helvetica; }
+  font-family: helvetica;
+  overflow: hidden; }
 
 #watch_indicator {
   position: fixed;
