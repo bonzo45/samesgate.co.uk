@@ -304,7 +304,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud1 50s linear 0s  infinite;
   animation: cloud1 50s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_1.png);
+  background-image: url(../image/texture/cloud/cloud_1.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
@@ -349,7 +349,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud2 58s linear 0s  infinite;
   animation: cloud2 58s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_2.png);
+  background-image: url(../image/texture/cloud/cloud_2.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
@@ -402,7 +402,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud3 66s linear 0s  infinite;
   animation: cloud3 66s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_3.png);
+  background-image: url(../image/texture/cloud/cloud_3.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
@@ -463,7 +463,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud4 74s linear 0s  infinite;
   animation: cloud4 74s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_4.png);
+  background-image: url(../image/texture/cloud/cloud_4.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
@@ -532,7 +532,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud5 82s linear 0s  infinite;
   animation: cloud5 82s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_5.png);
+  background-image: url(../image/texture/cloud/cloud_5.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
@@ -609,7 +609,7 @@ body {
   z-index: 2;
   -webkit-animation: cloud6 90s linear 0s  infinite;
   animation: cloud6 90s linear 0s  infinite;
-  background-image: url(../image/texture/cloud/Cloud_6.png);
+  background-image: url(../image/texture/cloud/cloud_6.png);
   background-size: 100% auto;
   background-repeat: no-repeat; }
 
