@@ -1,7 +1,7 @@
 define(["jquery"], function($) {
   
   var usefulThings = {
-    social: [
+    me: [      
       {
         icon: "facebook.png",
         url: "http://www.facebook.com/bonzo45"
@@ -9,18 +9,26 @@ define(["jquery"], function($) {
       {
         icon: "twitter.png",
         url: "http://www.twitter.com/bonzo450"
+      },      
+      {
+        icon: "linkedin.png",
+        url: "https://uk.linkedin.com/in/sam-esgate-b93b0468"
+      },    
+      {
+        icon: "github.png",
+        url: "https://github.com/bonzo45"
+      },      
+      {
+        icon: "youtube.png",
+        url: "http://www.youtube.com/user/Bonzo450/videos"
       },
       {
         icon: "g+.png",
         url: "https://plus.google.com/u/0/+SamEsgate/"
-      },
-      {
-        icon: "youtube.png",
-        url: "http://www.youtube.com/user/Bonzo450/videos"
       }
     ],
 
-    website: [
+    links: [
       {
         icon: "bbc.png",
         url: "http://www.bbc.co.uk/news"
@@ -36,17 +44,6 @@ define(["jquery"], function($) {
       {
         icon: "heart_internet.png",
         url: "https://www.heartinternet.uk/login"
-      }
-    ],
-
-    coding: [
-      {
-        icon: "github.png",
-        url: "https://github.com/bonzo45"
-      },
-      {
-        icon: "linkedin.png",
-        url: "https://uk.linkedin.com/in/sam-esgate-b93b0468"
       }
     ]
   }

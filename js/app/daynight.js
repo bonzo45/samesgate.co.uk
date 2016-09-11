@@ -44,7 +44,7 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
       return Moment(second).add(Math.ceil(lowerLimit.diff(second, 'hours') / 24), 'days');
 
     else
-      return Moment(second).remove(Math.ceil(second.diff(upperLimit, 'hours') / 24), 'days');
+      return Moment(second).subtract(Math.ceil(second.diff(upperLimit, 'hours') / 24), 'days');
   }
 
   /**
@@ -229,13 +229,14 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
             setWatch(newTime);
             mousedownTime = newTime;
           });
+          $(this).mouseup(function(e) {
+              var coordinates = getWatchCoordinates(e, $(this));
+              setTime(getNearbyTime(mousedownTime, coordinatesToAngle(coordinates)));
+              $(this).unbind('mousemove');
+              $(this).unbind('mouseup');
+          });
         }
-      }).mouseup(function(e) {
-        var coordinates = getWatchCoordinates(e, $(this));
-        if (0.325 < coordinates.distance) {
-          setTime(getNearbyTime(mousedownTime, coordinatesToAngle(coordinates)));
-        }
-        $(this).unbind('mousemove');
+        
       });
 
       setTime(Moment());

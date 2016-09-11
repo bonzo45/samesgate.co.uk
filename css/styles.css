@@ -99,19 +99,79 @@ body {
   font-size: 5%;
   margin-bottom: 6%; }
 
-#old_site {
+#welcome {
   position: absolute;
-  width: 15vmin;
+  width: 50vmin;
   height: auto;
   top: 0%;
-  right: 2.5%;
-  padding: 1vmin;
-  background-color: #009999;
+  left: calc((100% - 50vmin) / 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vmin;
+  text-align: center;
+  z-index: 4;
+  color: white;
+  border-radius: 0% 0% 4px 4px; }
+
+.welcome_bar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+#welcome_header {
+  position: relative;
+  width: 100%;
   font-size: 2vmin;
+  margin: 0% 0% 0% 0%;
+  padding: 1vmin;
+  background-color: #2b506e;
+  border-radius: 0% 0% 4px 4px; }
+
+#welcome_drop_down {
+  width: 100%;
+  opacity: 0;
+  background-color: steelblue; }
+
+#welcome_bars {
+  position: absolute;
+  width: 10%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  font-size: 2.5vmin;
+  cursor: pointer; }
+
+.welcome_button {
+  width: 25%;
+  height: auto;
+  padding: 1vmin 0% 1vmin 0%;
   text-align: center;
   text-decoration: none;
-  z-index: 6;
-  color: white; }
+  color: gainsboro;
+  cursor: pointer; }
+
+.fa-space {
+  padding-right: 0.5em; }
+
+.welcome_colour_1 {
+  background-color: #702963; }
+
+.welcome_colour_2 {
+  background-color: #1d6660; }
+
+.welcome_colour_3 {
+  background-color: #da9100; }
+
+.welcome_colour_4 {
+  background-color: #3b444b; }
+
+.welcome_tip {
+  padding: 1vmin; }
 
 #background, #foreground_background_mask {
   position: absolute;
@@ -1119,7 +1179,8 @@ body {
   cursor: pointer; }
 
 #lighting {
-  z-index: 4; }
+  z-index: 4;
+  pointer-events: none; }
   @media (orientation: landscape) {
     #lighting {
       height: 100vh; } }

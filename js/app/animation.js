@@ -2,21 +2,37 @@ define(["jquery"], function($) {
 
   return {
     init : function() {
+      this.initMenu();
       this.initExocet();
       this.initBirds();
+    },
+
+    initMenu : function() {
+      $("#welcome_bars").click(this.toggleMenu);
     },
 
     initExocet : function() {
       $("#exocet_wrapper").css("transition", "all 0s");
       $("#exocet_wrapper").css("transform", "translateX(100%)");
-      $("#watch_control_car").click(this.animateExocet);
+      $("#button_exocet").click(this.animateExocet);
     },
 
     initBirds: function() {
       $("#birds").css("transition", "all 0s");
       $("#birds").css("transform", "");
-      $("#watch_control_birds").click(this.animateBirds);
+      $("#button_birds").click(this.animateBirds);
     },
+
+    toggleMenu : function() {
+      $("#welcome_drop_down").css("transition", "all 0.75s");
+      if ($("#welcome_drop_down").css("opacity") == 0) {
+        $("#welcome_drop_down").css("opacity", "1");
+      }
+      else if ($("#welcome_drop_down").css("opacity") == 1){
+        $("#welcome_drop_down").css("opacity", "0");
+      }
+    },
+
 
     animateExocet : function() {
       $("#exocet_wrapper").css("transition", "all 0s");

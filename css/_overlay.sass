@@ -1,16 +1,86 @@
 @import watch
 
-#old_site
+$welcome_width: 50vmin
+$welcome_radius: 4px
+
+#welcome
   position: absolute
-  width: 15vmin
+  width: $welcome_width
   height: auto
   top: 0%
-  right: 2.5%
+  left: calc((100% - #{$welcome_width}) / 2)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  font-size: 1.5vmin
+  text-align: center
+  z-index: $layer_4
+  color: white
+
+  border-radius: 0% 0% $welcome_radius $welcome_radius
+
+.welcome_bar
+  width: 100%
+  height: auto
+
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+#welcome_header  
+  position: relative
+  width: 100%
+  font-size: 2.0vmin
+  margin: 0% 0% 0% 0%
   padding: 1vmin
+  background-color: #2b506e
+  border-radius: 0% 0% $welcome_radius $welcome_radius
+
+#welcome_drop_down
+  width: 100%
+  opacity: 0
   background:
-    color: #009999
-  font-size: 2vmin
+    color: #4682B4
+
+#welcome_bars
+  position: absolute
+  width: 10%
+  top: 0%
+  right: 0%
+  bottom: 0%
+  font-size: 2.5vmin
+  cursor: pointer
+
+.welcome_button
+  width: 25%
+  height: auto
+  padding: 1vmin 0% 1vmin 0%
   text-align: center
   text-decoration: none
-  z-index: $layer_6
-  color: white
+  color: $font_default_colour
+  cursor: pointer
+
+.fa-space
+  padding-right: 0.5em
+
+.welcome_colour_1  
+  background:
+    color: #702963
+
+.welcome_colour_2
+  background:
+    color: #1D6660
+
+.welcome_colour_3
+  background:
+    color: #DA9100
+
+.welcome_colour_4
+  background:
+    color: #3B444B
+
+.welcome_tip
+  padding: 1vmin
