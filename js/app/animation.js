@@ -33,7 +33,6 @@ define(["jquery"], function($) {
       }
     },
 
-
     animateExocet : function() {
       $("#exocet_wrapper").css("transition", "all 0s");
       $("#exocet_wrapper").css("transform", "translateX(100%)");

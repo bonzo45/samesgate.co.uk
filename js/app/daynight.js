@@ -236,7 +236,10 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
               $(this).unbind('mouseup');
           });
         }
-        
+      });
+
+      $("#button_mystery").click(function() {
+        setTime(Moment())
       });
 
       setTime(Moment());
