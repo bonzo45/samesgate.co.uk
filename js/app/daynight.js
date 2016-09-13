@@ -176,7 +176,7 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
   function getWatchCoordinates(clickEvent, handleDiv) {
     // var parentOffset = handleDiv.parent().offset();
     // var watchSize = handleDiv.parent().width();
-    var watch = $("#watch");
+    var watch = $("#watch_background");
     var watch_left = watch.offset().left;
     var watch_top = watch.offset().top;
 

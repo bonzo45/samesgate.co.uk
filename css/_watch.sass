@@ -1,15 +1,19 @@
 @import layers
 
 $watch_top: 5vmin
-$watch_left: calc(((100vmax - 100vmin) / 2) + 0vmin)
+$watch_left_landscape: calc(((100vmax - 100vmin) / 2) + 0vmin)
+$watch_left_portrait: 0vmin
 $watch_size: 25vmin
 $watch_font_size: 22.5vmin
 
 $texture_watch: $prop_path + 'watch.png'
-#watch
+#watch_background
   position: fixed
   top: $watch_top
-  left: $watch_left
+  @media (orientation:landscape)
+    left: $watch_left_landscape
+  @media (orientation:portrait)
+    left: $watch_left_portrait  
   width: $watch_size
   height: $watch_size
   font-size: $watch_font_size
@@ -22,6 +26,38 @@ $texture_watch: $prop_path + 'watch.png'
   justify-content: center
   align-items: center
 
+$texture_watch_indicator: $prop_path + 'watch_indicator.png'
+#watch_indicator_wrapper
+  position: fixed
+  top: $watch_top
+  @media (orientation:landscape)
+    left: $watch_left_landscape
+  @media (orientation:portrait)
+    left: $watch_left_portrait 
+  width: $watch_size
+  height: $watch_size
+  z-index: $layer_overlay2
+
+$watch_face_width: 16vmin
+$watch_face_height: 5vmin
+$watch_face_offset_left: ($watch_size - $watch_face_width) / 2
+$watch_face_offset_top: ($watch_size - $watch_face_height) / 2
+#watch_face
+  position: fixed
+  top: $watch_top + $watch_face_offset_top
+  @media (orientation:landscape)
+    left: calc(#{$watch_left_landscape} + #{$watch_face_offset_left})
+  @media (orientation:portrait)
+    left: calc(#{$watch_left_portrait} + #{$watch_face_offset_left})
+  width: $watch_face_width
+  height: $watch_face_height
+  font-size: $watch_font_size
+  z-index: $layer_overlay3
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
 .watch_bar
   width: 63%
   height: 20%
@@ -30,19 +66,23 @@ $texture_watch: $prop_path + 'watch.png'
   justify-content: center
   align-items: center
 
-#watch_time_bar
+#watch_time_spacer
   height: 25%
 
 #watch_name
   height: 20%
   line-height: 100%
   margin: 0 auto
-  font-size: 5%
+  font-size: 7%
 
 .watch_time_symbol
-  width: 15%
+  width: 10%
+  border-radius: 50%
   font-size: 5%
   text-align: center
+  background-color: $font_default_colour
+  color: black
+  cursor: pointer
 
 #watch_time
   width: 70%
@@ -53,7 +93,7 @@ $texture_watch: $prop_path + 'watch.png'
 
 #watch_date
   width: 14%
-  font-size: 5%
+  font-size: 7%
   text-align: center
   margin-bottom: 5%
 
@@ -69,15 +109,6 @@ $texture_watch: $prop_path + 'watch.png'
   font-size: 5%
   margin-bottom: 6%
 
-$texture_watch_indicator: $prop_path + 'watch_indicator.png'
-#watch_indicator_wrapper
-  position: fixed
-  top: $watch_top
-  left: $watch_left
-  width: $watch_size
-  height: $watch_size
-  z-index: $layer_overlay2
-
 #watch_indicator
   width: 100%
   height: 100%
@@ -92,6 +123,4 @@ $texture_watch_indicator: $prop_path + 'watch_indicator.png'
   top: -4%
   margin: 0 auto
   border-radius: 50%
-  background-color: red
-  opacity: 0
   cursor: pointer
