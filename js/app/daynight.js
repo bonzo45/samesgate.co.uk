@@ -173,15 +173,19 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
     return (msFrom12 / (12 * Const.HOUR_MS)) * 360;
   }
 
-  function getWatchCoordinates(clickEvent, watchDiv) {
-    var parentOffset = watchDiv.offset();
-    var watchSize = watchDiv.width();
+  function getWatchCoordinates(clickEvent, handleDiv) {
+    // var parentOffset = handleDiv.parent().offset();
+    // var watchSize = handleDiv.parent().width();
+    var watch = $("#watch");
+    var watch_left = watch.offset().left;
+    var watch_top = watch.offset().top;
 
     // Get coordinate clicked within watch.
-    var x = clickEvent.pageX - parentOffset.left;
-    var y = clickEvent.pageY - parentOffset.top;
+    var x = clickEvent.pageX - watch_left;
+    var y = clickEvent.pageY - watch_top;
     
     // Compute coordinates of center of watch.
+    var watchSize = watch.width();
     var center = watchSize / 2;
 
     return {
@@ -219,23 +223,21 @@ define(["jquery", "moment", "app/daynightutil", "app/constant"], function($, Mom
       // Holds the time of the last click/drag event.
       var mousedownTime;
 
-      $("#watch").mousedown(function(e) {
+      $("#watch_indicator_handle").mousedown(function(e) {
         var coordinates = getWatchCoordinates(e, $(this));
         mousedownTime = Moment(currentTime);
-        if (0.325 < coordinates.distance) {
-          $(this).mousemove(function(e) {
+        $(document).mousemove(function(e) {
+          var coordinates = getWatchCoordinates(e, $(this));
+          var newTime = getNearbyTime(mousedownTime, coordinatesToAngle(coordinates))
+          setWatch(newTime);
+          mousedownTime = newTime;
+        });
+        $(document).mouseup(function(e) {
             var coordinates = getWatchCoordinates(e, $(this));
-            var newTime = getNearbyTime(mousedownTime, coordinatesToAngle(coordinates))
-            setWatch(newTime);
-            mousedownTime = newTime;
-          });
-          $(this).mouseup(function(e) {
-              var coordinates = getWatchCoordinates(e, $(this));
-              setTime(getNearbyTime(mousedownTime, coordinatesToAngle(coordinates)));
-              $(this).unbind('mousemove');
-              $(this).unbind('mouseup');
-          });
-        }
+            setTime(getNearbyTime(mousedownTime, coordinatesToAngle(coordinates)));
+            $(document).unbind('mousemove');
+            $(document).unbind('mouseup');
+        });
       });
 
       $("#button_mystery").click(function() {

@@ -1,43 +1,19 @@
 @import layers
 
-$texture_watch_indicator: $prop_path + 'watch_indicator.png'
-#watch_indicator
-  position: fixed
-  z-index: $layer_overlay
-  background:
-    image: url(#{$texture_watch_indicator})
-    size: 100% 100%
-
-@media (orientation:portrait)
-  #watch_indicator
-    top: 5vw
-    left: 5vw
-    width: 22.5vw
-    height: 22.5vw
-
-@media (orientation:landscape)
-  #watch_indicator
-    top: 5vh
-    left: 5vh
-    width: 22.5vh
-    height: 22.5vh
+$watch_top: 5vmin
+$watch_left: calc(((100vmax - 100vmin) / 2) + 0vmin)
+$watch_size: 25vmin
+$watch_font_size: 22.5vmin
 
 $texture_watch: $prop_path + 'watch.png'
 #watch
-  @media (orientation:portrait)
-    top: 5vw
-    left: 5vw
-    width: 22.5vw
-    height: 22.5vw
-    font-size: 22.5vw
-  @media (orientation:landscape)
-    top: 5vh
-    left: 5vh
-    width: 22.5vh
-    height: 22.5vh
-    font-size: 22.5vh
   position: fixed
-  z-index: $layer_overlay2
+  top: $watch_top
+  left: $watch_left
+  width: $watch_size
+  height: $watch_size
+  font-size: $watch_font_size
+  z-index: $layer_overlay
   background:
     image: url(#{$texture_watch})
     size: 100% 100%
@@ -81,7 +57,6 @@ $texture_watch: $prop_path + 'watch.png'
   text-align: center
   margin-bottom: 5%
 
-
 .watch_control_symbol
   display: flex
   flex-direction: row
@@ -93,3 +68,30 @@ $texture_watch: $prop_path + 'watch.png'
   border-radius: 50%
   font-size: 5%
   margin-bottom: 6%
+
+$texture_watch_indicator: $prop_path + 'watch_indicator.png'
+#watch_indicator_wrapper
+  position: fixed
+  top: $watch_top
+  left: $watch_left
+  width: $watch_size
+  height: $watch_size
+  z-index: $layer_overlay2
+
+#watch_indicator
+  width: 100%
+  height: 100%
+  background:
+    image: url(#{$texture_watch_indicator})
+    size: 100% 100%
+
+#watch_indicator_handle
+  position: relative
+  width: 15%
+  height: 15%
+  top: -4%
+  margin: 0 auto
+  border-radius: 50%
+  background-color: red
+  opacity: 0
+  cursor: pointer

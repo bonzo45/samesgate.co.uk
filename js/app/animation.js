@@ -13,7 +13,7 @@ define(["jquery"], function($) {
 
     initExocet : function() {
       $("#exocet_wrapper").css("transition", "all 0s");
-      $("#exocet_wrapper").css("transform", "translateX(100%)");
+      $("#exocet_wrapper").css("transform", "translateX(200%)");
       $("#button_exocet").click(this.animateExocet);
     },
 
@@ -35,7 +35,7 @@ define(["jquery"], function($) {
 
     animateExocet : function() {
       $("#exocet_wrapper").css("transition", "all 0s");
-      $("#exocet_wrapper").css("transform", "translateX(100%)");
+      $("#exocet_wrapper").css("transform", "translateX(200%)");
       setTimeout(function(){
         $("#exocet_wrapper").css("transition", "all 10s");
         $("#exocet_wrapper").css("transform", "translateX(100vw)"); 

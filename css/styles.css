@@ -3,52 +3,25 @@ body {
   width: 100%;
   height: 100%;
   margin: 0px 0px 0px 0px;
-  color: gainsboro;
+  color: #DCDCDC;
   background-color: black;
   font-family: helvetica;
   overflow: hidden; }
 
-#watch_indicator {
-  position: fixed;
-  z-index: 10;
-  background-image: url(../image/prop/watch_indicator.png);
-  background-size: 100% 100%; }
-
-@media (orientation: portrait) {
-  #watch_indicator {
-    top: 5vw;
-    left: 5vw;
-    width: 22.5vw;
-    height: 22.5vw; } }
-@media (orientation: landscape) {
-  #watch_indicator {
-    top: 5vh;
-    left: 5vh;
-    width: 22.5vh;
-    height: 22.5vh; } }
 #watch {
   position: fixed;
-  z-index: 11;
+  top: 5vmin;
+  left: calc(((100vmax - 100vmin) / 2) + 0vmin);
+  width: 25vmin;
+  height: 25vmin;
+  font-size: 22.5vmin;
+  z-index: 10;
   background-image: url(../image/prop/watch.png);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  @media (orientation: portrait) {
-    #watch {
-      top: 5vw;
-      left: 5vw;
-      width: 22.5vw;
-      height: 22.5vw;
-      font-size: 22.5vw; } }
-  @media (orientation: landscape) {
-    #watch {
-      top: 5vh;
-      left: 5vh;
-      width: 22.5vh;
-      height: 22.5vh;
-      font-size: 22.5vh; } }
 
 .watch_bar {
   width: 63%;
@@ -97,6 +70,31 @@ body {
   font-size: 5%;
   margin-bottom: 6%; }
 
+#watch_indicator_wrapper {
+  position: fixed;
+  top: 5vmin;
+  left: calc(((100vmax - 100vmin) / 2) + 0vmin);
+  width: 25vmin;
+  height: 25vmin;
+  z-index: 11; }
+
+#watch_indicator {
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/prop/watch_indicator.png);
+  background-size: 100% 100%; }
+
+#watch_indicator_handle {
+  position: relative;
+  width: 15%;
+  height: 15%;
+  top: -4%;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: red;
+  opacity: 0;
+  cursor: pointer; }
+
 #welcome {
   position: absolute;
   width: 50vmin;
@@ -133,7 +131,7 @@ body {
 #welcome_drop_down {
   width: 100%;
   opacity: 0;
-  background-color: steelblue; }
+  background-color: #4682B4; }
 
 #welcome_bars {
   position: absolute;
@@ -150,7 +148,7 @@ body {
   padding: 1vmin 0% 1vmin 0%;
   text-align: center;
   text-decoration: none;
-  color: gainsboro;
+  color: #DCDCDC;
   cursor: pointer; }
 
 .fa-space {
@@ -160,13 +158,13 @@ body {
   background-color: #702963; }
 
 .welcome_colour_2 {
-  background-color: #1d6660; }
+  background-color: #1D6660; }
 
 .welcome_colour_3 {
-  background-color: #da9100; }
+  background-color: #DA9100; }
 
 .welcome_colour_4 {
-  background-color: #3b444b; }
+  background-color: #3B444B; }
 
 .welcome_tip {
   padding: 1vmin; }
@@ -219,7 +217,7 @@ body {
 #background_sea {
   position: relative;
   width: 100%;
-  height: 30.0%;
+  height: 30%;
   background-image: url(../image/texture/sea.png); }
 
 #sea_tint {
@@ -310,15 +308,12 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   33.33333% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   66.66667% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -326,15 +321,12 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   33.33333% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   66.66667% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -355,19 +347,15 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   75% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -375,19 +363,15 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   75% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -408,23 +392,18 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   20% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   40% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   60% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   80% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -432,23 +411,18 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   20% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   40% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   60% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   80% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -469,27 +443,21 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   16.66667% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   33.33333% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   66.66667% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   83.33333% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -497,27 +465,21 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   16.66667% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   33.33333% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   66.66667% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   83.33333% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -538,31 +500,24 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   14.28571% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   28.57143% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   42.85714% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   57.14286% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   71.42857% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   85.71429% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -570,31 +525,24 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   14.28571% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   28.57143% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   42.85714% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   57.14286% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   71.42857% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   85.71429% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -615,35 +563,27 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   12.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   37.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   62.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   75% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   87.5% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -651,35 +591,27 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   12.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   37.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   62.5% {
     transform: translateX(10vmin);
     opacity: 0; }
-
   75% {
     transform: translateX(40vmin);
     opacity: 1; }
-
   87.5% {
     transform: translateX(70vmin);
     opacity: 1; }
-
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -754,7 +686,7 @@ body {
   font-size: 5vmin;
   line-height: 7.5vmin;
   text-align: center;
-  border-bottom: 0.5vmin solid gainsboro;
+  border-bottom: 0.5vmin solid #DCDCDC;
   z-index: 3; }
 
 #bonzos_useful_things {
@@ -854,27 +786,22 @@ body {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
-
   20% {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
-
   40% {
     right: 75%;
     opacity: 1;
     transform: scaleX(1); }
-
   60% {
     right: 50%;
     opacity: 1;
     transform: scaleX(1); }
-
   80% {
     right: 25%;
     opacity: 1;
     transform: scaleX(1); }
-
   100% {
     right: 0%;
     opacity: 0;
@@ -884,27 +811,22 @@ body {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
-
   20% {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
-
   40% {
     right: 75%;
     opacity: 1;
     transform: scaleX(1); }
-
   60% {
     right: 50%;
     opacity: 1;
     transform: scaleX(1); }
-
   80% {
     right: 25%;
     opacity: 1;
     transform: scaleX(1); }
-
   100% {
     right: 0%;
     opacity: 0;
@@ -927,27 +849,22 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   40% {
     left: 70%;
     opacity: 1;
     transform: scaleX(-1); }
-
   60% {
     left: 50%;
     opacity: 1;
     transform: scaleX(-1); }
-
   80% {
     left: 30%;
     opacity: 1;
     transform: scaleX(-1); }
-
   100% {
     left: 10%;
     opacity: 0;
@@ -957,27 +874,22 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   40% {
     left: 70%;
     opacity: 1;
     transform: scaleX(-1); }
-
   60% {
     left: 50%;
     opacity: 1;
     transform: scaleX(-1); }
-
   80% {
     left: 30%;
     opacity: 1;
     transform: scaleX(-1); }
-
   100% {
     left: 10%;
     opacity: 0;
@@ -1000,27 +912,22 @@ body {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
-
   20% {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
-
   40% {
     right: 60%;
     opacity: 1;
     transform: scaleX(1); }
-
   60% {
     right: 40%;
     opacity: 1;
     transform: scaleX(1); }
-
   80% {
     right: 20%;
     opacity: 1;
     transform: scaleX(1); }
-
   100% {
     right: 0%;
     opacity: 0;
@@ -1030,27 +937,22 @@ body {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
-
   20% {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
-
   40% {
     right: 60%;
     opacity: 1;
     transform: scaleX(1); }
-
   60% {
     right: 40%;
     opacity: 1;
     transform: scaleX(1); }
-
   80% {
     right: 20%;
     opacity: 1;
     transform: scaleX(1); }
-
   100% {
     right: 0%;
     opacity: 0;
@@ -1073,27 +975,22 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   40% {
     left: 72.5%;
     opacity: 1;
     transform: scaleX(-1); }
-
   60% {
     left: 55%;
     opacity: 1;
     transform: scaleX(-1); }
-
   80% {
     left: 37.5%;
     opacity: 1;
     transform: scaleX(-1); }
-
   100% {
     left: 20%;
     opacity: 0;
@@ -1103,27 +1000,22 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
-
   40% {
     left: 72.5%;
     opacity: 1;
     transform: scaleX(-1); }
-
   60% {
     left: 55%;
     opacity: 1;
     transform: scaleX(-1); }
-
   80% {
     left: 37.5%;
     opacity: 1;
     transform: scaleX(-1); }
-
   100% {
     left: 20%;
     opacity: 0;
@@ -1196,7 +1088,7 @@ body {
 #lighthouse {
   position: absolute;
   bottom: 0px;
-  left: 10%;
+  left: 20%;
   width: 25%;
   height: 100%;
   z-index: 4;
@@ -1208,7 +1100,7 @@ body {
 #lighthouse_mask {
   position: absolute;
   bottom: 0px;
-  left: 10%;
+  left: 20%;
   width: 25%;
   height: 100%;
   z-index: 5;
@@ -1222,3 +1114,5 @@ body {
 
 #lighting_sea {
   height: 22.5%; }
+
+/*# sourceMappingURL=styles.css.map */
