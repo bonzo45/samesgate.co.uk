@@ -3,7 +3,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0px 0px 0px 0px;
-  color: #DCDCDC;
+  color: gainsboro;
   background-color: black;
   font-family: helvetica;
   overflow: hidden; }
@@ -81,7 +81,7 @@ body {
   border-radius: 50%;
   font-size: 5%;
   text-align: center;
-  background-color: #DCDCDC;
+  background-color: gainsboro;
   color: black;
   cursor: pointer; }
 
@@ -161,7 +161,7 @@ body {
 #welcome_drop_down {
   width: 100%;
   opacity: 0;
-  background-color: #4682B4; }
+  background-color: steelblue; }
 
 #welcome_bars {
   position: absolute;
@@ -178,7 +178,7 @@ body {
   padding: 1vmin 0% 1vmin 0%;
   text-align: center;
   text-decoration: none;
-  color: #DCDCDC;
+  color: gainsboro;
   cursor: pointer; }
 
 .fa-space {
@@ -188,13 +188,13 @@ body {
   background-color: #702963; }
 
 .welcome_colour_2 {
-  background-color: #1D6660; }
+  background-color: #1d6660; }
 
 .welcome_colour_3 {
-  background-color: #DA9100; }
+  background-color: #da9100; }
 
 .welcome_colour_4 {
-  background-color: #3B444B; }
+  background-color: #3b444b; }
 
 .welcome_tip {
   padding: 1vmin; }
@@ -219,12 +219,45 @@ body {
   background-image: url(../image/texture/sky.png);
   overflow: hidden; }
 
-#sky_background_tint {
+#background_sky_tint {
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: url(../image/filter/tint.png);
   background-size: 100% 100%; }
+
+#background_sky_tree {
+  position: absolute;
+  bottom: 3%;
+  width: 4vmin;
+  height: 100%;
+  z-index: 3;
+  background-image: url(../image/prop/pine_tree_background.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+  @media (orientation: landscape) {
+    #background_sky_tree {
+      right: calc((((100vw - 100vh) / 2) + 95vmin) - (4vmin / 2 + 0.3vmin)); } }
+  @media (orientation: portrait) {
+    #background_sky_tree {
+      right: calc(95vmin - (4vmin / 2 + 0.3vmin)); } }
+
+#background_sky_treeline {
+  position: absolute;
+  height: 15%;
+  right: 0%;
+  bottom: 3%;
+  background-image: url(../image/texture/treeline_background.png);
+  background-size: auto 100%;
+  background-position: left 0px bottom 0px;
+  background-repeat: repeat-x; }
+  @media (orientation: landscape) {
+    #background_sky_treeline {
+      width: calc(((100vw - 100vh) / 2) + 95vmin); } }
+  @media (orientation: portrait) {
+    #background_sky_treeline {
+      width: 95vmin; } }
 
 #background_sky_center {
   height: 100%; }
@@ -247,7 +280,7 @@ body {
 #background_sea {
   position: relative;
   width: 100%;
-  height: 30%;
+  height: 30.0%;
   background-image: url(../image/texture/sea.png); }
 
 #sea_tint {
@@ -337,12 +370,15 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   33.33333% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   66.66667% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -350,12 +386,15 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   33.33333% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   66.66667% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -376,15 +415,19 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   75% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -392,15 +435,19 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   75% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -421,18 +468,23 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   20% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   40% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   60% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   80% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -440,18 +492,23 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   20% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   40% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   60% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   80% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -472,21 +529,27 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   16.66667% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   33.33333% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   66.66667% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   83.33333% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -494,21 +557,27 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   16.66667% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   33.33333% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   66.66667% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   83.33333% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -529,24 +598,31 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   14.28571% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   28.57143% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   42.85714% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   57.14286% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   71.42857% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   85.71429% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -554,24 +630,31 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   14.28571% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   28.57143% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   42.85714% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   57.14286% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   71.42857% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   85.71429% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -592,27 +675,35 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   12.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   37.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   62.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   75% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   87.5% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -620,27 +711,35 @@ body {
   0% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   12.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   25% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   37.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   50% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   62.5% {
     transform: translateX(10vmin);
     opacity: 0; }
+
   75% {
     transform: translateX(40vmin);
     opacity: 1; }
+
   87.5% {
     transform: translateX(70vmin);
     opacity: 1; }
+
   100% {
     transform: translateX(100vmin);
     opacity: 0; } }
@@ -715,7 +814,7 @@ body {
   font-size: 5vmin;
   line-height: 7.5vmin;
   text-align: center;
-  border-bottom: 0.5vmin solid #DCDCDC;
+  border-bottom: 0.5vmin solid gainsboro;
   z-index: 3; }
 
 #bonzos_useful_things {
@@ -740,7 +839,7 @@ body {
   bottom: 0px;
   right: 0px;
   height: 30%;
-  background-image: url(../image/prop/treeline.png);
+  background-image: url(../image/texture/treeline.png);
   background-size: auto 100%;
   background-position: left 0px bottom 0px;
   background-repeat: repeat-x;
@@ -751,6 +850,23 @@ body {
   @media (orientation: portrait) {
     #forest {
       width: 50vw; } }
+
+#pine_tree {
+  position: absolute;
+  bottom: 0%;
+  width: 8%;
+  height: 100%;
+  z-index: 3;
+  background-image: url(../image/prop/pine_tree.png);
+  background-repeat: no-repeat;
+  background-position: bottom 0px left 0px;
+  background-size: 100% auto; }
+  @media (orientation: landscape) {
+    #pine_tree {
+      right: calc(50vh - (8% / 2) - 0.3%); } }
+  @media (orientation: portrait) {
+    #pine_tree {
+      right: calc(50vw - (8% / 2) - 0.3%); } }
 
 #foreground_land {
   height: 10%; }
@@ -815,22 +931,27 @@ body {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
+
   20% {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
+
   40% {
     right: 75%;
     opacity: 1;
     transform: scaleX(1); }
+
   60% {
     right: 50%;
     opacity: 1;
     transform: scaleX(1); }
+
   80% {
     right: 25%;
     opacity: 1;
     transform: scaleX(1); }
+
   100% {
     right: 0%;
     opacity: 0;
@@ -840,22 +961,27 @@ body {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
+
   20% {
     right: 100%;
     opacity: 0;
     transform: scaleX(1); }
+
   40% {
     right: 75%;
     opacity: 1;
     transform: scaleX(1); }
+
   60% {
     right: 50%;
     opacity: 1;
     transform: scaleX(1); }
+
   80% {
     right: 25%;
     opacity: 1;
     transform: scaleX(1); }
+
   100% {
     right: 0%;
     opacity: 0;
@@ -878,22 +1004,27 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   40% {
     left: 70%;
     opacity: 1;
     transform: scaleX(-1); }
+
   60% {
     left: 50%;
     opacity: 1;
     transform: scaleX(-1); }
+
   80% {
     left: 30%;
     opacity: 1;
     transform: scaleX(-1); }
+
   100% {
     left: 10%;
     opacity: 0;
@@ -903,22 +1034,27 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   40% {
     left: 70%;
     opacity: 1;
     transform: scaleX(-1); }
+
   60% {
     left: 50%;
     opacity: 1;
     transform: scaleX(-1); }
+
   80% {
     left: 30%;
     opacity: 1;
     transform: scaleX(-1); }
+
   100% {
     left: 10%;
     opacity: 0;
@@ -941,22 +1077,27 @@ body {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
+
   20% {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
+
   40% {
     right: 60%;
     opacity: 1;
     transform: scaleX(1); }
+
   60% {
     right: 40%;
     opacity: 1;
     transform: scaleX(1); }
+
   80% {
     right: 20%;
     opacity: 1;
     transform: scaleX(1); }
+
   100% {
     right: 0%;
     opacity: 0;
@@ -966,22 +1107,27 @@ body {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
+
   20% {
     right: 80%;
     opacity: 0;
     transform: scaleX(1); }
+
   40% {
     right: 60%;
     opacity: 1;
     transform: scaleX(1); }
+
   60% {
     right: 40%;
     opacity: 1;
     transform: scaleX(1); }
+
   80% {
     right: 20%;
     opacity: 1;
     transform: scaleX(1); }
+
   100% {
     right: 0%;
     opacity: 0;
@@ -1004,22 +1150,27 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   40% {
     left: 72.5%;
     opacity: 1;
     transform: scaleX(-1); }
+
   60% {
     left: 55%;
     opacity: 1;
     transform: scaleX(-1); }
+
   80% {
     left: 37.5%;
     opacity: 1;
     transform: scaleX(-1); }
+
   100% {
     left: 20%;
     opacity: 0;
@@ -1029,22 +1180,27 @@ body {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   20% {
     left: 90%;
     opacity: 0;
     transform: scaleX(-1); }
+
   40% {
     left: 72.5%;
     opacity: 1;
     transform: scaleX(-1); }
+
   60% {
     left: 55%;
     opacity: 1;
     transform: scaleX(-1); }
+
   80% {
     left: 37.5%;
     opacity: 1;
     transform: scaleX(-1); }
+
   100% {
     left: 20%;
     opacity: 0;
@@ -1142,5 +1298,3 @@ body {
 
 #lighting_sea {
   height: 22.5%; }
-
-/*# sourceMappingURL=styles.css.map */

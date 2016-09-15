@@ -1,12 +1,15 @@
-$texture_trees: $prop_path + "treeline.png"
+$texture_trees: $texture_path + "treeline.png"
+$forest_width_landscape: 50vh
+$forest_width_portrait: 50vw
+
 #forest
   position: absolute
   bottom: 0px
   right: 0px
   @media (orientation:landscape)
-    width: calc(((100vw - 100vh) / 2) + 50vh)
+    width: calc(((100vw - 100vh) / 2) + #{$forest_width_landscape})
   @media (orientation:portrait)    
-    width: 50vw
+    width: $forest_width_portrait
   height: 30%
   background:
     image: url(#{$texture_trees})
@@ -14,3 +17,22 @@ $texture_trees: $prop_path + "treeline.png"
     position: left 0px bottom 0px
     repeat: repeat-x
   z-index: $layer_2
+
+$texture_pine_tree: $prop_path + "pine_tree.png"
+$pine_width: 8%
+$pine_offset: 0.3%
+#pine_tree
+  position: absolute
+  bottom: 0%
+  width: $pine_width
+  height: 100%
+  z-index: $layer_3
+  @media (orientation:landscape)
+    right: calc(#{$forest_width_landscape} - (#{$pine_width} / 2) - #{$pine_offset})
+  @media (orientation:portrait) 
+    right: calc(#{$forest_width_portrait} - (#{$pine_width} / 2) - #{$pine_offset})
+  background:
+    image: url(#{$texture_pine_tree})
+    repeat: no-repeat
+    position: bottom 0px left 0px
+    size: 100% auto
