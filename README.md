@@ -26,3 +26,8 @@ bower-installer
 
 ./release.sh
 Copies all files required for release to release/
+
+Optional: minimise JavaScript.
+sudo apt-get install node-uglify
+cd release/
+for js in `find . -name "*.js"`; do uglifyjs --overwrite ${js}; done;
