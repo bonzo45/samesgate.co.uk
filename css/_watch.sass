@@ -1,7 +1,7 @@
 @import layers
 
 $watch_top: 5vmin
-$watch_left_landscape: calc(((100vmax - 100vmin) / 2) + 0vmin)
+$watch_left_landscape: calc(((100vmax - 100vmin) / 2) + 0vmin) // Firefox Hack: If you change this then change left in #watch_face.
 $watch_left_portrait: 0vmin
 $watch_size: 25vmin
 $watch_font_size: 22.5vmin
@@ -46,7 +46,7 @@ $watch_face_offset_top: ($watch_size - $watch_face_height) / 2
   position: fixed
   top: $watch_top + $watch_face_offset_top
   @media (orientation:landscape)
-    left: calc(#{$watch_left_landscape} + #{$watch_face_offset_left})
+    left: calc(((100vmax - 100vmin) / 2) + 0vmin + #{$watch_face_offset_left})
   @media (orientation:portrait)
     left: calc(#{$watch_left_portrait} + #{$watch_face_offset_left})
   width: $watch_face_width

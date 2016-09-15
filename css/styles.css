@@ -54,7 +54,7 @@ body {
   align-items: center; }
   @media (orientation: landscape) {
     #watch_face {
-      left: calc(calc(((100vmax - 100vmin) / 2) + 0vmin) + 4.5vmin); } }
+      left: calc(((100vmax - 100vmin) / 2) + 0vmin + 4.5vmin); } }
   @media (orientation: portrait) {
     #watch_face {
       left: calc(0vmin + 4.5vmin); } }
