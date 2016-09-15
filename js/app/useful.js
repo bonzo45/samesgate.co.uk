@@ -71,7 +71,7 @@ define(["jquery"], function($) {
       });
 
       $(".useful_icon").css("width", (unitWidth * paddingRatio) + "vmin");
-      $(".useful_icon").css("height", (unitWidth * paddingRatio) + "vmin");
+      $(".useful_icon").css("height", "auto");
       $(".useful_icon").css("padding", (unitWidth / 2) + "vmin");
     }
   }

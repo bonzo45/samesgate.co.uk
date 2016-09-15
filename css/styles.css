@@ -246,6 +246,7 @@ body {
 #background_sky_treeline {
   position: absolute;
   height: 15%;
+  z-index: 2;
   right: 0%;
   bottom: 3%;
   background-image: url(../image/texture/treeline_background.png);
