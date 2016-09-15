@@ -15,7 +15,7 @@ rm -r design/
 rm -r maps/
 rm -r release/
 rm -r bower_components/
-rm -r css/.sass_cache
+rm -r css/.sass-cache
 
 rm README.md
 rm bower.json
