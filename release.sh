@@ -13,6 +13,7 @@ find . -name "*.ai" -type f -delete
 rm -r design/
 rm -r maps/
 rm -r release/
+rm -r bower_components/
 
 rm README.md
 rm bower.json
