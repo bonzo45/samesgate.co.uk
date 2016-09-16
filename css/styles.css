@@ -75,13 +75,18 @@ body {
   margin-top: 5%; }
 
 .watch_time_symbol {
-  width: 10%;
+  width: 11%;
+  height: 34%;
   border-radius: 50%;
   font-size: 5%;
   text-align: center;
   background-color: gainsboro;
   color: black;
-  cursor: pointer; }
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
 
 #watch_time {
   width: 70%;
@@ -182,15 +187,23 @@ body {
 
 .welcome_colour_1 {
   background-color: #702963; }
+  .welcome_colour_1:hover {
+    background-color: #a83e94; }
 
 .welcome_colour_2 {
   background-color: #1d6660; }
+  .welcome_colour_2:hover {
+    background-color: #2d9f96; }
 
 .welcome_colour_3 {
   background-color: #da9100; }
+  .welcome_colour_3:hover {
+    background-color: #ffaa00; }
 
 .welcome_colour_4 {
   background-color: #3b444b; }
+  .welcome_colour_4:hover {
+    background-color: #5a6872; }
 
 .welcome_tip {
   padding: 1vmin; }
