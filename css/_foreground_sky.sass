@@ -1,9 +1,12 @@
+@import layers
+
 #foreground_sky
   @extend .foreground
   height: $sky_foreground_height * 100%
 
 #foreground_sky_center
   height: 100%
+  z-index: $layer_2
   @extend .lefterer
 
 @import clouds

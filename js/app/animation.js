@@ -37,8 +37,8 @@ define(["jquery"], function($) {
       $("#exocet_wrapper").css("transition", "all 0s");
       $("#exocet_wrapper").css("transform", "translateX(200%)");
       setTimeout(function(){
-        $("#exocet_wrapper").css("transition", "all 10s");
-        $("#exocet_wrapper").css("transform", "translateX(100vw)"); 
+        $("#exocet_wrapper").css("transition", "all 7s");
+        $("#exocet_wrapper").css("transform", "translateX(1200%)"); 
       }, 100);
     },
 
@@ -48,14 +48,16 @@ define(["jquery"], function($) {
       setTimeout(function(){
         $("#birds").css("transition", "all linear 0.5s");
         $("#birds").css("opacity", "1");
+        $("#birds").css("transform", "translate(-30%, -7.5%)");
         setTimeout(function(){
           $("#birds").css("transition", "all linear 20s");
-          $("#birds").css("transform", "translate(-100vw, -30vh) scale(1.2, 1.2)");
+          $("#birds").css("transform", "translate(-1200%, -300%) scale(1.2, 1.2)");
           setTimeout(function(){
             $("#birds").css("transition", "all linear 0.5s");
             $("#birds").css("opacity", "0"); 
+            $("#birds").css("transform", "translate(-1230%, -307.5%)");
           }, 20000);
-        }, 600);
+        }, 500);
       }, 100);
     }
   }

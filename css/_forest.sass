@@ -16,17 +16,17 @@ $forest_width_portrait: 50vw
     size: auto 100%
     position: left 0px bottom 0px
     repeat: repeat-x
-  z-index: $layer_2
+  z-index: $layer_1
 
 $texture_pine_tree: $prop_path + "pine_tree.png"
-$pine_width: 8%
-$pine_offset: 0.3%
+$pine_width: 7.65%
+$pine_offset: 0.375%
 #pine_tree
   position: absolute
   bottom: 0%
   width: $pine_width
   height: 100%
-  z-index: $layer_3
+  z-index: $layer_2
   @media (orientation:landscape)
     right: calc(#{$forest_width_landscape} - (#{$pine_width} / 2) - #{$pine_offset})
   @media (orientation:portrait) 
